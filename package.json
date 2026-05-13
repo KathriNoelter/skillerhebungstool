@@ -1,0 +1,75 @@
+{
+  "name": "skillworkshop",
+  "productName": "Skill-Workshop",
+  "private": true,
+  "version": "0.5.2-beta",
+  "type": "module",
+  "main": "electron/main.cjs",
+  "scripts": {
+    "dev": "vite --port 3055",
+    "build": "tsc --noEmit && vite build",
+    "preview": "vite preview --port 3055",
+    "typecheck": "tsc --noEmit",
+    "electron:dev": "concurrently -k \"vite --port 3055\" \"wait-on http://localhost:3055 && electron .\"",
+    "electron:build": "pnpm build && electron-builder --mac",
+    "electron:build:dmg": "pnpm build && electron-builder --mac dmg"
+  },
+  "build": {
+    "appId": "com.red6.skillworkshop",
+    "productName": "Skill-Workshop",
+    "directories": {
+      "output": ".INSTALL"
+    },
+    "files": [
+      "dist/**/*",
+      "electron/**/*"
+    ],
+    "mac": {
+      "category": "public.app-category.education",
+      "target": [
+        "dmg"
+      ],
+      "icon": null
+    },
+    "dmg": {
+      "title": "Skill-Workshop ${version}",
+      "contents": [
+        {
+          "x": 130,
+          "y": 220
+        },
+        {
+          "x": 410,
+          "y": 220,
+          "type": "link",
+          "path": "/Applications"
+        }
+      ]
+    }
+  },
+  "dependencies": {
+    "react": "^18.3.1",
+    "react-dom": "^18.3.1",
+    "xlsx": "^0.18.5"
+  },
+  "devDependencies": {
+    "@types/react": "^18.3.12",
+    "@types/react-dom": "^18.3.1",
+    "@vitejs/plugin-react": "^4.3.4",
+    "autoprefixer": "^10.4.20",
+    "concurrently": "^9.2.1",
+    "electron": "^41.2.0",
+    "electron-builder": "^26.8.1",
+    "postcss": "^8.4.49",
+    "tailwindcss": "^3.4.16",
+    "typescript": "^5.6.3",
+    "vite": "^6.0.3",
+    "wait-on": "^9.0.5"
+  },
+  "pnpm": {
+    "onlyBuiltDependencies": [
+      "esbuild",
+      "electron"
+    ]
+  }
+}
