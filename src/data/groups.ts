@@ -1,4 +1,7 @@
-import type { Group, MarketDriver, Role, Skill } from "../types";
+import type { Group, MarketDriver, Role } from "../types";
+import { swGroup } from "./swCatalogs";
+import { qaCore, testManager, testAutomation } from "./bcCatalogs";
+import { RUMP_DIGITALE, RUMP_VERBAL } from "./rumpSkills";
 
 // -----------------------------------------------------------------------------
 // Catalog meta (ANF-12)
@@ -6,33 +9,14 @@ import type { Group, MarketDriver, Role, Skill } from "../types";
 
 /** Skill-Katalog Version. Erhoehen, wenn Strukturen, Steckbriefe oder Anker
  *  geaendert werden. CHANGELOG.md fuehrt die Historie. */
-export const CATALOG_VERSION = "0.5.0";
-export const CATALOG_UPDATED_AT = "2026-05-05";
+export const CATALOG_VERSION = "0.6.0";
+export const CATALOG_UPDATED_AT = "2026-06-04";
 
 // -----------------------------------------------------------------------------
 // Rump-Pflichtskills (ANF-04, ANF-05) — gelten fuer alle Rollengruppen
+// (defined in rumpSkills.ts, re-exported here for backwards compatibility)
 // -----------------------------------------------------------------------------
-
-const RUMP_DIGITALE: Skill = {
-  name: "Digitale Anwendungskompetenz",
-  dep: "Evolving",
-  description:
-    "Digitale Systeme und KI verstehen, kritisch anwenden und mitgestalten. Drei Ebenen: Verstehen (wie funktionieren digitale Systeme?), Anwenden (Daten kritisch analysieren, Tools produktiv nutzen) und Mitgestalten (Grenzen erkennen, Outputs verantworten). Wissenskompetenz, nicht Tool-Beherrschung — daher Fachkompetenz. Querschnittskompetenz nach Prof. Dr. Jutta Rump (2025). Bewertung nach Bloom's Taxonomy (1-5). Typische Taetigkeit: KI-Vorschlaege im Tagesgeschaeft pruefen, Daten- und Datenschutzgrenzen einhalten, Prompts zielgerichtet formulieren.",
-  anchors: {
-    1: "Erinnern/Verstehen: Kennt grundlegende Begriffe digitaler Systeme und KI; kann erklaeren, wofuer typische Tools eingesetzt werden.",
-    2: "Anwenden: Nutzt digitale Tools und KI-Assistenten in vorgegebenen Faellen produktiv; haelt Daten- und Datenschutzregeln ein.",
-    3: "Analysieren: Bewertet KI-Outputs kritisch auf Plausibilitaet, Bias und Quellenlage; erkennt, wann ein Tool ungeeignet ist.",
-    4: "Evaluieren: Wiegt Nutzen, Risiken und Grenzen digitaler Loesungen ab; trifft fundierte Tool- und Prompting-Entscheidungen im Arbeitskontext.",
-    5: "Mitgestalten: Verantwortet Outputs, definiert Leitplanken fuer Team und Prozess, gestaltet den verantwortungsvollen Einsatz digitaler Systeme aktiv mit.",
-  },
-};
-
-const RUMP_VERBAL: Skill = {
-  name: "Verbalisierung & Strukturierung",
-  dep: "Durable",
-  description:
-    "Gedanken ordnen, Inhalte klar formulieren, Komplexitaet reduzieren — schriftlich und muendlich. Relevant fuer Spezifikationen, Konzeptdokumentationen und Prompting. Typische Taetigkeit: einen unscharfen Sachverhalt in eine klare Zusammenfassung uebersetzen, Argumente strukturiert vortragen, Texte praezise verdichten.",
-};
+export { RUMP_DIGITALE, RUMP_VERBAL };
 
 // -----------------------------------------------------------------------------
 // Business Consulting
@@ -78,7 +62,7 @@ const uxuiDesign: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         {
           name: "Stakeholder-Management",
@@ -416,7 +400,7 @@ const businessAnalyst: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
       {
         name: "Stakeholder-Management",
@@ -520,316 +504,6 @@ const businessAnalyst: Role = {
   ],
 };
 
-const qsSpezialist: Role = {
-  id: "qs-spezialist",
-  name: "QS Spezialist",
-  description:
-    "Qualitaetssicherung operativ — Testfaelle entwerfen, durchfuehren und Defekte dokumentieren.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "ISTQB Body of Knowledge", dep: "Durable" },
-        { name: "ISTQB Foundation Wissen", dep: "Durable" },
-        { name: "Versicherungs-Anwendungslandschaft", dep: "Durable" },
-        { name: "Domain-spezifische Testdaten & Szenarien", dep: "Durable" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "Testmanagement (TestRail, Xray)", dep: "Evolving" },
-        { name: "Defect-Tracking (Jira)", dep: "Evolving" },
-        { name: "API-Testing (Postman)", dep: "Evolving" },
-        { name: "Versionskontrolle (Git Grundlagen)", dep: "Evolving" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Testplanung & Testfalldesign", dep: "Durable" },
-        { name: "Exploratives Testen", dep: "Durable" },
-        { name: "Risikobasiertes Testen", dep: "Durable" },
-        { name: "Aequivalenzklassen & Grenzwertanalyse", dep: "Durable" },
-        { name: "Shift-Left Testing im agilen Prozess", dep: "Durable" },
-        { name: "KI-gestuetzte Testgenerierung", dep: "Perishable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { name: "Bug-Reporting (praezise, reproduzierbar)", dep: "Durable" },
-        { name: "Kommunikation mit Entwicklung", dep: "Durable" },
-        { name: "Requirements-Reviews", dep: "Durable" },
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
-const testManager: Role = {
-  id: "test-manager",
-  name: "Test Manager",
-  description:
-    "Strategisches Testmanagement — Teststrategie, Teamfuehrung und Reporting an Stakeholder.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "ISTQB Advanced Level Test Manager", dep: "Durable" },
-        { name: "TPI Next / Test Process Improvement", dep: "Durable" },
-        { name: "Versicherungs-IT-Architekturen", dep: "Durable" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "Testmanagement-Tools administrieren", dep: "Evolving" },
-        { name: "Continuous Testing in CI/CD", dep: "Evolving" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Teststrategie & Masterplan entwickeln", dep: "Durable" },
-        { name: "Testrisikoanalyse", dep: "Durable" },
-        { name: "Testphasen-Planung", dep: "Durable" },
-        { name: "Testprozess-Optimierung", dep: "Durable" },
-        { name: "Budget- & Ressourcenplanung", dep: "Durable" },
-        { name: "Testmetriken & KPIs", dep: "Durable" },
-        { name: "Release-Readiness bewerten", dep: "Durable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { name: "Team-Koordination & -Aufbau", dep: "Durable" },
-        { name: "Mentoring & Skill-Entwicklung", dep: "Durable" },
-        { name: "Stakeholder-Management", dep: "Durable" },
-        { name: "Konfliktloesung & Moderation", dep: "Durable" },
-        { name: "Executive Reports erstellen", dep: "Durable" },
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
-const testAutomation: Role = {
-  id: "test-automation",
-  name: "Test Automation Engineer",
-  description:
-    "Automatisierte Tests entwickeln, pflegen und in CI/CD-Pipelines integrieren.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "ISO 29119 Software Testing", dep: "Durable" },
-        { name: "Versicherungssysteme (Bestand, Kern, Schaden)", dep: "Durable" },
-        { name: "SDLC & Test-Architektur", dep: "Durable" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "Selenium WebDriver", dep: "Evolving" },
-        { name: "Playwright / Cypress", dep: "Evolving" },
-        { name: "Appium (Mobile Testing)", dep: "Evolving" },
-        { name: "REST-assured / API-Testing", dep: "Evolving" },
-        { name: "JavaScript / TypeScript", dep: "Durable" },
-        { name: "Java / Python fuer Tests", dep: "Durable" },
-        { name: "Versionskontrolle mit Git", dep: "Durable" },
-        { name: "Jenkins / GitHub Actions / GitLab CI", dep: "Evolving" },
-        { name: "Docker & Container-Testing", dep: "Evolving" },
-        { name: "Test-Reporting (Allure, ExtentReports)", dep: "Evolving" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Cucumber / BDD / Gherkin", dep: "Durable" },
-        { name: "Design Patterns (Page Object Model)", dep: "Durable" },
-        { name: "Parallelisierung & Test-Grids", dep: "Evolving" },
-        { name: "Test-Datenmanagement", dep: "Durable" },
-        { name: "KI-gestuetzte Testautomatisierung", dep: "Perishable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { name: "Code Reviews & Refactoring", dep: "Durable" },
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
-// -----------------------------------------------------------------------------
-// Software Development
-// -----------------------------------------------------------------------------
-
-const frontendDev: Role = {
-  id: "frontend-dev",
-  name: "Frontend Entwickler",
-  description:
-    "Webentwicklung im Browser — HTML/CSS, JavaScript-Frameworks, Performance und Testing.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "Web-Standards (W3C, WHATWG)", dep: "Durable" },
-        { name: "Versicherungsportale & Self-Service", dep: "Durable" },
-        { name: "Branchen-Regulatorik fuer UIs (BFSG, EAA)", dep: "Evolving" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "HTML5 Semantik & Accessibility", dep: "Durable" },
-        { name: "CSS3 / Flexbox / Grid Layouts", dep: "Durable" },
-        { name: "JavaScript / TypeScript (ES2022+)", dep: "Durable" },
-        { name: "Browser APIs & Web Standards", dep: "Evolving" },
-        { name: "React / Next.js Oekosystem", dep: "Evolving" },
-        { name: "State Management (Zustand, Redux)", dep: "Evolving" },
-        { name: "Component Libraries & Design Systems", dep: "Evolving" },
-        { name: "Server-Side Rendering & Hydration", dep: "Evolving" },
-        { name: "GraphQL / REST API-Integration", dep: "Evolving" },
-        { name: "Build Tools (Vite, Webpack, Turbopack)", dep: "Perishable" },
-        { name: "CI/CD fuer Frontend-Projekte", dep: "Evolving" },
-        { name: "Monitoring & Error Tracking", dep: "Evolving" },
-        { name: "KI-gestuetzte Tools (Copilot, Cursor)", dep: "Perishable" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Responsive Design & Mobile First", dep: "Durable" },
-        { name: "Unit Testing (Vitest / Jest)", dep: "Durable" },
-        { name: "E2E Testing (Playwright / Cypress)", dep: "Evolving" },
-        { name: "Accessibility Testing & Audits", dep: "Durable" },
-        { name: "Linting & Static Analysis", dep: "Evolving" },
-        { name: "Web Performance Optimierung", dep: "Durable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { name: "Code Reviews & Pair Programming", dep: "Durable" },
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
-const backendDev: Role = {
-  id: "backend-dev",
-  name: "Backend Entwickler",
-  description:
-    "Serverseitige Entwicklung — APIs, Datenbanken, Architektur und skalierbare Systeme.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "Versicherungs-Kernsysteme (Bestand, Schaden)", dep: "Durable" },
-        { name: "Datenstandards in der Versicherung (BiPRO, ACORD)", dep: "Durable" },
-        { name: "Verteilte Systeme — Theorie", dep: "Durable" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "Node.js / TypeScript Backend", dep: "Evolving" },
-        { name: "Python / Java / Go", dep: "Durable" },
-        { name: "Web-Frameworks (Express, NestJS, FastAPI)", dep: "Evolving" },
-        { name: "Relationale Datenbanken (PostgreSQL, MySQL)", dep: "Durable" },
-        { name: "NoSQL (MongoDB, Redis)", dep: "Evolving" },
-        { name: "ORM / Query Builder (Prisma, TypeORM)", dep: "Evolving" },
-        { name: "Authentication & Authorization (OAuth, JWT)", dep: "Durable" },
-        { name: "Logging, Tracing & Observability", dep: "Evolving" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Dependency Injection & IoC", dep: "Durable" },
-        { name: "Async Programming & Concurrency", dep: "Durable" },
-        { name: "Datenbankdesign & Normalisierung", dep: "Durable" },
-        { name: "Migrations & Schema-Versionierung", dep: "Durable" },
-        { name: "RESTful API Design & Dokumentation", dep: "Durable" },
-        { name: "GraphQL Schema Design", dep: "Evolving" },
-        { name: "Event-Driven Architecture & Messaging", dep: "Durable" },
-        { name: "API Versionierung & Kompatibilitaet", dep: "Durable" },
-        { name: "Clean Architecture & Domain-Driven Design", dep: "Durable" },
-        { name: "Microservices vs. Monolith", dep: "Durable" },
-        { name: "Caching-Strategien", dep: "Durable" },
-        { name: "Resilience Patterns", dep: "Durable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
-const softwareDev: Role = {
-  id: "software-dev",
-  name: "Software-Entwickler",
-  description:
-    "Generalistisches Software Engineering — Frontend, Backend und Fullstack-Entwicklung.",
-  categories: [
-    {
-      name: "Fachkompetenz",
-      skills: [
-        { name: "Web-Standards (W3C, WHATWG)", dep: "Durable" },
-        { name: "Versicherungs-Kernsysteme (Bestand, Schaden)", dep: "Durable" },
-        { name: "Verteilte Systeme — Theorie", dep: "Durable" },
-        { ...RUMP_DIGITALE },
-      ],
-    },
-    {
-      name: "Handwerklich-Technisch",
-      skills: [
-        { name: "HTML5 / CSS3 / JavaScript / TypeScript", dep: "Durable" },
-        { name: "React / Next.js Oekosystem", dep: "Evolving" },
-        { name: "Node.js / TypeScript Backend", dep: "Evolving" },
-        { name: "Web-Frameworks (Express, NestJS, FastAPI)", dep: "Evolving" },
-        { name: "Relationale Datenbanken (PostgreSQL, MySQL)", dep: "Durable" },
-        { name: "REST API Design & Integration", dep: "Durable" },
-        { name: "Authentication & Authorization (OAuth, JWT)", dep: "Durable" },
-        { name: "Build Tools (Vite, Webpack)", dep: "Perishable" },
-        { name: "CI/CD Pipelines", dep: "Evolving" },
-        { name: "Logging, Tracing & Observability", dep: "Evolving" },
-        { name: "KI-gestuetzte Tools (Copilot, Cursor)", dep: "Perishable" },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        { name: "Clean Architecture & Domain-Driven Design", dep: "Durable" },
-        { name: "Unit & Integration Testing", dep: "Durable" },
-        { name: "Linting & Static Analysis", dep: "Evolving" },
-        { name: "Datenbankdesign & Normalisierung", dep: "Durable" },
-        { name: "Microservices vs. Monolith", dep: "Durable" },
-        { name: "Async Programming & Concurrency", dep: "Durable" },
-      ],
-    },
-    {
-      name: "Kommunikation & Consulting",
-      skills: [
-        { name: "Code Reviews & Pair Programming", dep: "Durable" },
-        { ...RUMP_VERBAL },
-      ],
-    },
-  ],
-};
-
 // -----------------------------------------------------------------------------
 // Projektmanagement
 // -----------------------------------------------------------------------------
@@ -870,7 +544,7 @@ const projektassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Interne Abstimmung & Priorisierung", dep: "Durable" },
         { name: "Externe Kommunikation & Korrespondenz", dep: "Durable" },
@@ -919,7 +593,7 @@ const scrumMaster: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Team-Coaching (systemisch)", dep: "Durable" },
         { name: "Konflikt-Moderation", dep: "Durable" },
@@ -965,7 +639,7 @@ const projektleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Teamaufbau & Motivation", dep: "Durable" },
         { name: "Delegation & Coaching", dep: "Durable" },
@@ -1025,7 +699,7 @@ const productManager: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Stakeholder-Management", dep: "Durable" },
         { name: "Praesentation auf Management-Ebene", dep: "Durable" },
@@ -1078,7 +752,7 @@ const productOwner: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Sprint Reviews moderieren", dep: "Durable" },
         { name: "Stakeholder-Abstimmung", dep: "Durable" },
@@ -1129,7 +803,7 @@ const gfAssistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Korrespondenz (DE/EN)", dep: "Durable" },
         { name: "Praesentationen & Board-Unterlagen", dep: "Durable" },
@@ -1179,7 +853,7 @@ const teamassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Dienstleister-Kontakte", dep: "Durable" },
         { name: "Informations-Sharing im Team", dep: "Durable" },
@@ -1226,7 +900,7 @@ const hrGeneralist: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Betriebsrats-Zusammenarbeit", dep: "Durable" },
         { name: "Mitarbeitergespraeche fuehren", dep: "Durable" },
@@ -1277,7 +951,7 @@ const recruiting: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Direktansprache (Personal, empathisch)", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1326,7 +1000,7 @@ const controlling: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Management-Reports fuer Stakeholder", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1376,7 +1050,7 @@ const itAdmin: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { ...RUMP_VERBAL },
       ],
@@ -1427,7 +1101,7 @@ const ldExpert: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Train-the-Trainer", dep: "Durable" },
         { name: "Coaching-Grundlagen", dep: "Durable" },
@@ -1473,7 +1147,7 @@ const personalentwicklung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Systemisches Coaching", dep: "Durable" },
         { name: "Entwicklungs- und Beratungsgespraeche", dep: "Durable" },
@@ -1517,7 +1191,7 @@ const agileCoach: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Individuelles Coaching (ICF-Standards)", dep: "Durable" },
         { name: "Team-Coaching (systemisch)", dep: "Durable" },
@@ -1569,7 +1243,7 @@ const teamentwicklung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Konflikt-Moderation", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1608,7 +1282,7 @@ const changebegleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Storytelling fuer Veraenderung", dep: "Durable" },
         { name: "Townhalls & Dialogformate", dep: "Durable" },
@@ -1661,7 +1335,7 @@ const oeBeratung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Systemische Fragetechniken", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1712,7 +1386,7 @@ const operativeGF: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Vision & Purpose kommunizieren", dep: "Durable" },
         { name: "Senior Leadership", dep: "Durable" },
@@ -1766,7 +1440,7 @@ const gruppenleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation & Consulting",
+      name: "Kommunikation",
       skills: [
         { name: "Feedback geben (wirksam, regelmaessig)", dep: "Durable" },
         { name: "Konfliktmanagement im Team", dep: "Durable" },
@@ -1785,18 +1459,18 @@ const gruppenleitung: Role = {
 // Default-Markttreiber je Gruppe (ANF-15)
 // -----------------------------------------------------------------------------
 
-/** Markttreiber Business Consulting — Quelle: BA-Katalog v2.0 (Mai 2026). */
+/** Markttreiber Business Consulting — Test-Perspektive (Juni 2026, FK-Review Diemo Gresch). */
 const businessConsultingDrivers: MarketDriver[] = [
   {
     id: "drv-bc-ki-transformation",
     title: "KI-Transformation in der Versicherungsbranche",
     horizon: "0–2 Jahre",
     description:
-      "Versicherungskunden integrieren KI in Kernprozesse (Schadenbearbeitung, Underwriting, Kundenservice). BAs muessen KI-Projekte anforderungsseitig begleiten — mit Verstaendnis fuer KI-Outputs und neue Stakeholder-Konstellationen.",
+      "Versicherungskunden integrieren KI in Kernprozesse (Schadenbearbeitung, Underwriting, Kundenservice). Tester muessen KI-gestuetzte Systeme pruefen — mit Verstaendnis fuer KI-Outputs, neue Testanforderungen und Datenschutzgrenzen.",
     affectedSkillNames: [
       "Digitale Anwendungskompetenz",
-      "IT-Systemverständnis",
-      "Anforderungserhebung & -dokumentation",
+      "KI-gestuetzte QS & verantwortungsvoller KI-Einsatz",
+      "Versicherungsfachlichkeit & Prozessverstaendnis",
     ],
   },
   {
@@ -1804,10 +1478,10 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "EU AI Act, Regulatorik & Governance",
     horizon: "0–3 Jahre",
     description:
-      "Der EU AI Act und bestehende Regulatoriken schaffen neue Anforderungen an Dokumentation und Transparenz. Zusaetzlich gewinnen interne Governance-Frameworks an Bedeutung. Versicherungen als regulierter Sektor sind frueh betroffen.",
+      "Der EU AI Act und bestehende Regulatoriken schaffen neue Anforderungen an Testdokumentation, Nachweisfuehrung und Transparenz. QA-Teams muessen Compliance-konforme Testprozesse und auditfeste Nachweise sicherstellen.",
     affectedSkillNames: [
-      "Regulatorische Umsetzungskompetenz",
-      "Nicht-funktionale Anforderungen und Resilienz",
+      "Regulatorik, Auditfaehigkeit & Nachweisfuehrung",
+      "Nichtfunktionale Qualitaet (Security, Resilienz, Performance, Accessibility)",
       "Verbalisierung & Strukturierung",
     ],
   },
@@ -1816,11 +1490,11 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Digitalisierung von Versicherungskernprozessen",
     horizon: "1–3 Jahre",
     description:
-      "Antrag, Police, Schaden und Vertragsverwaltung werden durchgaengig digitalisiert. BAs mit tiefem Prozessverstaendnis und Systemkenntnis sind zunehmend gefragt.",
+      "Antrag, Police, Schaden und Vertragsverwaltung werden durchgaengig digitalisiert. Tester mit tiefem Prozessverstaendnis und Systemkenntnis koennen realistische End-to-End-Testszenarien entwerfen und Schnittstellen gezielt absichern.",
     affectedSkillNames: [
-      "Geschäftsprozessverständnis",
-      "IT-Systemverständnis",
-      "Systemanalyse & Lösungsdesign",
+      "Versicherungsfachlichkeit & Prozessverstaendnis",
+      "Schnittstellen-, API-, Integrations- & E2E-Test",
+      "Testdaten- & Testumgebungsmanagement",
     ],
   },
   {
@@ -1828,11 +1502,11 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Agile Skalierung und SAFe-Einfuehrung bei Kunden",
     horizon: "1–3 Jahre",
     description:
-      "Versicherungsunternehmen skalieren agile Methoden auf Unternehmensebene. BAs agieren zunehmend als Product Owner Proxies in agilen Releasetrains.",
+      "Versicherungsunternehmen skalieren agile Methoden auf Unternehmensebene. QA-Rollen binden sich fruehzeitig in Anforderungs- und Planungsprozesse ein (Shift-Left) und tragen zur Definition of Done bei.",
     affectedSkillNames: [
-      "Agile und klassische Projektmanagement-Methoden",
-      "User Stories & Akzeptanzkriterien",
-      "Stakeholder-Management",
+      "Shift-Left Testing im agilen Prozess",
+      "Requirements-Reviews & Akzeptanzkriterien",
+      "Teststrategie entwickeln",
     ],
   },
   {
@@ -1840,11 +1514,11 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Wachsende Systemkomplexitaet (Legacy + Cloud + KI)",
     horizon: "2–5 Jahre",
     description:
-      "Hybrid-Architekturen aus Altsystemen, Cloud-Loesungen und KI-Komponenten erhoehen Komplexitaet erheblich. Anforderungen an Schnittstellen, Datenqualitaet und Systemintegration steigen.",
+      "Hybrid-Architekturen aus Altsystemen, Cloud-Loesungen und KI-Komponenten erhoehen Schnittstellenkomplexitaet erheblich. Integrationstest- und Testarchitektur-Kompetenz gewinnen stark an Bedeutung.",
     affectedSkillNames: [
-      "IT-Systemverständnis",
-      "Systemanalyse & Lösungsdesign",
-      "Anforderungsverhandlung & Priorisierung",
+      "Schnittstellen-, API-, Integrations- & E2E-Test",
+      "Testarchitektur & Quality Enablement",
+      "Nichtfunktionale Qualitaet (Security, Resilienz, Performance, Accessibility)",
     ],
   },
 ];
@@ -1862,18 +1536,13 @@ export const groups: Group[] = [
     roles: [
       uxuiDesign,
       businessAnalyst,
-      qsSpezialist,
+      qaCore,
       testManager,
       testAutomation,
     ],
     defaultDrivers: businessConsultingDrivers,
   },
-  {
-    id: "software-development",
-    name: "Software Development",
-    description: "Entwicklung von Software — Frontend, Backend und Vollstack.",
-    roles: [frontendDev, backendDev, softwareDev],
-  },
+  swGroup,
   {
     id: "projektmanagement",
     name: "Projektmanagement",
