@@ -1,0 +1,188 @@
+{
+  "id": "sw-backend-entwickler",
+  "name": "Backend-Entwickler",
+  "description": "Spezialisierungs-Katalog für Backend-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um Kompetenzen für Serverlogik, Datenbankdesign, API-Entwicklung und die besonderen Anforderungen an Skalierbarkeit und Compliance in regulierten Systemen.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "Backend-Frameworks & Serverarchitektur",
+          "dep": "Evolving",
+          "description": "»Entwicklung skalierbarer Serveranwendungen mit einem Backend-Framework (z. B. Spring Boot, .NET, Node.js/NestJS). Nicht gemeint: Frontend-Entwicklung oder Infrastrukturbetrieb. Typische Tätigkeiten: REST- und gRPC-APIs implementieren · Service-Schichten strukturieren · Framework-spezifische Patterns (DI, AOP) anwenden«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "Versicherungs-IT benötigt stabile, wartbare Serverkomponenten; WEF 2025: Technologieanpassungsfähigkeit; Rump 2025 (S. 3): Fachkompetenz als Fundament.",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Implementiert einfache Endpunkte nach Vorlage und versteht grundlegende MVC-Strukturen.",
+            "2": "Entwickelt vollständige CRUD-APIs eigenständig und wendet Dependency Injection und Schichtenarchitektur korrekt an.",
+            "3": "Entwirft Service-Architekturen für komplexe Domänen, wählt geeignete Patterns und setzt Transaktionssteuerung um.",
+            "4": "Analysiert bestehende Backend-Architekturen, identifiziert Performance- und Skalierbarkeitsprobleme und leitet Refactoring ab.",
+            "5": "Entwickelt projektweite Backend-Architekturstandards, evaluiert Framework-Optionen und befähigt das Entwicklungsteam."
+          }
+        },
+        {
+          "name": "Datenbankdesign & SQL/NoSQL",
+          "dep": "Durable",
+          "description": "»Entwurf und Nutzung relationaler und nicht-relationaler Datenbanken für Versicherungs- und Finanzanwendungen. Nicht gemeint: DBA-Administration oder Datenbankbetrieb. Typische Tätigkeiten: Datenbankschemas entwerfen · Komplexe SQL-Abfragen schreiben · Migrations-Skripte erstellen und versionieren«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 3): Fachkompetenz als nicht delegierbares Fundament; Datenbankdesign bleibt Kernkompetenz trotz ORM-Abstraktion.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Schreibt einfache SELECT/INSERT-Abfragen und versteht relationale Grundkonzepte.",
+            "2": "Entwirft normalisierte Schemas für überschaubare Domänen und schreibt JOINs und aggregierte Abfragen.",
+            "3": "Modelliert komplexe Fachdomänen, schreibt performante Abfragen und erstellt versionierte Migrations-Skripte.",
+            "4": "Analysiert Datenbankperformance, identifiziert Indizierungsbedarfe und entwirft Archivierungs- und Partitionierungsstrategien.",
+            "5": "Entwickelt projektweite Datenbankstandards, bewertet Technologieoptionen (relational vs. NoSQL) und führt Datenbankarchitektur-Reviews durch."
+          }
+        },
+        {
+          "name": "API-Design (REST / GraphQL / gRPC)",
+          "dep": "Evolving",
+          "description": "»Entwurf stabiler, versionierter und dokumentierter APIs für interne und externe Konsumenten. Nicht gemeint: Frontend-Integration oder API-Gateway-Betrieb. Typische Tätigkeiten: OpenAPI-Spezifikationen erstellen · Versionierungsstrategien umsetzen · API-Verträge mit Konsumenten abstimmen«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "DORA verlangt nachvollziehbare Schnittstellen zwischen IT-Systemen in Versicherungen; WEF 2025: Technologiekompetenz als Kernfaktor.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Implementiert vorgegebene API-Spezifikationen und kennt grundlegende REST-Prinzipien.",
+            "2": "Entwirft RESTful APIs nach Best Practices, erstellt OpenAPI-Dokumentation eigenständig.",
+            "3": "Gestaltet stabile API-Kontrakte, implementiert Versionierungsstrategien und stimmt Breaking-Changes mit Konsumenten ab.",
+            "4": "Bewertet API-Designs kritisch, leitet Refactoring-Strategien ab und definiert API-Governance-Richtlinien.",
+            "5": "Etabliert projektweite API-Designstandards, entwickelt API-Management-Strategien und befähigt das Team."
+          }
+        },
+        {
+          "name": "Sicherheit & Compliance (Backend)",
+          "dep": "Evolving",
+          "description": "»Implementierung sicherheitsrelevanter Mechanismen im Backend: Authentifizierung, Autorisierung, Datenverschlüsselung und Audit-Logging. Nicht gemeint: Netzwerk-Sicherheit oder Penetrationstests. Typische Tätigkeiten: OAuth2/OIDC-Flows implementieren · RBAC/ABAC-Konzepte umsetzen · Personenbezogene Daten DSGVO-konform verarbeiten«",
+          "targetLevel": 4,
+          "trend": "stark steigend",
+          "trendgrund": "DORA (2025), NIS2 und DSGVO stellen hohe Anforderungen an Datensicherheit in Versicherungssystemen; EU AI Act erfordert Audit-Trails für KI-gestützte Entscheidungen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Versteht grundlegende Auth-Konzepte (Session, Token) und implementiert sie nach Vorgabe.",
+            "2": "Implementiert OAuth2/JWT-Flows eigenständig und setzt einfache RBAC-Modelle um.",
+            "3": "Entwirft umfassende Autorisierungskonzepte, implementiert Audit-Logging und stellt DSGVO-konforme Datenspeicherung sicher.",
+            "4": "Analysiert Sicherheitsarchitekturen auf DORA/NIS2-Konformität, identifiziert Lücken und erarbeitet Maßnahmen.",
+            "5": "Entwickelt Sicherheits- und Compliance-Standards für das Projektteam, führt Security-Reviews durch und berät Kunden."
+          }
+        },
+        {
+          "name": "System- und Datenflussverständnis",
+          "dep": "Durable",
+          "description": "»Übergreifendes Verständnis des Datenflusses durch alle Anwendungsschichten (Browser, API, Datenbank, externe Systeme). Nicht gemeint: Infrastruktur- oder Netzwerkdesign. Typische Tätigkeiten: Datenflüsse bei Bugs über alle Schichten verfolgen · Performance-Bottlenecks auf der richtigen Schicht lokalisieren · Schnittstellenänderungen auf Auswirkungen bewerten«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 3): Fachkompetenz als Voraussetzung zur kritischen Analyse von Systemverhalten; unverändert kritisch in komplexen Versicherungssystemen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-19",
+          "anchors": {
+            "1": "Versteht den grundlegenden Request-Response-Zyklus und kann Datenflüsse in einer Schicht nachvollziehen.",
+            "2": "Verfolgt Datenflüsse über Frontend und Backend nach und identifiziert die betroffene Schicht bei einfachen Bugs.",
+            "3": "Analysiert schichtenübergreifende Performance-Probleme, bewertet Auswirkungen von Schnittstellenänderungen und dokumentiert Datenflüsse.",
+            "4": "Entwirft optimale Datenfluss-Architekturen, bewertet Tradeoffs zwischen Schichten und leitet Refactoring ab.",
+            "5": "Entwickelt Methoden zur systematischen Datenflussanalyse, dokumentiert Systemverhalten und befähigt das Team."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "Messaging & Event-getriebene Architektur",
+          "dep": "Evolving",
+          "description": "»Einsatz von Message-Brokern und Event-Systemen (Kafka, RabbitMQ) für asynchrone Kommunikation. Nicht gemeint: Infrastrukturbetrieb des Brokers. Typische Tätigkeiten: Producer und Consumer implementieren · Fehlerbehandlung und Dead-Letter-Queues konfigurieren · Eventkontrakte definieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Versicherungs-IT-Architekturen setzen zunehmend auf ereignisgesteuerte Microservices; DORA fordert Resilienz durch entkoppelte Systeme.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt Grundkonzepte von Message-Brokern und kann vorhandene Consumer nach Vorlage anpassen.",
+            "2": "Implementiert Producer und Consumer eigenständig und behandelt einfache Fehlerszenarien.",
+            "3": "Entwirft Event-Kontrakte, konfiguriert Dead-Letter-Queues und implementiert Idempotenz-Mechanismen.",
+            "4": "Bewertet Messaging-Architekturen, wählt geeignete Konsistenzstrategien und optimiert Durchsatz.",
+            "5": "Entwickelt Messaging-Plattformstandards, evaluiert neue Broker-Technologien und befähigt das Team."
+          }
+        },
+        {
+          "name": "Performance-Optimierung & Profiling",
+          "dep": "Evolving",
+          "description": "»Analyse und Verbesserung der Laufzeitperformance von Backend-Systemen. Nicht gemeint: Infrastruktur-Skalierung oder Datenbankbetrieb. Typische Tätigkeiten: Profiling-Tools einsetzen · Datenbankabfragen optimieren · Speicher- und CPU-Bottlenecks identifizieren«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Kritische Anforderung für transaktionsintensive Versicherungssysteme; Rump 2025 (S. 3): Fachkompetenz als Voraussetzung zur eigenständigen Optimierung.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt grundlegende Profiling-Tools und erkennt offensichtliche N+1-Queries.",
+            "2": "Setzt Profiling eigenständig ein, identifiziert langsame Datenbankabfragen und optimiert sie.",
+            "3": "Analysiert Speicher-Leaks und CPU-Bottlenecks, optimiert Caching-Strategien und misst Verbesserungen nachvollziehbar.",
+            "4": "Führt systematische Performance-Analysen für ganze Systemkomponenten durch und leitet Architekturanpassungen ab.",
+            "5": "Entwickelt Performance-Benchmarks und -Standards, führt Reviews durch und befähigt das Team."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Methodisch",
+      "skills": [
+        {
+          "name": "Domain-Driven Design (DDD) Grundlagen",
+          "dep": "Durable",
+          "description": "»Anwendung grundlegender DDD-Konzepte zur Strukturierung komplexer Fachdomänen in Backend-Code. Nicht gemeint: strategisches DDD oder Architekturentscheidungen auf Unternehmensebene. Typische Tätigkeiten: Bounded Contexts identifizieren · Ubiquitous Language etablieren · Aggregate und Entities modellieren«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Versicherungs-Fachdomänen sind komplex; DDD-Patterns verbessern Wartbarkeit; Rump 2025 (S. 3–4): Strukturierungskompetenz als Kernkompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt grundlegende DDD-Begriffe (Entity, Value Object, Aggregate) und erkennt sie im Code.",
+            "2": "Wendet DDD-Patterns eigenständig bei der Modellierung neuer Features an und pflegt die Ubiquitous Language.",
+            "3": "Identifiziert Bounded Contexts, leitet Schnittstellenstrategien ab und refaktoriert gewachsenen Code nach DDD-Prinzipien.",
+            "4": "Bewertet Domänenmodelle kritisch, identifiziert Anti-Patterns und leitet strategische Refactoring-Maßnahmen ein.",
+            "5": "Führt DDD-Workshops mit dem Team durch, etabliert Modellierungsstandards und berät Kunden zu Domänenarchitektur."
+          }
+        },
+        {
+          "name": "Technische Fehleranalyse & Incident-Response",
+          "dep": "Durable",
+          "description": "»Systematische Diagnose und Behebung von Produktionsproblemen in Backend-Systemen unter Zeitdruck. Nicht gemeint: Betrieb der Monitoring-Infrastruktur. Typische Tätigkeiten: Log-Aggregation analysieren · Distributed Tracing einsetzen · Eskalationspfade in kritischen Situationen kennen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "DORA-Anforderungen: Recovery Time und Incident-Management als KPI; NIS2: Meldepflichten bei IT-Vorfällen in Versicherungen.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Liest Logs und Stack-Traces und folgt vorgegebenen Runbooks bei Incidents.",
+            "2": "Analysiert Log-Aggregation eigenständig, isoliert Fehlerquellen und kommuniziert Statusupdates.",
+            "3": "Nutzt Distributed Tracing, führt Root-Cause-Analysen durch und dokumentiert Incidents nachvollziehbar.",
+            "4": "Koordiniert Incident-Response, leitet strukturelle Verbesserungen ab und verbessert Runbooks.",
+            "5": "Entwickelt Incident-Response-Prozesse, etabliert Monitoring-Standards und befähigt das Team zur eigenständigen Fehlerdiagnose."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": []
+    }
+  ]
+}

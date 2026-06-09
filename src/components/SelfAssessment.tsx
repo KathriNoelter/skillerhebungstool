@@ -1,4 +1,4 @@
-import { useMemo, useRef, useState } from "react";
+import { useCallback, useMemo, useRef, useState } from "react";
 import type {
   DreyfusLevel,
   Participant,
@@ -17,7 +17,10 @@ interface Props {
   groupName?: string;
   categories: SkillCategory[];
   participants: Participant[];
+  /** Spezialisierungsnamen aus den geladenen Katalogen (leer = keine Spezialisierung). */
+  availableSpecializations: string[];
   onSetParticipantName: (index: number, name: string) => void;
+  onSetParticipantRoles: (index: number, roles: string[]) => void;
   onAddParticipant: () => void;
   onRemoveParticipant: (index: number) => void;
   onSetRatings: (index: number, ratings: Record<string, DreyfusLevel>) => void;
@@ -35,7 +38,9 @@ export function SelfAssessment({
   groupName = "",
   categories,
   participants,
+  availableSpecializations,
   onSetParticipantName,
+  onSetParticipantRoles,
   onAddParticipant,
   onRemoveParticipant,
   onSetRatings,
@@ -54,7 +59,27 @@ export function SelfAssessment({
     return set;
   }, [categories]);
 
-  const totalSkills = allSkillNames.size;
+  /**
+   * Filtert Kategorien auf die fuer einen Teilnehmer relevanten Skills:
+   * Core-Skills (kein sourceLabel oder sourceLabel === departmentName) sind immer
+   * dabei; Spezialisierungs-Skills nur wenn die Rolle gewaehlt wurde.
+   */
+  const participantCategories = useCallback(
+    (p: Participant): SkillCategory[] => {
+      if (availableSpecializations.length === 0) return categories;
+      const roles = p.specializationRoles ?? [];
+      return categories
+        .map((cat) => ({
+          name: cat.name,
+          skills: cat.skills.filter((s) => {
+            if (!s.sourceLabel || s.sourceLabel === departmentName) return true;
+            return roles.includes(s.sourceLabel);
+          }),
+        }))
+        .filter((cat) => cat.skills.length > 0);
+    },
+    [categories, availableSpecializations, departmentName],
+  );
 
   const ratingCounts = participants.map(
     (p) => Object.values(p.ratings).filter((v) => (v ?? 0) > 0).length,
@@ -75,7 +100,7 @@ export function SelfAssessment({
       return;
     }
     exportAssessmentTemplate(
-      categories,
+      participantCategories(participant),
       participant,
       departmentName,
       groupName,
@@ -96,7 +121,7 @@ export function SelfAssessment({
       return;
     }
     exportAssessmentTemplateHtml(
-      categories,
+      participantCategories(participant),
       participant,
       departmentName,
       groupName,
@@ -138,13 +163,17 @@ export function SelfAssessment({
 
         onSetRatings(idx, result.ratings);
         const ratedCount = Object.keys(result.ratings).length;
+        const pSkillCount = participantCategories(participants[idx]).reduce(
+          (sum, cat) => sum + cat.skills.length,
+          0,
+        );
         const unknownNote =
           result.unknownSkills.length > 0
             ? ` (${result.unknownSkills.length} unbekannte Skills ignoriert)`
             : "";
         newMessages.push({
           kind: result.unknownSkills.length > 0 ? "warn" : "ok",
-          text: `${name}: ${ratedCount}/${totalSkills} Bewertungen importiert${unknownNote}.`,
+          text: `${name}: ${ratedCount}/${pSkillCount} Bewertungen importiert${unknownNote}.`,
         });
       } catch (e) {
         newMessages.push({
@@ -195,70 +224,105 @@ export function SelfAssessment({
           {participants.map((p, i) => {
             const rated = ratingCounts[i];
             const imported = rated > 0;
+            const pCats = participantCategories(p);
+            const pSkillCount = pCats.reduce(
+              (sum, cat) => sum + cat.skills.length,
+              0,
+            );
             return (
-              <div
-                key={i}
-                className="flex flex-wrap items-center gap-3 py-2.5"
-              >
-                <input
-                  type="text"
-                  value={p.name}
-                  onChange={(e) => onSetParticipantName(i, e.target.value)}
-                  placeholder={`Person ${i + 1}`}
-                  className="w-52 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-200"
-                />
-                <button
-                  onClick={() => handleExport(i)}
-                  disabled={!p.name.trim()}
-                  className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
-                  title="Excel-Vorlage (.xlsx)"
-                >
-                  Excel
-                </button>
-                <button
-                  onClick={() => handleExportHtml(i)}
-                  disabled={!p.name.trim()}
-                  className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
-                  title="HTML-Umfrage (.html) — im Browser ausfüllbar, kein Excel nötig"
-                >
-                  HTML
-                </button>
-                <span
-                  className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium ${
-                    imported
-                      ? "bg-emerald-50 text-emerald-700"
-                      : "bg-gray-100 text-gray-500"
-                  }`}
-                >
-                  <span
-                    className={`h-1.5 w-1.5 rounded-full ${
-                      imported ? "bg-emerald-500" : "bg-gray-400"
-                    }`}
+              <div key={i} className="py-2.5">
+                <div className="flex flex-wrap items-center gap-3">
+                  <input
+                    type="text"
+                    value={p.name}
+                    onChange={(e) => onSetParticipantName(i, e.target.value)}
+                    placeholder={`Person ${i + 1}`}
+                    className="w-52 rounded-lg border border-gray-300 px-3 py-2 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-200"
                   />
-                  {imported
-                    ? `${rated}/${totalSkills} importiert`
-                    : "noch nicht importiert"}
-                </span>
-                {participants.length > 1 && (
                   <button
-                    onClick={() => onRemoveParticipant(i)}
-                    className="ml-auto text-gray-400 transition hover:text-red-500"
-                    title="Teilnehmer entfernen"
+                    onClick={() => handleExport(i)}
+                    disabled={!p.name.trim()}
+                    className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+                    title="Excel-Vorlage (.xlsx)"
                   >
-                    <svg
-                      className="h-4 w-4"
-                      fill="none"
-                      viewBox="0 0 24 24"
-                      stroke="currentColor"
-                      strokeWidth={2}
-                    >
-                      <path
-                        strokeLinecap="round"
-                        strokeLinejoin="round"
-                        d="M6 18L18 6M6 6l12 12"
-                      />
-                    </svg>
+                    Excel
                   </button>
+                  <button
+                    onClick={() => handleExportHtml(i)}
+                    disabled={!p.name.trim()}
+                    className="rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50 disabled:opacity-40"
+                    title="HTML-Umfrage (.html) — im Browser ausfüllbar, kein Excel nötig"
+                  >
+                    HTML
+                  </button>
+                  <span
+                    className={`inline-flex items-center gap-1.5 rounded-full px-2.5 py-1 text-[11px] font-medium ${
+                      imported
+                        ? "bg-emerald-50 text-emerald-700"
+                        : "bg-gray-100 text-gray-500"
+                    }`}
+                  >
+                    <span
+                      className={`h-1.5 w-1.5 rounded-full ${
+                        imported ? "bg-emerald-500" : "bg-gray-400"
+                      }`}
+                    />
+                    {imported
+                      ? `${rated}/${pSkillCount} importiert`
+                      : "noch nicht importiert"}
+                  </span>
+                  {participants.length > 1 && (
+                    <button
+                      onClick={() => onRemoveParticipant(i)}
+                      className="ml-auto text-gray-400 transition hover:text-red-500"
+                      title="Teilnehmer entfernen"
+                    >
+                      <svg
+                        className="h-4 w-4"
+                        fill="none"
+                        viewBox="0 0 24 24"
+                        stroke="currentColor"
+                        strokeWidth={2}
+                      >
+                        <path
+                          strokeLinecap="round"
+                          strokeLinejoin="round"
+                          d="M6 18L18 6M6 6l12 12"
+                        />
+                      </svg>
+                    </button>
+                  )}
+                </div>
+                {availableSpecializations.length > 0 && (
+                  <div className="mt-1.5 flex flex-wrap items-center gap-1.5 pl-0.5">
+                    <span className="text-[10px] uppercase tracking-wide text-gray-400">
+                      Spezialisierung:
+                    </span>
+                    {availableSpecializations.map((spec) => {
+                      const isActive = (p.specializationRoles ?? []).includes(
+                        spec,
+                      );
+                      return (
+                        <button
+                          key={spec}
+                          onClick={() => {
+                            const current = p.specializationRoles ?? [];
+                            const next = isActive
+                              ? current.filter((r) => r !== spec)
+                              : [...current, spec];
+                            onSetParticipantRoles(i, next);
+                          }}
+                          className={`rounded-full border px-2.5 py-0.5 text-[11px] font-medium transition ${
+                            isActive
+                              ? "border-violet-300 bg-violet-100 text-violet-800"
+                              : "border-gray-200 bg-gray-50 text-gray-500 hover:border-gray-300 hover:bg-gray-100"
+                          }`}
+                        >
+                          {spec}
+                        </button>
+                      );
+                    })}
+                  </div>
                 )}
               </div>
             );

@@ -1,0 +1,189 @@
+{
+  "id": "sw-software-architekt",
+  "name": "Software-Architekt",
+  "description": "Spezialisierungs-Katalog für Software-Architektinnen und -Architekten in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um strategische Architekturkompetenzen, Entscheidungsmethodik und die regulatorischen Anforderungen an Systemarchitekturen in DORA-, NIS2- und EU-AI-Act-regulierten Umgebungen.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "Softwarearchitektur-Patterns & -Stile",
+          "dep": "Durable",
+          "description": "»Kenntnis und Anwendung etablierter Architekturstile (Microservices, Monolith, Event-Driven, CQRS/ES) für den Versicherungs-IT-Kontext. Nicht gemeint: Infrastrukturarchitektur oder Netzwerkdesign. Typische Tätigkeiten: Architekturstil für Projekt auswählen und begründen · Systemschnitte festlegen · Architekturdokumentation (arc42) erstellen«",
+          "targetLevel": 5,
+          "trend": "steigend",
+          "trendgrund": "DORA und NIS2 verlangen nachvollziehbare, resiliente Systemarchitekturen in Versicherungsunternehmen; WEF 2025: Systemdenken als kritische Kompetenz.",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt gängige Architekturstile und kann sie in bestehenden Systemen identifizieren.",
+            "2": "Erläutert Vor- und Nachteile verschiedener Architekturstile und wendet vorgegebene Patterns korrekt an.",
+            "3": "Wählt und begründet geeignete Architekturstile für neue Systeme, definiert Systemschnitte und dokumentiert Entscheidungen in ADRs.",
+            "4": "Analysiert bestehende Architekturen auf Schwächen, leitet Migrations- und Refactoring-Strategien ab und bewertet Risiken.",
+            "5": "Entwirft unternehmensweite Architekturlandschaften, entwickelt Architektur-Governance-Frameworks und befähigt Teams."
+          }
+        },
+        {
+          "name": "Qualitätsattribute & Architektur-Trade-offs",
+          "dep": "Durable",
+          "description": "»Bewertung und Steuerung nicht-funktionaler Anforderungen (Performance, Skalierbarkeit, Sicherheit, Wartbarkeit, Verfügbarkeit). Nicht gemeint: technische Implementierung einzelner Qualitätsmaßnahmen. Typische Tätigkeiten: Qualitätsszenarien (ATAM) erarbeiten · Trade-offs zwischen Qualitätsattributen transparent machen · Architekturentscheidungen risikobewusst treffen«",
+          "targetLevel": 5,
+          "trend": "steigend",
+          "trendgrund": "DORA-KPIs (MTTR, Change Failure Rate) machen Qualitätsattribute messbar; NIS2: Verfügbarkeit als regulatorische Pflicht; Rump 2025 (S. 3): kritisches Evaluationsvermögen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt grundlegende Qualitätsattribute (ISO 25010) und kann sie im System benennen.",
+            "2": "Erläutert Abhängigkeiten zwischen Qualitätsattributen und identifiziert Zielkonflikte.",
+            "3": "Erarbeitet Qualitätsszenarien, bewertet Architekturoptionen anhand nicht-funktionaler Anforderungen und dokumentiert Trade-offs.",
+            "4": "Führt ATAM-basierte Architektur-Evaluierungen durch, leitet Risikominimierungsstrategien ab und kommuniziert Ergebnisse an Stakeholder.",
+            "5": "Entwickelt methodische Frameworks zur systematischen Qualitätsattribut-Steuerung und etabliert Evaluierungsstandards."
+          }
+        },
+        {
+          "name": "Regulatorisch konforme Systemarchitektur",
+          "dep": "Evolving",
+          "description": "»Gestaltung von Systemarchitekturen unter Berücksichtigung regulatorischer Anforderungen (DORA, NIS2, EU AI Act, DSGVO) im Versicherungs- und Finanzkontext. Nicht gemeint: Compliance-Management oder juristische Beratung. Typische Tätigkeiten: Resilienzmechanismen für DORA-Konformität einbauen · Datenschutz-by-Design umsetzen · KI-Systemarchitekturen AI-Act-konform gestalten«",
+          "targetLevel": 4,
+          "trend": "stark steigend",
+          "trendgrund": "DORA ab Januar 2025 verpflichtend; NIS2-Umsetzungsgesetz 2025; EU AI Act risikobasierte Anforderungen ab 2026 — alle direkt relevant für Versicherungs-IT-Architekturen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt die relevanten Regulierungen und kann ihre Auswirkungen auf IT-Systeme grob einordnen.",
+            "2": "Identifiziert regulatorische Anforderungen für ein Projekt und kennt technische Umsetzungsmuster.",
+            "3": "Gestaltet Architekturen mit DORA-konformer Resilienz, Datenschutz-by-Design und dokumentiert Compliance-Nachweis.",
+            "4": "Bewertet Architekturen systematisch auf Regulierungskonformität, identifiziert Lücken und leitet Anpassungen ab.",
+            "5": "Entwickelt Compliance-Architektur-Frameworks, berät Kunden zu regulatorischen Anforderungen und führt Audits durch."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "Architekturdokumentation (arc42 / C4)",
+          "dep": "Evolving",
+          "description": "»Erstellung verständlicher, aktueller Architekturdokumentation mit etablierten Frameworks (arc42, C4-Modell). Nicht gemeint: allgemeine technische Dokumentation. Typische Tätigkeiten: arc42-Templates ausfüllen und pflegen · C4-Diagramme (Context, Container, Component) erstellen · Architecture Decision Records führen«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "DORA verlangt Dokumentation kritischer IT-Systeme; Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz als Kernkompetenz.",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt arc42-Struktur und füllt vorhandene Templates mit gegebenen Informationen.",
+            "2": "Erstellt eigenständig C4-Diagramme und arc42-Abschnitte für überschaubare Systeme.",
+            "3": "Dokumentiert vollständige Systemarchitekturen in arc42, pflegt ADR-Logs und erstellt verständliche C4-Diagramme für verschiedene Zielgruppen.",
+            "4": "Entwickelt Dokumentationsstandards für Projekte, reviewt Architekturdokumentationen und sichert Aktualität.",
+            "5": "Etabliert projektübergreifende Architekturdokumentationsstandards und -prozesse und befähigt Teams."
+          }
+        },
+        {
+          "name": "Cloud-Architektur & Infrastruktur-as-Code",
+          "dep": "Evolving",
+          "description": "»Entwurf cloud-nativer Architekturen und Beschreibung von Infrastruktur als Code (Terraform, Pulumi). Nicht gemeint: operativer Betrieb der Infrastruktur. Typische Tätigkeiten: Cloud-Architektur für Skalierbarkeit und Resilienz entwerfen · IaC-Templates entwickeln und reviewen · Cloud-Kosten schätzen und optimieren«",
+          "targetLevel": 4,
+          "trend": "stark steigend",
+          "trendgrund": "Versicherungs-IT-Migration in die Cloud; DORA-Resilienzanforderungen; WEF 2025: Cloud-Kompetenz als Schlüsselkompetenz der nächsten Dekade.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt Cloud-Architektur-Grundkonzepte (Zonen, Regionen, VPC) und kann bestehende IaC-Templates lesen.",
+            "2": "Entwirft einfache Cloud-Architekturen und erstellt IaC-Templates für überschaubare Ressourcen eigenständig.",
+            "3": "Gestaltet resiliente Multi-Tier-Cloud-Architekturen, entwirft IaC-Module und berücksichtigt Kosten und Sicherheit.",
+            "4": "Bewertet Cloud-Architekturen auf Resilienz, Sicherheit und Kosten, leitet Optimierungen ab und established Best Practices.",
+            "5": "Entwickelt unternehmensweite Cloud-Architekturstandards, evaluiert neue Cloud-Services und berät Kunden strategisch."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Methodisch",
+      "skills": [
+        {
+          "name": "Architecture Decision Management",
+          "dep": "Durable",
+          "description": "»Strukturiertes Treffen, Dokumentieren und Kommunizieren von Architekturentscheidungen (ADRs). Nicht gemeint: technisches Projektmanagement. Typische Tätigkeiten: Architektur-Optionen strukturiert bewerten · ADRs schreiben und versionieren · Entscheidungen stakeholdergerecht kommunizieren«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 3–4): Strukturierungs- und Verbalisierungskompetenz; DORA-Auditnachweise erfordern dokumentierte Entscheidungspfade.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt ADR-Formate und kann vorhandene Entscheidungen in Templates übertragen.",
+            "2": "Schreibt eigenständig ADRs für einzelne Entscheidungen und strukturiert Optionen-Vergleiche.",
+            "3": "Modelliert komplexe Entscheidungssituationen strukturiert, kommuniziert Trade-offs transparent und führt Review-Prozesse.",
+            "4": "Etabliert ADR-Prozesse im Projekt, führt Architektur-Gremien und leitet Entscheidungskultur.",
+            "5": "Entwickelt Entscheidungsframeworks und -Governance für mehrere Projekte oder das Unternehmen."
+          }
+        },
+        {
+          "name": "Technische Schulden-Management",
+          "dep": "Durable",
+          "description": "»Systematisches Identifizieren, Bewerten und Priorisieren technischer Schulden im Architekturkontext. Nicht gemeint: operative Code-Qualitätssicherung. Typische Tätigkeiten: Tech-Debt-Inventar führen · Refactoring-Kosten und -Nutzen abwägen · Schuldenreduktion in die Roadmap integrieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "WEF 2025 nennt strategisches Denken als Kernkompetenz; Versicherungs-IT mit hohem Legacy-Anteil erfordert systematisches Schulden-Management.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Erkennt offensichtliche technische Schulden und kommuniziert sie.",
+            "2": "Führt eigenständig ein Tech-Debt-Inventar und klassifiziert Schulden nach Art und Risiko.",
+            "3": "Bewertet technische Schulden nach Kosten/Nutzen, erstellt Refactoring-Empfehlungen und integriert sie in die Projektplanung.",
+            "4": "Leitet strategische Schuldenabbau-Programme, kommuniziert mit Kunden über technische Risiken und steuert Maßnahmen.",
+            "5": "Entwickelt Frameworks für unternehmensweites Tech-Debt-Management und befähigt Architekten und Teams."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": [
+        {
+          "name": "Stakeholder-Kommunikation & Architektur-Review",
+          "dep": "Durable",
+          "description": "»Zielgruppengerechte Kommunikation von Architekturentscheidungen und -risiken gegenüber Fachbereichen, Management und Entwicklungsteams. Nicht gemeint: allgemeine Projektkommunikation. Typische Tätigkeiten: Architekturen für nicht-technisches Publikum visualisieren · Architektur-Reviews moderieren · Entscheidungsvorlagen für Managementebene erstellen«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 4–5): Verbalisierungskompetenz und Empathie; WEF 2025: Kommunikation als unabdingbare Leadership-Kompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Erklärt Architekturentscheidungen klar im Teamkontext.",
+            "2": "Passt Detailtiefe und Visualisierung der Zielgruppe an und kommuniziert Risiken verständlich.",
+            "3": "Moderiert Architektur-Reviews, vermittelt zwischen technischen und fachlichen Positionen und erstellt Management-Präsentationen.",
+            "4": "Führt Architektur-Boards, begleitet Kunden bei strategischen Entscheidungen und kommuniziert Risiken auf Managementebene.",
+            "5": "Etabliert Architektur-Kommunikationsstandards, befähigt Architekten und baut Vertrauen bei Kunden-Stakeholdern auf."
+          }
+        },
+        {
+          "name": "Technisches Mentoring & Architektur-Coaching",
+          "dep": "Durable",
+          "description": "»Befähigung von Entwicklungsteams zu architektonischem Denken und qualitätsbewusstem Handeln. Nicht gemeint: Projektmanagement oder HR-Führung. Typische Tätigkeiten: Architektur-Katas und -Workshops durchführen · Code- und Design-Reviews mit Lernfokus führen · Entwickler in Qualitätsattribut-Denken einführen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 5–6): Empathie und Kreativität als menschliche Kompetenzen; WEF 2025: Führungskompetenzen steigen in Relevanz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Beantwortet Architekturfragen im Team auf Nachfrage.",
+            "2": "Gibt architektonisches Feedback in Reviews und erklärt Entscheidungslogik proaktiv.",
+            "3": "Führt Architektur-Kata-Workshops, coacht Entwickler in Designentscheidungen und etabliert Review-Kultur.",
+            "4": "Entwickelt und moderiert Mentoring-Programme für technisches Architekturverständnis im Team.",
+            "5": "Befähigt andere Architekten zu Mentoring-Tätigkeiten und entwickelt Architektur-Community of Practice."
+          }
+        }
+      ]
+    }
+  ]
+}

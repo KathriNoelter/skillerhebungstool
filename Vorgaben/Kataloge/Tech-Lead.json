@@ -1,0 +1,207 @@
+{
+  "id": "sw-tech-lead",
+  "name": "Tech Lead",
+  "description": "Spezialisierungs-Katalog für Tech Leads in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um Kompetenzen für technische Teamführung, strategische Technologieentscheidungen, Qualitätssicherung auf Teamebene und die Brückenfunktion zwischen Engineering und Projektleitung. Der Tech Lead bleibt aktiver Entwickler und übernimmt gleichzeitig Verantwortung für technische Exzellenz und Teamentwicklung.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "Technische Systemverantwortung",
+          "dep": "Durable",
+          "description": "»Gesamtverantwortung für die technische Integrität, Qualität und Weiterentwicklung eines oder mehrerer Softwaresysteme. Nicht gemeint: Projektmanagement oder Ressourcenplanung. Typische Tätigkeiten: Code- und Design-Reviews auf Systemqualität führen · Technischen Roadmap pflegen · Technische Risiken identifizieren und eskalieren«",
+          "targetLevel": 5,
+          "trend": "steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Systemdenken und Verantwortungsübernahme als Top-Führungskompetenzen; Rump 2025 (S. 3): Fachkompetenz als unabdingbares Fundament, das in Führungsrollen nicht delegiert werden kann.",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Versteht die technische Systemstruktur und kann einzelne Komponenten verantwortlich betreuen.",
+            "2": "Betreut Subsysteme eigenständig, führt Reviews durch und kommuniziert technische Einschränkungen.",
+            "3": "Übernimmt technische Verantwortung für ein vollständiges System, identifiziert Risiken und leitet Maßnahmen ein.",
+            "4": "Steuert die technische Systemevolution, priorisiert Investitionen in Qualität und Architektur und kommuniziert Entscheidungen transparent.",
+            "5": "Entwickelt langfristige technische Systemstrategien, berät Kunden auf Führungsebene und befähigt das Team zur kollektiven Systemverantwortung."
+          }
+        },
+        {
+          "name": "Technologie-Evaluation & Entscheidungskompetenz",
+          "dep": "Evolving",
+          "description": "»Strukturierte Bewertung und Auswahl von Technologien, Frameworks und Tools für das Projekt. Nicht gemeint: Architekturdesign auf Systemebene. Typische Tätigkeiten: Build-vs-Buy-Entscheidungen vorbereiten · Proof-of-Concepts initiieren und bewerten · Technologieentscheidungen mit ADRs dokumentieren«",
+          "targetLevel": 5,
+          "trend": "steigend",
+          "trendgrund": "WEF 2025: Technologiebewertung als Führungskompetenz; Rump 2025 (S. 3–4): Kritische Evaluationskompetenz als nicht delegierbar.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Bewertet Technologieoptionen nach vorgegebenen Kriterien.",
+            "2": "Führt eigenständige Technologievergleiche durch und dokumentiert Vor- und Nachteile.",
+            "3": "Strukturiert Evaluationsprozesse, führt Proof-of-Concepts durch und trifft begründete Entscheidungen.",
+            "4": "Gestaltet Evaluationsframeworks, moderiert Technologieentscheidungen mit Teams und Stakeholdern und dokumentiert ADRs.",
+            "5": "Entwickelt Technologiestrategie für das Projekt, befähigt Teams zur eigenständigen Evaluation und berät Kunden."
+          }
+        },
+        {
+          "name": "Regulatorisches Technologieverständnis",
+          "dep": "Evolving",
+          "description": "»Einschätzung regulatorischer Implikationen von Technologieentscheidungen (DORA, NIS2, EU AI Act) für Versicherungs-IT-Projekte. Nicht gemeint: juristische Compliance-Beratung. Typische Tätigkeiten: Neue Technologien auf DORA-Konformität prüfen · KI-Tool-Einsatz im Team AI-Act-konform gestalten · Audit-Trail-Anforderungen in technische Lösungen übersetzen«",
+          "targetLevel": 4,
+          "trend": "stark steigend",
+          "trendgrund": "DORA (2025), NIS2, EU AI Act — Tech Leads in Versicherungs-IT müssen Technologieentscheidungen auf Regulierungskonformität prüfen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt relevante Regulierungen und ihre grundsätzlichen Auswirkungen auf IT-Systeme.",
+            "2": "Identifiziert regulatorische Anforderungen für Technologieentscheidungen und bezieht Compliance-Experten ein.",
+            "3": "Bewertet Technologieoptionen auf DORA/NIS2-Konformität, dokumentiert Nachweise und kommuniziert Risiken.",
+            "4": "Führt regulatorische Folgenabschätzungen für Technologieentscheidungen durch und entwickelt Compliance-Strategien.",
+            "5": "Berät Kunden zu regulatorischen Technologieanforderungen und entwickelt Frameworks für Compliance-by-Design."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "Code Review & Qualitätssicherung auf Teamebene",
+          "dep": "Durable",
+          "description": "»Sicherung von Code-Qualität, Konsistenz und Sicherheitsstandards über den gesamten Team-Output. Nicht gemeint: eigene Feature-Entwicklung. Typische Tätigkeiten: Code-Reviews mit Lernfokus durchführen · Qualitäts-Gates definieren und überwachen · Coding-Guidelines entwickeln und durchsetzen«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 3): Fachkompetenz als Fundament — Tech Leads müssen KI-generierte Codes kritisch beurteilen können; DORA verlangt nachvollziehbare Qualitätsprozesse.",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Führt Code-Reviews durch und gibt schriftliches Feedback nach Vorgaben.",
+            "2": "Identifiziert Qualitätsmuster in Review-Feedback und entwickelt konstruktive Rückmeldungen eigenständig.",
+            "3": "Etabliert Review-Prozesse, definiert Qualitäts-Gates in der Pipeline und entwickelt teamspezifische Coding-Guidelines.",
+            "4": "Gestaltet die Qualitätskultur im Team, balanciert Anspruch und Pragmatismus und misst Qualitätsentwicklung über Zeit.",
+            "5": "Entwickelt Qualitätsprogramme für mehrere Teams, etabliert Community-of-Practice und befähigt andere Tech Leads."
+          }
+        },
+        {
+          "name": "Technisches Backlog-Management",
+          "dep": "Durable",
+          "description": "»Priorisierung und Pflege technischer Aufgaben (Tech Debt, Architekturmaßnahmen, Infrastrukturverbesserungen) im Projekt-Backlog. Nicht gemeint: fachliches Backlog-Management. Typische Tätigkeiten: Technische Stories und Enabler schreiben · Tech-Debt-Priorisierung mit Product Owner verhandeln · Aufwandsschätzungen für technische Maßnahmen erstellen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "WEF 2025: Strategisches Denken als Führungskompetenz; Rump 2025 (S. 4): Strukturierungskompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Schreibt technische Stories nach Vorlage und schätzt Aufwände.",
+            "2": "Führt eigenständig ein Tech-Debt-Inventar und bereitet Backlog-Items für Planning vor.",
+            "3": "Verhandelt technische Backlog-Priorisierung mit Product Ownern, kommuniziert Risiken und Nutzen überzeugend.",
+            "4": "Entwickelt technische Roadmaps, leitet Invest-vs-Debt-Strategien ab und steuert das technische Backlog aktiv.",
+            "5": "Etabliert technisches Backlog-Management als Prozess, befähigt Tech Leads und berät Kunden zur technischen Strategie."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Methodisch",
+      "skills": [
+        {
+          "name": "Agile Prozesse moderieren & verbessern",
+          "dep": "Durable",
+          "description": "»Aktive Mitgestaltung und Verbesserung agiler Entwicklungsprozesse aus technischer Perspektive. Nicht gemeint: Scrum-Master-Tätigkeiten oder Projektplanung. Typische Tätigkeiten: Technische Perspektive in Refinements einbringen · Definition of Done aus Qualitätssicht weiterentwickeln · Prozessverbesserungsideen aus der Retrospektive umsetzen«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 5): Kreativität und Prozessverbesserung als menschliche Stärken im KI-Zeitalter; WEF 2025: Adaptabilität als Dauerkompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Beteiligt sich aktiv an Scrum-Events und bringt technische Perspektive ein.",
+            "2": "Verbessert Definition of Done und Refinement-Qualität eigenständig und kommuniziert Impediments technisch präzise.",
+            "3": "Moderiert technische Diskussionen in Refinements, entwickelt Teamprozesse aus Retrospektiven weiter.",
+            "4": "Gestaltet den technischen Entwicklungsprozess aktiv, leitet Prozessinnovationen ein und befähigt das Team.",
+            "5": "Entwickelt Methoden für technische Prozessverbesserungen über Projektgrenzen hinaus."
+          }
+        },
+        {
+          "name": "Wissensmanagement & Dokumentationskultur",
+          "dep": "Durable",
+          "description": "»Aufbau und Pflege einer Wissenstransfer- und Dokumentationskultur im Entwicklungsteam. Nicht gemeint: eigene technische Dokumentation. Typische Tätigkeiten: Wissenstransfer-Routinen (Tech Talks, Pair Programming) etablieren · Dokumentationsstandards definieren · Kritisches Wissen aus Köpfen in gemeinsame Systeme bringen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 4): Verbalisierungskompetenz; DORA: Wissenstransfer als Resilienzmaßnahme gegen Bus-Factor-Risiken.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Dokumentiert eigenes Wissen und teilt Erkenntnisse im Team.",
+            "2": "Initiiert Wissenstransfer-Formate (z. B. Tech Talks) und identifiziert kritische Wissenslücken im Team.",
+            "3": "Etabliert Dokumentationsstandards und regelmäßige Wissenstransfer-Routinen und misst deren Wirksamkeit.",
+            "4": "Entwickelt eine Wissensmanagement-Strategie für das Team, reduziert Bus-Factor-Risiken und befähigt das Team.",
+            "5": "Baut eine Lernkultur auf, etabliert Communities of Practice und entwickelt Wissensmanagement-Programme."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": [
+        {
+          "name": "Teamführung & Entwicklungsförderung",
+          "dep": "Durable",
+          "description": "»Führung des Entwicklungsteams auf Basis technischer Glaubwürdigkeit und gezielter individueller Förderung. Nicht gemeint: disziplinarische Führung oder HR-Prozesse. Typische Tätigkeiten: Entwicklungsziele mit Entwicklern erarbeiten · Pairing und Mentoring gezielt einsetzen · Verantwortungsbereiche im Team entwickeln«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Leadership und soziale Kompetenz unter Top-Wachstumskompetenzen; Rump 2025 (S. 5–6): Empathie und Kreativität als dauerhaft menschliche Stärken.",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Unterstützt Kollegen bei fachlichen Fragen und gibt konstruktives Feedback.",
+            "2": "Fördert Teammitglieder durch gezieltes Pairing und erkennt individuelle Entwicklungsbedarfe.",
+            "3": "Entwickelt Entwicklungsziele mit jedem Teammitglied, delegiert Verantwortungsbereiche und begleitet Wachstum aktiv.",
+            "4": "Gestaltet eine psychologisch sichere Teamdynamik, löst Konflikte konstruktiv und befähigt das Team zur Selbstorganisation.",
+            "5": "Entwickelt Senior-Engineers zu Tech Leads, etabliert Führungskultur im technischen Team und befähigt das gesamte Projekt."
+          }
+        },
+        {
+          "name": "Stakeholder-Kommunikation & technisches Reporting",
+          "dep": "Durable",
+          "description": "»Zielgruppengerechte Kommunikation technischer Status, Risiken und Entscheidungen gegenüber Projektleitung, Kunden und Management. Nicht gemeint: Architektur-Präsentationen. Typische Tätigkeiten: Sprint-Demos aus technischer Perspektive begleiten · Technische Risiken eskalieren · DORA-Metriken und Qualitätskennzahlen berichten«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz; WEF 2025: Kommunikation als Schlüsselkompetenz für Leadership-Rollen.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kommuniziert technischen Fortschritt verständlich in Teamrunden.",
+            "2": "Bereitet technische Updates für Projektleitung auf und eskaliert Risiken proaktiv.",
+            "3": "Erstellt verständliche Statusberichte für verschiedene Zielgruppen, kommuniziert Trade-offs und Entscheidungen klar.",
+            "4": "Entwickelt Reporting-Strukturen für technische Qualität und Risiken, kommuniziert auf Management-Ebene überzeugend.",
+            "5": "Etabliert technisches Reporting-Framework für Projekte und befähigt Tech Leads zur Stakeholder-Kommunikation."
+          }
+        },
+        {
+          "name": "Konflikt- und Konsensfindung im technischen Team",
+          "dep": "Durable",
+          "description": "»Konstruktiver Umgang mit technischen Meinungsverschiedenheiten und Förderung einer offenen Diskussionskultur. Nicht gemeint: HR-Konfliktlösung. Typische Tätigkeiten: Technische Diskussionen strukturieren · Entscheidungsdeadlocks auflösen · Dissenting Opinions respektvoll integrieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 5–6): Empathie und Frustrationstoleranz als Resilienzkompetenzen; WEF 2025: Kollaborationsfähigkeit als Top-Soft-Skill.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Nimmt an technischen Diskussionen sachlich teil und respektiert andere Meinungen.",
+            "2": "Fasst Diskussionspunkte strukturiert zusammen und arbeitet auf Konsens hin.",
+            "3": "Moderiert technische Entscheidungsdiskussionen, integriert Gegenpositionen konstruktiv und herbeiführt begründete Entscheidungen.",
+            "4": "Gestaltet eine psychologisch sichere Diskussionskultur, löst anhaltende technische Konflikte strukturiert und nachhaltig.",
+            "5": "Entwickelt Konfliktlösungs-Frameworks für technische Teams und befähigt andere Tech Leads."
+          }
+        }
+      ]
+    }
+  ]
+}

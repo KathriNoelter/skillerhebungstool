@@ -47,7 +47,27 @@
       "Bash(pnpm typecheck *)",
       "Bash(open *)",
       "Bash(xxd)",
-      "Bash(echo \"EXIT: $?\")"
+      "Bash(echo \"EXIT: $?\")",
+      "WebSearch",
+      "WebFetch(domain:www.ibe-ludwigshafen.de)",
+      "Bash(node scripts/convert-catalogs.mjs)",
+      "Bash(node scripts/validate-catalogs.mjs)",
+      "Bash(screencapture -x /tmp/app_step1.png)",
+      "Bash(node -e ' *)",
+      "Read(//Users/kathrinnolter/Claude Projekte/**)",
+      "Bash(node scripts/export-catalogs.mjs)",
+      "Bash(npx tsx *)",
+      "Bash(npm install *)",
+      "Bash(claude *)",
+      "Bash(pnpm rebuild *)",
+      "Read(//Users/kathrinnolter/.config/pnpm/**)",
+      "Read(//Users/kathrinnolter/Library/pnpm/**)",
+      "Bash(pnpm config *)",
+      "Bash(pnpm root *)",
+      "Bash(node *)",
+      "Bash(pnpm vite *)",
+      "Bash(pip3 install *)",
+      "Bash(osascript *)"
     ]
   }
 }

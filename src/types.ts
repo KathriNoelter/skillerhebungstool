@@ -134,6 +134,8 @@ export interface Skill {
    * wird beim Editieren via UI gesetzt, nicht im Code-Katalog gepflegt.
    */
   lastModified?: string;
+  /** Herkunfts-Label für via Spezialisierung geladene Skills (z. B. Rollenname). */
+  sourceLabel?: string;
 }
 
 /**
@@ -203,6 +205,12 @@ export interface MarketDriver {
 export interface Participant {
   name: string;
   ratings: Record<string, DreyfusLevel>;
+  /**
+   * Spezialisierungsrollen des Teilnehmers (z. B. ["Frontend-Entwickler"]).
+   * Bestimmt, welche Skills in der exportierten Vorlage enthalten sind:
+   * Core-Skills immer + Skills der gewaehlten Spezialisierungen.
+   */
+  specializationRoles?: string[];
 }
 
 export interface WorkshopState {

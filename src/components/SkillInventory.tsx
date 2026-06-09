@@ -17,7 +17,10 @@ import {
   evaluationModelFor,
   stageLabelsFor,
 } from "../types";
-import { exportSkillInventoryPdf } from "../lib/pdfExport";
+import { exportSkillInventoryPdf, exportFullGroupCatalogPdf } from "../lib/pdfExport";
+import { exportGroupCatalogExcel } from "../lib/excelExport";
+import { groups } from "../data/groups";
+import { importCatalogFromFile } from "../lib/catalogImport";
 
 interface Props {
   department: Role;
@@ -82,6 +85,9 @@ interface Props {
   currentGroup: Group | null;
   groupDrivers: MarketDriver[];
   onSetGroupDrivers: (groupId: string, drivers: MarketDriver[]) => void;
+
+  onLoadSpecialization: (role: Role) => void;
+  customRoles: Role[];
 
   onProceed: () => void;
   onBack: () => void;
@@ -547,6 +553,17 @@ interface CategoryBlockSkillItem {
   onEditKey?: (isKey: boolean) => void;
 }
 
+const DIMENSION_DESCRIPTIONS: Record<string, string> = {
+  Fachkompetenz:
+    "Konzeptionelles Wissen über Softwaresysteme, Domänen und Technologien — die Grundlage, um KI-Output, Architekturentscheidungen und Fachvorgaben eigenständig einzuordnen und zu bewerten.",
+  "Handwerklich-Technisch":
+    "Die praktische Beherrschung von Werkzeugen, Sprachen und Entwicklungsprozessen — das Handwerk, das täglich zum Einsatz kommt und kontinuierlich schärfer wird.",
+  Methodisch:
+    "Strukturiertes Vorgehen bei Planung, Qualitätssicherung und Architekturentscheidungen — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
+  Kommunikation:
+    "Technische Sachverhalte verständlich machen, Anforderungen klären und im Team sowie beim Kunden wirksam auftreten — die Dimension, die aus einem guten Entwickler einen wertvollen Berater macht.",
+};
+
 interface CategoryBlockProps {
   name: string;
   skills: CategoryBlockSkillItem[];
@@ -566,12 +583,13 @@ function CategoryBlock(props: CategoryBlockProps) {
     totalCount,
     onAddSkill,
     emptyText = "Keine Skills in dieser Kategorie.",
-    customLabel = "custom",
+    customLabel = "Eigener Skill",
     targetCategories,
     filterActive = false,
   } = props;
   const [newName, setNewName] = useState("");
   const [newDep, setNewDep] = useState<DepClassification>("Durable");
+  const [newSourceLabel, setNewSourceLabel] = useState("");
   const [expanded, setExpanded] = useState<Set<string>>(new Set());
 
   const toggleExpanded = (skillName: string) => {
@@ -586,9 +604,11 @@ function CategoryBlock(props: CategoryBlockProps) {
   const handleAdd = () => {
     const trimmed = newName.trim();
     if (trimmed.length < 2) return;
-    onAddSkill({ name: trimmed, dep: newDep });
+    const labelTrimmed = newSourceLabel.trim();
+    onAddSkill({ name: trimmed, dep: newDep, ...(labelTrimmed ? { sourceLabel: labelTrimmed } : {}) });
     setNewName("");
     setNewDep("Durable");
+    setNewSourceLabel("");
   };
 
   return (
@@ -597,6 +617,14 @@ function CategoryBlock(props: CategoryBlockProps) {
         <span className="text-sm font-bold uppercase tracking-wide text-slate-600">
           {name}
         </span>
+        {DIMENSION_DESCRIPTIONS[name] && (
+          <span className="group relative ml-1.5 inline-block cursor-help">
+            <span className="text-xs text-slate-400 group-hover:text-slate-600">ⓘ</span>
+            <span className="pointer-events-none absolute left-0 top-full z-50 mt-1.5 w-72 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs leading-relaxed text-slate-600 shadow-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+              {DIMENSION_DESCRIPTIONS[name]}
+            </span>
+          </span>
+        )}
         <span className="ml-2 text-xs text-gray-400">
           ({filterActive
             ? `${skills.length}/${totalCount} sichtbar`
@@ -708,7 +736,7 @@ function CategoryBlock(props: CategoryBlockProps) {
                     )}
                     {isCustom && (
                       <span className="rounded bg-indigo-100 px-1.5 py-0.5 text-[10px] font-medium uppercase text-indigo-700">
-                        {customLabel}
+                        {skill.sourceLabel ?? customLabel}
                       </span>
                     )}
                     {canEdit && hasData && !isOpen && (
@@ -880,6 +908,15 @@ function CategoryBlock(props: CategoryBlockProps) {
             }}
             placeholder="Neuen Skill hinzufuegen..."
             className="flex-1 rounded border border-gray-300 px-3 py-1.5 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-200"
+          />
+          <input
+            value={newSourceLabel}
+            onChange={(e) => setNewSourceLabel(e.target.value)}
+            onKeyDown={(e) => {
+              if (e.key === "Enter") handleAdd();
+            }}
+            placeholder="Rolle (z. B. Frontend)"
+            className="w-44 rounded border border-gray-300 px-3 py-1.5 text-sm focus:border-slate-500 focus:outline-none focus:ring-1 focus:ring-slate-200"
           />
           <select
             value={newDep}
@@ -1246,6 +1283,8 @@ export function SkillInventory(props: Props) {
     currentGroup,
     groupDrivers,
     onSetGroupDrivers,
+    onLoadSpecialization,
+    customRoles,
     onProceed,
     onBack,
   } = props;
@@ -1327,6 +1366,66 @@ export function SkillInventory(props: Props) {
   const [activeTab, setActiveTab] = useState<TabId>("skills");
   const [trendFilter, setTrendFilter] = useState<TrendFilter>("all");
   const [showDisabled, setShowDisabled] = useState(true);
+  const [sourceFilter, setSourceFilter] = useState<string>("all");
+
+  // --- Spezialisierung laden ---
+  const [showSpecPicker, setShowSpecPicker] = useState(false);
+  const [specPickerGroupId] = useState<string>(currentGroup?.id ?? "");
+  const [specPickerRoleIds, setSpecPickerRoleIds] = useState<Set<string>>(new Set());
+  const [specImportError, setSpecImportError] = useState<string | null>(null);
+  const [loadedSpecs, setLoadedSpecs] = useState<string[]>([]);
+  const specFileRef = useRef<HTMLInputElement>(null);
+
+  const specPickerGroup = useMemo(
+    () => groups.find((g) => g.id === specPickerGroupId) ?? null,
+    [specPickerGroupId],
+  );
+
+  const toggleSpecRole = useCallback((roleId: string) => {
+    setSpecPickerRoleIds((prev) => {
+      const next = new Set(prev);
+      if (next.has(roleId)) next.delete(roleId);
+      else next.add(roleId);
+      return next;
+    });
+  }, []);
+
+  const handleApplySpec = useCallback(() => {
+    const allRoles = [
+      ...(specPickerGroup?.roles ?? []),
+      ...customRoles,
+    ];
+    const selected = allRoles.filter((r) => specPickerRoleIds.has(r.id));
+    if (selected.length === 0) return;
+    selected.forEach((role) => {
+      onLoadSpecialization(role);
+      setLoadedSpecs((prev) =>
+        prev.includes(role.name) ? prev : [...prev, role.name],
+      );
+    });
+    setShowSpecPicker(false);
+    setSpecPickerRoleIds(new Set());
+  }, [specPickerGroup, customRoles, specPickerRoleIds, onLoadSpecialization]);
+
+  const handleSpecFileImport = useCallback(
+    async (file: File | null | undefined) => {
+      if (!file) return;
+      setSpecImportError(null);
+      try {
+        const role = await importCatalogFromFile(file);
+        onLoadSpecialization(role);
+        setLoadedSpecs((prev) =>
+          prev.includes(role.name) ? prev : [...prev, role.name],
+        );
+        setShowSpecPicker(false);
+      } catch (e) {
+        setSpecImportError(e instanceof Error ? e.message : String(e));
+      } finally {
+        if (specFileRef.current) specFileRef.current.value = "";
+      }
+    },
+    [onLoadSpecialization],
+  );
 
   /** Effective skill list per dimension (base + custom, all overrides applied, disabled-Flag gesetzt). */
   const effectiveByDimension = useMemo(() => {
@@ -1397,14 +1496,43 @@ export function SkillInventory(props: Props) {
     return counts;
   }, [effectiveByDimension, showDisabled]);
 
+  /** Alle einzigartigen Quellen (department + geladene Spezialisierungen). */
+  const availableSources = useMemo(() => {
+    const sources = new Set<string>();
+    for (const list of Object.values(effectiveByDimension)) {
+      for (const s of list) {
+        sources.add(s.sourceLabel ?? department.name);
+      }
+    }
+    return Array.from(sources);
+  }, [effectiveByDimension, department.name]);
+
+  /** Skill-Anzahl pro Quelle (berücksichtigt showDisabled). */
+  const sourceCounts = useMemo(() => {
+    const counts: Record<string, number> = { all: 0 };
+    for (const list of Object.values(effectiveByDimension)) {
+      for (const s of list) {
+        if (s.disabled && !showDisabled) continue;
+        counts.all = (counts.all ?? 0) + 1;
+        const src = s.sourceLabel ?? department.name;
+        counts[src] = (counts[src] ?? 0) + 1;
+      }
+    }
+    return counts;
+  }, [effectiveByDimension, showDisabled, department.name]);
+
   const matchesFilter = useCallback(
     (skill: Skill): boolean => {
       if (skill.disabled && !showDisabled) return false;
+      if (sourceFilter !== "all") {
+        const effectiveSource = skill.sourceLabel ?? department.name;
+        if (effectiveSource !== sourceFilter) return false;
+      }
       if (trendFilter === "all") return true;
       if (trendFilter === "none") return !skill.trend;
       return skill.trend === trendFilter;
     },
-    [trendFilter, showDisabled],
+    [trendFilter, showDisabled, sourceFilter, department.name],
   );
 
   const handlePdfExport = useCallback(() => {
@@ -1414,6 +1542,37 @@ export function SkillInventory(props: Props) {
     }));
     exportSkillInventoryPdf(cats, department.name, currentGroup?.name ?? "", groupDrivers);
   }, [department, effectiveByDimension, currentGroup, groupDrivers]);
+
+  const [showCatalogPicker, setShowCatalogPicker] = useState(false);
+  const [catalogSelectedIds, setCatalogSelectedIds] = useState<Set<string>>(new Set());
+
+  const openCatalogPicker = useCallback(() => {
+    if (!currentGroup) return;
+    setCatalogSelectedIds(new Set(currentGroup.roles.map((r) => r.id)));
+    setShowCatalogPicker(true);
+  }, [currentGroup]);
+
+  const handleFullCatalogPdfExport = useCallback(() => {
+    if (!currentGroup) return;
+    const selected = Array.from(catalogSelectedIds);
+    exportFullGroupCatalogPdf(currentGroup, groupDrivers, selected);
+    setShowCatalogPicker(false);
+  }, [currentGroup, groupDrivers, catalogSelectedIds]);
+
+  const [showExcelPicker, setShowExcelPicker] = useState(false);
+  const [excelSelectedIds, setExcelSelectedIds] = useState<Set<string>>(new Set());
+
+  const openExcelPicker = useCallback(() => {
+    if (!currentGroup) return;
+    setExcelSelectedIds(new Set(currentGroup.roles.map((r) => r.id)));
+    setShowExcelPicker(true);
+  }, [currentGroup]);
+
+  const handleExcelExport = useCallback(() => {
+    if (!currentGroup) return;
+    exportGroupCatalogExcel(currentGroup, groupDrivers, Array.from(excelSelectedIds));
+    setShowExcelPicker(false);
+  }, [currentGroup, groupDrivers, excelSelectedIds]);
 
   const tabs: { id: TabId; label: string; count: number }[] = [
     { id: "skills", label: "Skills", count: activeSkillCount },
@@ -1427,18 +1586,252 @@ export function SkillInventory(props: Props) {
           <h2 className="text-xl font-bold text-slate-800">
             Skill-Inventur: {department.name}
           </h2>
-          <button
-            onClick={handlePdfExport}
-            className="flex shrink-0 items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
-            title="Alle Skills als PDF speichern (inklusive Steckbriefe und Verhaltensanker)"
-          >
-            <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
-              <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
-            </svg>
-            PDF
-          </button>
+          <div className="flex shrink-0 items-center gap-2">
+            <button
+              onClick={() => { setShowSpecPicker((v) => !v); setSpecImportError(null); }}
+              className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition ${showSpecPicker ? "border-slate-600 bg-slate-700 text-white" : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"}`}
+              title="Spezialisierungs-Katalog laden und Skills hinzufügen"
+            >
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 4v16m8-8H4" />
+              </svg>
+              Spezialisierung
+            </button>
+            {currentGroup && (
+              <>
+                <button
+                  onClick={openCatalogPicker}
+                  className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition ${showCatalogPicker ? "border-slate-600 bg-slate-700 text-white" : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"}`}
+                  title="Katalog-PDF für ausgewählte Rollen erstellen"
+                >
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Katalog-PDF
+                </button>
+                <button
+                  onClick={openExcelPicker}
+                  className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition ${showExcelPicker ? "border-slate-600 bg-slate-700 text-white" : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"}`}
+                  title="Skill-Katalog als Excel-Datei exportieren"
+                >
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M3 10h18M3 14h18M10 3v18M14 3v18M5 3h14a2 2 0 012 2v14a2 2 0 01-2 2H5a2 2 0 01-2-2V5a2 2 0 012-2z" />
+                  </svg>
+                  Excel
+                </button>
+              </>
+            )}
+            <button
+              onClick={handlePdfExport}
+              className="flex items-center gap-1.5 rounded-lg border border-slate-300 bg-white px-3 py-1.5 text-xs font-medium text-slate-700 transition hover:bg-slate-50"
+              title="Aktuelle Rolle als PDF speichern (inklusive Steckbriefe und Verhaltensanker)"
+            >
+              <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                <path strokeLinecap="round" strokeLinejoin="round" d="M12 10v6m0 0l-3-3m3 3l3-3M3 17V7a2 2 0 012-2h6l2 2h4a2 2 0 012 2v8a2 2 0 01-2 2H5a2 2 0 01-2-2z" />
+              </svg>
+              PDF
+            </button>
+          </div>
         </div>
-        <p className="mt-1 text-sm text-gray-500">
+
+        {/* Spezialisierungs-Picker */}
+        {showSpecPicker && (
+          <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="mb-3 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Spezialisierungs-Katalog laden
+            </p>
+            <p className="mb-3 text-xs text-gray-500">
+              Fügt die Skills einer oder mehrerer Rollen zur laufenden Inventur hinzu — ohne den bisherigen Fortschritt zurückzusetzen. Bereits vorhandene Skills werden übersprungen.
+            </p>
+            <div className="mb-3 flex flex-wrap gap-2">
+              {(specPickerGroup?.roles ?? []).map((r) => {
+                const active = specPickerRoleIds.has(r.id);
+                const alreadyLoaded = loadedSpecs.includes(r.name);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => !alreadyLoaded && toggleSpecRole(r.id)}
+                    disabled={alreadyLoaded}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      alreadyLoaded
+                        ? "cursor-default border-violet-200 bg-violet-50 text-violet-400"
+                        : active
+                          ? "border-slate-700 bg-slate-800 text-white"
+                          : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                    }`}
+                  >
+                    {alreadyLoaded ? `✓ ${r.name}` : r.name}
+                  </button>
+                );
+              })}
+              {customRoles.map((r) => {
+                const active = specPickerRoleIds.has(r.id);
+                const alreadyLoaded = loadedSpecs.includes(r.name);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => !alreadyLoaded && toggleSpecRole(r.id)}
+                    disabled={alreadyLoaded}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      alreadyLoaded
+                        ? "cursor-default border-violet-200 bg-violet-50 text-violet-400"
+                        : active
+                          ? "border-slate-700 bg-slate-800 text-white"
+                          : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                    }`}
+                  >
+                    {alreadyLoaded ? `✓ ${r.name}` : `${r.name} (importiert)`}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex flex-wrap items-end gap-3">
+              <button
+                onClick={handleApplySpec}
+                disabled={specPickerRoleIds.size === 0}
+                className="rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {specPickerRoleIds.size > 1 ? `${specPickerRoleIds.size} Rollen laden` : "Laden"}
+              </button>
+              <span className="text-xs text-gray-400 self-end pb-2">— oder —</span>
+              <label className="flex cursor-pointer items-center gap-1.5 self-end rounded-lg border border-slate-300 bg-white px-3 py-2 text-xs font-medium text-slate-700 transition hover:bg-slate-50">
+                <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                  <path strokeLinecap="round" strokeLinejoin="round" d="M4 16v1a3 3 0 003 3h10a3 3 0 003-3v-1m-4-8l-4-4m0 0L8 8m4-4v12" />
+                </svg>
+                JSON importieren
+                <input
+                  ref={specFileRef}
+                  type="file"
+                  accept=".json"
+                  className="sr-only"
+                  onChange={(e) => handleSpecFileImport(e.target.files?.[0])}
+                />
+              </label>
+            </div>
+            {specImportError && (
+              <p className="mt-2 text-xs text-red-600">{specImportError}</p>
+            )}
+          </div>
+        )}
+
+        {/* Katalog-PDF Rollenpicker */}
+        {showCatalogPicker && currentGroup && (
+          <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Katalog-PDF erstellen
+            </p>
+            <p className="mb-3 text-xs text-gray-500">
+              Wähle die Rollen, die im PDF enthalten sein sollen.
+            </p>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {currentGroup.roles.map((r) => {
+                const checked = catalogSelectedIds.has(r.id);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setCatalogSelectedIds((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(r.id)) next.delete(r.id); else next.add(r.id);
+                      return next;
+                    })}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      checked
+                        ? "border-slate-700 bg-slate-800 text-white"
+                        : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                    }`}
+                  >
+                    {checked ? `✓ ${r.name}` : r.name}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleFullCatalogPdfExport}
+                disabled={catalogSelectedIds.size === 0}
+                className="rounded-lg bg-slate-800 px-4 py-2 text-sm font-semibold text-white transition hover:bg-slate-700 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {catalogSelectedIds.size === currentGroup.roles.length
+                  ? "Gesamtkatalog als PDF"
+                  : `${catalogSelectedIds.size} ${catalogSelectedIds.size === 1 ? "Rolle" : "Rollen"} als PDF`}
+              </button>
+              <button
+                onClick={() => setShowCatalogPicker(false)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Abbrechen
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Excel Rollenpicker */}
+        {showExcelPicker && currentGroup && (
+          <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Excel-Export
+            </p>
+            <p className="mb-3 text-xs text-gray-500">
+              Wähle die Rollen, die in der Excel-Datei enthalten sein sollen. Markttreiber werden immer mit exportiert.
+            </p>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {currentGroup.roles.map((r) => {
+                const checked = excelSelectedIds.has(r.id);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setExcelSelectedIds((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(r.id)) next.delete(r.id); else next.add(r.id);
+                      return next;
+                    })}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      checked
+                        ? "border-emerald-700 bg-emerald-800 text-white"
+                        : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                    }`}
+                  >
+                    {checked ? `✓ ${r.name}` : r.name}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleExcelExport}
+                disabled={excelSelectedIds.size === 0}
+                className="rounded-lg bg-emerald-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-emerald-600 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {excelSelectedIds.size === currentGroup.roles.length
+                  ? "Gesamtkatalog als Excel"
+                  : `${excelSelectedIds.size} ${excelSelectedIds.size === 1 ? "Rolle" : "Rollen"} als Excel`}
+              </button>
+              <button
+                onClick={() => setShowExcelPicker(false)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Abbrechen
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Badge: geladene Spezialisierungen */}
+        {loadedSpecs.length > 0 && (
+          <div className="mt-2 flex flex-wrap items-center gap-2">
+            <span className="text-xs text-gray-400">Spezialisierungen:</span>
+            {loadedSpecs.map((name) => (
+              <span
+                key={name}
+                className="inline-flex items-center gap-1 rounded-full bg-violet-50 px-2.5 py-0.5 text-xs font-medium text-violet-700 ring-1 ring-violet-200"
+              >
+                ✓ {name}
+              </span>
+            ))}
+          </div>
+        )}
+
+        <p className="mt-2 text-sm text-gray-500">
           Alle Skills der Rolle in einem Tab — geordnet nach den 4 Dimensionen.
           Skills lassen sich vollstaendig redaktionell pflegen: umbenennen,
           deaktivieren, in andere Dimensionen verschieben, Steckbrief, Trend
@@ -1475,7 +1868,17 @@ export function SkillInventory(props: Props) {
                 : "border-transparent text-gray-500 hover:text-slate-700"
             }`}
           >
-            {t.label}
+            <span className="inline-flex items-center gap-1.5">
+              {t.label}
+              {t.id === "drivers" && (
+                <span className="group relative inline-block cursor-help">
+                  <span className="text-xs text-slate-400 group-hover:text-slate-600">ⓘ</span>
+                  <span className="pointer-events-none absolute left-0 top-full z-50 mt-1.5 w-80 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs font-normal leading-relaxed text-slate-600 shadow-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100">
+                    Markttreiber beschreiben externe Entwicklungen, die die Skill-Anforderungen verändern — also das <em>Warum</em> hinter dem Katalog. Sie erklären, warum Entwickler in 2–5 Jahren andere oder tiefere Kompetenzen brauchen: technologische Verschiebungen, regulatorische Anforderungen, Marktdynamiken und steigende Kundenerwartungen.
+                  </span>
+                </span>
+              )}
+            </span>
             <span className="ml-2 text-xs text-gray-400">({t.count})</span>
           </button>
         ))}
@@ -1484,6 +1887,40 @@ export function SkillInventory(props: Props) {
       {/* Skills tab — alle 4 Dimensionen in einem Bereich */}
       {activeTab === "skills" && (
         <div className="space-y-4">
+          {/* Quellen-Filter — nur sichtbar wenn Spezialisierungen geladen */}
+          {availableSources.length > 1 && (
+            <div className="rounded-xl border border-gray-200 bg-white px-4 py-3">
+              <div className="flex flex-wrap items-center gap-2">
+                <span className="shrink-0 text-xs font-semibold uppercase tracking-wide text-gray-400">
+                  Quelle:
+                </span>
+                <button
+                  onClick={() => setSourceFilter("all")}
+                  className={`rounded-full px-3 py-1 text-xs font-medium transition ${
+                    sourceFilter === "all"
+                      ? "bg-slate-800 text-white"
+                      : "bg-gray-100 text-gray-600 hover:bg-gray-200"
+                  }`}
+                >
+                  Alle ({sourceCounts.all ?? 0})
+                </button>
+                {availableSources.map((src) => (
+                  <button
+                    key={src}
+                    onClick={() => setSourceFilter(src === sourceFilter ? "all" : src)}
+                    className={`rounded-full px-3 py-1 text-xs font-medium transition ${
+                      sourceFilter === src
+                        ? "bg-violet-700 text-white"
+                        : "bg-violet-50 text-violet-700 hover:bg-violet-100"
+                    }`}
+                  >
+                    {src} ({sourceCounts[src] ?? 0})
+                  </button>
+                ))}
+              </div>
+            </div>
+          )}
+
           {/* Trend- + Disabled-Filter */}
           <div className="rounded-xl border border-gray-200 bg-white px-4 py-3">
             <TrendFilterBar
@@ -1579,6 +2016,7 @@ export function SkillInventory(props: Props) {
                 filterActive={trendFilter !== "all" || !showDisabled}
                 onAddSkill={(skill) => onAddCustomSkill(cat.name, skill)}
                 emptyText="Alle Skills in dieser Dimension wurden deaktiviert."
+                customLabel={department.name}
               />
             );
           })}
@@ -1591,7 +2029,7 @@ export function SkillInventory(props: Props) {
           group={currentGroup}
           drivers={groupDrivers}
           onSetDrivers={(next) => {
-            if (currentGroup) onSetGroupDrivers(currentGroup.id, next);
+            onSetGroupDrivers(currentGroup?.id ?? department.id, next);
           }}
         />
       )}

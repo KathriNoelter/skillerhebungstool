@@ -1,0 +1,189 @@
+{
+  "id": "sw-frontend-entwickler",
+  "name": "Frontend-Entwickler",
+  "description": "Spezialisierungs-Katalog für Frontend-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um rollenspezifische Skills für die Entwicklung moderner Web-UIs, Barrierefreiheit und performante Client-Anwendungen in regulierten Umgebungen.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "Moderne Web-Frameworks (React / Vue / Angular)",
+          "dep": "Evolving",
+          "description": "»Entwicklung komponentenbasierter Web-Anwendungen mit einem modernen JavaScript-Framework. Nicht gemeint: serverseitiges Rendering oder Backend-Entwicklung. Typische Tätigkeiten: Wiederverwendbare Komponenten entwerfen · State-Management implementieren · Framework-spezifische Patterns anwenden«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Technologieanpassungsfähigkeit als Kernkompetenz; komponentenbasierte Architekturen sind de-facto-Standard in Versicherungs-Portal-Projekten.",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt Grundkonzepte (Komponenten, Props, State) und implementiert einfache Komponenten nach Vorlage.",
+            "2": "Entwickelt eigenständig wiederverwendbare Komponenten und nutzt grundlegendes State-Management.",
+            "3": "Entwirft Komponentenarchitekturen für Features, wählt geeignete State-Management-Patterns und setzt Performance-Optimierungen um.",
+            "4": "Analysiert und refaktoriert bestehende Frontend-Architekturen, leitet Technologieentscheidungen ab und führt Framework-Upgrades durch.",
+            "5": "Entwickelt projektweite Frontend-Architekturstandards, evaluiert Framework-Alternativen und befähigt das Team in modernen Patterns."
+          }
+        },
+        {
+          "name": "HTML, CSS & Responsive Design",
+          "dep": "Durable",
+          "description": "»Semantisches HTML und modernes CSS für responsive, barrierefreie Web-Oberflächen. Nicht gemeint: Grafik-Design oder UX-Research. Typische Tätigkeiten: Semantische Markup-Struktur erstellen · CSS-Grid/Flexbox-Layouts implementieren · Responsiveness für verschiedene Breakpoints sicherstellen«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Zeitlose Grundlage aller Web-Entwicklung; Barrierefreiheitsanforderungen (WCAG, EU Accessibility Act 2025) steigern Relevanz semantischen HTMLs.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Schreibt einfaches HTML und CSS nach Vorlage und versteht Box-Modell und grundlegendes Layout.",
+            "2": "Erstellt responsive Layouts mit Flexbox oder Grid eigenständig und setzt vorgegebene Designs um.",
+            "3": "Entwickelt barrierefreie, performante UIs mit semantischem HTML, optimiert CSS-Architektur und sichert Cross-Browser-Kompatibilität.",
+            "4": "Analysiert bestehende UI-Codebasen auf Qualität und Barrierefreiheit, leitet Refactoring-Maßnahmen ab.",
+            "5": "Etabliert CSS-Architekturen (z. B. Design-Tokens, Component-Libraries) und Barrierefreiheits-Standards für das Projekt."
+          }
+        },
+        {
+          "name": "TypeScript im Frontend-Kontext",
+          "dep": "Evolving",
+          "description": "»Typsicheres Entwickeln von Frontend-Anwendungen mit TypeScript. Nicht gemeint: Backend-TypeScript oder Node.js-Entwicklung. Typische Tätigkeiten: Interfaces und Types für API-Responses definieren · Generics in Komponenten anwenden · Typfehler analysieren und beheben«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "TypeScript ist De-facto-Standard in professionellen Frontend-Projekten; Rump 2025 (S. 3): Fachkompetenz als Fundament zur Qualitätskontrolle auch von KI-generiertem Code.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Versteht TypeScript-Grundtypen und kann einfache Typ-Annotationen hinzufügen.",
+            "2": "Definiert Interfaces und Types für Komponentenprops und API-Daten eigenständig.",
+            "3": "Nutzt fortgeschrittene TypeScript-Features (Generics, Utility Types) und schreibt typsichere API-Integrationen.",
+            "4": "Analysiert Typ-Systeme komplexer Applikationen, optimiert Type-Safety und schult Kollegen.",
+            "5": "Entwirft Typ-Architekturen für Shared Libraries, etabliert Strict-Mode-Standards und führt Team-Reviews durch."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "API-Integration & Datenkommunikation",
+          "dep": "Evolving",
+          "description": "»Integration von Backend-APIs (REST, GraphQL) in Frontend-Anwendungen inkl. Fehler- und Ladestate-Behandlung. Nicht gemeint: API-Design oder Backend-Entwicklung. Typische Tätigkeiten: REST-Endpunkte konsumieren · Authentifizierungs-Flows integrieren · Fehlerbehandlung und Loading-States implementieren«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Kernaufgabe jeder Frontend-Entwicklung in Versicherungsportalen; DORA fordert sichere, nachvollziehbare Datenkommunikation.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Ruft einfache REST-Endpunkte ab und zeigt Daten in Komponenten an.",
+            "2": "Implementiert vollständige CRUD-Flows mit Fehlerbehandlung und Ladestate-Feedback.",
+            "3": "Integriert OAuth/JWT-Authentifizierung, behandelt API-Fehler robust und implementiert Caching-Strategien.",
+            "4": "Entwirft API-Integrationsschichten, wählt geeignete State-Management-Ansätze und optimiert Request-Performance.",
+            "5": "Entwickelt Mocking-Strategien für Frontend-Tests, definiert API-Vertragsstandards und befähigt das Team."
+          }
+        },
+        {
+          "name": "Frontend-Testing (Unit & E2E)",
+          "dep": "Evolving",
+          "description": "»Testen von Frontend-Komponenten und User Flows mit geeigneten Test-Frameworks. Nicht gemeint: Backend-Testing oder Performance-Testing. Typische Tätigkeiten: Komponenten-Unit-Tests schreiben · E2E-Tests für kritische User Flows erstellen · Test-Utilities und Mocks einsetzen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "DORA-Compliance erfordert nachweisbare Testprozesse für Kundenfrontends in regulierten Versicherungsanwendungen.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Schreibt einfache Snapshot-Tests nach Vorlage.",
+            "2": "Erstellt Unit-Tests für Komponenten und einfache Integration-Tests eigenständig.",
+            "3": "Entwirft Teststrategien für Features, schreibt E2E-Tests mit Tools wie Playwright und bewertet Testabdeckung.",
+            "4": "Etabliert Frontend-Testarchitektur, wählt geeignete Testing-Pyramide und integriert Tests in CI/CD.",
+            "5": "Entwickelt projektweite Frontend-Teststandards und Testinfrastruktur und befähigt das Team."
+          }
+        },
+        {
+          "name": "Performance-Optimierung & Web Vitals",
+          "dep": "Evolving",
+          "description": "»Analyse und Verbesserung der Ladezeiten und Laufzeitperformance von Web-Anwendungen. Nicht gemeint: Backend-Performance oder Datenbankoptimierung. Typische Tätigkeiten: Core Web Vitals messen · Bundle-Größe analysieren und reduzieren · Lazy Loading und Code-Splitting einsetzen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Versicherungs-Kundenportale werden an Core Web Vitals gemessen; WEF 2025 nennt nutzerzentrierte digitale Kompetenz als Wettbewerbsfaktor.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt Core Web Vitals-Metriken und kann Lighthouse-Berichte lesen.",
+            "2": "Identifiziert offensichtliche Performance-Probleme und setzt gängige Optimierungen (Lazy Loading, Image-Optimierung) um.",
+            "3": "Analysiert Bundle-Zusammensetzung, implementiert Code-Splitting und misst Optimierungserfolge nachvollziehbar.",
+            "4": "Entwirft Performance-Budgets, leitet Optimierungsstrategien für komplexe Applikationen ab und etabliert Monitoring.",
+            "5": "Entwickelt projektweite Performance-Strategien, führt Performance-Reviews durch und befähigt das Team."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Methodisch",
+      "skills": [
+        {
+          "name": "UI-Komponenten & Design-System-Nutzung",
+          "dep": "Evolving",
+          "description": "»Arbeiten mit einem Design-System oder Component-Library zur konsistenten UI-Entwicklung. Nicht gemeint: Design-System-Entwicklung oder UX-Design. Typische Tätigkeiten: Komponenten aus der Library korrekt einsetzen · Design-Tokens anwenden · Abweichungen mit UX-Team klären«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Design-Systeme sind Standard in Versicherungsportal-Projekten für Brand-Konsistenz; Rump 2025 (S. 7): Digitale Anwendungskompetenz umfasst den situationsgerechten Tool-Einsatz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Setzt vorgegebene Design-System-Komponenten nach Anleitung ein.",
+            "2": "Wählt eigenständig geeignete Komponenten aus der Library und wendet Design-Tokens korrekt an.",
+            "3": "Erweitert bestehende Komponenten, erkennt Design-Token-Konflikte und klärt diese mit dem UX-Team.",
+            "4": "Bewertet Design-System-Architekturen kritisch, schlägt Erweiterungen vor und führt Component-Reviews durch.",
+            "5": "Gestaltet das Design-System mit, definiert Komponentenstandards und schult das Team in der konsequenten Nutzung."
+          }
+        },
+        {
+          "name": "Barrierefreiheit (WCAG/Accessibility)",
+          "dep": "Durable",
+          "description": "»Umsetzung barrierefreier Web-Interfaces gemäß WCAG-Richtlinien und gesetzlicher Anforderungen. Nicht gemeint: UX-Research oder Nutzertests. Typische Tätigkeiten: Screenreader-Kompatibilität sicherstellen · ARIA-Attribute korrekt einsetzen · Kontraste und Tastaturnavigation prüfen«",
+          "targetLevel": 3,
+          "trend": "stark steigend",
+          "trendgrund": "EU Accessibility Act ab 2025 verpflichtend für Finanzdienstleister-Portale; Rump 2025 (S. 3): Fachkompetenz als Voraussetzung für die Umsetzung regulatorischer Anforderungen.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt WCAG-Grundprinzipien und prüft Farbkontraste mit einfachen Tools.",
+            "2": "Setzt ARIA-Attribute korrekt ein, sichert Tastaturnavigation und testet mit Screenreader-Tools.",
+            "3": "Führt WCAG-Audits für Features durch, behebt Accessibility-Mängel systematisch und dokumentiert Konformitätsniveau.",
+            "4": "Etabliert Accessibility-Checks in der CI-Pipeline, definiert Akzeptanzkriterien und befähigt Kollegen.",
+            "5": "Entwickelt projektweite Accessibility-Strategien, führt Schulungen durch und vertritt das Thema gegenüber Kunden."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": [
+        {
+          "name": "UX-Kollaboration & Anforderungsumsetzung",
+          "dep": "Durable",
+          "description": "»Enge Zusammenarbeit mit UX-Designern und Product Ownern zur präzisen Umsetzung von Designs und User-Journeys. Nicht gemeint: eigenständiges UX-Design. Typische Tätigkeiten: Designs auf technische Machbarkeit prüfen · Abweichungen transparent kommunizieren · Feedback aus Nutzertests in Umsetzung überführen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 5): Empathie und kollaborative Kompetenz als menschliche Stärke; WEF 2025: Kollaboration ist Top-Soft-Skill für 2030.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Setzt vorgegebene Designs nach Anleitung um und kommuniziert offene Fragen.",
+            "2": "Prüft Designs eigenständig auf technische Machbarkeit und kommuniziert Einschränkungen proaktiv.",
+            "3": "Nimmt aktiv an Design-Reviews teil, schlägt technisch machbare Alternativen vor und stimmt Kompromisse ab.",
+            "4": "Moderiert Design-Development-Abstimmungen, leitet praktikable Lösungen bei Zielkonflikten ab.",
+            "5": "Etabliert strukturierte Kollaborationsprozesse zwischen Design und Development und befähigt das Team."
+          }
+        }
+      ]
+    }
+  ]
+}

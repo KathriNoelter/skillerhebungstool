@@ -1,0 +1,112 @@
+{
+  "id": "sw-full-stack-entwickler",
+  "name": "Full-Stack-Entwickler",
+  "description": "Spezialisierungs-Katalog für Full-Stack-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um die spezifischen Kompetenzen für den integrierten Überblick über Frontend und Backend sowie die Fähigkeit, End-to-End-Features eigenständig zu implementieren.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "End-to-End-Feature-Entwicklung",
+          "dep": "Durable",
+          "description": "»Eigenständige Implementierung vollständiger Features vom Datenbankschema über Backend-API bis zur UI-Darstellung. Nicht gemeint: Infrastrukturbetrieb oder UX-Design. Typische Tätigkeiten: Feature-Architektur über alle Schichten planen · Datenbankmigrationen, API-Endpunkte und Frontend-Komponenten aufeinander abstimmen · End-to-End-Tests schreiben«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Analytisches Denken und Problemlösung über Systemgrenzen hinweg als Top-Kompetenz; Full-Stack-Kompetenz erhöht Flexibilität in kleinen Beratungsteams.",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Implementiert abgegrenzte Teilkomponenten einer gegebenen Schicht nach Vorlage.",
+            "2": "Entwickelt vollständige Features in einer Schicht eigenständig und stimmt Schnittstellen mit anderen Schichten ab.",
+            "3": "Plant und implementiert End-to-End-Features eigenständig, berücksichtigt Abhängigkeiten und sichert die Qualität über alle Schichten.",
+            "4": "Analysiert Systemschnitte schichtenübergreifend, identifiziert Optimierungspotenziale und leitet Architekturanpassungen ab.",
+            "5": "Entwickelt Standards für schichtenübergreifende Feature-Entwicklung und befähigt das Team zur eigenständigen End-to-End-Arbeit."
+          }
+        },
+        {
+          "name": "API-Design & -Integration (Full-Stack)",
+          "dep": "Evolving",
+          "description": "»Gestaltung und Nutzung von APIs aus der Perspektive beider Seiten (Produzent und Konsument). Nicht gemeint: API-Gateway-Betrieb. Typische Tätigkeiten: REST/GraphQL-APIs für Frontend-Anforderungen entwerfen · API-Vertragsänderungen koordinieren · Mocking und Stubbing für entkoppelte Entwicklung einsetzen«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Kernkompetenz der Full-Stack-Arbeit; DORA fordert nachvollziehbare Schnittstellen in Versicherungssystemen.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Nutzt vorhandene APIs nach Dokumentation und passt einfache Endpunkte an.",
+            "2": "Entwirft einfache REST-APIs mit Blick auf Frontend-Anforderungen und erstellt API-Dokumentation.",
+            "3": "Entwickelt API-Kontrakte aus Produzenten- und Konsumenten-Perspektive, koordiniert Breaking-Changes und setzt Mocking-Strategien ein.",
+            "4": "Bewertet API-Designentscheidungen schichtenübergreifend, leitet Versionierungsstrategien ab.",
+            "5": "Etabliert API-Design-Standards, entwickelt Contract-Testing-Strategien und befähigt Teams."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "Frontend-Grundkompetenz (React/Vue/Angular)",
+          "dep": "Evolving",
+          "description": "»Solide Grundkenntnisse in einem modernen Frontend-Framework für die UI-Seite von Full-Stack-Features. Nicht gemeint: Deep-Specialization im Frontend (Performance-Budgets, Design-Systeme). Typische Tätigkeiten: Funktionale Komponenten implementieren · State-Management für Features einsetzen · API-Responses in der UI darstellen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 7): Digitale Anwendungskompetenz; Full-Stack-Entwickler müssen beide Seiten handlungsfähig beherrschen.",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Setzt einfache Komponenten nach Vorlage um und versteht Props und State-Konzepte.",
+            "2": "Entwickelt funktionale Komponenten mit State-Management eigenständig und konsumiert Backend-APIs.",
+            "3": "Implementiert vollständige UI-Features, wählt geeignete State-Management-Patterns und behandelt Fehler- und Ladezustände.",
+            "4": "Entwirft Frontend-Architekturen für Features, optimiert Komponentenstruktur und führt Code-Reviews durch.",
+            "5": "Entwickelt und etabliert Frontend-Standards für Full-Stack-Teams und befähigt Kollegen."
+          }
+        },
+        {
+          "name": "Backend-Grundkompetenz (Framework & Datenbank)",
+          "dep": "Evolving",
+          "description": "»Solide Grundkenntnisse in Backend-Entwicklung und Datenbankarbeit für die Backend-Seite von Full-Stack-Features. Nicht gemeint: Deep-Specialization im Backend (DDD, Messaging). Typische Tätigkeiten: API-Endpunkte implementieren · Datenbankschemas und Migrationen erstellen · Geschäftslogik in Service-Schichten strukturieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 3): Fachkompetenz als unabdingbares Fundament; Full-Stack erfordert belastbare Backend-Kompetenz für eigenständige Feature-Entwicklung.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Implementiert einfache API-Endpunkte nach Vorlage und versteht SQL-Grundkonzepte.",
+            "2": "Entwickelt vollständige CRUD-APIs eigenständig, erstellt Datenbankmigrationen und wendet Schichtenarchitektur an.",
+            "3": "Modelliert Datenbankschemas für neue Domänen, implementiert Geschäftslogik in Service-Schichten und sichert APIs ab.",
+            "4": "Analysiert Backend-Architekturen, optimiert Datenbankabfragen und entwirft skalierbare Service-Strukturen.",
+            "5": "Etabliert Backend-Standards für Full-Stack-Teams und befähigt Kollegen zur eigenständigen Backend-Entwicklung."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": [
+        {
+          "name": "Technische Brückenfunktion im Team",
+          "dep": "Durable",
+          "description": "»Übersetzung zwischen Frontend- und Backend-Entwicklern sowie zwischen technischen und fachlichen Rollen. Nicht gemeint: Projektmanagement. Typische Tätigkeiten: Schnittstellendiskussionen moderieren · Technische Entscheidungen für verschiedene Zielgruppen kommunizieren · Wissenstransfer zwischen Spezialisten fördern«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz; Full-Stack-Entwickler als natürliche Brücke in cross-funktionalen Versicherungs-IT-Teams.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kommuniziert technische Sachverhalte auf Nachfrage klar für beide Seiten.",
+            "2": "Erklärt Schnittstellenentscheidungen proaktiv und vermittelt bei einfachen Missverständnissen.",
+            "3": "Moderiert technische Abstimmungen zwischen Spezialisten, fasst Ergebnisse strukturiert zusammen und sorgt für gemeinsames Verständnis.",
+            "4": "Übernimmt aktiv die Brückenfunktion in kritischen Architektur- und Anforderungsdiskussionen und leitet Kompromisse herbei.",
+            "5": "Entwickelt Kommunikationsstandards für cross-funktionale Entwicklungsteams und befähigt Kollegen."
+          }
+        }
+      ]
+    }
+  ]
+}

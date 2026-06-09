@@ -71,9 +71,11 @@ export function exportAssessmentTemplate(
     "Zuletzt geaendert",
   ]);
   for (const cat of categories) {
-    for (const skill of cat.skills) {
-      // ANF-18 (9): Deaktivierte Skills nicht in die Vorlage exportieren.
-      if (skill.disabled) continue;
+    const activeSkills = cat.skills.filter((s) => !s.disabled);
+    if (activeSkills.length === 0) continue;
+    // Category header row — spans col A, signals section start with skill count.
+    rows.push([`${cat.name} (${activeSkills.length} Skills)`, "", "", "", "", "", "", ""]);
+    for (const skill of activeSkills) {
       const model = evaluationModelFor(skill, cat.name);
       const labels = stageLabelsFor(model);
       const anchors = skill.anchors ?? {};

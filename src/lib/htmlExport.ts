@@ -27,6 +27,9 @@ interface AnchorEntry {
 interface SkillJsonEntry {
   id: string;
   name: string;
+  category: string;
+  dep: string;
+  source: string;
   anchors: AnchorEntry[];
 }
 
@@ -40,7 +43,6 @@ const CSS = `
 body{
   font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;
   background:var(--s100);color:var(--s800);line-height:1.5;font-size:15px;
-  padding-bottom:72px;
 }
 .site-header{background:var(--s800);color:#fff;box-shadow:0 2px 8px rgba(0,0,0,.2)}
 .header-inner{
@@ -49,6 +51,7 @@ body{
 }
 .header-title{font-size:17px;font-weight:700;letter-spacing:-.01em}
 .header-sub{font-size:13px;color:rgba(255,255,255,.55);margin-top:3px}
+.header-meta{font-size:11px;color:rgba(255,255,255,.35);margin-top:5px;letter-spacing:.01em}
 .participant-chip{
   font-size:13px;font-weight:600;
   background:rgba(255,255,255,.15);padding:4px 12px;
@@ -66,6 +69,12 @@ body{
   font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
   color:var(--s400);margin-bottom:12px;padding-bottom:10px;
   border-bottom:1.5px solid var(--s200);
+  display:flex;align-items:center;gap:8px;
+}
+.cat-count{
+  font-size:10px;font-weight:700;background:var(--s200);color:var(--s500);
+  border-radius:20px;padding:1px 7px;letter-spacing:0;text-transform:none;
+  flex-shrink:0;
 }
 .skill-card{
   background:#fff;border:1.5px solid var(--s200);border-radius:12px;
@@ -80,6 +89,9 @@ body{
 .badge-d{background:#d1fae5;color:#065f46}
 .badge-e{background:#dbeafe;color:#1e40af}
 .badge-p{background:#fef3c7;color:#92400e}
+.badge-core{background:#f1f5f9;color:#475569}
+.badge-spec{background:#ede9fe;color:#5b21b6}
+.skill-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
 .skill-desc{font-size:13px;color:var(--s500);line-height:1.65;margin-bottom:12px}
 .anchor-btn{
   display:inline-flex;align-items:center;gap:5px;background:none;border:none;
@@ -106,24 +118,57 @@ body{
 }
 .rb:hover{border-color:var(--s300);background:var(--s50)}
 .rb.sel{background:var(--s800);border-color:var(--s800);color:#fff}
-.save-bar{
-  position:fixed;bottom:0;left:0;right:0;background:#fff;
-  border-top:1px solid var(--s200);padding:12px 24px;
-  display:flex;align-items:center;justify-content:center;gap:20px;
-  z-index:100;box-shadow:0 -4px 16px rgba(0,0,0,.06);
+.action-bar{
+  background:#fff;border:1px solid var(--s200);border-radius:12px;
+  padding:14px 20px;margin-bottom:32px;
+  display:flex;align-items:center;flex-wrap:wrap;gap:12px;
 }
-.progress{font-size:13px;color:var(--s500);font-weight:500}
+.progress{font-size:13px;color:var(--s500);font-weight:500;margin-right:auto}
 .btn-save{
-  background:var(--s800);color:#fff;border:none;padding:11px 28px;
-  border-radius:8px;font-size:14px;font-weight:600;cursor:pointer;
+  background:var(--s800);color:#fff;border:none;padding:10px 22px;
+  border-radius:8px;font-size:13px;font-weight:600;cursor:pointer;
   transition:background .15s;font-family:inherit;
 }
 .btn-save:hover{background:var(--s700)}
+.btn-secondary{
+  background:#fff;color:var(--s700);border:1.5px solid var(--s300);
+  padding:9px 18px;border-radius:8px;font-size:13px;font-weight:500;cursor:pointer;
+  transition:background .15s,border-color .15s;font-family:inherit;
+}
+.btn-secondary:hover{background:var(--s50);border-color:var(--s400)}
 @media(max-width:640px){
   .header-inner{padding:14px 16px}
   .main{padding:20px 14px}
-  .save-bar{padding:10px 14px;gap:12px}
+  .action-bar{gap:8px}
   .rb{width:42px;height:40px;font-size:15px}
+}
+@media print{
+  @page{size:A4;margin:normal}
+  *{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+  body{background:#fff;font-size:11px;margin:0;padding:0}
+  .site-header{box-shadow:none;page-break-after:avoid;break-after:avoid}
+  .header-inner{padding:12px 16px}
+  .header-title{font-size:14px}
+  .header-sub{font-size:11px}
+  .header-meta{font-size:10px}
+  .main{padding:12px 16px}
+  .action-bar{display:none!important}
+  .instructions{display:none!important}
+  .anchor-btn{display:none!important}
+  .anchor-box{display:none!important}
+  .rating-btns{display:flex!important}
+  .rb{width:26px;height:24px;font-size:11px;border-width:1px;border-color:#cbd5e1;color:#94a3b8;border-radius:5px}
+  .rb.sel{background:#1e293b!important;border-color:#1e293b!important;color:#fff!important}
+  .rb:not(.sel){opacity:0.2}
+  .rating-status{font-size:10px;font-weight:600;color:#059669}
+  .rating-status:not(.ok){display:none}
+  .skill-card{break-inside:avoid;page-break-inside:avoid;border-color:#e2e8f0;margin-bottom:6px;padding:10px 14px}
+  .category{margin-bottom:16px}
+  .category-title{break-after:avoid;page-break-after:avoid}
+  .skill-name{font-size:12px}
+  .skill-desc{font-size:11px;margin-bottom:6px}
+  .badge{font-size:9px;padding:1px 6px}
+  .category-title{font-size:9px;margin-bottom:8px;padding-bottom:6px}
 }
 `;
 
@@ -136,11 +181,24 @@ export function exportAssessmentTemplateHtml(
   const skillEntries: SkillJsonEntry[] = [];
   let skillsHtml = "";
 
+  // Determine whether any specialization skills are present so we know
+  // whether to render source badges at all.
+  const hasSpecSkills = categories.some((cat) =>
+    cat.skills.some(
+      (s) => !s.disabled && s.sourceLabel && s.sourceLabel !== departmentName,
+    ),
+  );
+
+  // Build subtitle: departmentName + selected specialization names.
+  const specRoles = participant.specializationRoles ?? [];
+  const subtitleParts = [departmentName, ...specRoles];
+  const subtitle = subtitleParts.join(" · ");
+
   for (const cat of categories) {
     const activeSkills = cat.skills.filter((s) => !s.disabled);
     if (activeSkills.length === 0) continue;
 
-    skillsHtml += `<section class="category">\n<h2 class="category-title">${esc(cat.name)}</h2>\n`;
+    skillsHtml += `<section class="category">\n<h2 class="category-title">${esc(cat.name)}<span class="cat-count">${activeSkills.length}</span></h2>\n`;
 
     for (const skill of activeSkills) {
       const model = evaluationModelFor(skill, cat.name);
@@ -154,15 +212,32 @@ export function exportAssessmentTemplateHtml(
         text: rawAnchors[l] ?? "",
       }));
 
-      skillEntries.push({ id, name: skill.name, anchors });
+      const source =
+        skill.sourceLabel && skill.sourceLabel !== departmentName
+          ? skill.sourceLabel
+          : "Core";
+      skillEntries.push({ id, name: skill.name, category: cat.name, dep: skill.dep, source, anchors });
 
       const badgeClass =
         skill.dep === "Durable" ? "badge-d" : skill.dep === "Evolving" ? "badge-e" : "badge-p";
       const hasAnchors = anchors.some((a) => a.text);
 
+      // Source badge: "Core" (gray) or specialization name (violet).
+      const isSpec =
+        hasSpecSkills &&
+        skill.sourceLabel &&
+        skill.sourceLabel !== departmentName;
+      const sourceLabel = isSpec ? skill.sourceLabel! : "Core";
+      const sourceBadgeClass = isSpec ? "badge-spec" : "badge-core";
+
       skillsHtml += `<div class="skill-card">\n`;
       skillsHtml += `<div class="skill-header"><span class="skill-name">${esc(skill.name)}</span>`;
-      skillsHtml += `<span class="badge ${badgeClass}">${esc(skill.dep)}</span></div>\n`;
+      skillsHtml += `<div class="skill-badges">`;
+      if (hasSpecSkills) {
+        skillsHtml += `<span class="badge ${sourceBadgeClass}">${esc(sourceLabel)}</span>`;
+      }
+      skillsHtml += `<span class="badge ${badgeClass}">${esc(skill.dep)}</span>`;
+      skillsHtml += `</div></div>\n`;
 
       if (skill.description) {
         skillsHtml += `<p class="skill-desc">${esc(skill.description)}</p>\n`;
@@ -199,13 +274,16 @@ export function exportAssessmentTemplateHtml(
   const participantSafe = sanitizeFilename(participant.name);
   const roleSafe = sanitizeFilename(departmentName);
 
+  // JSON stored in a separate <script type="application/json"> tag so it
+  // cannot interfere with the JavaScript parser. Only </ needs escaping to
+  // prevent the HTML parser from treating it as a closing </script> tag.
   const surveyJson = JSON.stringify({
     teilnehmer: participant.name,
     teilnehmerSafe: participantSafe,
     rolle: departmentName,
     gruppe: groupName,
     skills: skillEntries,
-  }).replace(/<\/script>/gi, "<\\/script>");
+  }).replace(/<\//g, "<\/");
 
   const html = `<!DOCTYPE html>
 <html lang="de">
@@ -214,13 +292,15 @@ export function exportAssessmentTemplateHtml(
 <meta name="viewport" content="width=device-width, initial-scale=1.0">
 <title>Skill-Selbsteinschätzung — ${esc(departmentName)} — ${esc(participant.name)}</title>
 <style>${CSS}</style>
+<script src="https://cdn.sheetjs.com/xlsx-0.20.3/package/dist/xlsx.full.min.js"></script>
 </head>
 <body>
 <header class="site-header">
   <div class="header-inner">
     <div>
       <div class="header-title">Skill-Selbsteinschätzung</div>
-      <div class="header-sub">${esc(departmentName)}${groupName ? ` · ${esc(groupName)}` : ""}</div>
+      <div class="header-sub">${esc(subtitle)}</div>
+      <div class="header-meta">${total} Skills · ${categories.filter((c) => c.skills.some((s) => !s.disabled)).length} Kategorien</div>
     </div>
     <div>
       <div class="participant-chip">${esc(participant.name)}</div>
@@ -234,31 +314,38 @@ export function exportAssessmentTemplateHtml(
     Klicke auf die Zahl, die deinem aktuellen Stand entspricht — ein zweiter Klick hebt die Auswahl auf.
     Die Verhaltensanker je Skill helfen dir bei der Einordnung.
     Lasse Skills, die du nicht kennst oder nicht bewerten kannst, frei.
-    Klicke am Ende auf <strong>„Ergebnisse speichern"</strong> und schicke die Datei zurück.
+  </div>
+  <div class="action-bar">
+    <span class="progress" id="prog">0 / ${total} bewertet</span>
+    <button class="btn-secondary" onclick="exportPdf()">🖨 PDF</button>
+    <button class="btn-secondary" onclick="exportXlsx()">📊 Excel (.xlsx)</button>
+    <button class="btn-save" onclick="save()">💾 Ergebnisse speichern</button>
   </div>
   ${skillsHtml}
 </main>
-<div class="save-bar">
-  <span class="progress" id="prog">0 / ${total} bewertet</span>
-  <button class="btn-save" onclick="save()">Ergebnisse speichern ↓</button>
-</div>
+<script type="application/json" id="__sd">${surveyJson}</script>
 <script>
-const S = ${surveyJson};
+var S = JSON.parse(document.getElementById('__sd').textContent);
 
 function updateProg() {
-  const n = S.skills.filter(s => document.querySelector('[data-skill="'+s.id+'"].sel')).length;
+  var n = 0;
+  S.skills.forEach(function(s) {
+    if (document.querySelector('[data-skill="'+s.id+'"].sel')) n++;
+  });
   document.getElementById('prog').textContent = n + ' / ' + S.skills.length + ' bewertet';
 }
 
 function rate(skillId, level) {
-  const btn = document.querySelector('[data-skill="'+skillId+'"][data-level="'+level+'"]');
-  const was = btn.classList.contains('sel');
-  document.querySelectorAll('[data-skill="'+skillId+'"]').forEach(b => b.classList.remove('sel'));
-  const el = document.getElementById('rs-'+skillId);
+  var btn = document.querySelector('[data-skill="'+skillId+'"][data-level="'+level+'"]');
+  var was = btn.classList.contains('sel');
+  document.querySelectorAll('[data-skill="'+skillId+'"]').forEach(function(b) { b.classList.remove('sel'); });
+  var el = document.getElementById('rs-'+skillId);
   if (!was) {
     btn.classList.add('sel');
-    const sk = S.skills.find(s => s.id === skillId);
-    const anc = sk && sk.anchors.find(a => a.level === level);
+    var sk = null;
+    for (var i = 0; i < S.skills.length; i++) { if (S.skills[i].id === skillId) { sk = S.skills[i]; break; } }
+    var anc = null;
+    if (sk) { for (var j = 0; j < sk.anchors.length; j++) { if (sk.anchors[j].level === level) { anc = sk.anchors[j]; break; } } }
     el.textContent = 'Stufe ' + level + ' – ' + (anc ? anc.label : '');
     el.className = 'rating-status ok';
   } else {
@@ -269,43 +356,66 @@ function rate(skillId, level) {
 }
 
 function toggleAnchors(id) {
-  const box = document.getElementById('abox-'+id);
-  const icon = document.getElementById('aticon-'+id);
-  const btn = document.getElementById('atbtn-'+id);
-  const hidden = box.hasAttribute('hidden');
+  var box = document.getElementById('abox-'+id);
+  var icon = document.getElementById('aticon-'+id);
+  var btn = document.getElementById('atbtn-'+id);
+  var hidden = box.hasAttribute('hidden');
   if (hidden) {
     box.removeAttribute('hidden');
     icon.textContent = '▼';
     btn.childNodes[1].textContent = ' Verhaltensanker ausblenden';
   } else {
-    box.setAttribute('hidden','');
+    box.setAttribute('hidden', '');
     icon.textContent = '▶';
     btn.childNodes[1].textContent = ' Verhaltensanker anzeigen';
   }
 }
 
-function save() {
-  const ratings = {};
-  S.skills.forEach(sk => {
-    const sel = document.querySelector('[data-skill="'+sk.id+'"].sel');
-    if (sel) ratings[sk.name] = parseInt(sel.getAttribute('data-level'), 10);
-  });
-  const out = {
-    teilnehmer: S.teilnehmer,
-    rolle: S.rolle,
-    gruppe: S.gruppe,
-    datum: new Date().toISOString().slice(0,10),
-    bewertungen: ratings
-  };
-  const blob = new Blob([JSON.stringify(out, null, 2)], {type:'application/json'});
-  const url = URL.createObjectURL(blob);
-  const a = document.createElement('a');
-  a.href = url;
-  a.download = 'Selbsteinschaetzung_' + S.teilnehmerSafe + '_' + out.datum + '.json';
+function exportPdf() {
+  window.print();
+}
+
+function dl(filename, mime, content) {
+  var a = document.createElement('a');
+  a.setAttribute('href', 'data:' + mime + ',' + encodeURIComponent(content));
+  a.setAttribute('download', filename);
   document.body.appendChild(a);
   a.click();
   document.body.removeChild(a);
-  setTimeout(() => URL.revokeObjectURL(url), 0);
+}
+
+function exportXlsx() {
+  var date = new Date().toISOString().slice(0, 10);
+  var rows = [['Teilnehmer','Rolle','Datum','Kategorie','Quelle','Skill','Haltbarkeit','Bewertung (1-5)']];
+  for (var i = 0; i < S.skills.length; i++) {
+    var sk = S.skills[i];
+    var sel = document.querySelector('[data-skill="'+sk.id+'"].sel');
+    var level = sel ? parseInt(sel.getAttribute('data-level'), 10) : '';
+    rows.push([S.teilnehmer, S.rolle, date, sk.category, sk.source, sk.name, sk.dep, level]);
+  }
+  var wb = XLSX.utils.book_new();
+  var ws = XLSX.utils.aoa_to_sheet(rows);
+  ws['!cols'] = [{wch:20},{wch:22},{wch:12},{wch:25},{wch:22},{wch:40},{wch:12},{wch:15}];
+  XLSX.utils.book_append_sheet(wb, ws, 'Selbsteinschaetzung');
+  XLSX.writeFile(wb, 'Selbsteinschaetzung_'+S.teilnehmerSafe+'_'+date+'.xlsx');
+}
+
+function save() {
+  var ratings = {};
+  for (var i = 0; i < S.skills.length; i++) {
+    var sk = S.skills[i];
+    var sel = document.querySelector('[data-skill="'+sk.id+'"].sel');
+    if (sel) ratings[sk.name] = parseInt(sel.getAttribute('data-level'), 10);
+  }
+  var out = {
+    teilnehmer: S.teilnehmer,
+    rolle: S.rolle,
+    gruppe: S.gruppe,
+    datum: new Date().toISOString().slice(0, 10),
+    bewertungen: ratings
+  };
+  dl('Selbsteinschaetzung_'+S.teilnehmerSafe+'_'+out.datum+'.json',
+     'application/json', JSON.stringify(out, null, 2));
 }
 </script>
 </body>

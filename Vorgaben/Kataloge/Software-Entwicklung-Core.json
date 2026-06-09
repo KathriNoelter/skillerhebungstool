@@ -1,0 +1,315 @@
+{
+  "id": "sw-software-entwicklung-core",
+  "name": "Software-Entwicklung Core",
+  "description": "Gemeinsame Kernkompetenzen aller Software-Entwicklungsrollen im IT-Beratungshaus. Dieser Katalog deckt die skills ab, die unabhängig von der Spezialisierung für alle Entwicklerinnen und Entwickler in Versicherungs- und Finanz-IT-Projekten gelten. Er ist als Basis für Gruppenauswertungen konzipiert und wird durch rollenspezifische Spezialisierungs-Kataloge ergänzt.",
+  "categories": [
+    {
+      "name": "Fachkompetenz",
+      "skills": [
+        {
+          "name": "Softwarequalität & Clean Code",
+          "dep": "Durable",
+          "description": "»Schreiben von wartbarem, verständlichem und testbarem Code nach anerkannten Prinzipien (SOLID, DRY, KISS). Nicht gemeint: spezifische Frameworks oder Sprachen. Typische Tätigkeiten: Code Reviews durchführen · Refactoring-Maßnahmen ableiten · Coding-Standards im Team etablieren«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Analytisches Denken bleibt Top-Kompetenz; saubere Code-Basis ist Voraussetzung zur kritischen KI-Code-Kontrolle (Rump 2025, S. 3 – Fachkompetenz als Fundament für KI-Evaluation).",
+          "keySkill": true,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt grundlegende Prinzipien wie DRY und KISS, wendet sie aber nur auf explizite Anweisung an.",
+            "2": "Schreibt verständlichen Code und befolgt vorhandene Team-Konventionen selbstständig.",
+            "3": "Erkennt Code-Smells, leitet eigenständig Refactoring-Maßnahmen ab und begründet diese gegenüber Kollegen.",
+            "4": "Analysiert bestehende Codebases systematisch, priorisiert Qualitätsmaßnahmen nach Risiko und führt Reviews methodisch durch.",
+            "5": "Etabliert Qualitätsstandards und Coding-Guidelines für das gesamte Projekt oder die Abteilung und entwickelt sie kontinuierlich weiter."
+          }
+        },
+        {
+          "name": "Testing & Qualitätssicherung",
+          "dep": "Durable",
+          "description": "»Planung und Durchführung von Unit-, Integrations- und Regressionstests zur Absicherung von Softwarequalität. Nicht gemeint: spezialisiertes Performance- oder Security-Testing. Typische Tätigkeiten: Unit-Tests schreiben · Testabdeckung messen und interpretieren · Fehler reproduzierbar dokumentieren«",
+          "targetLevel": 4,
+          "trend": "steigend",
+          "trendgrund": "DORA-Anforderungen 2025 verlangen nachweisbare Testprozesse für kritische IT-Systeme in Versicherungen; WEF 2025 nennt Qualitätssicherung als zunehmend bedeutsam.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Führt vorgegebene Testfälle aus und dokumentiert Ergebnisse nach Anleitung.",
+            "2": "Schreibt eigenständig Unit-Tests für überschaubare Komponenten und interpretiert Testergebnisse.",
+            "3": "Entwirft Teststrategien für Features, wählt geeignete Testarten und bewertet Testabdeckung kritisch.",
+            "4": "Analysiert Testlücken systematisch, leitet Maßnahmen zur Qualitätssteigerung ab und führt Reviews von Testkonzepten durch.",
+            "5": "Entwickelt projektweite Teststrategien, etabliert Qualitätsgates in der Pipeline und gibt Teststrategie-Richtlinien für das Team vor."
+          }
+        },
+        {
+          "name": "Versionskontrolle & Kollaborationsprozesse",
+          "dep": "Evolving",
+          "description": "»Nutzung von Git und Branching-Workflows zur kollaborativen Softwareentwicklung. Nicht gemeint: Administration von Git-Servern oder CI/CD-Infrastruktur. Typische Tätigkeiten: Feature-Branches anlegen und mergen · Pull Requests erstellen und reviewen · Konflikte auflösen«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Grundlegende Arbeitspraktik für alle Entwicklungsrollen; WEF 2025 betont Kollaborationsfähigkeit als Kernkompetenz auch im KI-Zeitalter.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Klont Repositories, erstellt Commits und kennt grundlegende Git-Befehle.",
+            "2": "Arbeitet mit Feature-Branches, erstellt Pull Requests und löst einfache Merge-Konflikte.",
+            "3": "Wendet definierte Branching-Strategien (z. B. GitFlow, Trunk-Based) an und führt qualifizierte Code-Reviews durch.",
+            "4": "Analysiert Workflow-Probleme im Team und leitet Prozessverbesserungen bei Branching und Review-Prozessen ab.",
+            "5": "Entwirft und etabliert projektweite Git-Workflows, führt das Team in Best Practices ein und entwickelt Standards weiter."
+          }
+        },
+        {
+          "name": "Security-Grundlagen (Secure Coding)",
+          "dep": "Evolving",
+          "description": "»Kenntnis und Anwendung grundlegender Sicherheitsprinzipien bei der Softwareentwicklung (OWASP Top 10, Input-Validierung, Secrets-Management). Nicht gemeint: Penetrationstests oder Betrieb von Sicherheitsinfrastruktur. Typische Tätigkeiten: Code auf häufige Schwachstellen prüfen · Secrets sicher verwalten · Sicherheitsanforderungen in User Stories einarbeiten«",
+          "targetLevel": 3,
+          "trend": "stark steigend",
+          "trendgrund": "NIS2-Richtlinie (2025) verpflichtet Versicherungs-IT zu Secure-by-Design; DORA fordert IT-Sicherheitskompetenzen auf Entwicklerebene; EU AI Act verlangt Sicherheitsnachweise für KI-gestützte Systeme.",
+          "keySkill": false,
+          "bewertungsmodell": "Bloom",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt die OWASP Top 10 und kann gängige Schwachstellenkategorien benennen.",
+            "2": "Vermeidet bekannte Sicherheitsfehler (SQL Injection, XSS) eigenständig beim Coden und behandelt Secrets korrekt.",
+            "3": "Prüft Code systematisch auf Sicherheitslücken, bindet Sicherheitsanforderungen in den Entwicklungsprozess ein.",
+            "4": "Analysiert Sicherheitsarchitektur von Systemen, identifiziert Designschwächen und erarbeitet Gegenmaßnahmen.",
+            "5": "Etabliert Secure-Coding-Standards und Sicherheits-Review-Prozesse für das Projektteam und befähigt Kollegen darin."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Handwerklich-Technisch",
+      "skills": [
+        {
+          "name": "CI/CD & Build-Automatisierung",
+          "dep": "Evolving",
+          "description": "»Nutzung und Pflege von Continuous-Integration- und Continuous-Delivery-Pipelines zur automatisierten Qualitätssicherung und Auslieferung. Nicht gemeint: Design der Infrastruktur oder Betrieb der Pipeline-Plattform. Typische Tätigkeiten: Pipeline-Konfiguration anpassen · Build-Fehler analysieren und beheben · Deployment-Prozesse beobachten und eskalieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "DORA-Compliance erfordert nachvollziehbare, automatisierte Deployment-Prozesse; WEF 2025 nennt Technologiekompetenz als zentralen Faktor (Rump 2025, S. 7 – Digitale Anwendungskompetenz).",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Führt bestehende Pipelines aus und erkennt einfache Build-Fehler anhand von Log-Ausgaben.",
+            "2": "Passt Pipeline-Konfigurationen (z. B. YAML-Dateien) nach Vorlage an und behebt häufige Build-Probleme.",
+            "3": "Konfiguriert neue Stages (Test, Lint, Deploy) eigenständig und optimiert bestehende Pipelines hinsichtlich Laufzeit und Zuverlässigkeit.",
+            "4": "Entwirft Pipeline-Strukturen für neue Projekte, wählt geeignete Tools und etabliert Deployment-Standards.",
+            "5": "Definiert projektübergreifende CI/CD-Strategien, führt Evaluierungen neuer Tooling-Optionen durch und befähigt Teams."
+          }
+        },
+        {
+          "name": "Lokale Entwicklungsumgebungen & Docker",
+          "dep": "Evolving",
+          "description": "»Aufsetzen und Pflegen einer vollständigen lokalen Entwicklungsumgebung mit allen Systembestandteilen. Nicht gemeint: Produktionsbetrieb von Containern oder Kubernetes. Typische Tätigkeiten: Docker-Compose-Setups pflegen · Lokale Datenbank- und Service-Instanzen betreiben · Onboarding-Setup dokumentieren«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Grundlegende Dev-Produktivitätskompetenz für alle Entwicklerrollen; Rump 2025 (S. 7): Digitale Anwendungskompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-19",
+          "anchors": {
+            "1": "Startet vorhandene Docker-Compose-Setups und behebt einfache Container-Probleme nach Anleitung.",
+            "2": "Konfiguriert und erweitert Docker-Compose-Setups eigenständig und richtet lokale Entwicklungsumgebungen ein.",
+            "3": "Entwirft Docker-Compose-Setups für neue Projekte, optimiert Start-Zeiten und dokumentiert das Setup.",
+            "4": "Bewertet Containerisierungsstrategien für Entwicklungsumgebungen und etabliert Standards.",
+            "5": "Entwickelt projektweite Dev-Environment-Standards und Onboarding-Setups und befähigt das Team."
+          }
+        },
+        {
+          "name": "Cloud-Grundlagen (IaaS/PaaS)",
+          "dep": "Evolving",
+          "description": "»Grundlegendes Verständnis von Cloud-Diensten (AWS, Azure oder GCP) für Entwicklung und Betrieb von Software. Nicht gemeint: Infrastrukturdesign oder Cloud-Administration. Typische Tätigkeiten: Container-Dienste nutzen · Managed Services für Datenbanken und Messaging einsetzen · Kosten- und Ressourcenverbrauch beobachten«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Versicherungs-IT-Projekte migrieren zunehmend in die Cloud (Azure-first in vielen Häusern); WEF 2025 und DORA nennen Cloud-Resilienz als Anforderung.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt grundlegende Cloud-Konzepte (IaaS, PaaS, SaaS) und kann bestehende Cloud-Ressourcen identifizieren.",
+            "2": "Nutzt bereitgestellte Cloud-Dienste (z. B. S3, App Service) eigenständig und versteht Zugriffskonzepte (IAM).",
+            "3": "Wählt geeignete Managed Services für typische Anforderungen aus und konfiguriert Deployment-Umgebungen.",
+            "4": "Entwirft Cloud-Architekturen für Applikationen unter Berücksichtigung von Kosten, Resilienz und Sicherheit.",
+            "5": "Definiert Cloud-Strategien für Projekte, evaluiert neue Dienste und etabliert Governance-Richtlinien."
+          }
+        },
+        {
+          "name": "Debugging & Fehlerdiagnose",
+          "dep": "Durable",
+          "description": "»Systematisches Identifizieren, Analysieren und Beheben von Softwarefehlern in Entwicklungs- und Produktionsumgebungen. Nicht gemeint: Betrieb von Monitoring-Infrastruktur. Typische Tätigkeiten: Fehler in Logs und Stack-Traces lokalisieren · Debugging-Tools einsetzen · Reproduzierbare Fehlerbeschreibungen erstellen«",
+          "targetLevel": 4,
+          "trend": "stabil",
+          "trendgrund": "Zeitlose Entwicklerkernkompetenz; Rump 2025 (S. 3): Fachkompetenz als Voraussetzung zur kritischen Kontrolle auch von KI-generiertem Code.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Nutzt einfache Print-Statements oder Log-Ausgaben zur Fehlersuche und folgt Anweisungen bei der Diagnose.",
+            "2": "Setzt Debugger und Log-Analyse eigenständig ein und lokalisiert einfache Fehler ohne Unterstützung.",
+            "3": "Analysiert komplexe Fehler systematisch (Hypothesen aufstellen, isolieren, verifizieren) und dokumentiert Ursachen nachvollziehbar.",
+            "4": "Diagnostiziert systemübergreifende Fehler unter Zeitdruck, leitet nachhaltige Fixes ab und verhindert Regressionsfehler.",
+            "5": "Führt Root-Cause-Analysen für kritische Produktionsvorfälle durch, leitet strukturelle Verbesserungen ab und gibt Wissen systematisch weiter."
+          }
+        },
+        {
+          "name": "KI-Werkzeuge in der Entwicklung",
+          "dep": "Evolving",
+          "description": "»Gezielter und kritisch-reflektierter Einsatz von KI-Assistenten (z. B. GitHub Copilot, Claude) zur Produktivitätssteigerung bei Coding, Testing und Dokumentation. Nicht gemeint: KI-Systemarchitektur oder ML-Modellentwicklung. Typische Tätigkeiten: KI-generierte Codevorschläge evaluieren und anpassen · Prompts für Testgenerierung formulieren · Ergebnisse kritisch prüfen«",
+          "targetLevel": 3,
+          "trend": "stark steigend",
+          "trendgrund": "WEF Future of Jobs 2025: KI-Literacy unter den Top-Kompetenzen; Rump 2025 (S. 7): Digitale Anwendungskompetenz und kritische KI-Evaluation als Kernkompetenz; EU AI Act verlangt Transparenz beim KI-Einsatz in Finanzanwendungen.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kennt KI-Coding-Assistenten und nutzt einfache Code-Vervollständigungsvorschläge.",
+            "2": "Formuliert gezielte Prompts für KI-Tools und prüft Ergebnisse auf Korrektheit vor der Übernahme.",
+            "3": "Setzt KI-Assistenten systematisch für Testgenerierung, Dokumentation und Code-Reviews ein und erkennt typische Fehler und Halluzinationen.",
+            "4": "Optimiert den KI-Einsatz im eigenen Workflow, bewertet neue Tools und gibt Best Practices im Team weiter.",
+            "5": "Entwickelt Team-Guidelines für den verantwortungsvollen KI-Einsatz, beobachtet regulatorische Entwicklungen und passt Workflows an."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Methodisch",
+      "skills": [
+        {
+          "name": "Agile Entwicklungspraktiken",
+          "dep": "Durable",
+          "description": "»Anwendung agiler Methoden (Scrum, Kanban) im Projektalltag. Nicht gemeint: Agile Coaching oder Skalierungsframeworks (SAFe). Typische Tätigkeiten: Sprint Planning und Reviews aktiv mitgestalten · User Stories schätzen · Impediments eigenständig ansprechen«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Etablierter Standard in der Versicherungs-IT-Beratung; WEF 2025 nennt adaptives Arbeiten als dauerhaft relevante Kompetenz.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Nimmt an Scrum-Events teil und kennt die grundlegenden Rollen und Artefakte.",
+            "2": "Gestaltet Sprint-Events aktiv mit, schätzt User Stories eigenständig und kommuniziert Impediments frühzeitig.",
+            "3": "Verbessert Teamprozesse proaktiv, schlägt Anpassungen an Arbeitsabläufen vor und moderiert bei Bedarf Retrospektiven.",
+            "4": "Begleitet Teams bei der Einführung agiler Praktiken, erkennt Dysfunction-Muster und leitet Verbesserungsmaßnahmen ein.",
+            "5": "Etabliert agile Prozesse in Kundenprojekten, coacht Stakeholder zu agilen Werten und entwickelt Tailoring-Konzepte."
+          }
+        },
+        {
+          "name": "Anforderungsverständnis & technische Umsetzung",
+          "dep": "Durable",
+          "description": "»Übersetzung fachlicher Anforderungen (User Stories, Akzeptanzkriterien) in technische Lösungskonzepte. Nicht gemeint: Anforderungserhebung oder BA-Tätigkeiten. Typische Tätigkeiten: Akzeptanzkriterien auf Vollständigkeit prüfen · Rückfragen gezielt stellen · Technische Umsetzungsoptionen vergleichen«",
+          "targetLevel": 3,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 3–4): Verbalisierungs- und Strukturierungskompetenz als metakognitive Kernkompetenz – Entwickler müssen Anforderungen eigenständig durchdringen und strukturieren.",
+          "keySkill": true,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Implementiert vorgegebene Anforderungen nach Anweisung und meldet Unklarheiten.",
+            "2": "Liest User Stories eigenständig, stellt gezielte Rückfragen und leitet eine Lösung ab.",
+            "3": "Erkennt Lücken und Widersprüche in Anforderungen, schlägt Alternativen vor und strukturiert die Umsetzung eigenständig.",
+            "4": "Durchdringt komplexe fachliche Domänen, leitet technische Konzepte ab und stimmt diese mit Fachbereichen ab.",
+            "5": "Entwickelt Methoden zur systematischen Anforderungsanalyse im Team und befähigt Kollegen zur fachlich-technischen Brückenfunktion."
+          }
+        },
+        {
+          "name": "Dokumentation & Wissenstransfer",
+          "dep": "Durable",
+          "description": "»Erstellen verständlicher technischer Dokumentation für Code, Architekturen und Prozesse. Nicht gemeint: fachliche Spezifikationen oder Projektberichte. Typische Tätigkeiten: README und API-Dokumentation pflegen · Architekturentscheidungen (ADRs) festhalten · Onboarding-Materialien erstellen«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 4): Risiko kognitiver Entwöhnung durch KI – eigenständige Strukturierung und Dokumentation bleibt essenziell; DORA verlangt nachvollziehbare IT-Prozesse.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Pflegt vorhandene Dokumentationsvorlagen nach Anweisung.",
+            "2": "Schreibt eigenständige README-Dateien und kommentiert Code verständlich.",
+            "3": "Erstellt vollständige API-Dokumentationen, Architecture Decision Records und Onboarding-Guides.",
+            "4": "Etabliert Dokumentationsstandards im Team, reviewt Dokumentationen anderer und sorgt für Aktualität.",
+            "5": "Entwickelt projektweite Dokumentationskonzepte, wählt geeignete Tools und etabliert Wissenstransfer-Prozesse."
+          }
+        },
+        {
+          "name": "Lernfähigkeit & technische Weiterentwicklung",
+          "dep": "Durable",
+          "description": "»Eigenverantwortliches Erschließen neuer Technologien, Tools und Methoden. Nicht gemeint: formale Weiterbildung oder Zertifizierungsmanagement. Typische Tätigkeiten: Neue Bibliotheken und Frameworks eigenständig evaluieren · Proof-of-Concepts umsetzen · Community-Ressourcen (Docs, RFC, Konferenzen) nutzen«",
+          "targetLevel": 3,
+          "trend": "stark steigend",
+          "trendgrund": "WEF Future of Jobs 2025: Lernfähigkeit unter den Top-5-Kompetenzen; Rump 2025 (S. 5): Lernfähigkeit als kritisches Kompetenzfeld im KI-Wandel.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Folgt vorgegebenen Lernpfaden und Tutorials und setzt neue Kenntnisse unter Anleitung ein.",
+            "2": "Erschließt neue Technologien eigenständig über Dokumentation und Tutorials und teilt Erkenntnisse im Team.",
+            "3": "Evaluiert neue Tools und Frameworks anhand von Projektanforderungen und leitet Empfehlungen ab.",
+            "4": "Initiiert Proof-of-Concepts für neue Technologien, bewertet strategische Relevanz und treibt Adoption im Team.",
+            "5": "Entwickelt Lernstrategien für das Team, beobachtet Technologietrends systematisch und positioniert das Team als Early Adopter."
+          }
+        }
+      ]
+    },
+    {
+      "name": "Kommunikation",
+      "skills": [
+        {
+          "name": "Teamkommunikation & Feedback",
+          "dep": "Durable",
+          "description": "»Klare, respektvolle Kommunikation im Entwicklungsteam und mit angrenzenden Rollen (BA, QA, PO). Nicht gemeint: Kundenpräsentationen oder Stakeholder-Management. Typische Tätigkeiten: Sachverhalte präzise schriftlich und mündlich darstellen · Konstruktives Feedback geben und empfangen · Blockaden frühzeitig kommunizieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 5–6): Empathie und soziale Kompetenz als dauerhaft menschliche Stärke; WEF 2025 nennt Kommunikation als Top-Kompetenz für alle Berufsfelder.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Kommuniziert Sachverhalte auf direkte Nachfrage klar und hält sich an teamübliche Kommunikationskanäle.",
+            "2": "Gibt konstruktives Feedback in Code Reviews und spricht Probleme im Team proaktiv an.",
+            "3": "Moderiert technische Diskussionen sachlich, vermittelt zwischen unterschiedlichen Positionen und fasst Ergebnisse strukturiert zusammen.",
+            "4": "Etabliert eine offene Feedbackkultur im Team, begleitet Konflikte konstruktiv und kommuniziert technische Sachverhalte adäquat für verschiedene Zielgruppen.",
+            "5": "Entwickelt Kommunikationsstandards für das Team, mentort Kollegen in Gesprächsführung und repräsentiert das Team in crossfunktionalen Runden."
+          }
+        },
+        {
+          "name": "Eigenverantwortung & Selbstorganisation",
+          "dep": "Durable",
+          "description": "»Zuverlässige, eigenständige Bearbeitung von Aufgaben im Projektkontext ohne permanente Kontrolle. Nicht gemeint: Projektmanagement oder Ressourcenplanung. Typische Tätigkeiten: Eigenen Task-Fortschritt transparent halten · Risiken frühzeitig eskalieren · Arbeitspakete selbst strukturieren«",
+          "targetLevel": 3,
+          "trend": "steigend",
+          "trendgrund": "Rump 2025 (S. 6): Optimismus und Frustrationstoleranz als Resilienzkompetenzen im Wandel; WEF 2025: Self-Management unter den Top-Kompetenzen für 2030.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-13",
+          "anchors": {
+            "1": "Bearbeitet klar definierte Aufgaben zuverlässig und meldet sich bei Unklarheiten.",
+            "2": "Strukturiert eigene Arbeitspakete, hält den Taskstatus transparent und eskaliert Blockaden frühzeitig.",
+            "3": "Plant eigenständig Sprint-Aufgaben unter Berücksichtigung von Abhängigkeiten, schätzt realistisch und passt Prioritäten an.",
+            "4": "Übernimmt Verantwortung für Deliverables jenseits eigener Aufgaben, koordiniert Abhängigkeiten zu anderen Teams und hält Zusagen zuverlässig.",
+            "5": "Befähigt andere zu eigenverantwortlichem Arbeiten, entwickelt Selbstorganisationsstrukturen im Team und ist Vorbild für Verlässlichkeit."
+          }
+        },
+        {
+          "name": "Technische Anforderungsklärung mit Fachbereichen",
+          "dep": "Durable",
+          "description": "»Aktive Klärung und Präzisierung fachlicher Anforderungen mit Kunden, Business Analysten und Product Ownern. Nicht gemeint: eigenständige Anforderungserhebung. Typische Tätigkeiten: Datenschnittstellen und Datenqualitätsanforderungen klären · Technische Constraints verständlich kommunizieren · Edge Cases gemeinsam definieren«",
+          "targetLevel": 5,
+          "trend": "stabil",
+          "trendgrund": "Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz als metakognitive Kernkompetenz; Kernkompetenz für alle Entwicklerrollen in der Versicherungs- und Finanz-IT-Beratung.",
+          "keySkill": false,
+          "bewertungsmodell": "Dreyfus",
+          "lastModified": "2026-05-19",
+          "anchors": {
+            "1": "Meldet Unklarheiten bei der Implementierung und stellt Rückfragen auf Nachfrage.",
+            "2": "Klärt Datenschnittstellenanforderungen eigenständig und dokumentiert Ergebnisse.",
+            "3": "Führt strukturierte Klärungsgespräche, erkennt widersprüchliche Anforderungen und moderiert Lösungsfindung.",
+            "4": "Übersetzt komplexe technische Constraints verständlich in Fachsprache und leitet gemeinsam priorisierte Lösungen ab.",
+            "5": "Versteht technische Constraints über Systemgrenzen hinweg und koordiniert priorisierte Lösungen Stakeholder-übergreifend."
+          }
+        }
+      ]
+    }
+  ]
+}

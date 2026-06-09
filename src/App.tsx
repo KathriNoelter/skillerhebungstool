@@ -1,4 +1,4 @@
-import { useState, useCallback, useEffect, useMemo } from "react";
+import { useState, useCallback, useEffect, useMemo, useRef } from "react";
 import type {
   Department,
   Group,
@@ -12,8 +12,9 @@ import type {
   RelevanceTrend,
   MarketDriver,
   EvaluationModel,
+  Role,
 } from "./types";
-import { groups } from "./data/groups";
+import { groups, CATALOG_VERSION } from "./data/groups";
 import { Stepper } from "./components/Stepper";
 import { DepartmentSelect } from "./components/DepartmentSelect";
 import { SkillInventory } from "./components/SkillInventory";
@@ -83,67 +84,128 @@ function todayISO(): string {
   return new Date().toISOString().slice(0, 10);
 }
 
+// ---- Session persistence ----
+
+const STORAGE_KEY = "skillworkshop_session";
+
+interface PersistedSession {
+  catalogVersion?: string;
+  departmentId?: string | null;
+  step?: number;
+  participants?: Participant[];
+  marketDriversByGroup?: Record<string, MarketDriver[]>;
+  customSkills?: Record<string, Skill[]>;
+  disabledBaseSkills?: string[];
+  renamedBaseSkills?: string[];
+  removedBaseSkills?: string[];
+  baseSkillOverrides?: Record<string, DepClassification>;
+  baseSkillCategoryOverrides?: Record<string, string>;
+  skillDescriptionOverrides?: Record<string, string>;
+  skillTargetOverrides?: Record<string, DreyfusAnchorLevel | null>;
+  skillAnchorsOverrides?: Record<string, SkillAnchors>;
+  skillTrendOverrides?: Record<string, RelevanceTrend | null>;
+  skillTrendgrundOverrides?: Record<string, string>;
+  skillModelOverrides?: Record<string, EvaluationModel | null>;
+  skillKeyOverrides?: Record<string, boolean | null>;
+  skillLastModifiedOverrides?: Record<string, string>;
+}
+
 export function App() {
+  // Read persisted session exactly once (initializer only runs on first render).
+  // All subsequent useState calls below capture _r via closure.
+  const [_r] = useState<PersistedSession | null>(() => {
+    try {
+      const raw = localStorage.getItem(STORAGE_KEY);
+      return raw ? (JSON.parse(raw) as PersistedSession) : null;
+    } catch {
+      return null;
+    }
+  });
+
+  const [savedFlash, setSavedFlash] = useState(false);
+  const savedTimerRef = useRef<ReturnType<typeof setTimeout> | null>(null);
+
   const [nativeReady, setNativeReady] = useState(!isNativeApp);
   const [apiKey, setApiKey] = useState("");
-  const [step, setStep] = useState(1);
+  const [step, setStep] = useState(() => {
+    // Restore step only if a department was also saved (avoids blank screen)
+    if (_r?.step && _r.step > 1 && _r.departmentId) return _r.step;
+    return 1;
+  });
   const [helpOpen, setHelpOpen] = useState(false);
-  const [department, setDepartment] = useState<Department | null>(null);
+  const [department, setDepartment] = useState<Department | null>(() => {
+    if (!_r?.departmentId) return null;
+    for (const g of groups) {
+      const found = g.roles.find((r) => r.id === _r!.departmentId!);
+      if (found) return found;
+    }
+    // Fall back to custom roles (read directly from storage — customRoles state
+    // not yet initialized at this point)
+    try {
+      const raw = localStorage.getItem("skillworkshop_custom_roles");
+      const custom = raw ? (JSON.parse(raw) as Role[]) : [];
+      return custom.find((r) => r.id === _r!.departmentId!) ?? null;
+    } catch {
+      return null;
+    }
+  });
 
   // Skill inventory state (Step 2) — ANF-17: ein einziger Skill-Bereich, alle
   // Skills (inkl. zukunftsrelevanter) liegen direkt in den 4 Dimensionen.
-  const [customSkills, setCustomSkills] = useState<Record<string, Skill[]>>({});
+  const [customSkills, setCustomSkills] = useState<Record<string, Skill[]>>(
+    () => _r?.customSkills ?? {},
+  );
   // ANF-18 (9): "deaktiviert", nicht "geloescht" — Skills bleiben sichtbar in
   // der Inventur, sind aber in Selbsteinschaetzung & Auswertung ausgeblendet.
   const [disabledBaseSkills, setDisabledBaseSkills] = useState<Set<string>>(
-    new Set(),
+    () => new Set(_r?.disabledBaseSkills ?? []),
   );
   // ANF-18 (2): Beim Umbenennen eines Base-Skills wird dieser komplett aus der
   // Inventur entfernt und durch einen Custom-Skill mit neuem Namen ersetzt.
   const [renamedBaseSkills, setRenamedBaseSkills] = useState<Set<string>>(
-    new Set(),
+    () => new Set(_r?.renamedBaseSkills ?? []),
   );
   // Override zu ANF-18 (9) per User-Wunsch: Base-Skills koennen auch endgueltig
   // entfernt werden (nicht nur deaktiviert). Bewertungen, Driver-Verlinkungen
   // und Overrides werden mitgeloescht. Reaktivierung ist nicht mehr moeglich.
   const [removedBaseSkills, setRemovedBaseSkills] = useState<Set<string>>(
-    new Set(),
+    () => new Set(_r?.removedBaseSkills ?? []),
   );
   const [baseSkillOverrides, setBaseSkillOverrides] = useState<
     Record<string, DepClassification>
-  >({});
+  >(() => _r?.baseSkillOverrides ?? {});
   const [baseSkillCategoryOverrides, setBaseSkillCategoryOverrides] = useState<
     Record<string, string>
-  >({});
+  >(() => _r?.baseSkillCategoryOverrides ?? {});
   // ANF-03 / ANF-06 / ANF-07 — pro Skill-Name editierbar.
   const [skillDescriptionOverrides, setSkillDescriptionOverrides] = useState<
     Record<string, string>
-  >({});
+  >(() => _r?.skillDescriptionOverrides ?? {});
   const [skillTargetOverrides, setSkillTargetOverrides] = useState<
     Record<string, DreyfusAnchorLevel | null>
-  >({});
+  >(() => _r?.skillTargetOverrides ?? {});
   const [skillAnchorsOverrides, setSkillAnchorsOverrides] = useState<
     Record<string, SkillAnchors>
-  >({});
+  >(() => _r?.skillAnchorsOverrides ?? {});
   // ANF-14 — Relevanztrend (Enum) + optionale Begruendung pro Skill-Name.
   const [skillTrendOverrides, setSkillTrendOverrides] = useState<
     Record<string, RelevanceTrend | null>
-  >({});
+  >(() => _r?.skillTrendOverrides ?? {});
   const [skillTrendgrundOverrides, setSkillTrendgrundOverrides] = useState<
     Record<string, string>
-  >({});
+  >(() => _r?.skillTrendgrundOverrides ?? {});
   // ANF-16 — Bewertungsmodell pro Skill. null = explizit "Auto" (Default).
   const [skillModelOverrides, setSkillModelOverrides] = useState<
     Record<string, EvaluationModel | null>
-  >({});
+  >(() => _r?.skillModelOverrides ?? {});
   // ANF-18 (10) — Schluesselkompetenz-Badge pro Skill.
   const [skillKeyOverrides, setSkillKeyOverrides] = useState<
     Record<string, boolean | null>
-  >({});
+  >(() => _r?.skillKeyOverrides ?? {});
   // ANF-18 — Datum der letzten redaktionellen Aenderung je Skill.
   const [skillLastModifiedOverrides, setSkillLastModifiedOverrides] = useState<
     Record<string, string>
-  >({});
+  >(() => _r?.skillLastModifiedOverrides ?? {});
   // ANF-15 — Markt- & Kundentreiber je Rollengruppe (groupId -> drivers).
   // Nicht beim Rollenwechsel zuruecksetzen, da Treiber gruppenweit gelten.
   // Initial werden Group.defaultDrivers (sofern vorhanden) als Vorbelegung
@@ -157,14 +219,104 @@ export function App() {
         initial[g.id] = g.defaultDrivers.map((d) => ({ ...d }));
       }
     }
+    // User-edited drivers take precedence — but only if from the same catalog version
+    if (_r?.marketDriversByGroup && _r.catalogVersion === CATALOG_VERSION) {
+      Object.assign(initial, _r.marketDriversByGroup);
+    }
     return initial;
   });
 
-  const [participants, setParticipants] = useState<Participant[]>([
-    createParticipant(""),
-    createParticipant(""),
-    createParticipant(""),
+  // Importierte Rollen — persisted in localStorage
+  const [customRoles, setCustomRoles] = useState<Role[]>(() => {
+    try {
+      const raw = localStorage.getItem("skillworkshop_custom_roles");
+      return raw ? (JSON.parse(raw) as Role[]) : [];
+    } catch {
+      return [];
+    }
+  });
+
+  const [participants, setParticipants] = useState<Participant[]>(() => {
+    if (_r?.participants && _r.participants.length > 0) return _r.participants;
+    return [
+      createParticipant(""),
+      createParticipant(""),
+      createParticipant(""),
+    ];
+  });
+
+  // Persist custom roles separately (legacy key kept for backwards compatibility)
+  useEffect(() => {
+    localStorage.setItem(
+      "skillworkshop_custom_roles",
+      JSON.stringify(customRoles),
+    );
+  }, [customRoles]);
+
+  // Persist full workshop session on every relevant state change
+  useEffect(() => {
+    const session: PersistedSession = {
+      catalogVersion: CATALOG_VERSION,
+      departmentId: department?.id ?? null,
+      step,
+      participants,
+      marketDriversByGroup,
+      customSkills,
+      disabledBaseSkills: Array.from(disabledBaseSkills),
+      renamedBaseSkills: Array.from(renamedBaseSkills),
+      removedBaseSkills: Array.from(removedBaseSkills),
+      baseSkillOverrides,
+      baseSkillCategoryOverrides,
+      skillDescriptionOverrides,
+      skillTargetOverrides,
+      skillAnchorsOverrides,
+      skillTrendOverrides,
+      skillTrendgrundOverrides,
+      skillModelOverrides,
+      skillKeyOverrides,
+      skillLastModifiedOverrides,
+    };
+    localStorage.setItem(STORAGE_KEY, JSON.stringify(session));
+    if (department) {
+      if (savedTimerRef.current) clearTimeout(savedTimerRef.current);
+      setSavedFlash(true);
+      savedTimerRef.current = setTimeout(() => setSavedFlash(false), 2000);
+    }
+  }, [
+    department,
+    step,
+    participants,
+    marketDriversByGroup,
+    customSkills,
+    disabledBaseSkills,
+    renamedBaseSkills,
+    removedBaseSkills,
+    baseSkillOverrides,
+    baseSkillCategoryOverrides,
+    skillDescriptionOverrides,
+    skillTargetOverrides,
+    skillAnchorsOverrides,
+    skillTrendOverrides,
+    skillTrendgrundOverrides,
+    skillModelOverrides,
+    skillKeyOverrides,
+    skillLastModifiedOverrides,
   ]);
+
+  const handleImportRole = useCallback((role: Role) => {
+    setCustomRoles((prev) => [
+      ...prev.filter((r) => r.id !== role.id),
+      role,
+    ]);
+  }, []);
+
+  const handleDeleteCustomRole = useCallback(
+    (id: string) => {
+      setCustomRoles((prev) => prev.filter((r) => r.id !== id));
+      if (department?.id === id) setDepartment(null);
+    },
+    [department],
+  );
 
   const currentGroup: Group | null = useMemo(() => {
     if (!department) return null;
@@ -175,10 +327,13 @@ export function App() {
 
   const groupName = currentGroup?.name ?? "";
 
+  // Custom roles haben keine Gruppe — drivers werden per role.id gespeichert.
+  const driversKey = currentGroup?.id ?? department?.id ?? "";
+
   const currentGroupDrivers: MarketDriver[] = useMemo(() => {
-    if (!currentGroup) return [];
-    return marketDriversByGroup[currentGroup.id] ?? [];
-  }, [currentGroup, marketDriversByGroup]);
+    if (!driversKey) return [];
+    return marketDriversByGroup[driversKey] ?? [];
+  }, [driversKey, marketDriversByGroup]);
 
   // -------- Inventory builder --------
 
@@ -268,6 +423,20 @@ export function App() {
     [skillCategories],
   );
 
+  /** Alle Spezialisierungsnamen in den aktiven Kategorien (sourceLabel != departmentName). */
+  const availableSpecializations: string[] = useMemo(() => {
+    if (!department) return [];
+    const sources = new Set<string>();
+    for (const cat of activeSkillCategories) {
+      for (const skill of cat.skills) {
+        if (skill.sourceLabel && skill.sourceLabel !== department.name) {
+          sources.add(skill.sourceLabel);
+        }
+      }
+    }
+    return Array.from(sources).sort();
+  }, [activeSkillCategories, department]);
+
   // -------- Helper: removeKey / renameKey for record overrides --------
 
   const removeOverrideKey = useCallback(
@@ -344,6 +513,42 @@ export function App() {
     setParticipants((prev) => prev.map((p) => ({ ...p, ratings: {} })));
   }, []);
 
+  const handleNewSession = useCallback(() => {
+    if (!window.confirm("Neue Sitzung starten? Alle Teilnehmer, Bewertungen und Anpassungen werden gelöscht.")) return;
+    localStorage.removeItem(STORAGE_KEY);
+    setDepartment(null);
+    setStep(1);
+    setCustomSkills({});
+    setDisabledBaseSkills(new Set());
+    setRenamedBaseSkills(new Set());
+    setRemovedBaseSkills(new Set());
+    setBaseSkillOverrides({});
+    setBaseSkillCategoryOverrides({});
+    setSkillDescriptionOverrides({});
+    setSkillTargetOverrides({});
+    setSkillAnchorsOverrides({});
+    setSkillTrendOverrides({});
+    setSkillTrendgrundOverrides({});
+    setSkillModelOverrides({});
+    setSkillKeyOverrides({});
+    setSkillLastModifiedOverrides({});
+    setParticipants([
+      createParticipant(""),
+      createParticipant(""),
+      createParticipant(""),
+    ]);
+    // Reset market drivers to catalog defaults
+    setMarketDriversByGroup(() => {
+      const initial: Record<string, MarketDriver[]> = {};
+      for (const g of groups) {
+        if (g.defaultDrivers && g.defaultDrivers.length > 0) {
+          initial[g.id] = g.defaultDrivers.map((d) => ({ ...d }));
+        }
+      }
+      return initial;
+    });
+  }, []);
+
   // -------- Handlers: skills --------
 
   const handleAddCustomSkill = useCallback(
@@ -362,6 +567,39 @@ export function App() {
       bumpLastModified(skill.name);
     },
     [bumpLastModified],
+  );
+
+  const handleLoadSpecialization = useCallback(
+    (role: Role) => {
+      if (!department) return;
+      // Collect all skill names already present (base + custom) to skip duplicates.
+      const allCurrentNames = new Set<string>();
+      for (const cat of department.categories) {
+        for (const s of cat.skills) allCurrentNames.add(s.name);
+      }
+      for (const skills of Object.values(customSkills)) {
+        for (const s of skills) allCurrentNames.add(s.name);
+      }
+      // Add empty category stubs for categories not yet in the department.
+      const existingCatNames = new Set(department.categories.map((c) => c.name));
+      const newCatStubs = role.categories
+        .filter((c) => !existingCatNames.has(c.name))
+        .map((c) => ({ name: c.name, skills: [] as Skill[] }));
+      if (newCatStubs.length > 0) {
+        setDepartment((prev) =>
+          prev ? { ...prev, categories: [...prev.categories, ...newCatStubs] } : prev,
+        );
+      }
+      // Add non-duplicate skills as custom skills (keeps all existing state intact).
+      for (const cat of role.categories) {
+        for (const skill of cat.skills) {
+          if (!allCurrentNames.has(skill.name)) {
+            handleAddCustomSkill(cat.name, { ...skill, sourceLabel: role.name });
+          }
+        }
+      }
+    },
+    [department, customSkills, handleAddCustomSkill],
   );
 
   /**
@@ -839,6 +1077,17 @@ export function App() {
     [],
   );
 
+  const handleSetParticipantRoles = useCallback(
+    (index: number, roles: string[]) => {
+      setParticipants((prev) =>
+        prev.map((p, i) =>
+          i === index ? { ...p, specializationRoles: roles } : p,
+        ),
+      );
+    },
+    [],
+  );
+
   // Keyboard shortcut: "?" toggles help panel
   useEffect(() => {
     function handleKeyDown(e: KeyboardEvent) {
@@ -900,6 +1149,24 @@ export function App() {
                 )}
               </div>
             )}
+            {department && (
+              <>
+                <span
+                  className={`flex items-center gap-1 text-xs transition-opacity duration-700 ${savedFlash ? "opacity-100 text-emerald-400" : "opacity-0"}`}
+                  aria-live="polite"
+                >
+                  <span className="h-1.5 w-1.5 rounded-full bg-emerald-400" />
+                  Gespeichert
+                </span>
+                <button
+                  onClick={handleNewSession}
+                  className="rounded px-2 py-1 text-xs text-gray-400 hover:bg-slate-700 hover:text-gray-200"
+                  title="Sitzung verwerfen und neu starten"
+                >
+                  Neue Sitzung
+                </button>
+              </>
+            )}
             <HelpButton onClick={() => setHelpOpen(true)} />
           </div>
         </div>
@@ -913,6 +1180,9 @@ export function App() {
             selected={department}
             onSelect={handleSelectDepartment}
             onNext={() => setStep(2)}
+            customRoles={customRoles}
+            onImportRole={handleImportRole}
+            onDeleteCustomRole={handleDeleteCustomRole}
           />
         )}
         {step === 2 && department && (
@@ -948,7 +1218,11 @@ export function App() {
             onEditSkillKey={handleEditSkillKey}
             currentGroup={currentGroup}
             groupDrivers={currentGroupDrivers}
-            onSetGroupDrivers={handleSetGroupDrivers}
+            onSetGroupDrivers={(key, drivers) =>
+              handleSetGroupDrivers(key || driversKey, drivers)
+            }
+            onLoadSpecialization={handleLoadSpecialization}
+            customRoles={customRoles}
             onProceed={handleProceedToAssessment}
             onBack={() => setStep(1)}
           />
@@ -959,7 +1233,9 @@ export function App() {
             groupName={groupName}
             categories={activeSkillCategories}
             participants={participants}
+            availableSpecializations={availableSpecializations}
             onSetParticipantName={handleSetParticipantName}
+            onSetParticipantRoles={handleSetParticipantRoles}
             onAddParticipant={handleAddParticipant}
             onRemoveParticipant={handleRemoveParticipant}
             onSetRatings={handleSetRatings}

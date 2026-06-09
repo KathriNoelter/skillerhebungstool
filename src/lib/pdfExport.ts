@@ -1,4 +1,4 @@
-import type { MarketDriver, Skill, SkillCategory } from "../types";
+import type { Group, MarketDriver, Skill, SkillCategory } from "../types";
 import { evaluationModelFor, stageLabelsFor } from "../types";
 
 function esc(s: string): string {
@@ -210,6 +210,191 @@ ${driverHtml}
 <script>
   window.onload = function() { window.print(); };
 <\/script>
+</body>
+</html>`;
+
+  const win = window.open("", "_blank");
+  if (!win) {
+    alert("Popup blockiert. Bitte Popups fuer diese Seite erlauben und erneut versuchen.");
+    return;
+  }
+  win.document.write(html);
+  win.document.close();
+}
+
+/**
+ * Generates a comprehensive leadership-review PDF for an entire group:
+ * cover summary → market drivers → one section per role with all skill cards.
+ * Intended to be shared with leadership before a workshop for catalog sign-off.
+ */
+export function exportFullGroupCatalogPdf(
+  group: Group,
+  drivers: MarketDriver[] = [],
+  selectedRoleIds?: string[],
+) {
+  const rolesToExport = selectedRoleIds
+    ? group.roles.filter((r) => selectedRoleIds.includes(r.id))
+    : group.roles;
+
+  const date = new Date().toLocaleDateString("de-DE", {
+    year: "numeric",
+    month: "long",
+    day: "numeric",
+  });
+
+  // Compute totals
+  let totalSkills = 0;
+  for (const role of rolesToExport) {
+    for (const cat of role.categories) {
+      totalSkills += cat.skills.filter((s) => !s.disabled).length;
+    }
+  }
+
+  // ---- Market drivers section ----
+  let driversHtml = "";
+  if (drivers.length > 0) {
+    driversHtml += `<section style="margin-bottom:40px;page-break-before:always">`;
+    driversHtml += `<h2 style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;`;
+    driversHtml += `color:#94a3b8;margin:0 0 16px;padding-bottom:8px;border-bottom:1.5px solid #e2e8f0">`;
+    driversHtml += `Markt- &amp; Kundentreiber <span style="font-weight:400">(${drivers.length})</span></h2>`;
+
+    for (const d of drivers) {
+      const horizonStyle = HORIZON_COLOR[d.horizon] ?? "background:#f1f5f9;color:#334155";
+      driversHtml += `<div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:10px;page-break-inside:avoid">`;
+      driversHtml += `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px">`;
+      driversHtml += `<span style="font-size:14px;font-weight:700;color:#1e293b">${esc(d.title)}</span>`;
+      if (d.horizon) driversHtml += badge(d.horizon, horizonStyle);
+      driversHtml += `</div>`;
+      if (d.description) {
+        driversHtml += `<p style="font-size:12px;color:#475569;line-height:1.6;margin-bottom:8px">${esc(d.description)}</p>`;
+      }
+      if (d.affectedSkillNames.length > 0) {
+        driversHtml += `<div style="font-size:11px;color:#64748b;margin-top:6px">`;
+        driversHtml += `<span style="font-weight:600;color:#334155">Betroffene Skills:</span> `;
+        driversHtml += d.affectedSkillNames.map(esc).join(" · ");
+        driversHtml += `</div>`;
+      }
+      driversHtml += `</div>`;
+    }
+    driversHtml += `</section>`;
+  }
+
+  // ---- One section per role ----
+  let rolesHtml = "";
+  for (const role of rolesToExport) {
+    const activeCategories = role.categories
+      .map((cat) => ({ ...cat, skills: cat.skills.filter((s) => !s.disabled) }))
+      .filter((cat) => cat.skills.length > 0);
+    if (activeCategories.length === 0) continue;
+
+    const roleSkillCount = activeCategories.reduce((n, c) => n + c.skills.length, 0);
+
+    rolesHtml += `<section style="margin-bottom:48px;page-break-before:always">`;
+
+    // Role header bar
+    rolesHtml += `<div style="background:#f8fafc;border:1px solid #e2e8f0;border-radius:10px;padding:16px 20px;margin-bottom:20px;page-break-inside:avoid">`;
+    rolesHtml += `<div style="display:flex;align-items:baseline;justify-content:space-between;gap:12px">`;
+    rolesHtml += `<h2 style="font-size:18px;font-weight:800;color:#1e293b;margin:0">${esc(role.name)}</h2>`;
+    rolesHtml += `<span style="font-size:11px;color:#94a3b8;white-space:nowrap">${roleSkillCount} Skills · ${activeCategories.length} Bereiche</span>`;
+    rolesHtml += `</div>`;
+    if (role.description) {
+      rolesHtml += `<p style="font-size:12px;color:#64748b;margin:8px 0 0;line-height:1.6">${esc(role.description)}</p>`;
+    }
+    rolesHtml += `</div>`;
+
+    for (const cat of activeCategories) {
+      rolesHtml += `<div style="margin-bottom:28px">`;
+      rolesHtml += `<h3 style="font-size:11px;font-weight:800;letter-spacing:.08em;text-transform:uppercase;`;
+      rolesHtml += `color:#94a3b8;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid #f1f5f9">`;
+      rolesHtml += `${esc(cat.name)} <span style="font-weight:400">(${cat.skills.length})</span></h3>`;
+      for (const skill of cat.skills) {
+        rolesHtml += skillCard(skill, cat.name);
+      }
+      rolesHtml += `</div>`;
+    }
+
+    rolesHtml += `</section>`;
+  }
+
+  // ---- Table of contents (role overview) ----
+  let tocHtml = `<section style="margin-bottom:40px">`;
+  tocHtml += `<h2 style="font-size:11px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;`;
+  tocHtml += `color:#94a3b8;margin:0 0 14px;padding-bottom:8px;border-bottom:1.5px solid #e2e8f0">`;
+  tocHtml += `Rollenübersicht</h2>`;
+  tocHtml += `<table style="width:100%;border-collapse:collapse;font-size:13px">`;
+  for (const role of rolesToExport) {
+    const count = role.categories.reduce(
+      (n, c) => n + c.skills.filter((s) => !s.disabled).length, 0,
+    );
+    tocHtml += `<tr style="border-bottom:1px solid #f1f5f9">`;
+    tocHtml += `<td style="padding:8px 4px;font-weight:600;color:#1e293b">${esc(role.name)}</td>`;
+    tocHtml += `<td style="padding:8px 4px;color:#64748b;font-size:12px">${esc(role.description ?? "")}</td>`;
+    tocHtml += `<td style="padding:8px 4px;text-align:right;color:#94a3b8;white-space:nowrap;font-size:12px">${count} Skills</td>`;
+    tocHtml += `</tr>`;
+  }
+  tocHtml += `</table>`;
+  tocHtml += `</section>`;
+
+  const html = `<!DOCTYPE html>
+<html lang="de">
+<head>
+<meta charset="UTF-8">
+<title>Skill-Katalog Führungskräfte-Review — ${esc(group.name)}</title>
+<style>
+  *,*::before,*::after{box-sizing:border-box;margin:0;padding:0}
+  body{font-family:-apple-system,BlinkMacSystemFont,"Segoe UI",system-ui,sans-serif;color:#1e293b;font-size:13px;line-height:1.5}
+  .cover{
+    background:#1e293b;color:#fff;
+    min-height:100vh;
+    display:flex;flex-direction:column;justify-content:center;
+    padding:60px 64px;
+    page-break-after:always;
+  }
+  .cover .label{font-size:11px;font-weight:700;letter-spacing:.15em;text-transform:uppercase;color:#94a3b8;margin-bottom:16px}
+  .cover h1{font-size:36px;font-weight:800;line-height:1.2;margin-bottom:12px}
+  .cover .subtitle{font-size:16px;color:rgba(255,255,255,.6);margin-bottom:48px}
+  .cover .stats{display:flex;gap:40px;margin-bottom:48px}
+  .cover .stat-value{font-size:32px;font-weight:800;color:#fff}
+  .cover .stat-label{font-size:12px;color:rgba(255,255,255,.5);margin-top:2px}
+  .cover .footer{font-size:12px;color:rgba(255,255,255,.35);border-top:1px solid rgba(255,255,255,.1);padding-top:16px}
+  .content{max-width:900px;margin:0 auto;padding:40px 48px 64px}
+  @media print{
+    .cover{-webkit-print-color-adjust:exact;print-color-adjust:exact;background:#1e293b!important}
+    span[style*="background"]{-webkit-print-color-adjust:exact;print-color-adjust:exact}
+    @page{margin:1cm 1.5cm}
+  }
+</style>
+</head>
+<body>
+
+<div class="cover">
+  <div class="label">Skill-Katalog — Führungskräfte-Review</div>
+  <h1>${esc(group.name)}</h1>
+  <div class="subtitle">${esc(group.description ?? "")}</div>
+  <div class="stats">
+    <div>
+      <div class="stat-value">${rolesToExport.length}</div>
+      <div class="stat-label">Rollen</div>
+    </div>
+    <div>
+      <div class="stat-value">${totalSkills}</div>
+      <div class="stat-label">Skills gesamt</div>
+    </div>
+    <div>
+      <div class="stat-value">${drivers.length}</div>
+      <div class="stat-label">Markttreiber</div>
+    </div>
+  </div>
+  <div class="footer">Erstellt am ${esc(date)} · red6 enterprise software GmbH</div>
+</div>
+
+<div class="content">
+  ${tocHtml}
+  ${driversHtml}
+  ${rolesHtml}
+</div>
+
+<script>window.onload = function(){ window.print(); };<\/script>
 </body>
 </html>`;
 

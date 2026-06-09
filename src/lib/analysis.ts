@@ -95,7 +95,7 @@ export const SKILL_DIMENSIONS = [
   "Fachkompetenz",
   "Handwerklich-Technisch",
   "Methodisch",
-  "Kommunikation & Consulting",
+  "Kommunikation",
 ] as const;
 
 export type SkillDimension = (typeof SKILL_DIMENSIONS)[number];
