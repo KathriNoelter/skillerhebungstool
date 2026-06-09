@@ -1493,7 +1493,7 @@ const businessConsultingDrivers: MarketDriver[] = [
       "Antrag, Police, Schaden und Vertragsverwaltung werden durchgaengig digitalisiert. Tester mit tiefem Prozessverstaendnis und Systemkenntnis koennen realistische End-to-End-Testszenarien entwerfen und Schnittstellen gezielt absichern.",
     affectedSkillNames: [
       "Versicherungsfachlichkeit & Prozessverstaendnis",
-      "Schnittstellen-, API-, Integrations- & E2E-Test",
+      "Integrations- & E2E-Test",
       "Testdaten- & Testumgebungsmanagement",
     ],
   },
@@ -1516,7 +1516,7 @@ const businessConsultingDrivers: MarketDriver[] = [
     description:
       "Hybrid-Architekturen aus Altsystemen, Cloud-Loesungen und KI-Komponenten erhoehen Schnittstellenkomplexitaet erheblich. Integrationstest- und Testarchitektur-Kompetenz gewinnen stark an Bedeutung.",
     affectedSkillNames: [
-      "Schnittstellen-, API-, Integrations- & E2E-Test",
+      "Integrations- & E2E-Test",
       "Testarchitektur & Quality Enablement",
       "Nichtfunktionale Qualitaet (Security, Resilienz, Performance, Accessibility)",
     ],
