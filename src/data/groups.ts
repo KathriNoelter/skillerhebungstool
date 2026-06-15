@@ -29,7 +29,7 @@ const uxuiDesign: Role = {
     "User Experience und Interface Design — von Research ueber Prototyping bis zur visuellen Gestaltung.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Versicherungsprodukte & Kundenreisen", dep: "Durable" },
         { name: "Regulatorische UI-Anforderungen (DSGVO, BFSG)", dep: "Evolving" },
@@ -38,7 +38,7 @@ const uxuiDesign: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Typografie und visuelle Hierarchie", dep: "Durable" },
         { name: "Figma (Prototyping & Auto Layout)", dep: "Evolving" },
@@ -62,7 +62,7 @@ const uxuiDesign: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         {
           name: "Stakeholder-Management",
@@ -95,7 +95,7 @@ const businessAnalyst: Role = {
     "Bruecke zwischen Business und IT — analysiert Prozesse, erhebt Anforderungen, gestaltet fachliche Loesungen und begleitet Umsetzung bis Go-Live. Katalog v2.0 (Mai 2026, FK-validiert Diemo Gresch).",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
       {
         name: "Versicherungsfachwissen",
@@ -198,7 +198,7 @@ const businessAnalyst: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
       {
         name: "Requirements-Tools (Jira / Confluence)",
@@ -400,7 +400,7 @@ const businessAnalyst: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
       {
         name: "Stakeholder-Management",
@@ -515,7 +515,7 @@ const projektassistenz: Role = {
     "Operative Unterstuetzung der Projektleitung — Organisation, Koordination und Dokumentation.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Versicherungs-Projektkontext", dep: "Durable" },
         { name: "Compliance-Vorgaben fuer Dokumentation", dep: "Evolving" },
@@ -524,7 +524,7 @@ const projektassistenz: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "MS Office (Word, Excel, PowerPoint)", dep: "Durable" },
         { name: "Jira & Confluence", dep: "Evolving" },
@@ -544,7 +544,7 @@ const projektassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Interne Abstimmung & Priorisierung", dep: "Durable" },
         { name: "Externe Kommunikation & Korrespondenz", dep: "Durable" },
@@ -563,7 +563,7 @@ const scrumMaster: Role = {
     "Servant Leader fuer Scrum-Teams — Coaching, Moderation und Impediment Management.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Scrum Guide & Professional Scrum", dep: "Durable" },
         { name: "Versicherungs-IT-Domaene", dep: "Durable" },
@@ -572,7 +572,7 @@ const scrumMaster: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Metriken (Velocity, Burndown, CFD)", dep: "Durable" },
         { name: "KI-Tools im agilen Kontext", dep: "Perishable" },
@@ -593,7 +593,7 @@ const scrumMaster: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Team-Coaching (systemisch)", dep: "Durable" },
         { name: "Konflikt-Moderation", dep: "Durable" },
@@ -612,7 +612,7 @@ const projektleitung: Role = {
     "Ganzheitliche Verantwortung fuer Projekte — Planung, Steuerung, Team und Stakeholder.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "PMI / IPMA / PRINCE2 Body of Knowledge", dep: "Durable" },
         { name: "Versicherungsbranche & Projekttypen", dep: "Durable" },
@@ -621,7 +621,7 @@ const projektleitung: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Reporting & Forecasting", dep: "Durable" },
       ],
@@ -639,7 +639,7 @@ const projektleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Teamaufbau & Motivation", dep: "Durable" },
         { name: "Delegation & Coaching", dep: "Durable" },
@@ -665,7 +665,7 @@ const productManager: Role = {
     "Strategische Verantwortung fuer ein Produkt — von Vision und Marktanalyse bis Roadmap und Erfolgsmessung.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Versicherungsprodukte & Marktstruktur", dep: "Durable" },
         { name: "Vertriebskanaele & Kundensegmente", dep: "Durable" },
@@ -675,7 +675,7 @@ const productManager: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Produkt-Analytics (GA, Mixpanel, Amplitude)", dep: "Evolving" },
         { name: "Roadmap-Tools (Productboard, Aha!)", dep: "Evolving" },
@@ -699,7 +699,7 @@ const productManager: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Stakeholder-Management", dep: "Durable" },
         { name: "Praesentation auf Management-Ebene", dep: "Durable" },
@@ -718,7 +718,7 @@ const productOwner: Role = {
     "Backlog-Verantwortung im Scrum-Team — uebersetzt Produktvision in priorisierte Anforderungen und liefert Wert iterativ aus.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Scrum Guide & Professional Scrum", dep: "Durable" },
         { name: "Versicherungsprozesse (Vertrag, Schaden, Bestand)", dep: "Durable" },
@@ -727,7 +727,7 @@ const productOwner: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Jira & Confluence", dep: "Evolving" },
         { name: "Story Mapping Tools", dep: "Evolving" },
@@ -752,7 +752,7 @@ const productOwner: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Sprint Reviews moderieren", dep: "Durable" },
         { name: "Stakeholder-Abstimmung", dep: "Durable" },
@@ -775,7 +775,7 @@ const gfAssistenz: Role = {
     "Direkte Unterstuetzung der Geschaeftsfuehrung — Organisation, Kommunikation und Vertraulichkeit.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Versicherungsbranche & Marktstruktur", dep: "Durable" },
         { name: "Regulatorik (BaFin, MaRisk, VAG)", dep: "Evolving" },
@@ -784,7 +784,7 @@ const gfAssistenz: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "MS Office 365 (Outlook, Teams, SharePoint)", dep: "Evolving" },
         { name: "CRM-Systeme", dep: "Evolving" },
@@ -803,7 +803,7 @@ const gfAssistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Korrespondenz (DE/EN)", dep: "Durable" },
         { name: "Praesentationen & Board-Unterlagen", dep: "Durable" },
@@ -823,7 +823,7 @@ const teamassistenz: Role = {
     "Unterstuetzung fuer ein Team oder einen Bereich — Koordination und Office Management.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Bueroorganisation in der Versicherung", dep: "Durable" },
         { name: "Branchen-spezifische Standards", dep: "Durable" },
@@ -832,7 +832,7 @@ const teamassistenz: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "MS Office Standard", dep: "Durable" },
         { name: "Slack / Teams / Kollaborationstools", dep: "Evolving" },
@@ -853,7 +853,7 @@ const teamassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Dienstleister-Kontakte", dep: "Durable" },
         { name: "Informations-Sharing im Team", dep: "Durable" },
@@ -870,7 +870,7 @@ const hrGeneralist: Role = {
     "Ganzheitliche HR-Betreuung — Administration, Arbeitsrecht und Mitarbeiter-Lifecycle.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Arbeitsrecht (DE)", dep: "Durable" },
         { name: "Tarifvertrag fuer Versicherungen", dep: "Durable" },
@@ -882,7 +882,7 @@ const hrGeneralist: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "HR-Software (Personio, Workday)", dep: "Evolving" },
       ],
@@ -900,7 +900,7 @@ const hrGeneralist: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Betriebsrats-Zusammenarbeit", dep: "Durable" },
         { name: "Mitarbeitergespraeche fuehren", dep: "Durable" },
@@ -918,7 +918,7 @@ const recruiting: Role = {
     "Talent Acquisition — Active Sourcing, Interview-Fuehrung und Employer Branding.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Versicherungs-Berufsbilder & Karrierepfade", dep: "Durable" },
         { name: "Eignungsdiagnostik (DIN 33430)", dep: "Durable" },
@@ -928,7 +928,7 @@ const recruiting: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "LinkedIn Recruiter & Boolean Search", dep: "Evolving" },
         { name: "Bewerbermanagement-Systeme (ATS)", dep: "Evolving" },
@@ -951,7 +951,7 @@ const recruiting: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Direktansprache (Personal, empathisch)", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -967,7 +967,7 @@ const controlling: Role = {
     "Finanz- und Unternehmenssteuerung — Planung, Reporting und Analyse.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Bilanzierung Versicherer (HGB, IFRS 17)", dep: "Evolving" },
         { name: "Solvency II — Quantitative Anforderungen", dep: "Evolving" },
@@ -976,7 +976,7 @@ const controlling: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Excel (fortgeschritten, PowerQuery)", dep: "Evolving" },
         { name: "ERP-Systeme (SAP, DATEV)", dep: "Evolving" },
@@ -1000,7 +1000,7 @@ const controlling: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Management-Reports fuer Stakeholder", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1016,7 +1016,7 @@ const itAdmin: Role = {
     "Interne IT-Administration — Systeme, Netzwerk, Sicherheit und User-Support.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "ITIL / IT Service Management", dep: "Durable" },
         { name: "VAIT / BAIT (Aufsichtsanforderungen IT)", dep: "Evolving" },
@@ -1026,7 +1026,7 @@ const itAdmin: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Windows / macOS / Linux Administration", dep: "Durable" },
         { name: "Active Directory / Azure AD / Entra ID", dep: "Evolving" },
@@ -1050,7 +1050,7 @@ const itAdmin: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { ...RUMP_VERBAL },
       ],
@@ -1069,7 +1069,7 @@ const ldExpert: Role = {
     "Lernarchitekt — konzipiert und evaluiert Lernloesungen fuer Mitarbeiterentwicklung.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Lerntheorien & Erwachsenenbildung", dep: "Durable" },
         { name: "Compliance-Schulungspflichten", dep: "Evolving" },
@@ -1078,7 +1078,7 @@ const ldExpert: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "LMS (Moodle, SAP SuccessFactors)", dep: "Evolving" },
         { name: "Autorentools (Articulate, Rise)", dep: "Evolving" },
@@ -1101,7 +1101,7 @@ const ldExpert: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Train-the-Trainer", dep: "Durable" },
         { name: "Coaching-Grundlagen", dep: "Durable" },
@@ -1118,7 +1118,7 @@ const personalentwicklung: Role = {
     "Strategische und operative Entwicklung von Mitarbeitern und Fuehrungskraeften.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Eignungsdiagnostik (DIN 33430)", dep: "Durable" },
         { name: "Kompetenz- und Karrieretheorien", dep: "Durable" },
@@ -1127,7 +1127,7 @@ const personalentwicklung: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "HR-Analytics & People Data", dep: "Evolving" },
         { name: "HR-Systeme (SuccessFactors, Workday)", dep: "Evolving" },
@@ -1147,7 +1147,7 @@ const personalentwicklung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Systemisches Coaching", dep: "Durable" },
         { name: "Entwicklungs- und Beratungsgespraeche", dep: "Durable" },
@@ -1167,7 +1167,7 @@ const agileCoach: Role = {
     "Agile Transformation auf Team-, Portfolio- und Organisationsebene begleiten.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Agile Manifesto & Theorie", dep: "Durable" },
         { name: "ICF Coaching-Standards", dep: "Durable" },
@@ -1191,7 +1191,7 @@ const agileCoach: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Individuelles Coaching (ICF-Standards)", dep: "Durable" },
         { name: "Team-Coaching (systemisch)", dep: "Durable" },
@@ -1211,7 +1211,7 @@ const teamentwicklung: Role = {
     "Teams in ihrer Zusammenarbeit und Leistungsfaehigkeit staerken.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Gruppendynamik (Theorie)", dep: "Durable" },
         { name: "Organisationspsychologie", dep: "Durable" },
@@ -1220,7 +1220,7 @@ const teamentwicklung: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Visualisierung & Flipchart", dep: "Durable" },
       ],
@@ -1243,7 +1243,7 @@ const teamentwicklung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Konflikt-Moderation", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1259,7 +1259,7 @@ const changebegleitung: Role = {
     "Veraenderungsprozesse in Organisationen begleiten und Widerstaende adressieren.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Change-Management-Theorie", dep: "Durable" },
         { name: "Organisationspsychologie", dep: "Durable" },
@@ -1282,7 +1282,7 @@ const changebegleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Storytelling fuer Veraenderung", dep: "Durable" },
         { name: "Townhalls & Dialogformate", dep: "Durable" },
@@ -1302,7 +1302,7 @@ const oeBeratung: Role = {
     "Systemische Beratung fuer strategische Transformation und Kulturentwicklung.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Systemtheorie & Organisationstheorie", dep: "Durable" },
         { name: "Versicherungs-Geschaeftsmodelle", dep: "Durable" },
@@ -1311,7 +1311,7 @@ const oeBeratung: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Soziogramme & Netzwerkanalysen", dep: "Durable" },
         { name: "KI-gestuetzte Org-Analyse", dep: "Perishable" },
@@ -1335,7 +1335,7 @@ const oeBeratung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Systemische Fragetechniken", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -1355,7 +1355,7 @@ const operativeGF: Role = {
     "Operative Verantwortung fuer das Unternehmen — Strategie, Finanzen, Fuehrung, Governance.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Wirtschafts- & Gesellschaftsrecht", dep: "Durable" },
         { name: "Versicherungsaufsichtsrecht (VAG)", dep: "Evolving" },
@@ -1366,7 +1366,7 @@ const operativeGF: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Unternehmenskennzahlen (GuV, Bilanz)", dep: "Durable" },
       ],
@@ -1386,7 +1386,7 @@ const operativeGF: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Vision & Purpose kommunizieren", dep: "Durable" },
         { name: "Senior Leadership", dep: "Durable" },
@@ -1408,7 +1408,7 @@ const gruppenleitung: Role = {
     "Fuehrung einer Gruppe mit fachlicher Verantwortung und Personalfuehrung.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         { name: "Fuehrungstheorien & -modelle", dep: "Durable" },
         { name: "Bereichsspezifische Fachexpertise", dep: "Durable" },
@@ -1417,7 +1417,7 @@ const gruppenleitung: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         { name: "Technologie-Entscheidungen treffen", dep: "Evolving" },
       ],
@@ -1440,7 +1440,7 @@ const gruppenleitung: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         { name: "Feedback geben (wirksam, regelmaessig)", dep: "Durable" },
         { name: "Konfliktmanagement im Team", dep: "Durable" },

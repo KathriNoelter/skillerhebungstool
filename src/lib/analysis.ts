@@ -92,10 +92,10 @@ export function filterByCategory(
  * Relevanztrend am Skill ab.
  */
 export const SKILL_DIMENSIONS = [
-  "Fachkompetenz",
-  "Handwerklich-Technisch",
+  "Fachlich",
+  "Technisch",
   "Methodisch",
-  "Kommunikation",
+  "Kommunikativ",
 ] as const;
 
 export type SkillDimension = (typeof SKILL_DIMENSIONS)[number];

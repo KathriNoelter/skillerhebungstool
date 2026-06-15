@@ -101,12 +101,12 @@ export function exportAssessmentTemplate(
     "Skala 1–5 — Stufenbezeichnung haengt vom Bewertungsmodell des Skills ab:",
   ]);
   rows.push([]);
-  rows.push(["Dreyfus (Handwerksstufen) — fuer Handwerklich-Technisch, Methodisch, Kommunikation"]);
+  rows.push(["Dreyfus (Handwerksstufen) — fuer Technisch, Methodisch, Kommunikativ"]);
   for (let l = 1; l <= 5; l++) {
     rows.push([`${l} - ${DREYFUS_LABELS_DE[l as DreyfusLevel]}`]);
   }
   rows.push([]);
-  rows.push(["Bloom (Wissensentwicklung) — fuer Fachkompetenz"]);
+  rows.push(["Bloom (Wissensentwicklung) — fuer Fachlich"]);
   for (let l = 1; l <= 5; l++) {
     rows.push([`${l} - ${BLOOM_LABELS_DE[l as DreyfusLevel]}`]);
   }

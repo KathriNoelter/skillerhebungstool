@@ -12,7 +12,7 @@ export const qaCore: Role = {
     "Gemeinsame Grundkompetenzen aller Tester — systematisches Testen, Defektkommunikation und QA im regulierten Versicherungsumfeld.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         {
           name: "Professionelle Basis-Testkompetenz (GTB/ISTQB)",
@@ -109,7 +109,7 @@ export const qaCore: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         {
           name: "Testmanagement-Tools (Nutzung & Konfiguration)",
@@ -305,7 +305,7 @@ export const qaCore: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         {
           name: "Defektdokumentation & Fehlerkommunikation",
@@ -382,7 +382,7 @@ export const testManager: Role = {
     "Strategisches Testmanagement — Teststrategie entwickeln, Testteams fuehren, Qualitaet auf Programmebene verantworten und Stakeholder sicher berichten.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         {
           name: "Testmanagement",
@@ -429,7 +429,7 @@ export const testManager: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         {
           name: "Testmanagement-Tools administrieren",
@@ -551,7 +551,7 @@ export const testManager: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         {
           name: "User Akzeptanztest (UAT)",
@@ -653,7 +653,7 @@ export const testAutomation: Role = {
     "Automatisierte Tests konzipieren, entwickeln, pflegen und in CI/CD-Pipelines integrieren — mit Fokus auf Wartbarkeit, Stabilitaet und Wertbeitrag fuer das Team.",
   categories: [
     {
-      name: "Fachkompetenz",
+      name: "Fachlich",
       skills: [
         {
           name: "Versicherungssysteme (Antrag, Bestand, Schaden)",
@@ -688,7 +688,7 @@ export const testAutomation: Role = {
       ],
     },
     {
-      name: "Handwerklich-Technisch",
+      name: "Technisch",
       skills: [
         {
           name: "Playwright / Cypress",
@@ -853,7 +853,7 @@ export const testAutomation: Role = {
       ],
     },
     {
-      name: "Kommunikation",
+      name: "Kommunikativ",
       skills: [
         {
           name: "Code Reviews & Automatisierungsqualitaet",
