@@ -67,7 +67,17 @@
       "Bash(node *)",
       "Bash(pnpm vite *)",
       "Bash(pip3 install *)",
-      "Bash(osascript *)"
+      "Bash(osascript *)",
+      "Bash(git add *)",
+      "Bash(git commit -m ' *)",
+      "Bash(git remote *)",
+      "Bash(git push *)",
+      "Bash(sed -i '' 's/name: \"Fachkompetenz\"/name: \"Fachlich\"/g' src/data/swCatalogs.ts)",
+      "Bash(sed -i '' 's/name: \"Handwerklich-Technisch\"/name: \"Technisch\"/g' src/data/swCatalogs.ts)",
+      "Bash(sed -i '' 's/name: \"Kommunikation\"/name: \"Kommunikativ\"/g' src/data/swCatalogs.ts)",
+      "Bash(sed -i '' 's/id: \"sw-frontend\",/id: \"sw-frontend\",\\\\n  isSpecialization: true,/' src/data/swCatalogs.ts)",
+      "Bash(sed -i '' 's/id: \"sw-backend\",/id: \"sw-backend\",\\\\n  isSpecialization: true,/' src/data/swCatalogs.ts)",
+      "Bash(sed -i '' 's/id: \"sw-architekt\",/id: \"sw-architekt\",\\\\n  isSpecialization: true,/' src/data/swCatalogs.ts)"
     ]
   }
 }

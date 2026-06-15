@@ -3,13 +3,13 @@
 
 import type { Group, MarketDriver, Role } from "../types";
 
-const softwareEntwicklungCore: Role = {
-  id: "sw-software-entwicklung-core",
-  name: `Software-Entwicklung Core`,
+const swSoftwareEntwickler: Role = {
+  id: "sw-software-entwickler",
+  name: `Software-Entwickler`,
   description: `Gemeinsame Kernkompetenzen aller Software-Entwicklungsrollen im IT-Beratungshaus. Dieser Katalog deckt die skills ab, die unabhängig von der Spezialisierung für alle Entwicklerinnen und Entwickler in Versicherungs- und Finanz-IT-Projekten gelten. Er ist als Basis für Gruppenauswertungen konzipiert und wird durch rollenspezifische Spezialisierungs-Kataloge ergänzt.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Softwarequalität & Clean Code`,
@@ -86,7 +86,7 @@ const softwareEntwicklungCore: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `CI/CD & Build-Automatisierung`,
@@ -258,7 +258,7 @@ const softwareEntwicklungCore: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     {
       name: `Teamkommunikation & Feedback`,
@@ -319,13 +319,14 @@ const softwareEntwicklungCore: Role = {
   ],
 };
 
-const frontendEntwickler: Role = {
-  id: "sw-frontend-entwickler",
-  name: `Frontend-Entwickler`,
+const swFrontend: Role = {
+  id: "sw-frontend",
+  isSpecialization: true,
+  name: `Frontend`,
   description: `Spezialisierungs-Katalog für Frontend-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um rollenspezifische Skills für die Entwicklung moderner Web-UIs, Barrierefreiheit und performante Client-Anwendungen in regulierten Umgebungen.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Moderne Web-Frameworks (React / Vue / Angular)`,
@@ -384,7 +385,7 @@ const frontendEntwickler: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `API-Integration & Datenkommunikation`,
@@ -484,7 +485,7 @@ const frontendEntwickler: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     {
       name: `UX-Kollaboration & Anforderungsumsetzung`,
@@ -509,13 +510,14 @@ const frontendEntwickler: Role = {
   ],
 };
 
-const backendEntwickler: Role = {
-  id: "sw-backend-entwickler",
-  name: `Backend-Entwickler`,
+const swBackend: Role = {
+  id: "sw-backend",
+  isSpecialization: true,
+  name: `Backend`,
   description: `Spezialisierungs-Katalog für Backend-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um Kompetenzen für Serverlogik, Datenbankdesign, API-Entwicklung und die besonderen Anforderungen an Skalierbarkeit und Compliance in regulierten Systemen.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Backend-Frameworks & Serverarchitektur`,
@@ -610,7 +612,7 @@ const backendEntwickler: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `Messaging & Event-getriebene Architektur`,
@@ -692,133 +694,21 @@ const backendEntwickler: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     ],
   },
   ],
 };
 
-const fullStackEntwickler: Role = {
-  id: "sw-full-stack-entwickler",
-  name: `Full-Stack-Entwickler`,
-  description: `Spezialisierungs-Katalog für Full-Stack-Entwicklerinnen und -Entwickler in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um die spezifischen Kompetenzen für den integrierten Überblick über Frontend und Backend sowie die Fähigkeit, End-to-End-Features eigenständig zu implementieren.`,
-  categories: [
-  {
-    name: `Fachkompetenz`,
-    skills: [
-    {
-      name: `End-to-End-Feature-Entwicklung`,
-      dep: "Durable",
-      description: `»Eigenständige Implementierung vollständiger Features vom Datenbankschema über Backend-API bis zur UI-Darstellung. Nicht gemeint: Infrastrukturbetrieb oder UX-Design. Typische Tätigkeiten: Feature-Architektur über alle Schichten planen · Datenbankmigrationen, API-Endpunkte und Frontend-Komponenten aufeinander abstimmen · End-to-End-Tests schreiben«`,
-      targetLevel: 4,
-      trend: "steigend",
-      trendgrund: `WEF Future of Jobs 2025: Analytisches Denken und Problemlösung über Systemgrenzen hinweg als Top-Kompetenz; Full-Stack-Kompetenz erhöht Flexibilität in kleinen Beratungsteams.`,
-      keySkill: true,
-      bewertungsmodell: "Bloom",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Implementiert abgegrenzte Teilkomponenten einer gegebenen Schicht nach Vorlage.`,
-        2: `Entwickelt vollständige Features in einer Schicht eigenständig und stimmt Schnittstellen mit anderen Schichten ab.`,
-        3: `Plant und implementiert End-to-End-Features eigenständig, berücksichtigt Abhängigkeiten und sichert die Qualität über alle Schichten.`,
-        4: `Analysiert Systemschnitte schichtenübergreifend, identifiziert Optimierungspotenziale und leitet Architekturanpassungen ab.`,
-        5: `Entwickelt Standards für schichtenübergreifende Feature-Entwicklung und befähigt das Team zur eigenständigen End-to-End-Arbeit.`,
-      },
-    },
-    {
-      name: `API-Design & -Integration (Full-Stack)`,
-      dep: "Evolving",
-      description: `»Gestaltung und Nutzung von APIs aus der Perspektive beider Seiten (Produzent und Konsument). Nicht gemeint: API-Gateway-Betrieb. Typische Tätigkeiten: REST/GraphQL-APIs für Frontend-Anforderungen entwerfen · API-Vertragsänderungen koordinieren · Mocking und Stubbing für entkoppelte Entwicklung einsetzen«`,
-      targetLevel: 4,
-      trend: "stabil",
-      trendgrund: `Kernkompetenz der Full-Stack-Arbeit; DORA fordert nachvollziehbare Schnittstellen in Versicherungssystemen.`,
-      keySkill: false,
-      bewertungsmodell: "Bloom",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Nutzt vorhandene APIs nach Dokumentation und passt einfache Endpunkte an.`,
-        2: `Entwirft einfache REST-APIs mit Blick auf Frontend-Anforderungen und erstellt API-Dokumentation.`,
-        3: `Entwickelt API-Kontrakte aus Produzenten- und Konsumenten-Perspektive, koordiniert Breaking-Changes und setzt Mocking-Strategien ein.`,
-        4: `Bewertet API-Designentscheidungen schichtenübergreifend, leitet Versionierungsstrategien ab.`,
-        5: `Etabliert API-Design-Standards, entwickelt Contract-Testing-Strategien und befähigt Teams.`,
-      },
-    },
-    ],
-  },
-  {
-    name: `Handwerklich-Technisch`,
-    skills: [
-    {
-      name: `Frontend-Grundkompetenz (React/Vue/Angular)`,
-      dep: "Evolving",
-      description: `»Solide Grundkenntnisse in einem modernen Frontend-Framework für die UI-Seite von Full-Stack-Features. Nicht gemeint: Deep-Specialization im Frontend (Performance-Budgets, Design-Systeme). Typische Tätigkeiten: Funktionale Komponenten implementieren · State-Management für Features einsetzen · API-Responses in der UI darstellen«`,
-      targetLevel: 3,
-      trend: "steigend",
-      trendgrund: `Rump 2025 (S. 7): Digitale Anwendungskompetenz; Full-Stack-Entwickler müssen beide Seiten handlungsfähig beherrschen.`,
-      keySkill: true,
-      bewertungsmodell: "Dreyfus",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Setzt einfache Komponenten nach Vorlage um und versteht Props und State-Konzepte.`,
-        2: `Entwickelt funktionale Komponenten mit State-Management eigenständig und konsumiert Backend-APIs.`,
-        3: `Implementiert vollständige UI-Features, wählt geeignete State-Management-Patterns und behandelt Fehler- und Ladezustände.`,
-        4: `Entwirft Frontend-Architekturen für Features, optimiert Komponentenstruktur und führt Code-Reviews durch.`,
-        5: `Entwickelt und etabliert Frontend-Standards für Full-Stack-Teams und befähigt Kollegen.`,
-      },
-    },
-    {
-      name: `Backend-Grundkompetenz (Framework & Datenbank)`,
-      dep: "Evolving",
-      description: `»Solide Grundkenntnisse in Backend-Entwicklung und Datenbankarbeit für die Backend-Seite von Full-Stack-Features. Nicht gemeint: Deep-Specialization im Backend (DDD, Messaging). Typische Tätigkeiten: API-Endpunkte implementieren · Datenbankschemas und Migrationen erstellen · Geschäftslogik in Service-Schichten strukturieren«`,
-      targetLevel: 3,
-      trend: "steigend",
-      trendgrund: `Rump 2025 (S. 3): Fachkompetenz als unabdingbares Fundament; Full-Stack erfordert belastbare Backend-Kompetenz für eigenständige Feature-Entwicklung.`,
-      keySkill: false,
-      bewertungsmodell: "Dreyfus",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Implementiert einfache API-Endpunkte nach Vorlage und versteht SQL-Grundkonzepte.`,
-        2: `Entwickelt vollständige CRUD-APIs eigenständig, erstellt Datenbankmigrationen und wendet Schichtenarchitektur an.`,
-        3: `Modelliert Datenbankschemas für neue Domänen, implementiert Geschäftslogik in Service-Schichten und sichert APIs ab.`,
-        4: `Analysiert Backend-Architekturen, optimiert Datenbankabfragen und entwirft skalierbare Service-Strukturen.`,
-        5: `Etabliert Backend-Standards für Full-Stack-Teams und befähigt Kollegen zur eigenständigen Backend-Entwicklung.`,
-      },
-    },
-    ],
-  },
-  {
-    name: `Kommunikation`,
-    skills: [
-    {
-      name: `Technische Brückenfunktion im Team`,
-      dep: "Durable",
-      description: `»Übersetzung zwischen Frontend- und Backend-Entwicklern sowie zwischen technischen und fachlichen Rollen. Nicht gemeint: Projektmanagement. Typische Tätigkeiten: Schnittstellendiskussionen moderieren · Technische Entscheidungen für verschiedene Zielgruppen kommunizieren · Wissenstransfer zwischen Spezialisten fördern«`,
-      targetLevel: 3,
-      trend: "steigend",
-      trendgrund: `Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz; Full-Stack-Entwickler als natürliche Brücke in cross-funktionalen Versicherungs-IT-Teams.`,
-      keySkill: false,
-      bewertungsmodell: "Dreyfus",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Kommuniziert technische Sachverhalte auf Nachfrage klar für beide Seiten.`,
-        2: `Erklärt Schnittstellenentscheidungen proaktiv und vermittelt bei einfachen Missverständnissen.`,
-        3: `Moderiert technische Abstimmungen zwischen Spezialisten, fasst Ergebnisse strukturiert zusammen und sorgt für gemeinsames Verständnis.`,
-        4: `Übernimmt aktiv die Brückenfunktion in kritischen Architektur- und Anforderungsdiskussionen und leitet Kompromisse herbei.`,
-        5: `Entwickelt Kommunikationsstandards für cross-funktionale Entwicklungsteams und befähigt Kollegen.`,
-      },
-    },
-    ],
-  },
-  ],
-};
-
-const softwareArchitekt: Role = {
-  id: "sw-software-architekt",
-  name: `Software-Architekt`,
+const swArchitekt: Role = {
+  id: "sw-architekt",
+  isSpecialization: true,
+  name: `Architekt`,
   description: `Spezialisierungs-Katalog für Software-Architektinnen und -Architekten in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um strategische Architekturkompetenzen, Entscheidungsmethodik und die regulatorischen Anforderungen an Systemarchitekturen in DORA-, NIS2- und EU-AI-Act-regulierten Umgebungen.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Softwarearchitektur-Patterns & -Stile`,
@@ -877,7 +767,7 @@ const softwareArchitekt: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `Architekturdokumentation (arc42 / C4)`,
@@ -959,7 +849,7 @@ const softwareArchitekt: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     {
       name: `Stakeholder-Kommunikation & Architektur-Review`,
@@ -1008,7 +898,7 @@ const devopsEngineer: Role = {
   description: `Spezialisierungs-Katalog für DevOps-Engineerinnen und -Engineers in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um Kompetenzen für Infrastrukturautomatisierung, Plattformbetrieb, Observability und die erhöhten Resilienz- und Auditanforderungen unter DORA und NIS2.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Container-Orchestrierung (Kubernetes)`,
@@ -1067,7 +957,7 @@ const devopsEngineer: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `Observability (Monitoring, Logging, Tracing)`,
@@ -1149,7 +1039,7 @@ const devopsEngineer: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     {
       name: `Entwickler-Enablement & Plattform-Kommunikation`,
@@ -1180,7 +1070,7 @@ const techLead: Role = {
   description: `Spezialisierungs-Katalog für Tech Leads in der Versicherungs- und Finanz-IT-Beratung. Ergänzt den 'Software-Entwicklung Core'-Katalog um Kompetenzen für technische Teamführung, strategische Technologieentscheidungen, Qualitätssicherung auf Teamebene und die Brückenfunktion zwischen Engineering und Projektleitung. Der Tech Lead bleibt aktiver Entwickler und übernimmt gleichzeitig Verantwortung für technische Exzellenz und Teamentwicklung.`,
   categories: [
   {
-    name: `Fachkompetenz`,
+    name: `Fachlich`,
     skills: [
     {
       name: `Technische Systemverantwortung`,
@@ -1239,7 +1129,7 @@ const techLead: Role = {
     ],
   },
   {
-    name: `Handwerklich-Technisch`,
+    name: `Technisch`,
     skills: [
     {
       name: `Code Review & Qualitätssicherung auf Teamebene`,
@@ -1321,7 +1211,7 @@ const techLead: Role = {
     ],
   },
   {
-    name: `Kommunikation`,
+    name: `Kommunikativ`,
     skills: [
     {
       name: `Teamführung & Entwicklungsförderung`,
@@ -1476,7 +1366,7 @@ const swGroupDrivers: MarketDriver[] = [
 export const swGroup: Group = {
   id: "software-entwicklung",
   name: "Software-Entwicklung",
-  description: "Core-Kompetenzen und Spezialisierungskataloge fuer alle Software-Entwicklungsrollen (Option B).",
-  roles: [softwareEntwicklungCore, frontendEntwickler, backendEntwickler, fullStackEntwickler, softwareArchitekt, devopsEngineer, techLead],
+  description: "Eine Rolle, drei Spezialisierungen — Software-Entwickler mit optionalen Labels fuer Frontend, Backend und Architekt.",
+  roles: [swSoftwareEntwickler, swFrontend, swBackend, swArchitekt, devopsEngineer, techLead],
   defaultDrivers: swGroupDrivers,
 };

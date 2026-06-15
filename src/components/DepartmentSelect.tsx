@@ -122,7 +122,7 @@ export function DepartmentSelect({
           <option value="">
             {selectedGroup ? "— Rolle waehlen —" : "— Erst Gruppe waehlen —"}
           </option>
-          {selectedGroup?.roles.map((r) => (
+          {selectedGroup?.roles.filter((r) => !r.isSpecialization).map((r) => (
             <option key={r.id} value={r.id}>
               {r.name}
             </option>

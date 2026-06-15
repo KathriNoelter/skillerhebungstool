@@ -141,14 +141,14 @@ export interface Skill {
 /**
  * ANF-16: Effektives Bewertungsmodell fuer einen Skill.
  * Explizites `bewertungsmodell`-Feld hat Vorrang; sonst gilt Bloom fuer alle
- * Skills in der Kategorie "Fachkompetenz", Dreyfus fuer alle anderen.
+ * Skills in der Kategorie "Fachlich", Dreyfus fuer alle anderen.
  */
 export function evaluationModelFor(
   skill: Pick<Skill, "bewertungsmodell">,
   categoryName: string,
 ): EvaluationModel {
   if (skill.bewertungsmodell) return skill.bewertungsmodell;
-  return categoryName === "Fachkompetenz" ? "Bloom" : "Dreyfus";
+  return categoryName === "Fachlich" ? "Bloom" : "Dreyfus";
 }
 
 /** ANF-16: Stufenbezeichnungen fuer das jeweilige Modell (deutsch). */
@@ -168,6 +168,11 @@ export interface Department {
   name: string;
   description: string;
   categories: SkillCategory[];
+  /**
+   * Spezialisierungsrolle — erscheint nicht in der Rollenauswahl, sondern nur
+   * im Spezialisierungs-Picker der Skill-Inventur.
+   */
+  isSpecialization?: boolean;
 }
 
 /** A Role within a Group — structurally identical to Department for downstream compatibility. */

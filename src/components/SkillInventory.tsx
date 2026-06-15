@@ -346,7 +346,7 @@ function SkillDetailEditor({
   const labels = stageLabelsFor(effectiveModel);
   const isAuto = !skill.bewertungsmodell;
   const defaultModel: EvaluationModel =
-    categoryName === "Fachkompetenz" ? "Bloom" : "Dreyfus";
+    categoryName === "Fachlich" ? "Bloom" : "Dreyfus";
 
   // Local draft state prevents textarea content from being cleared by re-renders
   // that are triggered by unrelated state updates (e.g. bumpLastModified).
@@ -482,7 +482,7 @@ function SkillDetailEditor({
         </select>
         <p className="mt-1 text-[10px] text-gray-400">
           {isAuto
-            ? `Automatisch: ${effectiveModel}. Fachkompetenz nutzt Bloom (Erinnern → Erschaffen), alle anderen Dimensionen Dreyfus (Novice → Expert).`
+            ? `Automatisch: ${effectiveModel}. Fachlich nutzt Bloom (Erinnern → Erschaffen), alle anderen Dimensionen Dreyfus (Novice → Expert).`
             : `Modell explizit auf ${effectiveModel} gesetzt — Stufenbezeichnungen, Anker und Legende richten sich danach.`}
         </p>
       </div>
@@ -554,13 +554,13 @@ interface CategoryBlockSkillItem {
 }
 
 const DIMENSION_DESCRIPTIONS: Record<string, string> = {
-  Fachkompetenz:
+  Fachlich:
     "Konzeptionelles Wissen über Softwaresysteme, Domänen und Technologien — die Grundlage, um KI-Output, Architekturentscheidungen und Fachvorgaben eigenständig einzuordnen und zu bewerten.",
-  "Handwerklich-Technisch":
+  Technisch:
     "Die praktische Beherrschung von Werkzeugen, Sprachen und Entwicklungsprozessen — das Handwerk, das täglich zum Einsatz kommt und kontinuierlich schärfer wird.",
   Methodisch:
     "Strukturiertes Vorgehen bei Planung, Qualitätssicherung und Architekturentscheidungen — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
-  Kommunikation:
+  Kommunikativ:
     "Technische Sachverhalte verständlich machen, Anforderungen klären und im Team sowie beim Kunden wirksam auftreten — die Dimension, die aus einem guten Entwickler einen wertvollen Berater macht.",
 };
 
@@ -1644,7 +1644,7 @@ export function SkillInventory(props: Props) {
               Fügt die Skills einer oder mehrerer Rollen zur laufenden Inventur hinzu — ohne den bisherigen Fortschritt zurückzusetzen. Bereits vorhandene Skills werden übersprungen.
             </p>
             <div className="mb-3 flex flex-wrap gap-2">
-              {(specPickerGroup?.roles ?? []).map((r) => {
+              {(specPickerGroup?.roles ?? []).filter((r) => r.isSpecialization).map((r) => {
                 const active = specPickerRoleIds.has(r.id);
                 const alreadyLoaded = loadedSpecs.includes(r.name);
                 return (
