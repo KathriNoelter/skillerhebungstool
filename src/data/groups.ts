@@ -1042,7 +1042,7 @@ const projektleitung: Role = {
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Verständnis typischer IT-Projektarten bei Versicherungskunden: Kernsystem-Migrationen, Legacy-Ablösungen, regulatorisch getriebene Projekte (DORA, IFRS 17), Digitalisierungsvorhaben und Plattformablösungen. Abgrenzung zum Domänenwissen: Hier geht es um Projekttyp-spezifische Planungs- und Steuerungsanforderungen, nicht um Versicherungsfachwissen. Typische Tätigkeiten: Projektkomplexität und -risiken je nach Projekttyp einschätzen · Typspezifische Planungsansätze anpassen · Branchenübliche Entscheidungsprozesse beim Kunden verstehen«",
+            "»Verständnis typischer IT-Projektarten bei Versicherungskunden: Kernsystem-Migrationen, Legacy-Ablösungen, regulatorisch getriebene Projekte (DORA, VAIT), Digitalisierungsvorhaben und Plattformablösungen. Abgrenzung zum Domänenwissen: Hier geht es um Projekttyp-spezifische Planungs- und Steuerungsanforderungen, nicht um Versicherungsfachwissen. Typische Tätigkeiten: Projektkomplexität und -risiken je nach Projekttyp einschätzen · Typspezifische Planungsansätze anpassen · Branchenübliche Entscheidungsprozesse beim Kunden verstehen«",
           anchors: {
             1: "Kennt die wichtigsten IT-Projekttypen im Versicherungsumfeld dem Namen nach.",
             2: "Erklärt Merkmale und besondere Anforderungen typischer Projektarten (Migration, Regulatorik, Digitalisierung).",
@@ -1052,7 +1052,7 @@ const projektleitung: Role = {
           },
         },
         {
-          name: "Regulatorische Grossprojekte (DORA, VAIT, IFRS 17)",
+          name: "Regulatorische Grossprojekte (DORA, VAIT)",
           dep: "Evolving",
           targetLevel: 3,
           trend: "stark steigend",
@@ -3765,21 +3765,33 @@ const projektmanagementDrivers: MarketDriver[] = [
     description:
       "Steigende regulatorische Anforderungen verlangen auditfähige Projektgovernance. PM-Rollen müssen Compliance-Anforderungen aktiv in Planung, Steuerung und Dokumentation integrieren.",
     affectedSkillNames: [
-      "Regulatorische Grossprojekte (DORA, VAIT, IFRS 17)",
+      "Regulatorische Grossprojekte (DORA, VAIT)",
       "Risikomanagement",
       "Reporting & Forecasting",
     ],
   },
   {
-    id: "drv-pm-agile-transformation",
-    title: "Agile Transformation bei Versicherungskunden",
+    id: "drv-pm-legacy-abloesung",
+    title: "Legacy-Ablösung & Systemmodernisierung",
+    horizon: "0–3 Jahre",
+    description:
+      "Versicherungsunternehmen modernisieren großflächig ihre Kernsysteme — von monolithischen Bestandssystemen zu modularen Cloud-Plattformen. Diese Großprojekte prägen das PM-Tätigkeitsfeld: hohe Komplexität, lange Laufzeiten, starker Regulierungsdruck und unternehmensweite Stakeholder-Landschaften.",
+    affectedSkillNames: [
+      "IT-Projekttypen im Versicherungsumfeld",
+      "Regulatorische Grossprojekte (DORA, VAIT)",
+      "Projektplanung & Meilensteinsteuerung",
+    ],
+  },
+  {
+    id: "drv-pm-automatisierung-ai",
+    title: "Automatisierung & Agentic AI im Projektumfeld",
     horizon: "1–3 Jahre",
     description:
-      "Versicherungsunternehmen skalieren agile Methoden auf Unternehmensebene. Agile Coaches und Scrum Master werden zu zentralen Enablerern dieser Transformation — auch jenseits einzelner Teams.",
+      "Autonome KI-Agenten übernehmen zunehmend Routineaufgaben im PM: Statuserfassung, Risikomonitoring, Dokumentenanalyse und Anforderungserhebung. PM-Rollen müssen KI-gestützte Prozesse initiieren, überwachen und qualitätssichern — statt sie selbst auszuführen.",
     affectedSkillNames: [
-      "Agile Transformation begleiten",
-      "Skalierungsframeworks (SAFe / LeSS)",
-      "Kulturentwicklung & -Diagnose",
+      "KI-gestützte Projektsteuerung",
+      "Anforderungsmanagement-Grundlagen",
+      "Agile & Hybride Methoden",
     ],
   },
   {
