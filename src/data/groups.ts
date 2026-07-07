@@ -1871,31 +1871,31 @@ const teamassistenz: Role = {
           },
         },
         {
-          name: "Postbearbeitung & Dokumentenfluss",
+          name: "Reise- & Spesensupport",
           dep: "Durable",
           targetLevel: 2,
           description:
-            "»Eingehende und ausgehende Post, Pakete und Dokumente sicher und zuverlaessig verarbeiten. Typische Taetigkeiten: Eingehende Post sichten und weiterleiten · Ausgehende Sendungen frankieren und aufgeben · Empfang und Weitergabe von Paketen koordinieren«",
+            "»Unterstuetzung des Teams bei Dienstreisebuchungen und Spesenabrechnungen. Nicht gemeint: GF-seitiges Reisemanagement oder strategische Reiserichtlinien. Typische Taetigkeiten: Hotel- und Bahnbuchungen fuer Teammitglieder durchfuehren · Spesenabrechnungen aufnehmen und weiterleiten · Reisekostenbelege zusammenstellen und pruefen«",
           anchors: {
-            1: "Nimmt Post entgegen und leitet sie auf Anweisung weiter.",
-            2: "Bearbeitet Post eigenstaendig; leitet sicher und zuverlaessig weiter.",
-            3: "Steuert Postfluss im Unternehmen; erkennt eilige oder vertrauliche Sendungen.",
-            4: "Optimiert Postprozesse; entwickelt Regeln fuer vertrauliche Sendungen.",
-            5: "Definiert Postverwaltungsstandards fuer das Unternehmen.",
+            1: "Fuehrt Buchungen und Abrechnungen auf Anweisung durch.",
+            2: "Unterstuetzt das Team eigenstaendig bei Buchungen und Spesenbelegen.",
+            3: "Steuert Reise- und Spesenprozess fuer das gesamte Team; erklaert Vorgaben.",
+            4: "Optimiert Buchungsprozesse; prueft und verbessert Abrechnungsvorlagen.",
+            5: "Entwickelt Reiseprozess-Standards; verhandelt mit Reiseanbietern.",
           },
         },
         {
-          name: "Ablage & Archivierung",
+          name: "Ablage, Archivierung & Postbearbeitung",
           dep: "Durable",
           targetLevel: 2,
           description:
-            "»Strukturiertes Ablegen und Auffindbarhalten von internen Dokumenten — physisch und digital. Typische Taetigkeiten: Dokumente nach Ablagestruktur einordnen · Versionierung und Aktualitaet von Dokumenten sicherstellen · Archivierungsfristen beachten«",
+            "»Strukturiertes Ablegen, Auffindbarhalten und Weiterleiten von Dokumenten sowie Bearbeitung eingehender und ausgehender Post. Typische Taetigkeiten: Dokumente physisch und digital nach Ablagestruktur einordnen · Archivierungsfristen und Versionierung einhalten · Eingehende Post sichten und weiterleiten«",
           anchors: {
-            1: "Legt Dokumente nach vorgegebener Struktur ab.",
-            2: "Pflegt Ablagestruktur eigenstaendig; haelt Versionierung ein.",
-            3: "Optimiert Ablagestruktur; stellt Auffindbarkeit aktiv sicher.",
-            4: "Entwirft Ablagekonzepte fuer neue Bereiche.",
-            5: "Definiert Archivierungsstandards; schult andere.",
+            1: "Legt Dokumente nach Vorgabe ab; nimmt Post entgegen und leitet auf Anweisung weiter.",
+            2: "Pflegt Ablagestruktur und Postfluss eigenstaendig; haelt Fristen und Versionierung ein.",
+            3: "Optimiert Ablage- und Postprozesse; erkennt eilige oder vertrauliche Vorgaenge.",
+            4: "Entwirft Ablagekonzepte; entwickelt Regeln fuer vertrauliche Sendungen.",
+            5: "Definiert Standards fuer Dokumentenmanagement und Postverwaltung.",
           },
         },
         {
@@ -2488,6 +2488,20 @@ const recruiting: Role = {
             5: "Entwickelt Messe- und Event-Strategie; baut Hochschulpartnerschaften auf.",
           },
         },
+        {
+          name: "Offer Management & Vertragskoordination",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Steuerung des Angebots- und Vertragsprozesses vom positiven Auswahlentscheid bis zum unterzeichneten Arbeitsvertrag. Typische Taetigkeiten: Gehaltsverhandlungen begleiten und Rahmen mit Fuehrungskraft abstimmen · Angebote koordinieren und Rueckmeldungen einholen · Abstimmung mit HR zur Vertragserstellung und Starttermin«",
+          anchors: {
+            1: "Leitet Angebotsprozess auf Anweisung weiter; koordiniert auf Rueckfrage.",
+            2: "Koordiniert Angebotsprozess eigenstaendig; stimmt Rahmendaten mit HR ab.",
+            3: "Steuert den Prozess von Auswahlentscheid bis Vertragsunterschrift sicher.",
+            4: "Begleitet Gehaltsverhandlungen gemeinsam mit Fuehrungskraeften; steuert schwierige Verhandlungen.",
+            5: "Entwickelt Offer-Management-Standards; verkuerzt Time-to-Offer systematisch.",
+          },
+        },
       ],
     },
     {
@@ -3057,6 +3071,20 @@ const itAdmin: Role = {
             3: "Setzt KI gezielt fuer Diagnose und Automatisierung ein.",
             4: "Etabliert KI-gestuetzte Prozesse im IT-Betrieb.",
             5: "Definiert KI-Nutzungsstandards im IT-Admin-Bereich.",
+          },
+        },
+        {
+          name: "Scripting & Automatisierung (PowerShell / Bash)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Erstellung und Pflege von Skripten zur Automatisierung wiederkehrender IT-Admin-Aufgaben: Benutzerverwaltung, Systemkonfiguration, Reporting. Typische Taetigkeiten: PowerShell-Skripte fuer Benutzerverwaltung und Reporting schreiben · Bash-Skripte fuer macOS-Aufgaben erstellen · Bestehende Skripte warten und anpassen«",
+          anchors: {
+            1: "Fuehrt vorhandene Skripte aus; versteht grundlegende Syntax.",
+            2: "Passt bestehende Skripte an; erstellt einfache Kurzskripte eigenstaendig.",
+            3: "Schreibt eigenstaendig Skripte fuer typische Admin-Aufgaben; testet und dokumentiert.",
+            4: "Entwickelt modulare, wiederverwendbare Skripte; automatisiert komplexe Workflows.",
+            5: "Definiert Scripting-Standards; baut Automatisierungs-Bibliothek fuer den IT-Betrieb auf.",
           },
         },
       ],
