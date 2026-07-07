@@ -2946,6 +2946,35 @@ const itAdmin: Role = {
           },
         },
         {
+          name: "Linux-Administration",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Administration von Linux-Servern und -Systemen als primaere Infrastrukturplattform: Installation, Konfiguration, Dienstverwaltung und Fehlerbehebung. Typische Taetigkeiten: Linux-Server aufsetzen und konfigurieren · Dienste und Prozesse verwalten (systemd, Cronjobs) · Probleme mit Logs und CLI-Tools diagnostizieren und beheben«",
+          anchors: {
+            1: "Navigiert in der Linux-Shell; loest einfache Aufgaben mit Anleitung.",
+            2: "Richtet Linux-Systeme eigenstaendig ein; behebt gaengige Probleme.",
+            3: "Administriert Linux-Server vollstaendig; automatisiert Aufgaben mit Shell-Skripten.",
+            4: "Entwirft und betreibt Linux-basierte Infrastruktur eigenverantwortlich; optimiert Systemkonfigurationen.",
+            5: "Definiert Linux-Standards und -Architektur; gilt als Plattform-Referenz.",
+          },
+        },
+        {
+          name: "Server-Infrastrukturbetrieb",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Aufbau, Betrieb und Verwaltung physischer und virtueller Server fuer interne IT-Dienste. Typische Taetigkeiten: Server provisionieren und in Betrieb nehmen · Interne Dienste (Dateifreigaben, interne Plattformen) konfigurieren und betreiben · Serverauslastung und -gesundheit ueberwachen und auf Auffaelligkeiten reagieren«",
+          anchors: {
+            1: "Bedient vorhandene Server nach Anleitung; kennt grundlegende Konzepte.",
+            2: "Betreibt und wartet Standardserver eigenstaendig; behebt gaengige Probleme.",
+            3: "Richtet Server und Dienste eigenverantwortlich ein; betreibt Infrastruktur zuverlaessig.",
+            4: "Plant und optimiert Serverinfrastruktur; entwickelt Betriebskonzepte und Redundanzloesungen.",
+            5: "Definiert Infrastruktur-Architektur; verantwortet Betriebsstabilitaet und Kapazitaetsplanung.",
+          },
+        },
+        {
           name: "Microsoft 365 Administration",
           dep: "Evolving",
           targetLevel: 4,
@@ -2975,15 +3004,15 @@ const itAdmin: Role = {
           },
         },
         {
-          name: "Netzwerk (LAN, WLAN, Firewall, VPN)",
+          name: "Netzwerk (LAN, WLAN, Firewall, VPN, DHCP/DNS)",
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Administration und Fehlerdiagnose von Unternehmensnetzen: kabelgebundene und kabellose Infrastruktur, Firewall-Regeln und VPN-Zugaenge fuer Remote-Mitarbeitende. Typische Taetigkeiten: Netzwerkprobleme diagnostizieren und beheben · WLAN-Zugangspunkte konfigurieren und pflegen · VPN-Zugaenge einrichten und verwalten«",
+            "»Administration und Fehlerdiagnose von Unternehmensnetzen: kabelgebundene und kabellose Infrastruktur, Firewall-Regeln, VPN-Zugaenge sowie DHCP- und DNS-Dienste. Typische Taetigkeiten: Netzwerkprobleme diagnostizieren und beheben · DHCP- und DNS-Server konfigurieren und verwalten · VPN-Zugaenge einrichten und WLAN-Infrastruktur pflegen«",
           anchors: {
             1: "Kennt Netzwerkgrundlagen; loest einfache Verbindungsprobleme.",
-            2: "Diagnostiziert gaengige Netzwerkprobleme eigenstaendig; richtet WLAN ein.",
-            3: "Administriert Netzwerkinfrastruktur vollstaendig; konfiguriert Firewall-Grundregeln.",
+            2: "Diagnostiziert gaengige Netzwerkprobleme eigenstaendig; konfiguriert WLAN und DHCP.",
+            3: "Administriert Netzwerkinfrastruktur vollstaendig inkl. DNS/DHCP; konfiguriert Firewall-Grundregeln.",
             4: "Optimiert Netzwerkarchitektur; entwickelt Segmentierungskonzepte.",
             5: "Definiert Netzwerkstandards; plant Infrastrukturausbau.",
           },
@@ -3200,15 +3229,15 @@ const itAdmin: Role = {
         {
           name: "IT-Dienstleister- & Lieferantenkoordination",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
           description:
-            "»Koordination externer IT-Dienstleister, Hardware-Lieferanten und Software-Anbieter im laufenden Betrieb. Typische Taetigkeiten: Dienstleister bei Stoerungen kontaktieren und eskalieren · Hardware bestellen und Lieferungen verfolgen · Support-Tickets bei Herstellern eroeoffnen und nachverfolgen«",
+            "»Koordination externer IT-Dienstleister, Hardware-Lieferanten und Software-Anbieter im laufenden Betrieb — inkl. Vertragserfuellung und Budgeteinhaltung. Typische Taetigkeiten: Dienstleister bei Stoerungen kontaktieren und eskalieren · Vertragserfuellung und Budgeteinhaltung ueberwachen · Support-Tickets bei Herstellern eroeffnen und nachverfolgen«",
           anchors: {
             1: "Kontaktiert Dienstleister auf Anweisung; leitet Informationen weiter.",
             2: "Koordiniert Standarddienstleister eigenstaendig; klaert einfache Rueckfragen.",
-            3: "Steuert mehrere Dienstleister parallel; eskaliert strukturiert bei Problemen.",
-            4: "Bewertet Dienstleisterleistungen; verhandelt einfache Konditionen.",
-            5: "Managt Dienstleisterportfolio strategisch; schliesst Rahmenvertraege ab.",
+            3: "Steuert mehrere Dienstleister parallel; ueberwacht Vertragserfuellung und haelt Budget im Blick.",
+            4: "Bewertet Dienstleisterleistungen; verhandelt Konditionen und meldet Budgetabweichungen.",
+            5: "Managt Dienstleisterportfolio strategisch; verantwortet IT-Budget und Rahmenvertraege.",
           },
         },
         { ...RUMP_VERBAL, targetLevel: 3 },
