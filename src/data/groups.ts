@@ -1596,17 +1596,31 @@ const gfAssistenz: Role = {
           },
         },
         {
-          name: "Budget- & Reisekostentracking",
+          name: "Interne Projektkoordination",
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Verfolgung von GF-Budget, Reisekosten und Bewirtungsaufwendungen gemaess Richtlinien. Nicht gemeint: Buchhaltung oder Controlling. Typische Taetigkeiten: Reisekostenabrechnungen pruefen und einreichen · Budgetuebersichten fuer GF pflegen · Belege revisionssicher ablegen«",
+            "»Eigenstaendiges Vorantreiben kleinerer interner Projekte und Initiativen — Planung, Aufgabenverteilung, Fortschrittsverfolgung und Ergebnissicherung ohne vollstaendige PM-Rolle. Abgrenzung zur GF-Terminkoordination: Hier geht es um zielorientierte Steuerung ueber laengere Zeitraeume. Typische Taetigkeiten: Aufgaben und Verantwortlichkeiten festlegen und nachverfolgen · Projektfortschritt an GF berichten · Zuarbeiten auf Qualitaet und Vollstaendigkeit pruefen«",
+          anchors: {
+            1: "Unterstuetzt laufende Projekte; erledigt zugewiesene Aufgaben zuverlaessig.",
+            2: "Koordiniert einfache Vorhaben eigenstaendig; haelt Deadlines und Aufgaben nach.",
+            3: "Steuert kleinere interne Projekte eigenverantwortlich; eskaliert Hindernisse rechtzeitig.",
+            4: "Strukturiert komplexere Vorhaben; prueft Zuarbeiten; berichtet GF entscheidungsreif.",
+            5: "Entwickelt Standards fuer interne Projektkoordination; coacht Kolleginnen.",
+          },
+        },
+        {
+          name: "Budget-, Rechnungs- & Kostentracking",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Verfolgung von GF-Budget, Reisekosten und Bewirtungsaufwendungen gemaess Richtlinien sowie Bearbeitung von Eingangsrechnungen als Schnittstelle zur Buchhaltung und zum Controlling. Typische Taetigkeiten: Reisekostenabrechnungen pruefen und einreichen · Eingangsrechnungen pruefen, kontieren und zur Freigabe vorbereiten · Budgetuebersichten fuer GF pflegen · Belege revisionssicher ablegen · Rueckfragen der Buchhaltung klaeren«",
           anchors: {
             1: "Reicht vorbereitete Abrechnungen ein; traegt Daten nach Vorlage ein.",
-            2: "Erstellt Reisekostenabrechnungen eigenstaendig; haelt Richtlinien ein.",
-            3: "Pflegt GF-Budgetuebersichten; erkennt Abweichungen und klaert proaktiv.",
-            4: "Analysiert Kostenentwicklung; bereitet Entscheidungsgrundlagen fuer GF vor.",
-            5: "Entwickelt Tracking-Standards; optimiert Abrechnungsprozesse.",
+            2: "Erstellt Reisekostenabrechnungen eigenstaendig; prueft Eingangsrechnungen auf formale Richtigkeit.",
+            3: "Pflegt GF-Budgetuebersichten; bearbeitet Eingangsrechnungen eigenstaendig; fungiert als Schnittstelle zur Buchhaltung.",
+            4: "Analysiert Kostenentwicklung; bereitet Entscheidungsgrundlagen fuer GF vor; klaert Abweichungen mit Controlling.",
+            5: "Entwickelt Tracking-Standards; optimiert Abrechnungs- und Rechnungsprozesse.",
           },
         },
       ],
