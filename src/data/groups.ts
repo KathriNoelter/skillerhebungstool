@@ -2043,13 +2043,13 @@ const hrGeneralist: Role = {
           targetLevel: 3,
           keySkill: true,
           description:
-            "»Sicherer Umgang mit HR-Informationssystemen fuer Personaladministration, Zeiterfassung und Dokumentenmanagement (z. B. Personio, Workday, SAP HCM). Typische Taetigkeiten: Stammdaten pflegen und Aenderungen einpflegen · Berichte und Auswertungen erstellen · Neue Mitarbeitende im System anlegen und Austritte verarbeiten«",
+            "»Sicherer Umgang mit HR-Informationssystemen fuer Personaladministration, Zeiterfassung und Dokumentenmanagement (z. B. Personio, Workday, SAP HCM) — inkl. Mitwirkung bei System-Auswahl und -Einführung. Typische Taetigkeiten: Stammdaten pflegen und Aenderungen einpflegen · Berichte und Auswertungen erstellen · Neue Mitarbeitende im System anlegen und Austritte verarbeiten · Anforderungen an ein neues HRIS erheben und Einfuehrungsprozess begleiten«",
           anchors: {
             1: "Bedient das HRIS grundlegend; legt Stammdaten mit Anleitung an.",
             2: "Pflegt Stammdaten und fuehrt Standardprozesse eigenstaendig durch.",
             3: "Nutzt HRIS vollstaendig fuer den HR-Lifecycle; erstellt Berichte und Auswertungen.",
-            4: "Konfiguriert Workflows und Berechtigungen; schult andere bei der Nutzung.",
-            5: "Ist System-Admin; bewertet HRIS-Ausbau und verantwortet Systemqualitaet.",
+            4: "Konfiguriert Workflows und Berechtigungen; begleitet System-Einfuehrungen als Key User.",
+            5: "Ist System-Admin; bewertet und verantwortet HRIS-Auswahl, -Einfuehrung und -Qualitaet.",
           },
         },
         {
@@ -2155,6 +2155,34 @@ const hrGeneralist: Role = {
             3: "Steuert Offboarding vollstaendig; erstellt qualifizierte Zeugnisse eigenstaendig.",
             4: "Bearbeitet komplexe Abgaengerfaelle (Kuendigung durch AG, Aufhebung); beraet Fuehrungskraefte.",
             5: "Gilt als Referenz fuer Zeugnisformulierungen; entwickelt Offboarding-Standards.",
+          },
+        },
+        {
+          name: "HR-Reporting & People Analytics",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Aufbereitung, Interpretation und Kommunikation von HR-Kennzahlen als Grundlage fuer Managemententscheidungen. Typische Taetigkeiten: Regelmaessige HR-Berichte erstellen (Fluktuation, Krankenquote, Headcount) · Kennzahlen interpretieren und Auffaelligkeiten erklaeren · Massnahmen auf Basis von Daten vorschlagen und Wirkung messen«",
+          anchors: {
+            1: "Erstellt einfache Auswertungen aus dem HRIS nach Vorlage.",
+            2: "Erstellt HR-Berichte eigenstaendig; erkennt offensichtliche Auffaelligkeiten.",
+            3: "Interpretiert Kennzahlen ursaechengenau; leitet Massnahmenempfehlungen ab.",
+            4: "Entwickelt HR-Kennzahlensystem; beraet Fuehrungskraefte auf Datenbasis.",
+            5: "Definiert People-Analytics-Standards; verankert datenbasierte HR-Steuerung im Unternehmen.",
+          },
+        },
+        {
+          name: "HR-Prozessgestaltung & Projektarbeit",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Aktive Mitgestaltung und Optimierung von HR-Prozessen sowie Mitarbeit in HR-Projekten (z. B. Tool-Einfuehrungen, Benefits-Weiterentwicklung). Nicht gemeint: strategische HR-Planung. Typische Taetigkeiten: Optimierungspotenziale in bestehenden HR-Ablaeufen erkennen und vorschlagen · Anforderungen fuer neue HR-Tools erheben und testen · Umsetzung von HR-Initiativen koordinieren«",
+          anchors: {
+            1: "Fuehrt definierte Prozesse aus; gibt Verbesserungsideen auf Nachfrage.",
+            2: "Erkennt Optimierungspotenziale eigenstaendig; bringt sich aktiv in HR-Projekte ein.",
+            3: "Gestaltet HR-Prozesse eigenverantwortlich mit; koordiniert kleinere HR-Projekte.",
+            4: "Leitet HR-Projekte (z. B. Tool-Einfuehrung); setzt Prozessveraenderungen strukturiert um.",
+            5: "Entwickelt HR-Prozessstandards; positioniert HR als internen Treiber von Verbesserungen.",
           },
         },
         {
