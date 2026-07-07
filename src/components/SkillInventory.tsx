@@ -19,6 +19,7 @@ import {
 } from "../types";
 import { exportSkillInventoryPdf, exportFullGroupCatalogPdf } from "../lib/pdfExport";
 import { exportGroupCatalogExcel } from "../lib/excelExport";
+import { exportFullGroupCatalogWord } from "../lib/wordExport";
 import { groups } from "../data/groups";
 import { importCatalogFromFile } from "../lib/catalogImport";
 
@@ -1559,6 +1560,21 @@ export function SkillInventory(props: Props) {
     setShowCatalogPicker(false);
   }, [currentGroup, groupDrivers, catalogSelectedIds]);
 
+  const [showWordPicker, setShowWordPicker] = useState(false);
+  const [wordSelectedIds, setWordSelectedIds] = useState<Set<string>>(new Set());
+
+  const openWordPicker = useCallback(() => {
+    if (!currentGroup) return;
+    setWordSelectedIds(new Set(currentGroup.roles.map((r) => r.id)));
+    setShowWordPicker(true);
+  }, [currentGroup]);
+
+  const handleWordExport = useCallback(() => {
+    if (!currentGroup) return;
+    exportFullGroupCatalogWord(currentGroup, groupDrivers, Array.from(wordSelectedIds));
+    setShowWordPicker(false);
+  }, [currentGroup, groupDrivers, wordSelectedIds]);
+
   const [showExcelPicker, setShowExcelPicker] = useState(false);
   const [excelSelectedIds, setExcelSelectedIds] = useState<Set<string>>(new Set());
 
@@ -1608,6 +1624,16 @@ export function SkillInventory(props: Props) {
                     <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
                   </svg>
                   Katalog-PDF
+                </button>
+                <button
+                  onClick={openWordPicker}
+                  className={`flex items-center gap-1.5 rounded-lg border px-3 py-1.5 text-xs font-medium transition ${showWordPicker ? "border-slate-600 bg-slate-700 text-white" : "border-slate-300 bg-white text-slate-700 hover:bg-slate-50"}`}
+                  title="Skill-Katalog als Word-Dokument (.docx) exportieren"
+                >
+                  <svg className="h-3.5 w-3.5" fill="none" viewBox="0 0 24 24" stroke="currentColor" strokeWidth={2}>
+                    <path strokeLinecap="round" strokeLinejoin="round" d="M9 12h6m-6 4h6m2 5H7a2 2 0 01-2-2V5a2 2 0 012-2h5.586a1 1 0 01.707.293l5.414 5.414a1 1 0 01.293.707V19a2 2 0 01-2 2z" />
+                  </svg>
+                  Word
                 </button>
                 <button
                   onClick={openExcelPicker}
@@ -1757,6 +1783,57 @@ export function SkillInventory(props: Props) {
               </button>
               <button
                 onClick={() => setShowCatalogPicker(false)}
+                className="text-xs text-slate-400 hover:text-slate-600"
+              >
+                Abbrechen
+              </button>
+            </div>
+          </div>
+        )}
+
+        {/* Word Rollenpicker */}
+        {showWordPicker && currentGroup && (
+          <div className="mt-3 rounded-xl border border-slate-200 bg-slate-50 p-4">
+            <p className="mb-1 text-xs font-semibold uppercase tracking-wide text-slate-500">
+              Word-Export
+            </p>
+            <p className="mb-3 text-xs text-gray-500">
+              Wähle die Rollen, die im Word-Dokument enthalten sein sollen. Markttreiber werden immer mit exportiert.
+            </p>
+            <div className="mb-4 flex flex-wrap gap-2">
+              {currentGroup.roles.map((r) => {
+                const checked = wordSelectedIds.has(r.id);
+                return (
+                  <button
+                    key={r.id}
+                    onClick={() => setWordSelectedIds((prev) => {
+                      const next = new Set(prev);
+                      if (next.has(r.id)) next.delete(r.id); else next.add(r.id);
+                      return next;
+                    })}
+                    className={`rounded-full border px-3 py-1 text-xs font-medium transition ${
+                      checked
+                        ? "border-blue-700 bg-blue-700 text-white"
+                        : "border-slate-300 bg-white text-slate-700 hover:border-slate-400 hover:bg-slate-50"
+                    }`}
+                  >
+                    {checked ? `✓ ${r.name}` : r.name}
+                  </button>
+                );
+              })}
+            </div>
+            <div className="flex items-center gap-3">
+              <button
+                onClick={handleWordExport}
+                disabled={wordSelectedIds.size === 0}
+                className="rounded-lg bg-blue-700 px-4 py-2 text-sm font-semibold text-white transition hover:bg-blue-600 disabled:cursor-not-allowed disabled:opacity-40"
+              >
+                {wordSelectedIds.size === currentGroup.roles.length
+                  ? "Gesamtkatalog als Word"
+                  : `${wordSelectedIds.size} ${wordSelectedIds.size === 1 ? "Rolle" : "Rollen"} als Word`}
+              </button>
+              <button
+                onClick={() => setShowWordPicker(false)}
                 className="text-xs text-slate-400 hover:text-slate-600"
               >
                 Abbrechen
