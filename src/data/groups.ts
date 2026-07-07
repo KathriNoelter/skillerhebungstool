@@ -2573,17 +2573,17 @@ const controlling: Role = {
           },
         },
         {
-          name: "ERP-System (Finanzbuchhaltung & Controlling)",
+          name: "ERP- & Projektsteuerungssystem (inkl. Jira, MS Project)",
           dep: "Evolving",
           targetLevel: 3,
           description:
-            "»Sicherer Umgang mit dem unternehmensinternen ERP-System fuer buchhalterische Auswertungen, Kostenstellen-Reporting und Datenexporte ins Controlling. Typische Taetigkeiten: Kosten- und Erloesdaten aus dem ERP extrahieren · Buchungen auf Plausibilitaet pruefen · Berichte und Auswertungen im System generieren«",
+            "»Sicherer Umgang mit dem unternehmensinternen ERP-System sowie projektbezogenen Steuerungstools (Jira, MS Project) fuer buchhalterische Auswertungen, Rechnungsstellung, Kostenstellen-Reporting und Datenexporte ins Controlling. Typische Taetigkeiten: Kosten- und Erloesdaten aus ERP extrahieren · Ausgangsrechnungen vorbereiten und pruefen · Ist-Stunden und Projektfortschritt aus Jira/MS Project fuer Controlling-Auswertungen auslesen · Buchungen auf Plausibilitaet pruefen«",
           anchors: {
             1: "Navigiert im ERP; extrahiert einfache Berichte mit Anleitung.",
-            2: "Extrahiert Daten eigenstaendig; versteht grundlegende Buchungslogik.",
-            3: "Nutzt ERP vollstaendig fuer Controlling-Auswertungen; erkennt Datenfehler.",
-            4: "Konfiguriert Berichte und Kostenstellen; optimiert Datenfluesse zum Controlling.",
-            5: "Ist Key User; schult andere und begleitet ERP-Weiterentwicklung.",
+            2: "Extrahiert Daten eigenstaendig; versteht Buchungslogik; liest Projektdaten aus PM-Tools.",
+            3: "Nutzt ERP und PM-Tools vollstaendig fuer Controlling-Auswertungen; bereitet Rechnungen vor.",
+            4: "Konfiguriert Berichte und Kostenstellen; optimiert Datenfluesse zwischen PM-Tools und ERP.",
+            5: "Ist Key User; schult andere und begleitet Systemweiterentwicklung.",
           },
         },
         {
@@ -2732,6 +2732,34 @@ const controlling: Role = {
             3: "Entwickelt KPI-Systeme; baut Dashboards und leitet Massnahmen aus Kennzahlen ab.",
             4: "Definiert KPI-Logiken; sichert Konsistenz ueber Bereiche und Projekte.",
             5: "Entwickelt unternehmensweites KPI-Framework; beraet Fuehrungskraefte.",
+          },
+        },
+        {
+          name: "Einsatzplanung & Auslastungssteuerung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Unterstuetzung der uebergreifenden Einsatzplanung im Projektgeschaeft: Auslastungsauswertungen erstellen, Planungsabgleiche bereitstellen und Kapazitaetsengpaesse fruehzeitig sichtbar machen. Typische Taetigkeiten: Auslastungsquoten je Mitarbeiterin und Projekt auswerten · Soll-Ist-Vergleiche der Ressourcenplanung aufbereiten · Planungsluecken und Ueberlasten an Fuehrungskraefte kommunizieren«",
+          anchors: {
+            1: "Tragt Planungsdaten in Vorlagen ein; braucht Anleitung bei Auswertung.",
+            2: "Erstellt einfache Auslastungsberichte eigenstaendig; erkennt offensichtliche Abweichungen.",
+            3: "Steuert Einsatzplanungs-Reporting vollstaendig; bereitet Planungsabgleiche entscheidungsreif auf.",
+            4: "Entwickelt Auslastungsmodelle; beraet Fuehrungskraefte proaktiv zu Kapazitaetsrisiken.",
+            5: "Definiert Standards fuer Einsatzplanung und Auslastungsreporting im Unternehmen.",
+          },
+        },
+        {
+          name: "Angebots- & Auftragsmanagement",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Eigenstaendige Erstellung, Verwaltung und Nachverfolgung von Kundenangeboten, Projektvereinbarungen und Vertraegen als kaufmaennische Schnittstelle zwischen GF, Projektleitung und Kunden. Typische Taetigkeiten: Angebote kalkulieren und erstellen · Projektvereinbarungen und Vertraege anlegen und versionieren · Vertragsfristen und Verlaengerungen proaktiv nachhalten«",
+          anchors: {
+            1: "Pflegt bestehende Angebote und Vertraege in Vorlagen; braucht Anleitung bei Kalkulation.",
+            2: "Erstellt einfache Angebote eigenstaendig; verwaltet Vertraege strukturiert.",
+            3: "Kalkuliert und erstellt Angebote vollstaendig; verwaltet Projektvereinbarungen eigenverantwortlich.",
+            4: "Verhandelt kaufmaennische Konditionen vor; beraet GF zu Vertragsrisiken.",
+            5: "Entwickelt Angebots- und Vertragsstandards; optimiert den kaufmaennischen Prozess.",
           },
         },
         {
