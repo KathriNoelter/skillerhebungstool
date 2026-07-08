@@ -2252,6 +2252,252 @@ const hrGeneralist: Role = {
   ],
 };
 
+const hrBusinessPartner: Role = {
+  id: "hr-business-partner",
+  name: "HR Business Partner",
+  description:
+    "Strategische HR-Partnerin fuer Geschaeftsfuehrung und Leads — verantwortet Personalplanung, Verguetungsgestaltung und Recruiting-Strategie ueber den gesamten Employee Lifecycle.",
+  categories: [
+    {
+      name: "Fachlich",
+      skills: [
+        {
+          name: "Strategische Personalplanung & Workforce Planning",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Vorausschauende Planung des Personalbedarfs auf Basis von Unternehmenszielen, Wachstumsplaenen und Markttrends — als Grundlage fuer Recruiting-Priorisierung und HR-Budgetplanung. Typische Taetigkeiten: Personalbedarfsplanung fuer alle Bereiche mit GF und Leads abstimmen · Stellenprofile fuer kuenftige Bedarfe entwickeln · Wachstumsszenarien auf Personalkosten und -verfuegbarkeit hin bewerten«",
+          anchors: {
+            1: "Kennt Grundbegriffe der Personalplanung; unterstuetzt auf Anfrage.",
+            2: "Erstellt einfache Personalbedarfsuebersichten; stimmt sich reaktiv mit GF ab.",
+            3: "Plant Personalbedarfe systematisch; leitet Priorisierungen fuer Recruiting ab.",
+            4: "Entwickelt eigenstaendig Workforce-Szenarien; beraet GF bei strategischen Personalentscheidungen.",
+            5: "Definiert Planungsmethodik; gilt als strategische Sparringspartnerin auf Unternehmensebene.",
+          },
+        },
+        {
+          name: "Verguetungsmanagement & Gehaltsbandentwicklung",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Entwicklung, Pflege und Weiterentwicklung transparenter Gehaltsbaender und Verguetungsstrukturen je Rolle und Expertisestufe — als Grundlage fuer faire und marktgerechte Entgeltentscheidungen. Nicht gemeint: operative Vertragsabwicklung. Typische Taetigkeiten: Gehaltsbaender fuer alle Rollen regelmaessig auf Marktkonformitaet pruefen · Gehaltsverhandlungen mit Rahmen und Argumenten unterstuetzen · Entgeltentscheidungen transparent begruenden«",
+          anchors: {
+            1: "Kennt Grundprinzipien der Verguetung; kann einfache Gehaltsvergleiche ziehen.",
+            2: "Pflegt Gehaltsbaender nach Vorgabe; nutzt Marktdaten zur Einordnung.",
+            3: "Entwickelt und aktualisiert Gehaltsbaender eigenstaendig; beraet bei Gehaltsverhandlungen.",
+            4: "Gestaltet Verguetungsstruktur strategisch; justiert Baender auf Basis von Markt und Unternehmenszielen.",
+            5: "Definiert Verguetungsphilosophie; verantwortet Gesamtstrategie der Entgeltgestaltung.",
+          },
+        },
+        {
+          name: "Entgelttransparenzgesetz (ETG)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Kenntnisse der Anforderungen des Entgelttransparenzgesetzes und deren Umsetzung im Unternehmen: Auskunftsansprueche, Berichtspflichten, Dokumentation. Typische Taetigkeiten: Auskunftsansprueche von Mitarbeitenden korrekt bearbeiten · Prozesse zur ETG-Konformitaet etablieren und dokumentieren · Fuehrungskraefte zu ETG-Anforderungen informieren«",
+          anchors: {
+            1: "Kennt das ETG dem Namen nach; braucht Unterstuetzung bei der Anwendung.",
+            2: "Bearbeitet Auskunftsansprueche nach Vorlage; kennt Grundpflichten des Unternehmens.",
+            3: "Setzt ETG-Anforderungen eigenstaendig um; beraet Fuehrungskraefte bei Grenzfaellen.",
+            4: "Entwickelt ETG-Prozesse; prueft Gehaltsstrukturen auf Konformitaet.",
+            5: "Gilt als ETG-Expertin; definiert Standards und schult andere.",
+          },
+        },
+        {
+          name: "Arbeitsrecht (beratend & strategisch)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Fundierte arbeitsrechtliche Kenntnisse als Grundlage fuer strategische Beratung von Fuehrungskraeften und GF — insbesondere bei Kuendigungen, Aufhebungsvertraegen und strukturellen HR-Entscheidungen. Nicht gemeint: operative Vertragsabwicklung oder juristische Beratung. Typische Taetigkeiten: Fuehrungskraefte zu arbeitsrechtlichen Risiken beraten · Kuendigungs- und Aufhebungsprozesse strategisch begleiten · Externe Rechtsberatung einschaetzen und koordinieren«",
+          anchors: {
+            1: "Kennt Grundzuege des Arbeitsrechts; eskaliert bei komplexen Faellen.",
+            2: "Beantwortet gaengige arbeitsrechtliche Fragen eigenstaendig; erkennt Risiken.",
+            3: "Beraet GF und Fuehrungskraefte proaktiv zu arbeitsrechtlichen Entscheidungen.",
+            4: "Bewertet komplexe Faelle; koordiniert externe Rechtsberatung zielgerichtet.",
+            5: "Gilt als interne Arbeitsrechts-Referenz; gestaltet Prozesse zur Risikominimierung.",
+          },
+        },
+        { ...RUMP_DIGITALE, targetLevel: 2 },
+      ],
+    },
+    {
+      name: "Technisch",
+      skills: [
+        {
+          name: "HR-Analytics & Recruiting-Reporting",
+          dep: "Evolving",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Systematische Auswertung von HR- und Recruiting-Kennzahlen zur Steuerung von Personalentscheidungen und Prozessoptimierung. Typische Taetigkeiten: Recruiting-KPIs aufbereiten und interpretieren (Time-to-Hire, Source of Hire, Offer Acceptance Rate) · HR-Kennzahlen fuer GF-Reporting aufbereiten · Daten aus HRIS und ATS auswerten und visualisieren«",
+          anchors: {
+            1: "Liest vorgefertigte Berichte; interpretiert Kennzahlen auf Nachfrage.",
+            2: "Erstellt einfache HR-Reports eigenstaendig; kennt gaengige KPIs.",
+            3: "Entwickelt Recruiting- und HR-Dashboards; leitet Handlungsempfehlungen aus Daten ab.",
+            4: "Analysiert Trends und Korrelationen; beraet GF auf Basis quantitativer Erkenntnisse.",
+            5: "Definiert HR-Analytics-Strategie; etabliert datenbasierte Entscheidungskultur.",
+          },
+        },
+        {
+          name: "HRIS-Strategie & Tool-Auswahl",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Strategische Auswahl, Einfuehrung und Weiterentwicklung des HR-Informationssystems und weiterer HR-Tools auf Basis von Unternehmensbedarfen. Nicht gemeint: operative HRIS-Bedienung (HR-Generalistin). Typische Taetigkeiten: Anforderungen an HR-Tools erheben und Anbieter evaluieren · Tool-Einfuehrungen projektieren und koordinieren · HR-Systemlandschaft auf Skalierungsbedarfe pruefen«",
+          anchors: {
+            1: "Kennt gaengige HR-Systeme; formuliert einfache Anforderungen.",
+            2: "Vergleicht Tools nach Kriterien; begleitet Evaluierungen.",
+            3: "Leitet Tool-Auswahl und -Einfuehrung eigenstaendig; definiert Anforderungskatalog.",
+            4: "Entwickelt HR-Systemstrategie; verantwortet Implementierungsprojekte.",
+            5: "Definiert HR-IT-Architektur; gilt als Expertin fuer HR-Digitalisierung.",
+          },
+        },
+        {
+          name: "KI-Tools im HRBP-Kontext",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Assistenten fuer strategische HR-Aufgaben: Marktanalysen, Reportings, Gespraechsvorbereitung, Dokumentation. Nicht gemeint: autonome Entscheidungen ohne menschliche Pruefung. Typische Taetigkeiten: HR-Berichte und Praesentationen per KI vorbereiten · Marktdaten fuer Gehaltsbandanalysen aufbereiten · Gespraechsleitfaeden fuer schwierige Situationen per KI entwickeln«",
+          anchors: {
+            1: "Kennt KI-Tools dem Namen nach.",
+            2: "Nutzt KI fuer Texte, Zusammenfassungen und Reports; prueft Outputs kritisch.",
+            3: "Setzt KI gezielt fuer strategische HR-Aufgaben ein; optimiert Prompts situativ.",
+            4: "Etabliert KI-gestuetzte Prozesse im HRBP-Kontext; schult andere.",
+            5: "Definiert KI-Nutzungsstandards fuer den HR-Bereich.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Methodisch",
+      skills: [
+        {
+          name: "HR-Budgetplanung & Kostenstellensteuerung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Planung, Ueberwachung und Steuerung des HR-Budgets und der Personalkostenstellenstruktur in Abstimmung mit Controlling und GF. Typische Taetigkeiten: Personalkostenbudget planen und mit GF abstimmen · Budgetabweichungen analysieren und Anpassungen vorschlagen · Kostenstellenstruktur fuer Personalkosten pflegen«",
+          anchors: {
+            1: "Kennt Grundbegriffe der Budgetplanung; unterstuetzt auf Anweisung.",
+            2: "Erstellt einfache Personalbudgets nach Vorgabe; haelt Budgetrahmen ein.",
+            3: "Plant HR-Budget eigenstaendig; erkennt Abweichungen und leitet Gegenmassnahmen ein.",
+            4: "Entwickelt Budgetszenarien; fuehrt Budgetverhandlungen mit GF und Controlling.",
+            5: "Verantwortet HR-Budgetstrategie; definiert Planungsstandards.",
+          },
+        },
+        {
+          name: "Provisionsmodelle & Incentivegestaltung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Entwicklung, Abstimmung und Pflege von Provisionsmodellen und variablen Verguetungskomponenten fuer relevante Rollen. Typische Taetigkeiten: Provisionsmodelle mit GF und Leads konzipieren und abstimmen · Modelle auf Fairness, Marktkonformitaet und Motivationswirkung pruefen · Aenderungen kommunizieren und dokumentieren«",
+          anchors: {
+            1: "Kennt grundlegende Provisionslogiken; formuliert einfache Rechenbeispiele.",
+            2: "Versteht bestehende Modelle; identifiziert offensichtliche Schwaechen.",
+            3: "Entwickelt Provisionsmodelle eigenstaendig; prueft auf Fairness und Anreizwirkung.",
+            4: "Gestaltet komplexe Incentivestrukturen; moderiert Abstimmungen mit GF und Leads.",
+            5: "Definiert Verguetungsphilosophie fuer variable Anteile; gilt als Referenz.",
+          },
+        },
+        {
+          name: "Personaldienstleister-Steuerung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Strategische Steuerung und operative Koordination externer Personaldienstleister und Headhunter fuer Recruiting-Bedarfe. Typische Taetigkeiten: Geeignete Dienstleister identifizieren und evaluieren · Briefings erstellen und eingereichte Kandidatenprofile pruefen · Vertragskonditionen verhandeln und Leistung bewerten«",
+          anchors: {
+            1: "Nimmt Dienstleisterkontakt auf Anweisung auf; leitet Informationen weiter.",
+            2: "Koordiniert Standarddienstleister eigenstaendig; prueft eingereichte Profile.",
+            3: "Steuert mehrere Dienstleister parallel; bewertet Qualitaet und Konditionen.",
+            4: "Verhandelt Rahmenvertraege; entwickelt Auswahlkriterien und Bewertungsrahmen.",
+            5: "Managt Dienstleisterportfolio strategisch; definiert Beschaffungsstandards fuer externes Recruiting.",
+          },
+        },
+        {
+          name: "Werkstudierenden-Management",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Ganzheitliche Betreuung von Werkstudierenden — von der Bedarfsplanung ueber das Einstellungsverfahren bis zu Verlaengerung, Uebernahme oder Abschluss. Typische Taetigkeiten: Bedarfe mit Leads planen und Ausschreibungen koordinieren · Einstellungsverfahren durchfuehren und Vertraege vorbereiten · Stundensatzanpassungen, Verlaengerungen und Uebernahmegespraeche begleiten«",
+          anchors: {
+            1: "Begleitet einzelne Schritte auf Anweisung.",
+            2: "Fuehrt Standardprozesse (Ausschreibung, Einstellung) eigenstaendig durch.",
+            3: "Managt gesamten Werkstudierenden-Lifecycle eigenstaendig; ist zentrale Ansprechpartnerin.",
+            4: "Optimiert Prozesse; entwickelt Standards fuer Betreuung und Uebernahme.",
+            5: "Gilt als Referenz fuer Werkstudierendenmanagement; schult Fuehrungskraefte.",
+          },
+        },
+        {
+          name: "Employee Relations & disziplinarische Begleitung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Begleitung und Moderation schwieriger Mitarbeitendensituationen: Konflikte, Leistungsthemen, disziplinarische Massnahmen und Kuendigungsprozesse. Nicht gemeint: alltaegliche Fuehrungskommunikation. Typische Taetigkeiten: Fuehrungskraefte bei disziplinarischen Massnahmen beraten und begleiten · Disziplinarische Gespraeche vorbereiten und ggf. durchfuehren · Kuendigungs- und Aufhebungsprozesse strukturiert begleiten«",
+          anchors: {
+            1: "Kennt rechtliche Grundlagen; eskaliert bei Konflikten.",
+            2: "Unterstuetzt Fuehrungskraefte bei einfachen Faellen; bereitet Gespraeche vor.",
+            3: "Begleitet disziplinarische Gespraeche eigenstaendig; steuert Prozesse strukturiert.",
+            4: "Loest komplexe Employee-Relations-Faelle; beraet proaktiv zur Eskalationsvermeidung.",
+            5: "Entwickelt Employee-Relations-Standards; schult Fuehrungskraefte.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Kommunikativ",
+      skills: [
+        {
+          name: "Beratung & Sparring fuer GF und Leads",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Vertrauensvolle, gleichwertige Beratungsbeziehung zur Geschaeftsfuehrung und zu Fuehrungskraeften in strategischen Personalfragen. Typische Taetigkeiten: GF und Leads in Personalentscheidungen proaktiv beraten · Unbequeme Einschaetzungen klar und konstruktiv kommunizieren · Strategische HR-Themen initiieren und auf die Agenda bringen«",
+          anchors: {
+            1: "Beantwortet HR-Fragen reaktiv; gibt Informationen ohne Einordnung weiter.",
+            2: "Beraet zu Standardthemen; gibt eigene Einschaetzung auf Nachfrage.",
+            3: "Beraet proaktiv; spricht Risiken an und schlaegt Loesungen vor.",
+            4: "Ist vertrauenswuerdiger Sparringspartner fuer GF; bringt strategische HR-Themen eigenstaendig ein.",
+            5: "Praegt HR-Kultur; gilt als strategische Partnerin auf Unternehmensebene.",
+          },
+        },
+        {
+          name: "Schwierige Gespraeche fuehren (Kuendigung, Disziplinar)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Strukturierte Vorbereitung und Durchfuehrung schwieriger Gespraeche: Kuendigungen, Aufhebungsvertraege, disziplinarische Massnahmen und Feedbackgespraeche bei Leistungsthemen. Typische Taetigkeiten: Gespraeche strukturiert vorbereiten (Botschaft, Reaktionen, rechtlicher Rahmen) · Gespraeche klar, wertschaetzend und rechtssicher fuehren · Fuehrungskraefte bei eigenen schwierigen Gespraechen coachen«",
+          anchors: {
+            1: "Fuehrt schwierige Gespraeche auf Anweisung; braucht inhaltliche Unterstuetzung.",
+            2: "Bereitet Gespraeche selbstaendig vor; fuehrt sie mit Unterstuetzung durch.",
+            3: "Fuehrt schwierige Gespraeche sicher und souveraen; bewaeltigt Reaktionen professionell.",
+            4: "Coacht Fuehrungskraefte fuer eigene schwierige Gespraeche; entwickelt Gespraechsleitfaeden.",
+            5: "Gilt als Referenz; trainiert Fuehrungskraefte systematisch.",
+          },
+        },
+        {
+          name: "Employer Branding & externe Positionierung",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Mitgestaltung der externen Arbeitgeberpositionierung auf Karriereplattformen und sozialen Medien — im Schnittpunkt von HR und Marketing. Nicht gemeint: professionelles Social-Media-Management. Typische Taetigkeiten: Firmenprofile auf Karriereplattformen erstellen und pflegen · Entwuerfe fuer arbeitgeberbezogene Social-Media-Inhalte erstellen · Bewertungen auf Kununu beobachten und einordnen«",
+          anchors: {
+            1: "Veroeffentlicht Inhalte nach Vorgabe.",
+            2: "Pflegt Profile eigenstaendig; formuliert einfache Beitraege zur Arbeitgeberattraktivitaet.",
+            3: "Entwickelt Employer-Branding-Inhalte strategisch; koordiniert mit Marketing.",
+            4: "Konzipiert Kampagnen; bewertet Plattformen nach Zielgruppenpassung.",
+            5: "Entwickelt Employer-Branding-Strategie; definiert Positionierung und Kanalstrategie.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 4 },
+      ],
+    },
+  ],
+};
+
 const recruiting: Role = {
   id: "recruiting",
   name: "Recruiting",
@@ -4317,7 +4563,7 @@ export const groups: Group[] = [
     name: "Backoffice",
     description:
       "Unternehmensinterne Funktionen — Organisation, HR, Finanzen und IT.",
-    roles: [gfAssistenz, teamassistenz, hrGeneralist, recruiting, controlling, inhouseProjektSupport, itAdmin],
+    roles: [gfAssistenz, teamassistenz, hrGeneralist, hrBusinessPartner, recruiting, controlling, inhouseProjektSupport, itAdmin],
     defaultDrivers: backofficeDrivers,
   },
   {
