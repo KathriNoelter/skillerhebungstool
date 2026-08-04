@@ -483,7 +483,7 @@ export function exportAssessmentResults(
     for (const d of drivers.items) {
       driverRows.push([
         d.title,
-        d.horizon,
+        d.horizon ?? "",
         d.description,
         d.affectedSkillNames.join(", "),
       ]);

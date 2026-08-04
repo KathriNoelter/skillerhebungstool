@@ -813,16 +813,6 @@ export function App() {
     [bumpLastModified],
   );
 
-  // -------- Handlers: Bewertungsmodell (ANF-16) --------
-
-  const handleEditSkillModel = useCallback(
-    (skillName: string, model: EvaluationModel | null) => {
-      setSkillModelOverrides((prev) => ({ ...prev, [skillName]: model }));
-      bumpLastModified(skillName);
-    },
-    [bumpLastModified],
-  );
-
   // -------- Handlers: Schluesselkompetenz (ANF-18 / 10) --------
 
   const handleEditSkillKey = useCallback(
@@ -1214,7 +1204,6 @@ export function App() {
             onEditSkillAnchor={handleEditSkillAnchor}
             onEditSkillTrend={handleEditSkillTrend}
             onEditSkillTrendgrund={handleEditSkillTrendgrund}
-            onEditSkillModel={handleEditSkillModel}
             onEditSkillKey={handleEditSkillKey}
             currentGroup={currentGroup}
             groupDrivers={currentGroupDrivers}

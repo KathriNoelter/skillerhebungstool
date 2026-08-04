@@ -1105,7 +1105,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-ki-versicherung",
     title: "KI-Integration in Versicherungs- und Finanzprozessen",
-    horizon: "0–2 Jahre",
     description:
       "Versicherungs- und Finanzkunden automatisieren Kernprozesse (Schadenbearbeitung, Underwriting, Betrugserkennung, Kreditbewertung) mit KI-Systemen und fordern von ihren Entwicklungspartnern, diese Loesungen zu bauen und zu integrieren. Fuer red6-Entwickler bedeutet das: KI-Faehigkeiten muessen auf das jeweilige Fachdomaenenverstaendnis treffen — nur wer Versicherungslogik und KI-Systemdesign zusammendenkt, kann sinnvoll beraten und liefern.",
     affectedSkillNames: [
@@ -1119,7 +1118,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-ki-rollenneudefinition",
     title: "KI verschiebt das Kernberufsbild des Entwicklers",
-    horizon: "0–3 Jahre",
     description:
       "Coding-Assistenten (Copilot, Cursor, Claude) uebernehmen zunehmend Implementation, Boilerplate und Routine-Debugging. Der Wert eines Entwicklers verlagert sich auf Architekturentscheidungen, Systemdesign, Anforderungsurteil und die kritische Bewertung von KI-Output. In regulierten Umgebungen wie Versicherung und Finanzen ist das besonders heikel: KI-generierter Code kann Geschaeftslogik halluzinieren oder regulatorische Anforderungen falsch abbilden — unbemerkt, wenn das Review-Urteil fehlt.",
     affectedSkillNames: [
@@ -1134,7 +1132,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-cloud-regulated",
     title: "Cloud-Adoption unter Auslagerungsregulatorik",
-    horizon: "1–3 Jahre",
     description:
       "Versicherungen und Banken migrieren in die Cloud. Entwickler muessen Compliance-Anforderungen (z. B. aus BAIT, MaRisk, DORA, GDPR, oder branchenspezifischen Richtlinien) in Architektur, Entwicklung und Betrieb integrieren koennen.",
     affectedSkillNames: [
@@ -1149,7 +1146,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-observability-sre",
     title: "Betriebsverantwortung & Observability im Kundensystem",
-    horizon: "1–3 Jahre",
     description:
       "Versicherungssysteme unterliegen hohen Verfuegbarkeitsanforderungen (DORA, SLA-Verpflichtungen). Als eingebettetes Beratungsteam tragen red6-Entwickler Mitverantwortung fuer Betrieb und Incidents — Observability, strukturiertes Logging und Incident-Response sind keine Ops-Themen mehr, sondern Entwicklererwartung in jedem Kundenprojekt.",
     affectedSkillNames: [
@@ -1162,7 +1158,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-legacy-kernsysteme",
     title: "Legacy-Modernisierung von Versicherungskernsystemen",
-    horizon: "2–5 Jahre",
     description:
       "Versicherungskunden betreiben oft jahrzehntealte Kernsysteme (Bestand, Schaden, Vertrag) auf COBOL-Mainframes oder fruehen Java-EE-Monolithen. Die Migration zu modernen, modularen Architekturen ist ein Kernmarkt fuer red6.",
     affectedSkillNames: [
@@ -1177,7 +1172,6 @@ const swGroupDrivers: MarketDriver[] = [
   {
     id: "drv-sw-beratungskompetenz-entwickler",
     title: "Entwickler als Berater beim Kunden — steigende Erwartungen",
-    horizon: "1–4 Jahre",
     description:
       "Als Beratungshaus positioniert sich red6 nicht ueber reine Staffing-Leistungen. Kunden erwarten Entwickler, die Anforderungen strukturieren, Entscheidungen begruenden, Wissen weitergeben und in agilen Kundenteams fuehren koennen. Senior-Entwickler muessen Beratungsleistung erbringen — fachliche Kommunikation, Dokumentation und technisches Mentoring sind Teil des Wertangebots.",
     affectedSkillNames: [

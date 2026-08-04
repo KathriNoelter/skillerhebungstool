@@ -200,8 +200,8 @@ export interface Group {
 export interface MarketDriver {
   id: string;
   title: string;
-  /** Freitext, z. B. "0–2 Jahre", "2–5 Jahre". */
-  horizon: string;
+  /** Freitext, z. B. "0–2 Jahre", "2–5 Jahre". Optional — wird nur angezeigt wenn gesetzt. */
+  horizon?: string;
   description: string;
   /** Skill-Namen aus dem Katalog der Rollengruppe. */
   affectedSkillNames: string[];

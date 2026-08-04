@@ -95,7 +95,7 @@ function driversSection(drivers: MarketDriver[]): string {
   html += `Markt- &amp; Kundentreiber <span style="font-weight:400">(${drivers.length})</span></h2>`;
 
   for (const d of drivers) {
-    const horizonStyle = HORIZON_COLOR[d.horizon] ?? "background:#f1f5f9;color:#334155";
+    const horizonStyle = HORIZON_COLOR[d.horizon ?? ""] ?? "background:#f1f5f9;color:#334155";
     html += `<div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:10px;page-break-inside:avoid">`;
 
     html += `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px">`;
@@ -259,7 +259,7 @@ export function exportFullGroupCatalogPdf(
     driversHtml += `Markt- &amp; Kundentreiber <span style="font-weight:400">(${drivers.length})</span></h2>`;
 
     for (const d of drivers) {
-      const horizonStyle = HORIZON_COLOR[d.horizon] ?? "background:#f1f5f9;color:#334155";
+      const horizonStyle = HORIZON_COLOR[d.horizon ?? ""] ?? "background:#f1f5f9;color:#334155";
       driversHtml += `<div style="border:1px solid #e2e8f0;border-radius:8px;padding:14px 16px;margin-bottom:10px;page-break-inside:avoid">`;
       driversHtml += `<div style="display:flex;align-items:flex-start;justify-content:space-between;gap:12px;margin-bottom:8px">`;
       driversHtml += `<span style="font-size:14px;font-weight:700;color:#1e293b">${esc(d.title)}</span>`;

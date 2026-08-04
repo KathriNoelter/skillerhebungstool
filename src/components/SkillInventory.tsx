@@ -76,10 +76,6 @@ interface Props {
   ) => void;
   onEditSkillTrend: (skillName: string, trend: RelevanceTrend | null) => void;
   onEditSkillTrendgrund: (skillName: string, trendgrund: string) => void;
-  onEditSkillModel: (
-    skillName: string,
-    model: EvaluationModel | null,
-  ) => void;
   onEditSkillKey: (skillName: string, isKey: boolean) => void;
 
   // ANF-15 — Markt- & Kundentreiber je Rollengruppe.
@@ -163,8 +159,8 @@ function TargetSelect({
       onClick={(e) => e.stopPropagation()}
       title={
         typeof value === "number"
-          ? `Zielwert: ${value} — ${labels[value]} (${model} 1–5)`
-          : `Zielwert setzen (${model} 1–5)`
+          ? `Zielwert: ${value} — ${labels[value]}`
+          : `Zielwert setzen`
       }
       className={`rounded border px-1.5 py-0.5 text-xs focus:outline-none focus:ring-1 focus:ring-slate-300 disabled:opacity-50 ${setClass}`}
     >
@@ -330,7 +326,6 @@ function SkillDetailEditor({
   onEditAnchor,
   onEditTrend,
   onEditTrendgrund,
-  onEditModel,
   onEditKey,
 }: {
   skill: Skill;
@@ -340,14 +335,10 @@ function SkillDetailEditor({
   onEditAnchor: (level: DreyfusAnchorLevel, text: string) => void;
   onEditTrend: (trend: RelevanceTrend | null) => void;
   onEditTrendgrund: (text: string) => void;
-  onEditModel: (model: EvaluationModel | null) => void;
   onEditKey: (isKey: boolean) => void;
 }) {
   const effectiveModel = evaluationModelFor(skill, categoryName);
   const labels = stageLabelsFor(effectiveModel);
-  const isAuto = !skill.bewertungsmodell;
-  const defaultModel: EvaluationModel =
-    categoryName === "Fachlich" ? "Bloom" : "Dreyfus";
 
   // Local draft state prevents textarea content from being cleared by re-renders
   // that are triggered by unrelated state updates (e.g. bumpLastModified).
@@ -465,31 +456,7 @@ function SkillDetailEditor({
       </div>
       <div>
         <label className="text-[11px] font-semibold uppercase tracking-wide text-gray-500">
-          Bewertungsmodell
-        </label>
-        <select
-          value={skill.bewertungsmodell ?? ""}
-          onChange={(e) => {
-            const v = e.target.value;
-            onEditModel(v ? (v as EvaluationModel) : null);
-          }}
-          className="mt-1 w-full rounded border border-gray-300 bg-white px-3 py-1.5 text-sm focus:border-slate-500 focus:outline-none"
-        >
-          <option value="">
-            Auto ({defaultModel} — Default fuer „{categoryName}")
-          </option>
-          <option value="Bloom">Bloom (Wissensentwicklung)</option>
-          <option value="Dreyfus">Dreyfus (Handwerksstufen)</option>
-        </select>
-        <p className="mt-1 text-[10px] text-gray-400">
-          {isAuto
-            ? `Automatisch: ${effectiveModel}. Fachlich nutzt Bloom (Erinnern → Erschaffen), alle anderen Dimensionen Dreyfus (Novice → Expert).`
-            : `Modell explizit auf ${effectiveModel} gesetzt — Stufenbezeichnungen, Anker und Legende richten sich danach.`}
-        </p>
-      </div>
-      <div>
-        <label className="text-[11px] font-semibold uppercase tracking-wide text-gray-500">
-          Rollenspezifischer Zielwert ({effectiveModel} 1–5)
+          Rollenspezifischer Zielwert (1–5)
         </label>
         <select
           value={skill.targetLevel ?? ""}
@@ -509,7 +476,7 @@ function SkillDetailEditor({
       </div>
       <div>
         <label className="text-[11px] font-semibold uppercase tracking-wide text-gray-500">
-          Verhaltensanker je Stufe ({effectiveModel}) — Kalibrierung fuer Teilnehmende
+          Verhaltensanker je Stufe — Kalibrierung fuer Teilnehmende
         </label>
         <div className="mt-1 space-y-1.5">
           {ANCHOR_LEVELS.map((level) => (
@@ -550,7 +517,6 @@ interface CategoryBlockSkillItem {
   onEditAnchor?: (level: DreyfusAnchorLevel, text: string) => void;
   onEditTrend?: (trend: RelevanceTrend | null) => void;
   onEditTrendgrund?: (text: string) => void;
-  onEditModel?: (model: EvaluationModel | null) => void;
   onEditKey?: (isKey: boolean) => void;
 }
 
@@ -655,7 +621,6 @@ function CategoryBlock(props: CategoryBlockProps) {
             onEditAnchor,
             onEditTrend,
             onEditTrendgrund,
-            onEditModel,
             onEditKey,
           } = item;
           const isOpen = expanded.has(skill.name);
@@ -665,7 +630,6 @@ function CategoryBlock(props: CategoryBlockProps) {
             onEditAnchor &&
             onEditTrend &&
             onEditTrendgrund &&
-            onEditModel &&
             onEditKey
           );
           const hasData = !!(
@@ -758,25 +722,6 @@ function CategoryBlock(props: CategoryBlockProps) {
                         }
                       >
                         {TREND_LABELS[skill.trend]}
-                      </span>
-                    )}
-                    {canEdit && (
-                      <span
-                        className={`rounded border px-1.5 py-0.5 text-[10px] font-medium ${
-                          effectiveModel === "Bloom"
-                            ? "border-purple-200 bg-purple-50 text-purple-800"
-                            : "border-slate-200 bg-slate-50 text-slate-700"
-                        }`}
-                        title={
-                          skill.bewertungsmodell
-                            ? `Bewertungsmodell: ${effectiveModel} (explizit gesetzt)`
-                            : `Bewertungsmodell: ${effectiveModel} (Default fuer „${name}")`
-                        }
-                      >
-                        {effectiveModel}
-                        {!skill.bewertungsmodell && (
-                          <span className="ml-0.5 text-gray-400">·auto</span>
-                        )}
                       </span>
                     )}
                     {skill.lastModified && (
@@ -891,7 +836,6 @@ function CategoryBlock(props: CategoryBlockProps) {
                   onEditAnchor={onEditAnchor!}
                   onEditTrend={onEditTrend!}
                   onEditTrendgrund={onEditTrendgrund!}
-                  onEditModel={onEditModel!}
                   onEditKey={onEditKey!}
                 />
               )}
@@ -1279,7 +1223,6 @@ export function SkillInventory(props: Props) {
     onEditSkillAnchor,
     onEditSkillTrend,
     onEditSkillTrendgrund,
-    onEditSkillModel,
     onEditSkillKey,
     currentGroup,
     groupDrivers,
@@ -2043,8 +1986,6 @@ export function SkillInventory(props: Props) {
                     onEditSkillTrend(skill.name, trend),
                   onEditTrendgrund: (text: string) =>
                     onEditSkillTrendgrund(skill.name, text),
-                  onEditModel: (model: EvaluationModel | null) =>
-                    onEditSkillModel(skill.name, model),
                   onEditKey: (isKey: boolean) =>
                     onEditSkillKey(skill.name, isKey),
                 };
@@ -2073,8 +2014,6 @@ export function SkillInventory(props: Props) {
                     onEditSkillTrend(skill.name, trend),
                   onEditTrendgrund: (text: string) =>
                     onEditSkillTrendgrund(skill.name, text),
-                  onEditModel: (model: EvaluationModel | null) =>
-                    onEditSkillModel(skill.name, model),
                   onEditKey: (isKey: boolean) =>
                     onEditSkillKey(skill.name, isKey),
                 };
