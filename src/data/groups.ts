@@ -9,7 +9,7 @@ import { RUMP_DIGITALE, RUMP_VERBAL } from "./rumpSkills";
 
 /** Skill-Katalog Version. Erhoehen, wenn Strukturen, Steckbriefe oder Anker
  *  geaendert werden. CHANGELOG.md fuehrt die Historie. */
-export const CATALOG_VERSION = "0.6.1";
+export const CATALOG_VERSION = "0.6.2";
 export const CATALOG_UPDATED_AT = "2026-06-17";
 
 // -----------------------------------------------------------------------------
@@ -522,7 +522,7 @@ const projektassistenz: Role = {
           dep: "Durable",
           targetLevel: 2,
           description:
-            "»Grundlegendes Verständnis typischer IT-Projekte im Versicherungsumfeld: Kernprozesse (Antrag, Police, Schaden), Projekttypen (Migrations-, Regulatorik-, Digitalisierungsprojekte), beteiligte Rollen und Governance-Strukturen. Typische Tätigkeiten: Aufgaben fachlich korrekt einordnen · Statusberichte inhaltlich verstehen · Abkürzungen und Fachbegriffe kennen«",
+            "»Grundlegendes Verständnis typischer IT-Projekte im Versicherungsumfeld: Kernprozesse (z. B. Antrag, Police, Schaden), Projekttypen (z. B. Migrations-, Regulatorik-, Digitalisierungsprojekte), beteiligte Rollen und Governance-Strukturen. Typische Tätigkeiten: Aufgaben fachlich korrekt einordnen · Statusberichte inhaltlich verstehen · Abkürzungen und Fachbegriffe kennen«",
           anchors: {
             1: "Kennt grundlegende Versicherungsbegriffe; braucht Unterstützung bei fachlicher Einordnung.",
             2: "Erklärt Zusammenhänge zwischen Projektauftrag, IT-Lösung und Versicherungsprozessen.",
@@ -536,7 +536,7 @@ const projektassistenz: Role = {
           dep: "Evolving",
           targetLevel: 2,
           description:
-            "»Kenntnis der wesentlichen Dokumentations- und Revisionspflichten in IT-Projekten im regulierten Umfeld (DSGVO, VAIT, interne Governance). Typische Tätigkeiten: Schutzbedarf von Dokumenten einschätzen · Ablageregeln und Zugriffssicherung einhalten · Dokumentationspflicht bei Verträgen und Protokollen beachten«",
+            "»Kenntnis der wesentlichen Dokumentations- und Revisionspflichten in IT-Projekten im regulierten Umfeld (z. B. DSGVO, VAIT, interne Governance). Typische Tätigkeiten: Schutzbedarf von Dokumenten einschätzen · Ablageregeln und Zugriffssicherung einhalten · Dokumentationspflicht bei Verträgen und Protokollen beachten«",
           anchors: {
             1: "Kennt Begriffe wie Revisionssicherheit und DSGVO; hält Vorgaben auf Hinweis ein.",
             2: "Erklärt relevante Dokumentations- und Ablageregeln; wendet sie eigenständig an.",
@@ -552,7 +552,7 @@ const projektassistenz: Role = {
       name: "Technisch",
       skills: [
         {
-          name: "MS Office Suite (Word, Excel, PowerPoint)",
+          name: "MS Office Suite (z. B. Word, Excel, PowerPoint)",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
@@ -581,7 +581,7 @@ const projektassistenz: Role = {
           },
         },
         {
-          name: "Projektmanagement-Tools (MS Project, Smartsheet)",
+          name: "Projektmanagement-Tools (z. B. MS Project, Smartsheet)",
           dep: "Evolving",
           targetLevel: 2,
           description:
@@ -620,7 +620,7 @@ const projektassistenz: Role = {
           targetLevel: 3,
           keySkill: true,
           description:
-            "»Strukturierte Erstellung von Sitzungsprotokollen, Entscheidungsnotizen und Besprechungsergebnissen — nachvollziehbar, vollständig und empfängergerecht. Typische Tätigkeiten: Protokolle während oder nach Besprechungen erstellen · Aufgaben, Verantwortlichkeiten und Fristen festhalten · Protokolle für verschiedene Zielgruppen (Team, Steuerungskreis) aufbereiten«",
+            "»Strukturierte Erstellung von Sitzungsprotokollen, Entscheidungsnotizen und Besprechungsergebnissen — nachvollziehbar, vollständig und empfängergerecht. Typische Tätigkeiten: Protokolle während oder nach Besprechungen erstellen · Aufgaben, Verantwortlichkeiten und Fristen festhalten · Protokolle für verschiedene Zielgruppen (z. B. Team, Steuerungskreis) aufbereiten«",
           anchors: {
             1: "Erstellt einfache Protokolle nach Vorlage; hält wesentliche Ergebnisse fest.",
             2: "Protokolliert eigenständig; erfasst Entscheidungen, Aufgaben und offene Punkte vollständig.",
@@ -676,6 +676,21 @@ const projektassistenz: Role = {
     {
       name: "Kommunikativ",
       skills: [
+        {
+          name: "Serviceorientierung & Verlässlichkeit",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Proaktive Unterstützungshaltung und konsequente Verlässlichkeit als Grundprinzip der Assistenzrolle: Aufgaben zuverlässig und termingerecht erfüllen, Bedarfe der Projektleitung und des Teams antizipieren und ohne Erinnerung handeln. Typische Tätigkeiten: Zugesagte Aufgaben fristgerecht liefern · Bedarfe proaktiv erkennen und ansprechen · Qualität der eigenen Arbeit eigenständig sicherstellen«",
+          anchors: {
+            1: "Erledigt übertragene Aufgaben termingerecht; braucht klare Anweisung.",
+            2: "Handelt zuverlässig ohne Erinnerung; meldet proaktiv, wenn Fristen gefährdet sind.",
+            3: "Antizipiert Bedarfe der Projektleitung; liefert Arbeitsergebnisse proaktiv und in hoher Qualität.",
+            4: "Entlastet die Projektleitung spürbar durch vorausschauendes Handeln; wird als verlässliche Konstante wahrgenommen.",
+            5: "Gilt als unverzichtbare Stütze im Projektbüro; prägt Servicekultur und befähigt andere.",
+          },
+        },
         {
           name: "Interne Abstimmung & Nachverfolgung",
           dep: "Durable",
@@ -753,13 +768,13 @@ const scrumMaster: Role = {
           dep: "Durable",
           targetLevel: 2,
           description:
-            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im Kundenumfeld — ermöglicht besseres Impediment-Handling und Stakeholder-Kommunikation. Typische Tätigkeiten: Aufgaben im fachlichen Kontext einordnen · Stakeholder-Sprache verstehen · Fachliche Hindernisse einschätzen«",
+            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im Kundenumfeld — Basis für fachliche Einordnung, Stakeholder-Kommunikation und kontextgerechte Entscheidungen. Typische Tätigkeiten: Aufgaben und Risiken im Versicherungskontext einordnen · Stakeholder-Sprache verstehen · Branchentypische Priorisierungen und Entscheidungsprozesse nachvollziehen«",
           anchors: {
-            1: "Kennt grundlegende Versicherungsbegriffe; ordnet Projekte grob ein.",
-            2: "Erklärt typische Versicherungsprozesse und IT-Systeme; versteht Kundenperspektive.",
-            3: "Bewertet Impediments und Risiken im Fachkontext eigenständig.",
-            4: "Navigiert mit Fachkenntnis in komplexen Kundensituationen.",
-            5: "Gilt als Domänenexperte; berät Kunden beim Agilitätseinstieg.",
+            1: "Kennt grundlegende Versicherungsbegriffe und typische Prozesse; ordnet Projekte grob ein.",
+            2: "Erklärt Zusammenhänge zwischen Versicherungsprozessen, IT-Systemen und Projektzielen; versteht Kundenperspektive.",
+            3: "Setzt Domänenwissen aktiv ein: ordnet Risiken und Entscheidungen in den Fachkontext ein; kommuniziert auf Augenhöhe mit dem Fachbereich.",
+            4: "Navigiert mit Fachkenntnis in komplexen Kundensituationen; antizipiert spartenspezifische Anforderungen.",
+            5: "Gilt als Domänenexperte; befähigt andere in der Branchenorientierung.",
           },
         },
         {
@@ -770,11 +785,11 @@ const scrumMaster: Role = {
           description:
             "»Verständnis der spezifischen Herausforderungen agiler Arbeitsweisen im regulierten Versicherungsumfeld: Auditierbarkeit, Compliance, Governance, Genehmigungsprozesse. Typische Tätigkeiten: Compliance-Anforderungen mit agilen Werten verbinden · Governance-Prozesse agil gestalten · Regulatorische Einschränkungen als Impediments einordnen«",
           anchors: {
-            1: "Weiß, dass Regulatorik und Agilität in Spannung stehen.",
-            2: "Erklärt gängige Spannungsfelder und gibt erste Lösungsansätze.",
-            3: "Gestaltet Prozesse, die Compliance erfüllen und agile Werte wahren.",
-            4: "Entwickelt Governance-Modelle für agile Teams in regulierten Umgebungen.",
-            5: "Gilt als Experte; berät Kunden bei regulierungskonformer Agilität.",
+            1: "Weiß, dass Regulatorik und Agilität in Spannung stehen; kann z. B. erklären, warum ein Change-Freeze Sprints beeinflusst.",
+            2: "Erklärt gängige Spannungsfelder (z. B. Auditpflicht vs. Liefergeschwindigkeit) und gibt erste Lösungsansätze wie leichtgewichtige Dokumentation im Sprint.",
+            3: "Gestaltet Prozesse, die Compliance erfüllen und agile Werte wahren — z. B. verankert DORA-konforme Testdokumentation in der Definition of Done oder gestaltet Sprint Reviews als formale Abnahme-Events für regulatorische Meilensteine.",
+            4: "Entwickelt Governance-Modelle für agile Teams in regulierten Umgebungen — z. B. entwirft einen Change-Advisory-Board-Prozess, der innerhalb von Sprint-Zyklen funktioniert.",
+            5: "Gilt als Experte für regulierungskonforme Agilität; entwickelt unternehmensweite Compliance-Richtlinien für agile Liefermodelle und schult andere Scrum Master.",
           },
         },
         { ...RUMP_DIGITALE, targetLevel: 3 },
@@ -783,20 +798,6 @@ const scrumMaster: Role = {
     {
       name: "Technisch",
       skills: [
-        {
-          name: "Agile Metriken (Velocity, Burndown, CFD)",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Erhebung, Interpretation und Nutzung agiler Metriken zur Teamsteuerung: Sprint Velocity, Burndown/Burnup-Charts, Cumulative Flow Diagram, Cycle Time. Typische Tätigkeiten: Metriken im Sprint Review visualisieren · Engpässe aus CFD ablesen · Vorhersagen auf Basis von Velocity erstellen«",
-          anchors: {
-            1: "Kennt gängige Metriken dem Namen nach.",
-            2: "Erstellt und liest Burndown-Charts und Velocity-Diagramme.",
-            3: "Interpretiert Metriken im Kontext; leitet Handlungsempfehlungen ab.",
-            4: "Kombiniert mehrere Metriken zur Diagnose von Engpässen.",
-            5: "Etabliert Metriken-Frameworks für mehrere Teams; coacht andere.",
-          },
-        },
         {
           name: "Jira & agile Board-Konfiguration",
           dep: "Evolving",
@@ -832,6 +833,20 @@ const scrumMaster: Role = {
       name: "Methodisch",
       skills: [
         {
+          name: "Agile Metriken (z. B. Velocity, Burndown, CFD)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Erhebung, Interpretation und Nutzung agiler Metriken zur Teamsteuerung: Sprint Velocity, Burndown/Burnup-Charts, Cumulative Flow Diagram, Cycle Time. Typische Tätigkeiten: Metriken im Sprint Review visualisieren · Engpässe aus CFD ablesen · Vorhersagen auf Basis von Velocity erstellen«",
+          anchors: {
+            1: "Kennt gängige Metriken dem Namen nach.",
+            2: "Erstellt und liest Burndown-Charts und Velocity-Diagramme.",
+            3: "Interpretiert Metriken im Kontext; leitet Handlungsempfehlungen ab.",
+            4: "Kombiniert mehrere Metriken zur Diagnose von Engpässen.",
+            5: "Etabliert Metriken-Frameworks für mehrere Teams; coacht andere.",
+          },
+        },
+        {
           name: "Scrum Events faciliten",
           dep: "Durable",
           targetLevel: 4,
@@ -866,7 +881,7 @@ const scrumMaster: Role = {
           dep: "Durable",
           targetLevel: 4,
           description:
-            "»Gestaltung und Durchführung wirkungsvoller Retrospektiven — mit variierten Formaten, Fokus auf psychologische Sicherheit und nachverfolgbaren Verbesserungen. Typische Tätigkeiten: Retro-Format variieren (Lean Coffee, 4Ls, Starfish) · Ehrlichen Dialog fördern · Action Items konsequent verfolgen«",
+            "»Gestaltung und Durchführung wirkungsvoller Retrospektiven — mit variierten Formaten, Fokus auf psychologische Sicherheit und nachverfolgbaren Verbesserungen. Typische Tätigkeiten: Retro-Format variieren (z. B. Lean Coffee, 4Ls, Starfish) · Ehrlichen Dialog fördern · Action Items konsequent verfolgen«",
           anchors: {
             1: "Moderiert Standard-Retrospektive nach Vorlage.",
             2: "Variiert Formate; erstellt Action Items mit dem Team.",
@@ -890,7 +905,7 @@ const scrumMaster: Role = {
           },
         },
         {
-          name: "Skalierungsframeworks (SAFe / LeSS)",
+          name: "Skalierungsframeworks (z. B. SAFe / LeSS)",
           dep: "Evolving",
           targetLevel: 2,
           description:
@@ -934,8 +949,23 @@ const scrumMaster: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Leadership",
       skills: [
+        {
+          name: "Empathie & aktives Zuhören",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Fähigkeit, Teammitglieder und Stakeholder wirklich zu verstehen — nicht nur zu hören, was gesagt wird, sondern auch was dahintersteht. Grundlage für effektives Coaching, Impediment-Erkennung und psychologische Sicherheit. Typische Tätigkeiten: Aktiv zuhören ohne vorschnelles Problemlösen · Unausgesprochene Bedenken erkennen und ansprechen · Emotionale Zustände im Team wahrnehmen und berücksichtigen«",
+          anchors: {
+            1: "Hört zu; reagiert auf Aussagen ohne zu unterbrechen.",
+            2: "Stellt Verständnisfragen; paraphrasiert Gesagtes; erkennt offensichtliche emotionale Signale.",
+            3: "Hört aktiv zu; erkennt auch unausgesprochene Bedenken; schafft Raum für ehrlichen Dialog.",
+            4: "Liest Teamdynamiken intuitiv; antizipiert Widerstände und Bedürfnisse; coacht aus Empathie heraus.",
+            5: "Gilt als empathische Führungspersönlichkeit; prägt psychologische Sicherheit im Team nachhaltig.",
+          },
+        },
         {
           name: "Servant Leadership",
           dep: "Durable",
@@ -1000,8 +1030,8 @@ const scrumMaster: Role = {
 };
 
 const projektleitung: Role = {
-  id: "hybrider-projektmanager",
-  name: "Hybrider Projektmanager",
+  id: "projektmanager",
+  name: "Projektmanager",
   description:
     "Ganzheitliche Verantwortung für IT-Projekte im Versicherungsumfeld — souveräner Einsatz klassischer und agiler Methoden je nach Projektkontext, kombiniert mit Planung, Steuerung, Budget, Teamführung und Stakeholder-Management von der Initiierung bis zum Abschluss.",
   categories: [
@@ -1014,7 +1044,7 @@ const projektleitung: Role = {
           targetLevel: 3,
           keySkill: true,
           description:
-            "»Fundiertes Wissen über anerkannte PM-Standards als methodische Grundlage: klassische Frameworks (PMI/PMBOK, PRINCE2, IPMA) sowie agile Ansätze (Scrum, Kanban). Nicht gemeint: schematische Anwendung aller Prozesse eines Frameworks. Typische Tätigkeiten: Projekte nach geeignetem Standard initiieren und strukturieren · Methodik situativ am Kundenbedarf ausrichten · Zertifizierungsnachweis als Qualitätssignal nutzen«",
+            "»Fundiertes Wissen über anerkannte PM-Standards als methodische Grundlage: klassische Frameworks (z. B. PMI/PMBOK, PRINCE2, IPMA) sowie agile Ansätze (z. B. Scrum, Kanban). Nicht gemeint: schematische Anwendung aller Prozesse eines Frameworks. Typische Tätigkeiten: Projekte nach geeignetem Standard initiieren und strukturieren · Methodik situativ am Kundenbedarf ausrichten · Zertifizierungsnachweis als Qualitätssignal nutzen«",
           anchors: {
             1: "Kennt mindestens einen klassischen und einen agilen PM-Standard; hat Grundbegriffe verinnerlicht.",
             2: "Erklärt Kernkonzepte beider Welten (Phasen, Prozessgruppen, Sprints, Backlogs); leitet daraus Projektvorgehen ab.",
@@ -1024,46 +1054,48 @@ const projektleitung: Role = {
           },
         },
         {
-          name: "Versicherungs-Domänenwissen",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Verständnis der Versicherungsbranche als Projektkontext: Geschäftsmodelle, Kernprodukte (Leben, Schaden, Kranken), Betriebsprozesse (Vertrieb, Bestand, Schaden) und typische IT-Systemlandschaften. Nicht gemeint: aktuarielle Modelle. Typische Tätigkeiten: Projektthemen in Geschäftsprozesse einordnen · Fachbereich auf Augenhöhe ansprechen · Branchentypische Priorisierungen nachvollziehen«",
-          anchors: {
-            1: "Kennt grundlegende Versicherungsprodukte und -prozesse (Vertrieb, Bestand, Schaden).",
-            2: "Erklärt Zusammenhänge zwischen Versicherungsprodukten, Kernprozessen und IT-Systemen; ordnet Projektthemen in Geschäftsprozesse ein.",
-            3: "Nutzt Domänenwissen zur Risikoeinschätzung und Prioritätensetzung im Projekt; kommuniziert auf Augenhöhe mit dem Fachbereich.",
-            4: "Berät Kunden auf Basis fundierter Branchenkenntnis; antizipiert spartenspezifische Anforderungen.",
-            5: "Gilt als Branchenexperte; prägt Positionierung von red6 im Versicherungsmarkt.",
-          },
-        },
-        {
-          name: "IT-Projekttypen im Versicherungsumfeld",
+          name: "Versicherungs-IT-Domäne",
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Verständnis typischer IT-Projektarten bei Versicherungskunden: Kernsystem-Migrationen, Legacy-Ablösungen, regulatorisch getriebene Projekte (DORA, VAIT), Digitalisierungsvorhaben und Plattformablösungen. Abgrenzung zum Domänenwissen: Hier geht es um Projekttyp-spezifische Planungs- und Steuerungsanforderungen, nicht um Versicherungsfachwissen. Typische Tätigkeiten: Projektkomplexität und -risiken je nach Projekttyp einschätzen · Typspezifische Planungsansätze anpassen · Branchenübliche Entscheidungsprozesse beim Kunden verstehen«",
+            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im Kundenumfeld — Basis für fachliche Einordnung, Stakeholder-Kommunikation und kontextgerechte Entscheidungen. Typische Tätigkeiten: Aufgaben und Risiken im Versicherungskontext einordnen · Stakeholder-Sprache verstehen · Branchentypische Priorisierungen und Entscheidungsprozesse nachvollziehen«",
           anchors: {
-            1: "Kennt die wichtigsten IT-Projekttypen im Versicherungsumfeld dem Namen nach.",
-            2: "Erklärt Merkmale und besondere Anforderungen typischer Projektarten (Migration, Regulatorik, Digitalisierung).",
-            3: "Bewertet Komplexität und Risiken eines Projekts anhand des Projekttyps eigenständig; passt Planungsansatz entsprechend an.",
-            4: "Erkennt regulatorische Implikationen des Projekttyps; berät Kunden zum optimalen Vorgehen.",
-            5: "Gilt als Experte für IT-Projekttypen im Versicherungsumfeld; positioniert red6 als bevorzugten Partner.",
+            1: "Kennt grundlegende Versicherungsbegriffe und typische Prozesse; ordnet Projekte grob ein.",
+            2: "Erklärt Zusammenhänge zwischen Versicherungsprozessen, IT-Systemen und Projektzielen; versteht Kundenperspektive.",
+            3: "Setzt Domänenwissen aktiv ein: ordnet Risiken und Entscheidungen in den Fachkontext ein; kommuniziert auf Augenhöhe mit dem Fachbereich.",
+            4: "Navigiert mit Fachkenntnis in komplexen Kundensituationen; antizipiert spartenspezifische Anforderungen.",
+            5: "Gilt als Domänenexperte; befähigt andere in der Branchenorientierung.",
           },
         },
         {
-          name: "Regulatorische Grossprojekte (DORA, VAIT)",
+          name: "Projektkontext & Komplexität im VU-Umfeld einschätzen",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Fähigkeit, spezifische Projektkontexte bei Versicherungskunden schnell zu lesen und den Planungsansatz entsprechend anzupassen: Welche Stakeholder-Dynamiken, regulatorischen Constraints und technischen Risiken prägen dieses Vorhaben? Typische Kontexte: Kernsystem-Migrationen, Legacy-Ablösungen, regulatorisch getriebene Vorhaben (z. B. DORA, VAIT), Digitalisierungsprojekte und Plattformablösungen. Typische Tätigkeiten: Scope und Rahmenbedingungen eines neuen Projekts erfassen · Planungsansatz an Kontext und Komplexität ausrichten · Entscheidungsprozesse beim Kunden einschätzen und navigieren«",
+          anchors: {
+            1: "Orientiert sich in bekannten VU-IT-Projektkontexten mit Unterstützung; benötigt Einarbeitung in Kundenspezifika.",
+            2: "Erkennt Grundmuster typischer Projektkontexte; schätzt offensichtliche Risiken und Constraints mit Anleitung ein.",
+            3: "Liest Projektkontexte selbstständig; leitet Planungsansatz und Risikoschwerpunkte aus Scope und Stakeholder-Landschaft ab.",
+            4: "Erkennt auch in unbekannten oder hybriden Kontexten schnell die wesentlichen Steuerungsanforderungen; antizipiert Komplexitätstreiber.",
+            5: "Befähigt andere PMs, Projektkontexte im VU-Umfeld einzuschätzen; entwickelt Orientierungsrahmen für neue Vorhaben.",
+          },
+        },
+        {
+          name: "Projektsteuerung in regulierten Umfeldern",
           dep: "Evolving",
           targetLevel: 3,
           trend: "stark steigend",
+          bewertungsmodell: "Dreyfus",
           description:
-            "»Verständnis der PM-spezifischen Anforderungen regulatorisch getriebener Großprojekte: Governance, Dokumentationspflichten, Auditierbarkeit, Nachweisführung. Typische Tätigkeiten: Projektsetup an regulatorischen Vorgaben ausrichten · Auditierbare Projektunterlagen sicherstellen · Regulatorische Milestones in Projektplan integrieren«",
+            "»PM in Vorhaben mit hohem externem Normdruck: harte regulatorische Meilensteine, auditfeste Prozessführung und enge Abstimmung zwischen technischen Teams und Compliance-Experten. Typische Tätigkeiten: Externe Fristen als nicht verhandelbare Constraints in Planung integrieren · Auditfähige Projektdokumentation sicherstellen · Eskalationswege zwischen Fachbereich, IT und Regulatorik koordinieren«",
           anchors: {
-            1: "Kennt relevante Regulatoriken dem Namen nach.",
-            2: "Erklärt PM-Implikationen einzelner Vorschriften; beachtet Grundanforderungen.",
-            3: "Richtet Projektstruktur und Dokumentation an regulatorischen Anforderungen aus.",
-            4: "Verantwortet Compliance-Nachweis gegenüber Auditoren; gestaltet auditfeste Governance.",
-            5: "Entwickelt Projektstandards für regulatorische Großprojekte; gilt als Experte.",
+            1: "Kennt die Besonderheiten regulierter Projektumfelder; hält Dokumentationspflichten ein.",
+            2: "Plant regulatorische Meilensteine als harte Constraints; koordiniert Abstimmungen mit Compliance.",
+            3: "Steuert Projekte in regulierten Umfeldern selbstständig; sichert auditfähige Prozessführung.",
+            4: "Verantwortet Compliance-Nachweis gegenüber Auditoren; gestaltet robuste Governance für das Gesamtprojekt.",
+            5: "Entwickelt Projektstandards für regulierte Großvorhaben; befähigt andere PMs im Umgang mit Normdruck.",
           },
         },
         { ...RUMP_DIGITALE, targetLevel: 3 },
@@ -1073,7 +1105,7 @@ const projektleitung: Role = {
       name: "Technisch",
       skills: [
         {
-          name: "Projektmanagement-Tools (MS Project, Jira, Smartsheet)",
+          name: "Projektmanagement-Tools (z. B. MS Project, Jira)",
           dep: "Evolving",
           targetLevel: 3,
           description:
@@ -1087,32 +1119,18 @@ const projektleitung: Role = {
           },
         },
         {
-          name: "Reporting & Forecasting",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Erstellung aussagekräftiger Statusreports, Forecasts und Steuerkennzahlen für Projektsteuerungskreise, Management und Kundenseite. Typische Tätigkeiten: Wöchentliche Statusberichte erstellen · Budget-Forecasts aktualisieren · Earned-Value-Analysen durchführen«",
-          anchors: {
-            1: "Erstellt Berichte nach Vorlage.",
-            2: "Erstellt eigenständig Statusberichte; aktualisiert Forecasts.",
-            3: "Analysiert Abweichungen und leitet Handlungsempfehlungen ab.",
-            4: "Erstellt komplexe Management-Reports mit strategischen Aussagen.",
-            5: "Entwickelt Reporting-Frameworks; berät Kunden bei Steuerungsstrukturen.",
-          },
-        },
-        {
           name: "KI-gestützte Projektsteuerung",
           dep: "Perishable",
           targetLevel: 2,
           trend: "stark steigend",
           description:
-            "»Einsatz von KI-Werkzeugen zur Effizienzsteigerung im PM-Alltag: Risikoprognosen, Dokumentenanalyse, Statusberichterstellung. Typische Tätigkeiten: KI-Tools für Risikobewertung und Dokumentensynthese einsetzen · KI-generierte Reports prüfen und nachbessern · Grenzen von KI-Prognosen einschätzen«",
+            "»PMs nutzen KI-Werkzeuge, um Routineaufgaben im Projektalltag zu beschleunigen und Steuerungsinformationen schneller aufzubereiten. Typische Tätigkeiten: Meeting-Protokolle und Action Items KI-gestützt erstellen · Statusbericht-Drafts generieren und redaktionell finalisieren · Abweichungsanalysen und Forecasts KI-gestützt vorbereiten · KI-Outputs kritisch prüfen und verantwortungsvoll einsetzen«",
           anchors: {
-            1: "Kennt KI-Einsatzmöglichkeiten im PM.",
-            2: "Nutzt KI-Tools für Standardaufgaben (Zusammenfassung, Protokoll).",
-            3: "Setzt KI gezielt für Risikoanalyse und Reporting ein.",
-            4: "Etabliert KI-gestützte PM-Praktiken im Team.",
-            5: "Definiert KI-Standards für die PM-Praxis.",
+            1: "Kennt grundlegende KI-Tools (z. B. ChatGPT); hat erste Berührungspunkte im PM-Alltag.",
+            2: "Nutzt KI für PM-Routinen: Protokollerstellung, Statusbericht-Drafts, einfache Zusammenfassungen.",
+            3: "Setzt KI strukturiert für Abweichungsanalysen, Forecast-Vorbereitung und Steuerungsunterlagen ein; prüft Outputs kritisch.",
+            4: "Etabliert KI-gestützte PM-Praktiken im Team; entwickelt Prompts und Workflows für wiederkehrende PM-Aufgaben.",
+            5: "Definiert KI-Standards für die PM-Praxis; bewertet neue Tools und integriert sie in bestehende PM-Prozesse.",
           },
         },
       ],
@@ -1120,6 +1138,35 @@ const projektleitung: Role = {
     {
       name: "Methodisch",
       skills: [
+        {
+          name: "Projektinitialisierung & Auftragsklärung",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Strukturierte Initialisierung neuer Projekte: Auftragsklärung mit dem Kunden, Definition von Scope, Zielen und Erfolgskriterien sowie Vorbereitung und Durchführung des Kick-offs. Typische Tätigkeiten: Projektauftrag/-charter mit Kunden erarbeiten und abstimmen · Scope, Ziele und Nicht-Ziele klar definieren · Kick-off-Veranstaltung vorbereiten und durchführen · Rahmenbedingungen und Constraints zu Projektbeginn erfassen«",
+          anchors: {
+            1: "Bereitet Kick-off nach Vorlage vor; hält Standardinhalte eines Projektauftrags ein.",
+            2: "Erarbeitet eigenständig einen Projektauftrag; führt strukturierte Auftragsklärung mit Unterstützung durch.",
+            3: "Klärt Scope, Ziele und Rahmenbedingungen selbstständig mit dem Kunden; moderiert Kick-off souverän.",
+            4: "Gestaltet komplexe Initialisierungsprozesse mit mehreren Stakeholdern; erkennt und adressiert Zielkonflikte früh.",
+            5: "Entwickelt Initialisierungsstandards; befähigt andere PMs in der Auftragsklärung.",
+          },
+        },
+        {
+          name: "Reporting & Forecasting",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Reporting & Forecasting ist die primäre Steuerungs- und Kommunikationsschnittstelle zum Kunden — nicht PM-Hygiene, sondern explizite Kundenleistung. Typische Tätigkeiten: Aussagekräftige Statusberichte und Forecasts erstellen · Budget-Abweichungen erklären und Handlungsoptionen ableiten · Earned-Value-Analysen für Steuerungskreise aufbereiten«",
+          anchors: {
+            1: "Erstellt Berichte nach Vorlage; hält Berichtsrhythmus ein.",
+            2: "Erstellt eigenständig Statusberichte; aktualisiert Forecasts und Budgetstände.",
+            3: "Analysiert Abweichungen, leitet Handlungsempfehlungen ab und kommuniziert diese adressatengerecht.",
+            4: "Erstellt komplexe Management-Reports mit strategischen Aussagen; gestaltet Steuerungsformate für Kunden.",
+            5: "Entwickelt Reporting-Frameworks und -Standards; berät Kunden bei Projektsteuerungsstrukturen.",
+          },
+        },
         {
           name: "Projektplanung & Meilensteinsteuerung",
           dep: "Durable",
@@ -1195,20 +1242,6 @@ const projektleitung: Role = {
           },
         },
         {
-          name: "Vertragsmanagement-Grundlagen",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Grundlegendes Verständnis von Vertragstypen, SLAs und Lieferantensteuerung im Projektkontext. Nicht gemeint: juristische Vertragsgestaltung. Typische Tätigkeiten: Werkverträge und Dienstleistungsverträge inhaltlich prüfen · SLA-Einhaltung bei externen Dienstleistern verfolgen · Vertragsänderungen und -erweiterungen einleiten · Abnahmen vertragskonform dokumentieren«",
-          anchors: {
-            1: "Liest Verträge; versteht grundlegende Vertragstypen.",
-            2: "Prüft Verträge auf projektkritische Klauseln; erkennt SLA-Abweichungen.",
-            3: "Steuert Lieferanten auf Basis von Verträgen; leitet Vertragsanpassungen ein.",
-            4: "Verhandelt Vertragsergänzungen; steuert multi-vendor Setups souverän.",
-            5: "Entwickelt Vertragsmanagement-Standards; gilt als Ansprechpartner für externe Verträge.",
-          },
-        },
-        {
           name: "Change Request Management",
           dep: "Durable",
           targetLevel: 3,
@@ -1237,24 +1270,40 @@ const projektleitung: Role = {
           },
         },
         {
-          name: "Projektabschluss & Lessons Learned",
+          name: "Projektabschluss & nachhaltiger Transfer",
           dep: "Durable",
           targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
           description:
-            "»Strukturierter Projektabschluss: Abnahme, Übergabe, Dokumentation, Lessons Learned und Wissenssicherung. Typische Tätigkeiten: Abnahmedokumente erstellen und unterzeichnen lassen · Lessons-Learned-Workshop moderieren · Wissen für Folgeprojekte sichern«",
+            "»Strukturierter Projektabschluss mit Fokus auf nachhaltige Wirkung: formale Abnahme und Übergabe, Wissenssicherung für Folgeprojekte und aktive Sicherstellung, dass Projektergebnisse in den Betrieb übergehen und genutzt werden. Typische Tätigkeiten: Abnahmedokumente erstellen und unterzeichnen lassen · Übergabe an Betrieb und Kundenmitarbeiter strukturiert gestalten · Lessons-Learned-Workshop moderieren · Wissenstransfer für Folgeprojekte sichern«",
           anchors: {
-            1: "Erstellt einfache Abschlussdokumente nach Vorlage.",
-            2: "Führt eigenständig Projektabschluss durch; dokumentiert Ergebnisse.",
-            3: "Moderiert Lessons-Learned-Workshop; sichert Wissen strukturiert.",
-            4: "Entwickelt Abschluss-Frameworks; verankert Lernschleifen in der Organisation.",
-            5: "Gilt als Experte für PM-Wissensmanagement.",
+            1: "Erstellt Abschlussdokumente nach Vorlage; bereitet Übergabe mit Unterstützung vor.",
+            2: "Führt eigenständig Projektabschluss durch; dokumentiert Ergebnisse und Erkenntnisse.",
+            3: "Gestaltet Übergabe an Betrieb und Kunde strukturiert; moderiert Lessons-Learned-Workshop; sichert Wissen für Folgeprojekte.",
+            4: "Verankert Projektergebnisse nachhaltig in der Kundenorganisation; entwickelt Übergabe- und Transferkonzepte.",
+            5: "Gilt als Experte für PM-Wissensmanagement und nachhaltige Projektübergaben; entwickelt Standards für das Team.",
           },
         },
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Leadership",
       skills: [
+        {
+          name: "Belastbarkeit & Ambiguitätstoleranz",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Fähigkeit, unter Druck, Unsicherheit und widersprüchlichen Anforderungen handlungsfähig zu bleiben. PM-Rollen navigieren regelmäßig in Projekten ohne vollständige Information, mit konkurrierenden Stakeholder-Interessen und unter Zeitdruck. Typische Tätigkeiten: Entscheidungen bei unvollständiger Datenlage treffen · Eigene Belastbarkeit im Projektalltag erhalten · Unsicherheit im Team transparent und konstruktiv kommunizieren«",
+          anchors: {
+            1: "Erkennt Stresssituationen; holt sich bei Bedarf Unterstützung.",
+            2: "Bleibt in bekannten Drucksituationen handlungsfähig; kommuniziert Unsicherheit offen.",
+            3: "Trifft Entscheidungen bei unvollständiger Datenlage; hält Team trotz Ambiguität auf Kurs.",
+            4: "Navigiert komplexe Krisen ruhig und strukturiert; schützt das Team vor übermäßigem Druck.",
+            5: "Gilt als Vorbild in Belastbarkeit; befähigt andere im Umgang mit Unsicherheit.",
+          },
+        },
         {
           name: "Stakeholder-Steuerung & -Kommunikation",
           dep: "Durable",
@@ -3705,46 +3754,341 @@ const ldExpert: Role = {
   id: "ld-expert",
   name: "Learning & Development Expert",
   description:
-    "Lernarchitekt — konzipiert und evaluiert Lernloesungen fuer Mitarbeiterentwicklung.",
+    "Konzipiert, begleitet und evaluiert Lernloesungen fuer Mitarbeiterentwicklung in einem IT-Beratungshaus mit Schwerpunkt Versicherungs-IT. Verbindet didaktisches Handwerk mit Plattform-Kompetenz und Coaching-Haltung.",
   categories: [
     {
       name: "Fachlich",
       skills: [
-        { name: "Lerntheorien & Erwachsenenbildung", dep: "Durable" },
-        { name: "Compliance-Schulungspflichten", dep: "Evolving" },
-        { name: "Versicherungs-Karrierebilder", dep: "Durable" },
-        { ...RUMP_DIGITALE },
+        {
+          name: "Lerntheorien & Erwachsenenbildung",
+          dep: "Durable",
+          description:
+            "»Anwendung lerntheoretischer Grundlagen (Konstruktivismus, Kognitivismus, Erfahrungslernen nach Kolb) fuer die Konzeption wirksamer Lernmassnahmen fuer Erwachsene. Nicht gemeint: schulpaedagogische oder Kinderbildung. Typische Taetigkeiten: Lerntheorien bei der Konzeptentscheidung begruenden · Erwachsene als selbstgesteuerte Lerner adressieren · Lernhemmnisse erkennen und konzeptionell beruecksichtigen«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 5): Lernfaehigkeit als kritisches Kompetenzfeld — L&D-Profis muessen Lernprozesse bei Erwachsenen fundiert gestalten koennen.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Kennt grundlegende Lerntheorien (Behaviorismus, Kognitivismus, Konstruktivismus) und kann sie benennen.",
+            2: "Erklaert Implikationen der Erwachsenenbildung (Andragogik) fuer die Konzeption und wendet Kolbs Lernzyklus an.",
+            3: "Begruendet Konzeptionsentscheidungen mit passenden Lerntheorien und passt Massnahmen an typische Lernhemmnisse Erwachsener an.",
+            4: "Analysiert Lernbedarfe tiefgreifend, waehlt theoretisch fundierte Methoden-Kombinationen und evaluiert deren Wirksamkeit.",
+            5: "Entwickelt neue Lernkonzepte auf Basis eigener theoretischer Synthesen und beraet andere L&D-Profis.",
+          },
+        },
+        {
+          name: "Compliance-Schulungspflichten",
+          dep: "Evolving",
+          description:
+            "»Kenntnis regulatorisch vorgeschriebener Schulungen in der Versicherungs- und Finanz-IT (z. B. IDD, MiFID II, DSGVO, NIS2) und deren Abbildung in Lernloesungen. Nicht gemeint: eigenstaendige Rechtsberatung oder Compliance-Audit. Typische Taetigkeiten: Schulungspflichten mit Fachbereichen klaeren · Nachweispflichten und Dokumentation sicherstellen · Revisionszyklen fuer Pflichtschulungen planen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "DORA (2025) und NIS2 erfordern nachweisbare IT-Security-Schulungen; IDD-Anforderungen steigen durch neue Produktkategorien — Compliance-Schulungsbedarf im Versicherungsumfeld waechst kontinuierlich.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Weiss, dass es Pflichtschulungen gibt und kennt einige Beispiele.",
+            2: "Erklaert relevante Schulungspflichten (IDD, DSGVO) und deren Nachweisanforderungen.",
+            3: "Plant und koordiniert Pflichtschulungen, stellt Dokumentation sicher und aktualisiert Inhalte bei regulatorischen Aenderungen.",
+            4: "Analysiert neue Regulierungen auf Schulungsrelevanz, entwickelt vorausschauend Loesungen und beraet Fuehrungskraefte zu Pflichten.",
+            5: "Entwickelt ein Compliance-Schulungskonzept fuer das gesamte Unternehmen und begleitet externe Audits.",
+          },
+        },
+        {
+          name: "Versicherungs-Karrierebilder",
+          dep: "Durable",
+          description:
+            "»Verstaendnis der typischen Rollenprofile, Laufbahnpfade und Kompetenzanforderungen in der Versicherungs-IT-Beratung als Grundlage fuer bedarfsgerechte Lernmassnahmen. Nicht gemeint: HR-Stellenbewertung oder Gehaltsbandsysteme. Typische Taetigkeiten: Lernmassnahmen auf konkrete Rollenkontexte ausrichten · Zielgruppenspezifische Lernpfade ableiten · Karrieregespraeche mit Lernangeboten verknuepfen«",
+          targetLevel: 2,
+          trend: "stabil",
+          trendgrund:
+            "Stabile Domainkenntnis — ermoegliche zielgruppengenaue Konzeption; Rump 2025 (S. 3): Fachkompetenz als Voraussetzung fuer wirksame Lernfoerderung.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Kennt die wichtigsten Rollen im Unternehmen (z. B. Entwickler, PM, BA, Berater).",
+            2: "Erklaert typische Karrierepfade und Kompetenzanforderungen; richtet Lernmassnahmen grob an Zielgruppen aus.",
+            3: "Leitet zielgruppenspezifische Lernpfade aus Rollenprofilen ab und verknuepft Lernangebote mit Karrieregespraechen.",
+            4: "Beraet zu Lernpfaden fuer seltene oder neue Rollen; entwickelt Lernstrategien entlang der gesamten Employee Journey.",
+            5: "Entwickelt ein Lernpfad-Konzept fuer alle Rollen und beraet Fuehrungskraefte zur kompetenzbasierten Personalentwicklung.",
+          },
+        },
+        { ...RUMP_DIGITALE, targetLevel: 3 },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "LMS (Moodle, SAP SuccessFactors)", dep: "Evolving" },
-        { name: "Autorentools (Articulate, Rise)", dep: "Evolving" },
-        { name: "Video- & Screencast-Tools", dep: "Evolving" },
-        { name: "Learning Analytics", dep: "Evolving" },
-        { name: "KI-gestuetzte Content-Erstellung", dep: "Perishable" },
+        {
+          name: "LMS (Moodle, SAP SuccessFactors)",
+          dep: "Evolving",
+          description:
+            "»Administration und Nutzung eines Learning Management Systems fuer die Verwaltung, Auslieferung und Nachverfolgung von Lernmassnahmen. Nicht gemeint: technische LMS-Implementierung oder Serverwartung. Typische Taetigkeiten: Kurse anlegen und pflegen · Lernpfade und Zertifizierungen konfigurieren · Abschlussquoten und Teilnahmen auswerten«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "LMS bleiben zentrales Infrastrukturwerkzeug; Anbietervielfalt erhoehe aber die Notwendigkeit plattformunabhaengiger Kompetenz.",
+          anchors: {
+            1: "Navigiert im LMS und ruft bestehende Kurse und Berichte auf.",
+            2: "Legt Kurse an, konfiguriert Zertifizierungsregeln und wertet Teilnahmedaten aus.",
+            3: "Gestaltet Lernpfade und automatisierte Workflows im LMS und loest Nutzerprobleme eigenstaendig.",
+            4: "Evaluiert LMS-Loesungen und begleitet Migrationen; entwickelt LMS-Nutzungskonzepte fuer das Unternehmen.",
+            5: "Etabliert LMS-Governance, befaehigt andere Administratoren und fuehrt systemweite Optimierungen durch.",
+          },
+        },
+        {
+          name: "Autorentools (Articulate, Rise)",
+          dep: "Evolving",
+          description:
+            "»Erstellung interaktiver E-Learning-Module mit Autorentools wie Articulate Storyline oder Rise 360. Nicht gemeint: Videoproduktion oder Webentwicklung. Typische Taetigkeiten: Interaktive Szenarien und Quiz-Formate entwickeln · SCORM-Pakete erstellen und im LMS publizieren · Barrierefreiheit und Mobile-Darstellung sicherstellen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Autorentools sind Standard im E-Learning; KI-Integration in Articulate/Rise erhoehe den Effizienzgewinn bei Inhaltsproduktion.",
+          anchors: {
+            1: "Kennt das Tool und kann einfache Folien-basierte Module nach Vorlage erstellen.",
+            2: "Entwickelt eigenstaendig interaktive Module mit Quizzen und Verzweigungen; publiziert als SCORM.",
+            3: "Konzipiert und produziert professionelle E-Learning-Module mit realitaetsnahen Szenarien, Animationen und Accessibility.",
+            4: "Entwirft Template-Bibliotheken und Wiederverwendungskonzepte; befaehigt andere im Tool-Einsatz.",
+            5: "Entwickelt Produktionsstandards und -Workflows fuer das gesamte L&D-Team.",
+          },
+        },
+        {
+          name: "Video- & Screencast-Tools",
+          dep: "Evolving",
+          description:
+            "»Erstellung erklaerungsstarker Lernvideos und Screencasts als ergaenzende Lernformate. Nicht gemeint: professionelle Videoproduktion oder Live-Streaming. Typische Taetigkeiten: Screencasts fuer Software-Schulungen aufzeichnen · Erklaervideos schneiden und vertonen · Videos im LMS einbinden«",
+          targetLevel: 2,
+          trend: "stabil",
+          trendgrund:
+            "Video bleibt wichtiges Lernformat; KI-gestuetzte Produktion (Synthesia, Descript) senkt Einstiegshuerde und veraendert den Workflow.",
+          anchors: {
+            1: "Kann einfache Screencasts aufnehmen.",
+            2: "Produziert und schneidet Videos eigenstaendig; baut sie in Lerneinheiten ein.",
+            3: "Entwickelt Konzept und Skript fuer strukturierte Erklaervideos; setzt multimediale Formate professionell um.",
+            4: "Etabliert Video-Produktionsstandards und -Workflows; befaehigt andere.",
+            5: "Entwickelt ein Medienkonzept fuer das gesamte L&D-Portfolio.",
+          },
+        },
+        {
+          name: "Learning Analytics",
+          dep: "Evolving",
+          description:
+            "»Analyse von Lernverhaltensdaten zur Bewertung der Wirksamkeit von Massnahmen und Ableitung von Optimierungen. Nicht gemeint: umfassende People-Analytics oder HR-Reporting. Typische Taetigkeiten: Abschlussquoten und Lernzeiten interpretieren · Abbruchmuster identifizieren · Daten fuer Managementberichte aufbereiten«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Datengesteuertes Entscheiden als wachsende Kompetenz; datenbasierte Rechtfertigung von L&D-Investitionen steigt in Bedeutung.",
+          anchors: {
+            1: "Kann Standardberichte im LMS abrufen und lesen.",
+            2: "Wertet Teilnahme- und Abschlussdaten aus; identifiziert offensichtliche Muster.",
+            3: "Fuehrt tiefergehende Analysen zu Lernwirksamkeit und -abbruechen durch; leitet Optimierungsmassnahmen ab.",
+            4: "Entwickelt ein Kennzahlen-Framework fuer L&D-Massnahmen; berichtet an Fuehrungskraefte evidenzbasiert.",
+            5: "Baut ein L&D-Analytics-System auf; beraet zu datengesteuerter Lernkultur.",
+          },
+        },
+        {
+          name: "KI-gestuetzte Content-Erstellung",
+          dep: "Perishable",
+          description:
+            "»Einsatz von KI-Werkzeugen (z. B. ChatGPT, Claude, Synthesia, Descript) zur Beschleunigung der Lerninhaltsentwicklung. Nicht gemeint: KI-Strategieentscheidung oder -Governance. Typische Taetigkeiten: Lernskripte und Quiz-Fragen mit KI-Unterstuetzung erstellen · KI-generierte Inhalte auf didaktische Qualitaet pruefen · Workflows fuer KI-unterstuetzte Produktion aufbauen«",
+          targetLevel: 2,
+          trend: "stark steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: KI-Literacy unter Top-Kompetenzen; Rump 2025 (S. 7): Digitale Anwendungskompetenz — KI veraendert L&D-Content-Produktion fundamental.",
+          anchors: {
+            1: "Kennt KI-Tools fuer Content-Erstellung und hat erste Erfahrungen gemacht.",
+            2: "Nutzt KI-Assistenten zur Entwurfserstellung und prueft Ergebnisse kritisch auf didaktische Qualitaet.",
+            3: "Entwickelt eigene Prompting-Strategien fuer L&D-spezifische Content-Typen; baut wiederverwendbare Workflows.",
+            4: "Bewertet KI-Tools systematisch fuer den L&D-Kontext und etabliert Qualitaetssicherungsprozesse.",
+            5: "Entwickelt Richtlinien fuer KI-Einsatz in der Lerninhaltsentwicklung und befaehigt das L&D-Team.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "Didaktische Konzeption (ADDIE, SAM)", dep: "Durable" },
-        { name: "Blended Learning Architekturen", dep: "Evolving" },
-        { name: "E-Learning / Microlearning Konzepte", dep: "Evolving" },
-        { name: "Lernpfade & Lernreisen gestalten", dep: "Durable" },
-        { name: "Lernziel- und Kompetenzdefinition", dep: "Durable" },
-        { name: "Peer Learning & Lerngruppen", dep: "Durable" },
-        { name: "Workshop-Design & Facilitation", dep: "Durable" },
-        { name: "Evaluierung (Kirkpatrick)", dep: "Durable" },
+        {
+          name: "Didaktische Konzeption (ADDIE, SAM)",
+          dep: "Durable",
+          description:
+            "»Systematisches Vorgehen bei der Entwicklung von Lernmassnahmen nach etablierten Instruktionsdesign-Modellen (ADDIE, SAM, Blooms Lernzieltaxonomie). Nicht gemeint: agiles Projektmanagement oder UX-Design. Typische Taetigkeiten: Lernbedarfsanalyse strukturiert durchfuehren · Lernziele nach Bloom formulieren · Massnahmen von Analyse bis Evaluation durchgaengig konzipieren«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 4): Strukturierungskompetenz als Kernkompetenz — didaktische Methodik bleibt Fundament wirksamer Lernentwicklung, unabhaengig von Digitalisierung.",
+          anchors: {
+            1: "Kennt ADDIE-Phasen und kann sie benennen.",
+            2: "Fuehrt Bedarfsanalyse und Lernzieldefinition nach Vorlage durch; wendet ADDIE-Schritte an.",
+            3: "Konzipiert Lernmassnahmen eigenstaendig nach ADDIE; formuliert SMART-Lernziele und plant Evaluierung.",
+            4: "Analysiert komplexe Lernbedarfe aus mehreren Perspektiven; waehlt Methoden-Mix begruendet und iteriert mit SAM-Ansatz.",
+            5: "Entwickelt eigene Konzeptionsmethoden; befaehigt andere L&D-Profis und beraet zur didaktischen Qualitaetssicherung.",
+          },
+        },
+        {
+          name: "Blended Learning Architekturen",
+          dep: "Evolving",
+          description:
+            "»Konzeption hybrider Lernloesungen, die Praesenz-, Online- und Selbstlernphasen sinnvoll miteinander verbinden. Nicht gemeint: reine Online-Kurse oder reine Praesenztrainings. Typische Taetigkeiten: Lernreise ueber mehrere Formate hinweg gestalten · Praesenz- und Online-Anteile sinnvoll verzahnen · Transferphasen konzipieren und begleiten«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Hybrides Arbeiten erfordert hybride Lernloesungen; WEF 2025 nennt Flexibilitaet als Kernkompetenz des Lernens.",
+          anchors: {
+            1: "Kennt den Begriff Blended Learning und kann Beispiele nennen.",
+            2: "Entwickelt einfache Blended-Learning-Konzepte mit Praesenz- und E-Learning-Anteilen.",
+            3: "Konzipiert mehrstufige Lernreisen mit sinnvoller Verzahnung aller Phasen inklusive Transferbegleitung.",
+            4: "Entwirft komplexe Blended-Architekturen fuer groessere Zielgruppen; optimiert auf Basis von Wirksamkeitsdaten.",
+            5: "Entwickelt Blended-Learning-Standards fuer das Unternehmen und befaehigt andere Konzepteure.",
+          },
+        },
+        {
+          name: "E-Learning / Microlearning Konzepte",
+          dep: "Evolving",
+          description:
+            "»Konzeption kurzer, fokussierter digitaler Lerneinheiten fuer den Einsatz im Workflow (Learning in the Flow of Work). Nicht gemeint: Autoren-Tool-Bedienung oder LMS-Administration. Typische Taetigkeiten: Microlearning-Sequenzen fuer Compliance-Themen entwickeln · Push-Formate fuer mobiles Lernen konzipieren · Lernrhythmen und Wiederholungsintervalle planen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF 2025: Lernformate muessen in den Arbeitsfluss integriert werden — Microlearning ist Standardformat fuer kontinuierliche Kompetenzentwicklung.",
+          anchors: {
+            1: "Kennt das Microlearning-Konzept und kann Beispiele benennen.",
+            2: "Entwickelt einzelne Microlearning-Einheiten nach Vorlage.",
+            3: "Konzipiert eine Microlearning-Sequenz von der Lernzielanalyse bis zur Auslieferung.",
+            4: "Entwickelt ein Microlearning-Konzept fuer eine Kompetenzdomaene; bewertet Formate nach Wirksamkeit.",
+            5: "Entwickelt Standards fuer Microlearning im Unternehmen; beraet zu Learning-in-the-Flow-of-Work-Strategien.",
+          },
+        },
+        {
+          name: "Lernpfade & Lernreisen gestalten",
+          dep: "Durable",
+          description:
+            "»Entwicklung strukturierter Lernpfade, die Mitarbeitende von einem definierten Ausgangs- zu einem Zielkompetenzniveau begleiten. Nicht gemeint: operative Schulungsplanung oder Terminmanagement. Typische Taetigkeiten: Kompetenzniveaus entlang eines Pfads definieren · Inhalte in eine sinnvolle Lernsequenz bringen · Meilensteine und Fortschrittsanzeiger gestalten«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025 (S. 5): Lernfaehigkeit als individuelles Kompetenzfeld — strukturierte Pfade helfen Mitarbeitenden beim eigengesteuerten Lernen.",
+          anchors: {
+            1: "Kennt Beispiele fuer Lernpfade.",
+            2: "Strukturiert vorhandene Inhalte in eine logische Lernsequenz.",
+            3: "Entwickelt eigenstaendig einen Lernpfad von der Kompetenzanalyse bis zur Inhaltssequenzierung.",
+            4: "Gestaltet personalisierbare Lernpfade fuer unterschiedliche Vorkenntnisse; integriert Fortschrittsmessung.",
+            5: "Entwickelt ein Lernpfad-Framework fuer alle Rollen und Karrierestufen im Unternehmen.",
+          },
+        },
+        {
+          name: "Lernziel- und Kompetenzdefinition",
+          dep: "Durable",
+          description:
+            "»Praezise Formulierung von Lernzielen nach Blooms Taxonomie und Ableitung von Kompetenzanforderungen aus Rollenbildern. Nicht gemeint: strategische Kompetenzmodellierung (PE-Aufgabe). Typische Taetigkeiten: Lernziele auf den drei Taxonomieebenen (Wissen, Koennen, Haltung) formulieren · Lernziele mit Evaluationsmassnahmen verknuepfen · Kompetenzanforderungen aus Jobprofilen in Lernziele uebersetzen«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 4): Strukturierungskompetenz — klare Lernziele sind Grundvoraussetzung fuer wirksame und evaluierbare Massnahmen.",
+          anchors: {
+            1: "Kennt die drei Ebenen von Lernzielen (Wissen, Koennen, Haltung).",
+            2: "Formuliert Lernziele nach Bloom mit messbaren Verben eigenstaendig.",
+            3: "Leitet Lernziele aus Kompetenzanforderungen ab; verknuepft sie mit passenden Evaluationsmassnahmen.",
+            4: "Analysiert komplexe Rollenanforderungen und uebersetzt sie in praezise, mehrstufige Lernzielarchitekturen.",
+            5: "Entwickelt Lernziel-Standards und schult andere L&D-Profis und Trainer.",
+          },
+        },
+        {
+          name: "Peer Learning & Lerngruppen",
+          dep: "Durable",
+          description:
+            "»Initiierung und Begleitung von Peer-Learning-Formaten (Lerngruppen, Learning Circles, Peer Coaching) als Ergaenzung zu formal gestalteten Massnahmen. Nicht gemeint: Community-Management oder Wissensmanagement. Typische Taetigkeiten: Peer-Learning-Gruppen gruenden und begleiten · Peer-Coaching-Tandems vermitteln · Lerngruppen-Rituale und Inhalte bereitstellen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF 2025: Kollaborative Lernformen gewinnen durch hybrides Arbeiten an Bedeutung; Rump 2025 (S. 5): Soziale Lernkomponente staerkt Transferwirkung.",
+          anchors: {
+            1: "Kennt das Konzept Peer Learning und kann Beispiele nennen.",
+            2: "Unterstuetzt bestehende Peer-Gruppen organisatorisch.",
+            3: "Gruendet und begleitet Peer-Learning-Gruppen eigenstaendig; stellt Strukturen und Materialien bereit.",
+            4: "Entwickelt ein Peer-Learning-Konzept fuer das Unternehmen; skaliert auf mehrere Gruppen.",
+            5: "Etabliert Peer Learning als Lernkultur-Element; befaehigt interne Multiplikatoren.",
+          },
+        },
+        {
+          name: "Workshop-Design & Facilitation",
+          dep: "Durable",
+          description:
+            "»Konzeption und Moderation von Praesenz- und Online-Workshops zu Kompetenzentwicklungs- und Lernthemen. Nicht gemeint: Teamentwicklungs-Facilitation oder Change-Workshops (OE-Bereich). Typische Taetigkeiten: Workshop-Design von Ziel bis Agenda · Aktivierende Methoden (World Cafe, Fishbowl) einsetzen · Gruppen durch Lernprozesse fuehren«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025 (S. 5-6): Empathie und Facilitationskompetenz als dauerhaft menschliche Staerke; virtuelle Facilitation gewinnt durch hybrides Arbeiten an Bedeutung.",
+          anchors: {
+            1: "Kann einfache Workshops nach vorgegebener Agenda moderieren.",
+            2: "Entwirft und moderiert einfache Workshop-Formate eigenstaendig.",
+            3: "Konzipiert komplexe, mehrstufige Workshop-Architekturen; setzt aktivierende Methoden sicher ein.",
+            4: "Facilitiert anspruchsvolle Gruppen (heterogen, gross, widerstaendig) souveraen; passt Design situativ an.",
+            5: "Entwickelt Facilitations-Standards und -Ausbildungen; befaehigt andere Moderatoren.",
+          },
+        },
+        {
+          name: "Evaluierung (Kirkpatrick)",
+          dep: "Durable",
+          description:
+            "»Systematische Bewertung der Wirksamkeit von Lernmassnahmen auf allen vier Kirkpatrick-Ebenen (Reaktion, Lernen, Verhalten, Ergebnis). Nicht gemeint: allgemeines Projektcontrolling. Typische Taetigkeiten: Evaluationskonzept fuer neue Massnahmen entwickeln · Feedback und Tests auswerten · Transfererfolg im Arbeitsalltag erheben«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF 2025: Evidenzbasiertes L&D-Management steigt in Bedeutung — Investitionen muessen nachweisbar wirksam sein.",
+          anchors: {
+            1: "Kennt die vier Kirkpatrick-Ebenen.",
+            2: "Erstellt Feedback-Fragebogen und einfache Wissenstests fuer Level 1-2.",
+            3: "Entwickelt ein vollstaendiges Evaluationskonzept ueber alle vier Ebenen; wertet Daten aus und leitet Massnahmen ab.",
+            4: "Gestaltet ROI-orientierte Evaluationsstrategien; berichtet evidenzbasiert an Fuehrungskraefte.",
+            5: "Entwickelt ein unternehmensweites L&D-Evaluationsframework und befaehigt andere.",
+          },
+        },
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Leadership",
       skills: [
-        { name: "Train-the-Trainer", dep: "Durable" },
-        { name: "Coaching-Grundlagen", dep: "Durable" },
-        { ...RUMP_VERBAL },
+        {
+          name: "Train-the-Trainer",
+          dep: "Durable",
+          description:
+            "»Befaehigung interner Wissenstrae ger und Fuehrungskraefte zu wirksamer Wissensvermittlung und Trainingsgestaltung. Nicht gemeint: eigene Trainingsdurchfuehrung fuer Fachinhalte. Typische Taetigkeiten: Train-the-Trainer-Programme konzipieren und durchfuehren · Feedback zu Trainingsauftritten geben · Interne Trainer begleiten und entwickeln«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "WEF 2025: Mentoring und Wissenstransfer als Fuehrungskompetenz; Rump 2025 (S. 5): Befaehigung anderer als menschliche Kernstaerke.",
+          anchors: {
+            1: "Hat selbst an einem Train-the-Trainer-Programm teilgenommen.",
+            2: "Gibt strukturiertes Feedback zu Trainingsauftritten und unterstuetzt interne Trainer operativ.",
+            3: "Konzipiert und fuehrt Train-the-Trainer-Programme durch; entwickelt interne Trainer aktiv weiter.",
+            4: "Baut ein systematisches internes Trainer-Netzwerk auf; misst Trainingsqualitaet und entwickelt Standards.",
+            5: "Etabliert eine interne Trainingskultur als strategischen Wettbewerbsvorteil; befaehigt L&D-Profis.",
+          },
+        },
+        {
+          name: "Coaching-Grundlagen",
+          dep: "Durable",
+          description:
+            "»Grundlegende Coaching-Kompetenz zur unterstuetzenden Begleitung von Lernenden und Fuehrungskraeften in Entwicklungsprozessen. Nicht gemeint: professionelles Business-Coaching als Haupttaetigkeit (PE-Rolle). Typische Taetigkeiten: Lernende mit Coaching-Haltung begleiten · Fragetechniken einsetzen · Lernhindernisse im Gespraech klaeren«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025 (S. 5-6): Empathie und soziale Unterstuetzungskompetenz als dauerhaft menschliche Staerke — Coaching-Haltung ist Grundprinzip modernen L&D.",
+          anchors: {
+            1: "Kennt den Unterschied zwischen Coaching, Mentoring und Training.",
+            2: "Setzt grundlegende Fragetechniken (offene Fragen, Hypothesen) in Begleitgespraechen ein.",
+            3: "Fuehrt entwicklungsfoerdernde Gespraeche mit Coaching-Haltung; unterstuetzt Lernende bei der Ueberwindung von Lernhindernissen.",
+            4: "Befaehigt Lernende zur Selbstreflexion und eigengesteuerten Entwicklung; integriert Coaching in L&D-Formate.",
+            5: "Entwickelt eine Coaching-Kultur im L&D-Bereich; befaehigt interne Trainer zu Coaching-Kompetenzen.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 3 },
       ],
     },
   ],
@@ -3754,46 +4098,340 @@ const personalentwicklung: Role = {
   id: "personalentwicklung",
   name: "Personalentwicklung",
   description:
-    "Strategische und operative Entwicklung von Mitarbeitern und Fuehrungskraeften.",
+    "Strategische und operative Entwicklung von Mitarbeitenden und Fuehrungskraeften — von Kompetenzmodellierung ueber Talent Management bis zum systemischen Coaching. Sichert die langfristige Handlungsfaehigkeit des Unternehmens durch gezielte Investitionen in menschliche Ressourcen.",
   categories: [
     {
       name: "Fachlich",
       skills: [
-        { name: "Eignungsdiagnostik (DIN 33430)", dep: "Durable" },
-        { name: "Kompetenz- und Karrieretheorien", dep: "Durable" },
-        { name: "Versicherungs-Rollenbilder", dep: "Durable" },
-        { ...RUMP_DIGITALE },
+        {
+          name: "Eignungsdiagnostik (DIN 33430)",
+          dep: "Durable",
+          description:
+            "»Fundierte Anwendung diagnostischer Verfahren zur Beurteilung der Eignung von Personen fuer bestimmte Aufgaben oder Positionen gemaess DIN 33430. Nicht gemeint: allgemeine HR-Interviews ohne Normorientierung. Typische Taetigkeiten: Eignungsdiagnostische Verfahren auswaehlen und anwenden · Anforderungsprofile erstellen · Diagnostische Ergebnisse verstaendlich und guetekriteriengerecht rueckmelden«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "DIN 33430 bleibt Standard; KI-gestuetzte Assessments erhoehen die Anforderungen an kritische Einordnung diagnostischer Ergebnisse.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Kennt DIN 33430 und grundlegende eignungsdiagnostische Prinzipien.",
+            2: "Erklaert Guetekriterien (Validitaet, Reliabilitaet) und kann gaengige Verfahren benennen.",
+            3: "Waehlt normkonform geeignete Verfahren aus, wendet sie an und meldet Ergebnisse fachgerecht zurueck.",
+            4: "Entwickelt auf DIN 33430 basierende Auswahlprozesse fuer verschiedene Zielgruppen; begleitet Guetekriterien-Reviews.",
+            5: "Setzt unternehmensweite Eignungsdiagnostik-Standards; befaehigt andere und beraet zum rechtssicheren Einsatz.",
+          },
+        },
+        {
+          name: "Kompetenz- und Karrieretheorien",
+          dep: "Durable",
+          description:
+            "»Anwendung anerkannter Kompetenz- und Karrieretheorien (z. B. Dreyfus-Modell, Schein Career Anchors, McClelland) als theoretisches Fundament fuer PE-Instrumente und Entwicklungsgespraeche. Nicht gemeint: allgemeine Personalverwaltung. Typische Taetigkeiten: Kompetenzmodelle auf Theorien aufbauen · Karrieregespraeche theoretisch fundiert fuehren · PE-Instrumente auf theoretischer Basis entwickeln«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 5): Lernfaehigkeit und Karrierebegleitung — PE-Profis muessen Menschen in Entwicklungsprozessen fundiert begleiten koennen.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Kennt gaengige Kompetenzmodelle und kann sie benennen.",
+            2: "Erklaert Kernaussagen und Anwendungsfelder verschiedener Karriere- und Kompetenztheorien.",
+            3: "Wendet Theorien auf konkrete PE-Instrumente und Gespraeche an; begruendet Entscheidungen theoretisch.",
+            4: "Analysiert Entwicklungsbedarfe tiefgreifend unter Einsatz mehrerer Theorien; entwickelt darauf aufbauend massgeschneiderte Instrumente.",
+            5: "Entwickelt neue PE-Konzepte auf eigener theoretischer Synthese; beraet und befaehigt andere PE-Profis.",
+          },
+        },
+        {
+          name: "Versicherungs-Rollenbilder",
+          dep: "Durable",
+          description:
+            "»Kenntnis der typischen Rollenprofile, Anforderungsfelder und regulatorischen Kompetenzpflichten in der Versicherungs-IT-Beratung als Grundlage fuer PE-Massnahmen. Nicht gemeint: operative Stellenbewertung. Typische Taetigkeiten: PE-Massnahmen auf Rollenanforderungen ausrichten · Kompetenzluecken im Versicherungskontext einordnen · Fuehrungskraefte zu Entwicklungsbedarfen ihrer Rollen beraten«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Stabile Domainkenntnis als Kontext fuer passende PE-Massnahmen; neue Rollen durch KI und Regulatorik erhoehen die Anforderungen.",
+          bewertungsmodell: "Bloom",
+          anchors: {
+            1: "Kennt die wichtigsten Rollen in der Versicherungs-IT.",
+            2: "Erklaert die typischen Kompetenzanforderungen und Entwicklungspfade je Rolle.",
+            3: "Richtet PE-Massnahmen zielgenau an Rollenanforderungen aus; beraet zu rollenspezifischen Luecken.",
+            4: "Analysiert Verschiebungen in Rollenanforderungen durch Markt- und Regulierungstrends; entwickelt PE-Strategien vorausschauend.",
+            5: "Entwickelt ein Rollenbild-Konzept und begleitet die Einfuehrung neuer Rollen aus PE-Perspektive.",
+          },
+        },
+        { ...RUMP_DIGITALE, targetLevel: 3 },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "HR-Analytics & People Data", dep: "Evolving" },
-        { name: "HR-Systeme (SuccessFactors, Workday)", dep: "Evolving" },
-        { name: "KI im Talent Management", dep: "Perishable" },
+        {
+          name: "HR-Analytics & People Data",
+          dep: "Evolving",
+          description:
+            "»Nutzung datenbasierter Methoden zur Analyse von Personalentwicklungstrends, Fluktuation, Skill-Gaps und Massnahmen-Wirksamkeit. Nicht gemeint: allgemeines HR-Reporting oder Lohnabrechnung. Typische Taetigkeiten: Entwicklungsdaten auswerten und Muster identifizieren · Skill-Gap-Analysen auf Datenbasis erstellen · Managementberichte zu PE-Investitionen erstellen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Analytisches Denken als Top-Kompetenz; datenbasierte Personalentscheidungen werden zum Standard.",
+          anchors: {
+            1: "Kann Standardberichte aus HR-Systemen abrufen und lesen.",
+            2: "Wertet Entwicklungsdaten eigenstaendig aus und identifiziert offensichtliche Muster.",
+            3: "Fuehrt tiefergehende Analysen durch, leitet Handlungsempfehlungen ab und bereitet Ergebnisse fuer Fuehrungskraefte auf.",
+            4: "Entwickelt ein People-Analytics-Konzept fuer PE; baut Kennzahlen-Dashboards auf und beraet strategisch.",
+            5: "Etabliert HR-Analytics als Steuerungsinstrument; befaehigt andere und begleitet Datenstrategie-Entscheidungen.",
+          },
+        },
+        {
+          name: "HR-Systeme (SuccessFactors, Workday)",
+          dep: "Evolving",
+          description:
+            "»Nutzung von HR-Softwareplattformen fuer die Verwaltung und Nachverfolgung von PE-Massnahmen, Talent-Reviews und Entwicklungsplaenen. Nicht gemeint: technische Systemadministration oder Implementierung. Typische Taetigkeiten: Talent-Profile und Entwicklungsplaene pflegen · Performance- und Entwicklungszyklen im System abbilden · Berichte und Auswertungen erstellen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "HR-Systeme sind Standard-Infrastruktur; Anbieter integrieren zunehmend KI-Features, die neue Kompetenzen erfordern.",
+          anchors: {
+            1: "Navigiert im System und kann Grunddaten einsehen.",
+            2: "Pflegt Talent-Profile, Entwicklungsplaene und Schulungsnachweise eigenstaendig.",
+            3: "Bildet PE-Prozesse (Talent-Reviews, Entwicklungsgespraeche) vollstaendig im System ab; erstellt aussagekraeftige Auswertungen.",
+            4: "Konfiguriert und optimiert PE-Prozesse im System; begleitet Roll-outs neuer Funktionen.",
+            5: "Bewertet HR-System-Loesungen strategisch; befaehigt andere und entwickelt systemgestuetzte PE-Konzepte.",
+          },
+        },
+        {
+          name: "KI im Talent Management",
+          dep: "Perishable",
+          description:
+            "»Kritischer und verantwortungsvoller Einsatz KI-gestuetzter Tools fuer Talenterkennung, Potenzialanalyse und personalisierte Entwicklungsempfehlungen. Nicht gemeint: KI-Systemarchitektur oder -Entwicklung. Typische Taetigkeiten: KI-Empfehlungen in Talent-Reviews kritisch bewerten · Bias in KI-gestuetzter Diagnostik erkennen · KI-Tools auf ethische Anforderungen pruefen«",
+          targetLevel: 2,
+          trend: "stark steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: KI-Literacy als Top-Kompetenz; EU AI Act (2026) stellt spezifische Anforderungen an KI-Einsatz in HR-Entscheidungen.",
+          anchors: {
+            1: "Kennt KI-Anwendungen im HR-Kontext und typische Risiken (Bias, Datenschutz).",
+            2: "Bewertet KI-gestuetzte Empfehlungen kritisch; erkennt moegliche Biases und bezieht sie in Entscheidungen ein.",
+            3: "Prueft KI-Tools systematisch auf ethische und rechtliche Anforderungen; entwickelt Nutzungsrichtlinien.",
+            4: "Gestaltet KI-verantwortungsvolle Talent-Prozesse; beraet Fuehrungskraefte und HR zu Einsatzgrenzen.",
+            5: "Entwickelt unternehmensweite KI-Governance fuer HR; befaehigt andere und begleitet regulatorische Anforderungen.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "Kompetenzmodelle entwickeln", dep: "Durable" },
-        { name: "Karrierepfade & Laufbahnmodelle", dep: "Durable" },
-        { name: "Nachfolgeplanung", dep: "Durable" },
-        { name: "Talent Management Prozesse", dep: "Durable" },
-        { name: "High Potential Programme", dep: "Durable" },
-        { name: "Talent-Reviews & Kalibrierung", dep: "Durable" },
-        { name: "Skill-Gap-Analysen (Dreyfus, 9-Box)", dep: "Durable" },
+        {
+          name: "Kompetenzmodelle entwickeln",
+          dep: "Durable",
+          description:
+            "»Entwicklung und Pflege von Kompetenzrahmenwerken als Grundlage fuer Stellenprofile, Personalauswahl, Entwicklung und Leistungsbeurteilung. Nicht gemeint: operative Stellenbewertung oder Gehaltsbanddefinition. Typische Taetigkeiten: Kompetenzmodell-Architektur entwickeln · Verhaltensanker je Kompetenzstufe definieren · Kompetenzmodell mit Stakeholdern abstimmen und validieren«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Skills-based Organizations gewinnen an Bedeutung; Kompetenzmodelle bilden die Grundlage fuer kompetenzbasierte PE-Strategien.",
+          anchors: {
+            1: "Kennt gaengige Kompetenzmodell-Strukturen und kann Beispiele nennen.",
+            2: "Passt bestehende Kompetenzmodelle an; ergaenzt fehlende Verhaltensanker.",
+            3: "Entwickelt eigenstaendig ein Kompetenzmodell fuer eine Zielgruppe; stimmt es mit Stakeholdern ab.",
+            4: "Entwickelt ein rollenuebergreifendes Kompetenzrahmenwerk; leitet daraus PE-Instrumente und Karrierepfade ab.",
+            5: "Entwirft die strategische Kompetenzarchitektur des Unternehmens; beraet zum Aufbau skills-basierter Organisationsstrukturen.",
+          },
+        },
+        {
+          name: "Karrierepfade & Laufbahnmodelle",
+          dep: "Durable",
+          description:
+            "»Design strukturierter Karrierepfade und Laufbahnmodelle (Fach- und Fuehrungslaufbahn) als Orientierungsrahmen fuer Mitarbeitende und Fuehrungskraefte. Nicht gemeint: operative Befoerderungsentscheidungen. Typische Taetigkeiten: Laufbahnmodelle fuer Fach- und Fuehrungsrollen entwickeln · Transitionspunkte und Anforderungen je Stufe definieren · Modelle kommunizieren und in Entwicklungsgespraechen einsetzen«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 5): Karrierewege muessen transparent sein — Mitarbeitende brauchen Orientierung in einer sich schnell veraendernden Arbeitswelt.",
+          anchors: {
+            1: "Kennt das Konzept der Fach- und Fuehrungslaufbahn.",
+            2: "Erklaert bestehende Laufbahnmodelle und kann typische Transitionspunkte benennen.",
+            3: "Entwickelt eigenstaendig ein Laufbahnmodell fuer eine Karrieredimension mit definierten Stufen und Anforderungen.",
+            4: "Entwirft ein rollenuebergreifendes Laufbahnmodell fuer das Unternehmen; verknuepft es mit PE-Instrumenten.",
+            5: "Entwickelt zukunftsgerichtete Karrierekonzepte fuer ein sich veraenderndes Unternehmen; befaehigt Fuehrungskraefte.",
+          },
+        },
+        {
+          name: "Nachfolgeplanung",
+          dep: "Durable",
+          description:
+            "»Systematische Identifikation und Entwicklung von Nachfolgekandidaten fuer Schluessel- und Fuehrungspositionen. Nicht gemeint: operative Urlaubsvertretungsplanung. Typische Taetigkeiten: Nachfolger fuer kritische Positionen identifizieren und bewerten · Entwicklungsplaene fuer Nachfolgekandidaten erstellen · Nachfolge-Reviews mit Fuehrungskraeften moderieren«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Demographischer Wandel macht Nachfolgeplanung strategisch wichtiger; WEF 2025: Talentbindung ist Wettbewerbsfaktor.",
+          anchors: {
+            1: "Kennt das Konzept der Nachfolgeplanung und gaengige Prozessschritte.",
+            2: "Unterstuetzt Nachfolge-Reviews operativ und pflegt Nachfolgedaten.",
+            3: "Moderiert Nachfolge-Reviews eigenstaendig; entwickelt Foerderplaene fuer Kandidaten.",
+            4: "Gestaltet einen strategischen Nachfolgeplanungsprozess fuer das Unternehmen; beraet GF und Fuehrungsebene.",
+            5: "Entwickelt eine Talent-Pipeline-Strategie fuer kritische Rollen; befaehigt Fuehrungskraefte zur eigenstaendigen Nachfolgesicherung.",
+          },
+        },
+        {
+          name: "Talent Management Prozesse",
+          dep: "Durable",
+          description:
+            "»Design und Steuerung jaehrlicher Talent-Management-Zyklen (Performance Review, Talent Review, Entwicklungsgespraeche) als integriertes System. Nicht gemeint: operative Gehaltsabrechnung oder Administrationsaufgaben. Typische Taetigkeiten: Talent-Review-Prozess entwickeln und steuern · Fuehrungskraefte im Umgang mit PE-Instrumenten befaehigen · Zyklische Massnahmen koordinieren und evaluieren«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "WEF 2025: Continuous Learning und Talent-Entwicklung als strategischer Wettbewerbsvorteil; PE-Prozesse muessen sich an dynamische Arbeitswelt anpassen.",
+          anchors: {
+            1: "Kennt gaengige Talent-Management-Instrumente.",
+            2: "Unterstuetzt Talent-Reviews und Entwicklungsgespraeche operativ.",
+            3: "Steuert den Talent-Management-Zyklus eigenstaendig; befaehigt Fuehrungskraefte zur Nutzung der Instrumente.",
+            4: "Entwickelt ein integriertes Talent-Management-System; verknuepft Instrumente miteinander und misst Wirksamkeit.",
+            5: "Entwirft eine zukunftsgerichtete Talent-Management-Strategie; beraet GF und begleitet systemischen Wandel.",
+          },
+        },
+        {
+          name: "High Potential Programme",
+          dep: "Durable",
+          description:
+            "»Konzeption und Steuerung von Entwicklungsprogrammen fuer besonders leistungsstarke und entwicklungsfaehige Mitarbeitende. Nicht gemeint: allgemeine Onboarding-Programme. Typische Taetigkeiten: High-Potential-Kriterien definieren und Auswahl begleiten · Programm-Curriculum entwickeln (Mentoring, Stretch Assignments, Weiterbildung) · Programmwirksamkeit evaluieren«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Talentbindung und gezielte Entwicklung von Top-Performern bleibt strategisch relevant; Programmformate werden hybrider.",
+          anchors: {
+            1: "Kennt das Konzept von HiPo-Programmen und gaengige Formate.",
+            2: "Unterstuetzt HiPo-Programme operativ und koordiniert Massnahmen.",
+            3: "Konzipiert und steuert ein HiPo-Programm eigenstaendig; begleitet Teilnehmende und berichtet an Stakeholder.",
+            4: "Entwickelt ein strategisch ausgerichtetes HiPo-Programm-Portfolio; verknuepft mit Nachfolgeplanung und Kulturzielen.",
+            5: "Gestaltet eine unternehmerische Talent-Strategie fuer Leistungs- und Potenzialtraeger; befaehigt Fuehrungskraefte.",
+          },
+        },
+        {
+          name: "Talent-Reviews & Kalibrierung",
+          dep: "Durable",
+          description:
+            "»Moderation und Steuerung von Talent-Review-Konferenzen und Kalibrierungsgespraechen zur einheitlichen Beurteilung von Leistung und Potenzial. Nicht gemeint: individuelle Mitarbeiterbeurteilungen. Typische Taetigkeiten: Talent-Review-Meetings moderieren · 9-Box-Grid-Kalibrierungen begleiten · Beurteilungsfehler und Biases im Review-Prozess adressieren«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Kalibrierung von Leistungs- und Potenzialbeurteilungen bleibt notwendig fuer faire PE-Entscheidungen.",
+          anchors: {
+            1: "Kennt das 9-Box-Grid und typische Kalibrierungsformate.",
+            2: "Unterstuetzt Talent-Reviews operativ und protokolliert Ergebnisse.",
+            3: "Moderiert Talent-Reviews eigenstaendig; adressiert Biases und foerdert konsistente Beurteilungen.",
+            4: "Entwickelt Kalibrierungsstandards und befaehigt Fuehrungskraefte zu fairen Beurteilungsprozessen.",
+            5: "Gestaltet ein unternehmensweites Talent-Review-System; beraet GF zu strategischen Talententscheidungen.",
+          },
+        },
+        {
+          name: "Skill-Gap-Analysen (Dreyfus, 9-Box)",
+          dep: "Durable",
+          description:
+            "»Systematische Erfassung und Analyse von Kompetenzluecken auf Individual-, Team- und Unternehmensebene als Grundlage fuer PE-Massnahmen. Nicht gemeint: jaehrliche Mitarbeiterbefragungen ohne PE-Fokus. Typische Taetigkeiten: Skill-Inventuren konzipieren und durchfuehren · Kompetenzluecken aus Daten ableiten · Massnahmenempfehlungen aus Gap-Analysen entwickeln«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Skills-based Organizations — systematische Skill-Gap-Analysen sind Grundlage strategischer Workforce-Planung.",
+          anchors: {
+            1: "Kennt gaengige Methoden zur Skill-Erfassung (z. B. Selbsteinschaetzung, Dreyfus).",
+            2: "Fuehrt einfache Skill-Inventuren durch und visualisiert Ergebnisse.",
+            3: "Konzipiert und steuert Skill-Gap-Analysen fuer Teams oder Bereiche; leitet Massnahmenempfehlungen ab.",
+            4: "Entwickelt ein strategisches Skill-Gap-Analyse-Framework fuer das Unternehmen; verknuepft Ergebnisse mit PE-Planung und Recruiting.",
+            5: "Begleitet den Aufbau einer skills-basierten Organisation; befaehigt Fuehrungskraefte zur eigenstaendigen Gap-Analyse.",
+          },
+        },
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Leadership",
       skills: [
-        { name: "Systemisches Coaching", dep: "Durable" },
-        { name: "Entwicklungs- und Beratungsgespraeche", dep: "Durable" },
-        { name: "360°-Feedback moderieren", dep: "Durable" },
-        { name: "Individuelle Entwicklungsplaene", dep: "Durable" },
-        { name: "Fuehrungskraefte-Beratung", dep: "Durable" },
-        { ...RUMP_VERBAL },
+        {
+          name: "Systemisches Coaching",
+          dep: "Durable",
+          description:
+            "»Professionelle Einzelbegleitung von Mitarbeitenden und Fuehrungskraeften in beruflichen Entwicklungs- und Veraenderungssituationen mit systemisch-konstruktivistischer Haltung. Nicht gemeint: psychotherapeutische Begleitung oder Krisenintervention. Typische Taetigkeiten: Coachingprozesse eigenstaendig steuern · Systemische Fragen und Interventionen einsetzen · Ressourcen und Loesungen beim Coachee entwickeln«",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Coaching und Mentoring als Fuehrungskompetenz; Rump 2025 (S. 5-6): Empathie als dauerhaft menschliche Kernstaerke.",
+          anchors: {
+            1: "Kennt den Unterschied zwischen systemischem Coaching und Beratung.",
+            2: "Fuehrt angeleitete Coaching-Einheiten durch; setzt grundlegende systemische Fragen ein.",
+            3: "Steuert eigenstaendig vollstaendige Coaching-Prozesse; waehlt Interventionen situationsgerecht.",
+            4: "Begleitet Fuehrungskraefte in anspruchsvollen Entwicklungs- und Veraenderungssituationen souveraen; reflektiert den eigenen Coaching-Prozess.",
+            5: "Gilt als Coaching-Experte; entwickelt andere Coaches und beraet zur Coaching-Kultur.",
+          },
+        },
+        {
+          name: "Entwicklungs- und Beratungsgespraeche",
+          dep: "Durable",
+          description:
+            "»Strukturierte Fuehrung von Entwicklungsgespraechen mit Mitarbeitenden und Fuehrungskraeften zur Foerderung von Selbstreflexion, Zielklarheit und Wachstum. Nicht gemeint: disziplinarische Gespraeche oder Performance-Improvement-Plaene. Typische Taetigkeiten: Entwicklungsgespraeche vorbereiten und strukturieren · Feedback und Beobachtungen klar und wertschaetzend kommunizieren · Entwicklungsziele gemeinsam erarbeiten«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 (S. 5): Empathie und Foerderung anderer als menschliche Kernstaerke; gute Entwicklungsgespraeche bleiben Kerninstrument der PE.",
+          anchors: {
+            1: "Kennt die Struktur und den Zweck von Entwicklungsgespraechen.",
+            2: "Fuehrt einfache Entwicklungsgespraeche nach Leitfaden; gibt konstruktives Feedback.",
+            3: "Begleitet Entwicklungsgespraeche eigenstaendig; foerdert Selbstreflexion und leitet konkrete Ziele ab.",
+            4: "Fuehrt auch schwierige Entwicklungsgespraeche souveraen; befaehigt Fuehrungskraefte zu wirkungsvollen Gespraechen.",
+            5: "Entwickelt Gespraechsfuehrungs-Standards und befaehigt andere; beraet zu Gespraechskultur im Unternehmen.",
+          },
+        },
+        {
+          name: "360°-Feedback moderieren",
+          dep: "Durable",
+          description:
+            "»Konzeption, Durchfuehrung und Nachbereitung von 360°-Feedback-Prozessen zur Entwicklung von Selbst- und Fremdwahrnehmung. Nicht gemeint: allgemeine Mitarbeiterbefragungen. Typische Taetigkeiten: 360°-Feedback-Design (Fragebogen, Prozess) entwickeln · Auswertungsgespraeche professionell fuehren · Entwicklungsmassnahmen aus Feedback ableiten«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "360°-Feedback bleibt wichtiges PE-Instrument; digitale Tools erhoehen Effizienz und Reichweite.",
+          anchors: {
+            1: "Kennt das Konzept und gaengige Formate von 360°-Feedback.",
+            2: "Unterstuetzt 360°-Prozesse operativ; bereitet Auswertungsgespraeche vor.",
+            3: "Konzipiert und steuert 360°-Feedback-Prozesse eigenstaendig; fuehrt Auswertungsgespraeche professionell.",
+            4: "Entwickelt ein massgeschneidertes 360°-System; befaehigt Fuehrungskraefte zur Annahme und Nutzung von Feedback.",
+            5: "Etabliert 360°-Feedback als Entwicklungskultur; befaehigt andere PE-Profis und beraet zum Design.",
+          },
+        },
+        {
+          name: "Individuelle Entwicklungsplaene",
+          dep: "Durable",
+          description:
+            "»Gemeinsame Entwicklung und Begleitung individueller Entwicklungsplaene (IDP) als Instrument zur zielgerichteten Kompetenzentwicklung. Nicht gemeint: allgemeine Weiterbildungsadministration. Typische Taetigkeiten: IDPs gemeinsam mit Mitarbeitenden und Fuehrungskraeften erarbeiten · Massnahmen und Meilensteine realistisch planen · Fortschritt regelmaessig reflektieren und Plaene anpassen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "Individuelle Foerderung bleibt Kerninstrument der PE; digitale Tools erleichtern Pflege und Nachverfolgung.",
+          anchors: {
+            1: "Kennt die Komponenten eines IDP und gaengige Vorlagen.",
+            2: "Unterstuetzt Mitarbeitende bei der IDP-Erstellung; pflegt IDPs im HR-System.",
+            3: "Begleitet IDP-Prozesse eigenstaendig; verbindet individuelle Ziele mit Unternehmensbedarfen.",
+            4: "Entwickelt ein IDP-Framework fuer das Unternehmen; befaehigt Fuehrungskraefte zur IDP-Nutzung.",
+            5: "Gestaltet den IDP-Prozess als strategisches PE-Instrument; beraet GF zu individueller Foerderkultur.",
+          },
+        },
+        {
+          name: "Fuehrungskraefte-Beratung",
+          dep: "Durable",
+          description:
+            "»Beratende Begleitung von Fuehrungskraeften zu Fragen der Teamentwicklung, Mitarbeiterfoerderung und PE-relevanter Entscheidungen. Nicht gemeint: Coaching oder Beratung zu persoenlichen Lebensfragen. Typische Taetigkeiten: Fuehrungskraefte zu Entwicklungsbedarfen ihrer Teams beraten · PE-Instrumente und deren Einsatz erklaeren und begleiten · Fuehrungskraefte in schwierigen Personalentwicklungssituationen unterstuetzen«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025 (S. 5-6): Beratungskompetenz und Empathie als dauerhaft menschliche Staerke; Fuehrungskraefte brauchen PE-Unterstuetzung in einem sich schnell veraendernden Umfeld.",
+          anchors: {
+            1: "Beantwortet PE-Fragen von Fuehrungskraeften auf Nachfrage.",
+            2: "Beraet Fuehrungskraefte eigenstaendig zu gaengigen PE-Instrumenten und deren Einsatz.",
+            3: "Begleitet Fuehrungskraefte proaktiv bei Teamentwicklungs- und Personalentscheidungen; bringt PE-Perspektive ein.",
+            4: "Wird von Fuehrungskraeften als strategischer Sparringspartner gesucht; begleitet Transformation und PE-Strategieentscheidungen.",
+            5: "Beraet auf GF-Ebene zur PE-Strategie; entwickelt die Beratungskompetenz anderer PE-Profis.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 4 },
       ],
     },
   ],
@@ -3866,6 +4504,20 @@ const agileCoach: Role = {
             5: "Gilt als Organisationsexperte; entwickelt systemische Beratungsansätze.",
           },
         },
+        {
+          name: "Versicherungs-IT-Domäne",
+          dep: "Durable",
+          targetLevel: 1,
+          description:
+            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im Kundenumfeld — Basis für fachliche Einordnung, Stakeholder-Kommunikation und kontextgerechte Entscheidungen. Typische Tätigkeiten: Aufgaben und Risiken im Versicherungskontext einordnen · Stakeholder-Sprache verstehen · Branchentypische Priorisierungen und Entscheidungsprozesse nachvollziehen«",
+          anchors: {
+            1: "Kennt grundlegende Versicherungsbegriffe und typische Prozesse; ordnet Projekte grob ein.",
+            2: "Erklärt Zusammenhänge zwischen Versicherungsprozessen, IT-Systemen und Projektzielen; versteht Kundenperspektive.",
+            3: "Setzt Domänenwissen aktiv ein: ordnet Risiken und Entscheidungen in den Fachkontext ein; kommuniziert auf Augenhöhe mit dem Fachbereich.",
+            4: "Navigiert mit Fachkenntnis in komplexen Kundensituationen; antizipiert spartenspezifische Anforderungen.",
+            5: "Gilt als Domänenexperte; befähigt andere in der Branchenorientierung.",
+          },
+        },
         { ...RUMP_DIGITALE, targetLevel: 3 },
       ],
     },
@@ -3873,7 +4525,7 @@ const agileCoach: Role = {
       name: "Methodisch",
       skills: [
         {
-          name: "Agile Frameworks beherrschen (Scrum / Kanban / XP)",
+          name: "Agile Frameworks beherrschen (z. B. Scrum / Kanban / XP)",
           dep: "Durable",
           targetLevel: 5,
           keySkill: true,
@@ -3888,7 +4540,7 @@ const agileCoach: Role = {
           },
         },
         {
-          name: "Skalierungsframeworks (SAFe / LeSS / Spotify)",
+          name: "Skalierungsframeworks (z. B. SAFe / LeSS / Spotify)",
           dep: "Evolving",
           targetLevel: 4,
           description:
@@ -3916,7 +4568,7 @@ const agileCoach: Role = {
           },
         },
         {
-          name: "Change Management (ADKAR, Kotter)",
+          name: "Change Management (z. B. ADKAR, Kotter)",
           dep: "Durable",
           targetLevel: 4,
           description:
@@ -3988,8 +4640,23 @@ const agileCoach: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Leadership",
       skills: [
+        {
+          name: "Selbstreflexion & Präsenz",
+          dep: "Durable",
+          targetLevel: 4,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Fähigkeit, die eigene Wirkung als Coach kontinuierlich zu reflektieren und in Coaching-Situationen vollständig präsent zu sein — ohne ablenkende Gedanken, Urteile oder eigene Agenda. Grundlage für alle Coaching-Qualität: Wer sich selbst nicht kennt, kann andere nicht wirksam begleiten. Typische Tätigkeiten: Eigene Reaktionsmuster im Coaching erkennen und regulieren · Vollständige Präsenz in Gesprächen herstellen · Regelmäßige Supervision oder Peer-Coaching nutzen«",
+          anchors: {
+            1: "Kennt die Bedeutung von Selbstreflexion im Coaching.",
+            2: "Reflektiert Coaching-Situationen im Nachgang; erkennt eigene Muster mit Unterstützung.",
+            3: "Reflektiert eigene Wirkung regelmäßig; nutzt Supervision oder Peer-Coaching; ist in Gesprächen präsent.",
+            4: "Erkennt eigene Trigger in Echtzeit; reguliert Reaktionen bewusst; coacht aus vollständiger Präsenz.",
+            5: "Lebt Selbstreflexion als professionelle Haltung; befähigt andere Coaches in ihrer Entwicklung.",
+          },
+        },
         {
           name: "Individuelles Coaching (ICF-Standards)",
           dep: "Durable",
@@ -4325,25 +4992,13 @@ const gruppenleitung: Role = {
 /** Markttreiber Projektmanagement (Juni 2026). */
 const projektmanagementDrivers: MarketDriver[] = [
   {
-    id: "drv-pm-hybrid-methodik",
-    title: "Hybrides Projektmanagement als Standard",
-    horizon: "0–2 Jahre",
-    description:
-      "Kunden erwarten, dass Projektverantwortliche klassische und agile Methoden sicher kombinieren. PM-Standards (PMI, PRINCE2) und Scrum/SAFe verschmelzen zu hybriden Vorgehensmodellen — wer nur eines kann, verliert Relevanz.",
-    affectedSkillNames: [
-      "Agile & Hybride Methoden",
-      "Projektplanung & Meilensteinsteuerung",
-      "Scrum Events faciliten",
-    ],
-  },
-  {
     id: "drv-pm-regulatorik",
     title: "Regulatorischer Druck auf IT-Projekte (DORA, VAIT, AI Act)",
     horizon: "0–3 Jahre",
     description:
       "Steigende regulatorische Anforderungen verlangen auditfähige Projektgovernance. PM-Rollen müssen Compliance-Anforderungen aktiv in Planung, Steuerung und Dokumentation integrieren.",
     affectedSkillNames: [
-      "Regulatorische Grossprojekte (DORA, VAIT)",
+      "Projektsteuerung in regulierten Umfeldern",
       "Risikomanagement",
       "Reporting & Forecasting",
     ],
@@ -4355,45 +5010,21 @@ const projektmanagementDrivers: MarketDriver[] = [
     description:
       "Versicherungsunternehmen modernisieren großflächig ihre Kernsysteme — von monolithischen Bestandssystemen zu modularen Cloud-Plattformen. Diese Großprojekte prägen das PM-Tätigkeitsfeld: hohe Komplexität, lange Laufzeiten, starker Regulierungsdruck und unternehmensweite Stakeholder-Landschaften.",
     affectedSkillNames: [
-      "IT-Projekttypen im Versicherungsumfeld",
-      "Regulatorische Grossprojekte (DORA, VAIT)",
+      "Projektkontext & Komplexität im VU-Umfeld einschätzen",
+      "Projektsteuerung in regulierten Umfeldern",
       "Projektplanung & Meilensteinsteuerung",
     ],
   },
   {
     id: "drv-pm-automatisierung-ai",
-    title: "Automatisierung & Agentic AI im Projektumfeld",
+    title: "Automatisierung & Agentic AI in Versicherungs-Kernprozessen",
     horizon: "1–3 Jahre",
     description:
-      "Autonome KI-Agenten übernehmen zunehmend Routineaufgaben im PM: Statuserfassung, Risikomonitoring, Dokumentenanalyse und Anforderungserhebung. PM-Rollen müssen KI-gestützte Prozesse initiieren, überwachen und qualitätssichern — statt sie selbst auszuführen.",
+      "Versicherungsunternehmen automatisieren ihre Kernprozesse — Schadenbearbeitung, Underwriting und Kundenservice — mit KI und autonomen Agenten. PM-Rollen steuern und verantworten diese komplexen Transformationsvorhaben: Sie initiieren, überwachen und qualitätssichern KI-gestützte Prozesse auf Kundenseite.",
     affectedSkillNames: [
       "KI-gestützte Projektsteuerung",
       "Anforderungsmanagement-Grundlagen",
-      "Agile & Hybride Methoden",
-    ],
-  },
-  {
-    id: "drv-pm-ki-unterstuetzung",
-    title: "KI-gestützte Projektarbeit",
-    horizon: "1–3 Jahre",
-    description:
-      "KI-Tools verändern PM-Routinen: Statusberichte, Risikoanalysen, Meeting-Protokolle und Forecasts werden KI-gestützt. PM-Rollen müssen KI-Outputs kritisch einordnen und verantwortungsvoll einsetzen.",
-    affectedSkillNames: [
-      "Digitale Anwendungskompetenz",
-      "KI-gestützte Projektsteuerung",
-      "KI-Tools im agilen Kontext",
-    ],
-  },
-  {
-    id: "drv-pm-verteilte-teams",
-    title: "Verteilte und internationale Projektteams",
-    horizon: "2–5 Jahre",
-    description:
-      "Projekte werden zunehmend mit verteilten und internationalen Teams umgesetzt. Kompetenzen in Remote-Führung, asynchroner Kommunikation und virtueller Facilitation gewinnen stark an Bedeutung.",
-    affectedSkillNames: [
-      "Teamführung & Motivation",
-      "Stakeholder-Steuerung & -Kommunikation",
-      "Servant Leadership",
+      "Projektkontext & Komplexität im VU-Umfeld einschätzen",
     ],
   },
 ];
