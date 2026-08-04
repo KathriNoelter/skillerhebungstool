@@ -2731,6 +2731,7 @@ const recruiting: Role = {
           name: "Kompetenz- und Verhaltensbewertung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Systematische Bewertung von Kandidaten anhand definierter Kompetenzen — unabhaengig von Sympathie und erster Wirkung. Typische Taetigkeiten: Kandidatenbeurteilungen anhand von Kriterien strukturieren · Beobachtungen von Interpretationen trennen · Hiring-Entscheidungen begruendet und nachvollziehbar vertreten«",
           anchors: {
@@ -2745,6 +2746,7 @@ const recruiting: Role = {
           name: "Stellenanzeigen & Anforderungsprofile",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Erstellung treffender, attraktiver Stellenanzeigen und praeziser Anforderungsprofile in Zusammenarbeit mit Fuehrungskraeften. Typische Taetigkeiten: Anforderungen mit Fuehrungskraefte schaerfen und Must-haves von Nice-to-haves trennen · Zielgruppengerechte Anzeigen formulieren · Anforderungen auf Marktrelevanz pruefen«",
           anchors: {
@@ -2759,6 +2761,7 @@ const recruiting: Role = {
           name: "Candidate Experience",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Sicherstellung einer professionellen, wertschaetzenden Erfahrung fuer alle Kandidaten — vom Erstkontakt bis zur Entscheidung. Typische Taetigkeiten: Rueckmeldungen zeitnah und individuell geben · Kandidaten transparent ueber Prozessschritte informieren · Feedback-Qualitaet bei Absagen sicherstellen«",
           anchors: {
@@ -2787,6 +2790,7 @@ const recruiting: Role = {
           name: "Offer Management & Vertragskoordination",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Steuerung des Angebots- und Vertragsprozesses vom positiven Auswahlentscheid bis zum unterzeichneten Arbeitsvertrag. Typische Taetigkeiten: Gehaltsverhandlungen begleiten und Rahmen mit Fuehrungskraft abstimmen · Angebote koordinieren und Rueckmeldungen einholen · Abstimmung mit HR zur Vertragserstellung und Starttermin«",
           anchors: {
@@ -2795,6 +2799,20 @@ const recruiting: Role = {
             3: "Steuert den Prozess von Auswahlentscheid bis Vertragsunterschrift sicher.",
             4: "Begleitet Gehaltsverhandlungen gemeinsam mit Fuehrungskraeften; steuert schwierige Verhandlungen.",
             5: "Entwickelt Offer-Management-Standards; verkuerzt Time-to-Offer systematisch.",
+          },
+        },
+        {
+          name: "Onboarding-Prozesse",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Steuerung des Onboarding-Prozesses vom angenommenen Angebot bis zum ersten Arbeitstag — Koordination mit HR-Generalin, IT und Fuehrungskraft. Nicht gemeint: fachliches Einarbeiten (Aufgabe der Fuehrungskraft). Typische Taetigkeiten: Onboarding-Aufgaben anstoßen und verteilen · Neü Mitarbeitende bis Tag 1 begleiten und betreuen · Probezeit-Check-ins initiieren und nachhalten«",
+          anchors: {
+            1: "Fuehrt vorgegebene Onboarding-Schritte aus; braucht Anleitung bei Koordination.",
+            2: "Koordiniert Onboarding-Prozess eigenstaendig fuer Standardfaelle.",
+            3: "Steuert den gesamten Prozess von Zusage bis Arbeitsbeginn; koordiniert alle Beteiligten proaktiv.",
+            4: "Optimiert Onboarding-Erlebnis; erkennt Reibungspunkte und passt den Prozess an.",
+            5: "Entwickelt Onboarding-Standards; misst und verbessert Onboarding-Qualitaet systematisch.",
           },
         },
       ],
@@ -2808,7 +2826,7 @@ const recruiting: Role = {
           targetLevel: 3,
           keySkill: true,
           description:
-            "»Persoenliche, empathische Ansprache passiver Kandidaten und professionelle Kommunikation im gesamten Recruiting-Prozess. Typische Taetigkeiten: Individuelle InMails formulieren die Interesse wecken · Telefonscreenings strukturiert fuehren · Absagen wertschaetzend formulieren«",
+            "»Persoenliche, empathische Ansprache von Kandidaten und professionelle Kommunikation im gesamten Recruiting-Prozess. Typische Taetigkeiten: Individuelle InMails formulieren die Interesse wecken · Telefonscreenings strukturiert fuehren · Absagen wertschaetzend formulieren«",
           anchors: {
             1: "Kontaktiert Kandidaten nach Vorlage; Ansprache bleibt generisch.",
             2: "Formuliert eigenstaendig Ansprachen; passt Ton an Zielgruppe an.",
