@@ -10,17 +10,6 @@
           }
         ]
       }
-    ],
-    "PostToolUse": [
-      {
-        "matcher": "Write|Edit",
-        "hooks": [
-          {
-            "type": "command",
-            "command": "bash -c 'FILE=\"$CLAUDE_FILE_PATH\"; if [ -n \"$FILE\" ]; then EXT=\"${FILE##*.}\"; case \"$EXT\" in ts|tsx|js|jsx|json|css|scss|md|html) npx prettier --write \"$FILE\" 2>/dev/null || true ;; esac; fi'"
-          }
-        ]
-      }
     ]
   }
 }

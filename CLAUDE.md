@@ -18,11 +18,6 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 - Prefer named exports over default exports
 - Use absolute imports via path aliases (e.g., `@/lib`, `@/components`)
 
-## Database
-
-- Never modify the database schema directly — always use migrations
-- Never run destructive queries (DROP, TRUNCATE) without explicit user confirmation
-
 ## Git
 
 - Never force-push to `main` or `develop`
@@ -32,12 +27,14 @@ This file provides guidance to Claude Code (claude.ai/code) when working with co
 
 ## Testing
 
-- Every new feature must include tests
-- Run the existing test suite before submitting changes
+- No test framework is currently configured — do not add test infrastructure unless explicitly requested
+- `pnpm typecheck` and TypeScript strict mode are the primary quality gates before committing
 
 ## Architecture
 
-- Keep business logic out of API route handlers — use service layers
+- This is a Vite + React + Electron app — no backend, no API routes, no database
+- Separate Electron main process (`electron/`) from React renderer (`src/`)
+- Keep business logic in `src/lib/` — components are for rendering only
 - Prefer composition over inheritance
 
 ## Claude Code Configuration
@@ -46,5 +43,5 @@ This repo contains a `.claude/` directory with shared team configuration:
 
 - **Skills** (`skills/commit`, `skills/deploy`, `skills/pr-review`) — invoke via `/commit`, `/deploy`, `/pr-review`
 - **Agents** (`agents/code-reviewer.md`, `agents/researcher.md`) — specialized subagents for code review and research
-- **Hooks** (`settings.json`) — PreToolUse hook blocks destructive shell commands; PostToolUse hook auto-formats written files with Prettier
-- **MCP setup** (`mcp-setup.sh`) — optional MCP server connections (GitHub, Postgres, Sentry, Slack, Figma)
+- **Hooks** (`settings.json`) — PreToolUse hook blocks destructive shell commands
+- **MCP setup** (`mcp-setup.sh`) — optional MCP server connections (GitHub, Figma, Sentry)
