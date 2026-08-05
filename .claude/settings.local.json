@@ -55,7 +55,12 @@
       "Read(//Users/kathrinnolter/Claude Projekte/**)",
       "Read(//Users/kathrinnolter/.config/pnpm/**)",
       "Read(//Users/kathrinnolter/Library/pnpm/**)",
-      "Bash(awk '/^const controlling: Role = {/,/^const [a-zA-Z]*: Role = {/' src/data/groups.ts)"
+      "Bash(awk '/^const controlling: Role = {/,/^const [a-zA-Z]*: Role = {/' src/data/groups.ts)",
+      "Bash(awk -F: 'NR>=1')",
+      "Bash(awk '{print NR\": \"$0}')",
+      "Bash(awk -F: '$2 >= 2550 && $2 <= 2840')",
+      "Bash(awk *)",
+      "Bash(screencapture -x /tmp/ld_check.png)"
     ]
   }
 }
