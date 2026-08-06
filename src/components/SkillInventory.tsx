@@ -520,15 +520,87 @@ interface CategoryBlockSkillItem {
   onEditKey?: (isKey: boolean) => void;
 }
 
-const DIMENSION_DESCRIPTIONS: Record<string, string> = {
-  Fachlich:
-    "Konzeptionelles Wissen über Softwaresysteme, Domänen und Technologien — die Grundlage, um KI-Output, Architekturentscheidungen und Fachvorgaben eigenständig einzuordnen und zu bewerten.",
-  Technisch:
-    "Die praktische Beherrschung von Werkzeugen, Sprachen und Entwicklungsprozessen — das Handwerk, das täglich zum Einsatz kommt und kontinuierlich schärfer wird.",
-  Methodisch:
-    "Strukturiertes Vorgehen bei Planung, Qualitätssicherung und Architekturentscheidungen — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
-  Kommunikativ:
-    "Technische Sachverhalte verständlich machen, Anforderungen klären und im Team sowie beim Kunden wirksam auftreten — die Dimension, die aus einem guten Entwickler einen wertvollen Berater macht.",
+/**
+ * Kategorie-Beschreibungen sind je Gruppe unterschiedlich formuliert, weil
+ * dieselbe Dimension (z.B. "Fachlich") in Software-Entwicklung, Backoffice
+ * oder Leadership inhaltlich Verschiedenes meint. Schluessel ist die
+ * Group-ID (siehe src/data/groups.ts).
+ */
+const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
+  "software-entwicklung": {
+    Fachlich:
+      "Konzeptionelles Wissen über Softwaresysteme, Domänen und Technologien — die Grundlage, um KI-Output, Architekturentscheidungen und Fachvorgaben eigenständig einzuordnen und zu bewerten.",
+    Technisch:
+      "Die praktische Beherrschung von Werkzeugen, Sprachen und Entwicklungsprozessen — das Handwerk, das täglich zum Einsatz kommt und kontinuierlich schärfer wird.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Planung, Qualitätssicherung und Architekturentscheidungen — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
+    Kommunikativ:
+      "Technische Sachverhalte verständlich machen, Anforderungen klären und im Team sowie beim Kunden wirksam auftreten — die Dimension, die aus einem guten Entwickler einen wertvollen Berater macht.",
+  },
+  "business-consulting": {
+    Fachlich:
+      "Fachliches und branchenspezifisches Wissen über Prozesse, Domänen und Anforderungen — die Grundlage für fundierte Beratung und belastbare Qualitätsurteile.",
+    Technisch:
+      "Der sichere Umgang mit den Werkzeugen und Systemen des jeweiligen Fachgebiets (z.B. Test- und Analyse-Tools) — das Handwerk für die tägliche Arbeit.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Analyse, Qualitätssicherung und Entscheidungsfindung — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
+    Kommunikativ:
+      "Anforderungen klären, Ergebnisse verständlich vermitteln und Vertrauen bei Kunden und Stakeholdern aufbauen — die Dimension, die aus fachlicher Expertise wirksame Beratung macht.",
+  },
+  projektmanagement: {
+    Fachlich:
+      "Verständnis von Projektmethodik, Auftraggeberkontext und Fachdomäne — die Grundlage, um Projekte sachgerecht zu planen und zu steuern.",
+    Technisch:
+      "Der sichere Umgang mit Projektmanagement-Tools und -Techniken — das Handwerkszeug für Planung, Steuerung und Reporting.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Planung, Steuerung und Risikomanagement — die Fähigkeit, Projekte trotz Komplexität und Unsicherheit zum Erfolg zu führen.",
+    Kommunikativ:
+      "Anforderungen und Erwartungen klar kommunizieren und im Projektteam sowie mit Stakeholdern koordinieren — die Dimension, die Projektarbeit reibungslos macht.",
+    "Sozial & Leadership":
+      "Menschen führen, Teams entwickeln und in schwierigen Situationen souverän agieren — die Dimension, die aus fachlicher Methodik wirksame Führung macht.",
+  },
+  produktmanagement: {
+    Fachlich:
+      "Markt-, Produkt- und Domänenwissen — die Grundlage, um Produktentscheidungen fundiert zu treffen.",
+    Technisch:
+      "Der sichere Umgang mit Produktmanagement-Tools und Analysetechniken — das Handwerkszeug für datengetriebene Entscheidungen.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Priorisierung, Roadmap-Planung und Entscheidungsfindung — die Fähigkeit, Komplexität in klare Produktentscheidungen zu übersetzen.",
+    Kommunikativ:
+      "Produktvisionen vermitteln und mit Entwicklungsteams, Stakeholdern und Kunden verhandeln — die Dimension, die aus einer guten Idee ein erfolgreiches Produkt macht.",
+  },
+  backoffice: {
+    Fachlich:
+      "Fachwissen zu Prozessen, Regularien und Vorgaben im jeweiligen Aufgabenbereich — die Grundlage für rechtssichere und sachgerechte Aufgabenerledigung.",
+    Technisch:
+      "Der sichere Umgang mit den Systemen und Werkzeugen des jeweiligen Aufgabenbereichs (z.B. HR-Software, ERP, Office-Anwendungen) — das Handwerkszeug für die tägliche Arbeit.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Organisation, Priorisierung und Prozessgestaltung — die Fähigkeit, den eigenen Aufgabenbereich eigenständig und vorausschauend zu steuern.",
+    "Sozial & Kommunikation":
+      "Konflikte moderieren, schwierige Gespräche führen und Beziehungen zu Kolleg:innen, Führungskräften und externen Stakeholdern aktiv gestalten — die Dimension, die aus fachlicher Kompetenz wirksame Zusammenarbeit macht.",
+  },
+  poc: {
+    Fachlich:
+      "Wissen zu Lern-, Entwicklungs- und Veränderungstheorien — die Grundlage für fundierte Beratung von Menschen und Organisationen.",
+    Technisch:
+      "Der sichere Umgang mit Lern-, Diagnose- und Moderationswerkzeugen — das Handwerkszeug für die praktische Begleitung.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei Diagnose, Konzeption und Begleitung von Lern- und Veränderungsprozessen — die Fähigkeit, Interventionen passgenau zu gestalten.",
+    Kommunikativ:
+      "Empathisch zuhören, Vertrauen aufbauen und in Konflikt- oder Veränderungssituationen sicher navigieren — die Dimension, die Beratung und Begleitung wirksam macht.",
+    "Sozial & Leadership":
+      "Menschen in ihrer Entwicklung begleiten, führen und in schwierigen Gesprächen souverän agieren — die Dimension, die aus Fachwissen wirksame Personalentwicklung macht.",
+  },
+  leadership: {
+    Fachlich:
+      "Unternehmerisches und branchenspezifisches Wissen — die Grundlage für fundierte strategische Entscheidungen.",
+    Technisch:
+      "Der sichere Umgang mit den Steuerungsinstrumenten der Geschäftsführung — das Handwerkszeug für operative und strategische Führung.",
+    Methodisch:
+      "Strukturiertes Vorgehen bei strategischer Planung und Entscheidungsfindung — die Fähigkeit, das Unternehmen trotz Komplexität zielgerichtet zu steuern.",
+    Kommunikativ:
+      "Klar kommunizieren, Menschen führen und in kritischen Situationen souverän auftreten — die Dimension, die aus unternehmerischem Wissen wirksame Führung macht.",
+  },
 };
 
 interface CategoryBlockProps {
@@ -541,6 +613,7 @@ interface CategoryBlockProps {
   customLabel?: string;
   targetCategories?: string[];
   filterActive?: boolean;
+  groupId?: string;
 }
 
 function CategoryBlock(props: CategoryBlockProps) {
@@ -553,7 +626,11 @@ function CategoryBlock(props: CategoryBlockProps) {
     customLabel = "Eigener Skill",
     targetCategories,
     filterActive = false,
+    groupId,
   } = props;
+  const dimensionDescription = groupId
+    ? DIMENSION_DESCRIPTIONS[groupId]?.[name]
+    : undefined;
   const [newName, setNewName] = useState("");
   const [newDep, setNewDep] = useState<DepClassification>("Durable");
   const [newSourceLabel, setNewSourceLabel] = useState("");
@@ -584,11 +661,11 @@ function CategoryBlock(props: CategoryBlockProps) {
         <span className="text-sm font-bold uppercase tracking-wide text-slate-600">
           {name}
         </span>
-        {DIMENSION_DESCRIPTIONS[name] && (
+        {dimensionDescription && (
           <span className="group relative ml-1.5 inline-block cursor-help">
             <span className="text-xs text-slate-400 group-hover:text-slate-600">ⓘ</span>
             <span className="pointer-events-none absolute left-0 top-full z-50 mt-1.5 w-72 rounded-lg border border-slate-200 bg-white px-3 py-2 text-xs leading-relaxed text-slate-600 shadow-lg opacity-0 transition-opacity duration-150 group-hover:opacity-100">
-              {DIMENSION_DESCRIPTIONS[name]}
+              {dimensionDescription}
             </span>
           </span>
         )}
@@ -2029,6 +2106,7 @@ export function SkillInventory(props: Props) {
                 skills={visibleItems}
                 totalCount={allItems.length}
                 targetCategories={skillCategoryNames}
+                groupId={currentGroup?.id}
                 filterActive={trendFilter !== "all" || !showDisabled}
                 onAddSkill={(skill) => onAddCustomSkill(cat.name, skill)}
                 emptyText="Alle Skills in dieser Dimension wurden deaktiviert."

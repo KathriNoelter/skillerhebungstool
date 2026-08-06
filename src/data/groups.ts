@@ -1675,7 +1675,7 @@ const gfAssistenz: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Korrespondenz",
@@ -1964,7 +1964,7 @@ const teamassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Dienstleister- & Lieferantenkoordination",
@@ -2251,7 +2251,7 @@ const hrGeneralist: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Mitbestimmung & Gremienarbeit",
@@ -2496,7 +2496,7 @@ const hrBusinessPartner: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Beratung & Sparring fuer GF und Leads",
@@ -2818,7 +2818,7 @@ const recruiting: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Direktansprache & Kandidatenkommunikation",
@@ -3134,7 +3134,7 @@ const controlling: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Management-Reporting & Ergebniskommunikation",
@@ -3339,7 +3339,7 @@ const inhouseProjektSupport: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Schnittstelle PM, Controlling & Kunde",
@@ -3713,7 +3713,7 @@ const itAdmin: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Sozial & Kommunikation",
       skills: [
         {
           name: "Anwenderberatung & -schulung",

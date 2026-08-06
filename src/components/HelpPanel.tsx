@@ -39,7 +39,7 @@ const STEP_HELP: Record<number, StepHelp> = {
   2: {
     heading: "Skill-Inventur",
     intro:
-      "Alle Skills der Rolle in einem Tab — geordnet nach den 4 Dimensionen (Fachlich, Technisch, Methodisch, Kommunikativ). Die Zukunftsperspektive je Skill wird ueber den Relevanztrend abgebildet, nicht ueber eine separate Liste.",
+      "Alle Skills der Rolle in einem Tab — geordnet nach den 4 Dimensionen deiner Rolle (z.B. Fachlich, Technisch, Methodisch und eine soziale/kommunikative Dimension). Die Zukunftsperspektive je Skill wird ueber den Relevanztrend abgebildet, nicht ueber eine separate Liste.",
     sections: [
       {
         title: "Skills-Tab",

@@ -101,7 +101,7 @@ export function exportAssessmentTemplate(
     "Skala 1–5 — Stufenbezeichnung haengt vom Bewertungsmodell des Skills ab:",
   ]);
   rows.push([]);
-  rows.push(["Dreyfus (Handwerksstufen) — fuer Technisch, Methodisch, Kommunikativ"]);
+  rows.push(["Dreyfus (Handwerksstufen) — fuer alle Dimensionen ausser Fachlich"]);
   for (let l = 1; l <= 5; l++) {
     rows.push([`${l} - ${DREYFUS_LABELS_DE[l as DreyfusLevel]}`]);
   }
