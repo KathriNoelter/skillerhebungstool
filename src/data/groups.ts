@@ -3568,7 +3568,7 @@ const itAdmin: Role = {
           dep: "Evolving",
           targetLevel: 3,
           description:
-            "»Verwaltung und Absicherung von mobilen Endgeraeten (Smartphones, Tablets) und Laptops ueber eine MDM-Loesung (z. B. Intune). Typische Taetigkeiten: Geraete einschreiben und konfigurieren · Compliance-Richtlinien ausrollen · Geraete bei Verlust remote loeschen«",
+            "»Verwaltung und Absicherung von mobilen Endgeraeten (Smartphones, Tablets) und Laptops ueber eine MDM-Loesung (z. B. Intune). Typische Taetigkeiten: Geraete einschreiben und konfigurieren · Compliance-Richtlinien ausrollen · Geraete bei Verlust remote loeschen · Updates auf verwalteten Geraeten forcieren«",
           anchors: {
             1: "Kennt MDM-Grundkonzepte; schreibt Geraete mit Anleitung ein.",
             2: "Schreibt Geraete eigenstaendig ein; rollt Standardrichtlinien aus.",
