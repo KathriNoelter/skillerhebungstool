@@ -2027,7 +2027,7 @@ const hrGeneralist: Role = {
         {
           name: "Tarifvertrag & Betriebsvereinbarungen",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
           description:
             "»Kenntnis geltender Tarifvertraege und Betriebsvereinbarungen sowie deren Anwendung im HR-Alltag. Nicht gemeint: Verhandlung von Tarifvertraegen. Typische Taetigkeiten: Relevante Regelungen fuer konkrete Faelle nachschlagen · Mitarbeitende zu geltenden Regelungen informieren · Abweichungen und Ausnahmen korrekt dokumentieren«",
           anchors: {
@@ -2039,17 +2039,18 @@ const hrGeneralist: Role = {
           },
         },
         {
-          name: "Sozial- und Lohnsteuerrecht (Grundlagen)",
+          name: "Sozial- und Lohnsteuerrecht",
           dep: "Evolving",
-          targetLevel: 2,
+          targetLevel: 4,
+          keySkill: true,
           description:
-            "»Grundlegende Kenntnisse zu Sozialversicherungspflicht, Lohnsteuer und Entgeltbestandteilen als Schnittstelle zur externen Gehaltsabrechnung. Nicht gemeint: eigenstaendige Lohnabrechnung. Typische Taetigkeiten: Sozialversicherungspflicht bei Sonderfaellen einordnen · Rueckfragen der Gehaltsabrechnung beantworten · Entgeltaenderungen korrekt dokumentieren und weiterleiten«",
+            "»Tiefgehende Kenntnisse zu Sozialversicherungspflicht, Lohnsteuer und Entgeltbestandteilen als Schnittstelle zur externen Gehaltsabrechnung. Typische Taetigkeiten: Sozialversicherungspflicht bei Sonderfaellen einordnen · Rueckfragen der Gehaltsabrechnung beantworten · Entgeltaenderungen korrekt dokumentieren und weiterleiten«",
           anchors: {
             1: "Kennt Grundbegriffe (SV-Pflicht, Lohnsteuerklassen); braucht Unterstuetzung.",
             2: "Beantwortet einfache Rueckfragen; leitet komplexe Faelle korrekt weiter.",
             3: "Bewertet gaengige Sonderfaelle eigenstaendig; kommuniziert sicher mit der Gehaltsabrechnung.",
             4: "Erkennt systemische Auswirkungen von Entgeltentscheidungen; beraet Fuehrungskraefte.",
-            5: "Definiert Schnittstellen zur Gehaltsabrechnung; entwickelt Prozessstandards.",
+            5: "Definiert Schnittstellen zur Durchführung der Gehaltsabrechnung; entwickelt Prozessstandards.",
           },
         },
         {
@@ -2078,6 +2079,20 @@ const hrGeneralist: Role = {
             3: "Steuert Mutterschutz- und Elternzeitprozesse vollstaendig; beraet Mitarbeitende sicher.",
             4: "Loest Sonderfaelle (Kuendigung waehrend Elternzeit, Teilzeit-Elternzeit) eigenstaendig.",
             5: "Gilt als Expertin; beraet Fuehrungskraefte proaktiv zu Planungsimplikationen.",
+          },
+        },
+        {
+          name: "Arbeitsschutz",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Koordination und operative Umsetzung von Arbeitsschutzpflichten im Unternehmen — als Schnittstelle zwischen Mitarbeitenden, Sicherheitsbeauftragtem und Betriebsaerztin. Nicht gemeint: fachliche Gefaehrdungsbeurteilung selbst durchfuehren (Aufgabe des Sicherheitsbeauftragten). Typische Taetigkeiten: Arbeitsunfaelle an die VBG und den Sicherheitsbeauftragten melden · ASA-Sitzungen mit Sicherheitsbeauftragtem und Betriebsaerztin koordinieren · Regelmaessige Sicherheitsschulungen sicherstellen und neue Mitarbeitende einweisen«",
+          anchors: {
+            1: "Meldet Arbeitsunfaelle nach Anleitung; braucht Unterstuetzung bei Ablaeufen.",
+            2: "Koordiniert Standard-Meldungen und Schulungstermine eigenstaendig.",
+            3: "Steuert Arbeitsschutzprozesse vollstaendig; ist zentrale Ansprechpartnerin fuer Sicherheitsbeauftragten und Betriebsaerztin.",
+            4: "Erkennt Optimierungsbedarf in Praeventionsmassnahmen; beraet Fuehrungskraefte proaktiv.",
+            5: "Entwickelt Arbeitsschutzstandards; vertritt das Unternehmen bei Audits und Behoerdenkontakten.",
           },
         },
         { ...RUMP_DIGITALE, targetLevel: 2 },
@@ -2154,28 +2169,30 @@ const hrGeneralist: Role = {
           name: "Zeiterfassung & Urlaubsverwaltung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
-            "»Administration von Arbeitszeitkonten, Urlaubsanspruechen und Abwesenheiten im HRIS. Typische Taetigkeiten: Urlaubsantraege pruefen und genehmigen · Zeitkonten auf Korrektheit pruefen · Abwesenheitstypen (Krankheit, Sonderurlaub) korrekt erfassen«",
+            "»Administration von Arbeitszeitkonten, Urlaubsanspruechen und Abwesenheiten im HRIS. Typische Taetigkeiten: Urlaubsantraege pruefen und genehmigen · Zeitkonten auf Korrektheit pruefen · Abwesenheitstypen (Krankheit, Sonderurlaub) korrekt erfassen · Wiedereingliederungsverfahren (BEM) nach laengerer Krankheit begleiten«",
           anchors: {
             1: "Erfasst Abwesenheiten nach Vorgabe; braucht Unterstuetzung bei Sonderfaellen.",
             2: "Verwaltet Urlaubs- und Zeitkonten eigenstaendig fuer Standardfaelle.",
-            3: "Loest Sonderfaelle (Uebertrag, Teilzeit, Krankheit) eigenstaendig; prueft Konten proaktiv.",
+            3: "Loest Sonderfaelle (Uebertrag, Teilzeit, Krankheit) eigenstaendig; begleitet BEM-Verfahren; prueft Konten proaktiv.",
             4: "Erkennt systemische Fehler und Optimierungspotenziale; beraet Fuehrungskraefte.",
             5: "Entwickelt Prozessstandards fuer Zeiterfassung; schult andere.",
           },
         },
         {
-          name: "Schnittstelle zur Gehaltsabrechnung",
+          name: "Gehaltsabrechnung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
-            "»Zuverlaessige Uebermittlung aller abrechnungsrelevanten Informationen an die interne oder externe Lohnabrechnung — termingerecht und vollstaendig. Typische Taetigkeiten: Aenderungslisten fristgerecht zusammenstellen · Rueckfragen der Abrechnung klaeren · Abrechnungsergebnisse auf Plausibilitaet pruefen«",
+            "»Eigenstaendige Durchfuehrung der monatlichen Gehaltsabrechnung inkl. Pflege der Personal- und Abrechnungssysteme. Typische Taetigkeiten: Gehaltsanpassungen und Arbeitszeitveraenderungen (z. B. Stundenreduzierung, -erhoehung) im Personal- und Rechnungssystem umsetzen · Mit der Abrechnungsstelle, Aemtern, Sozialversicherungstraegern und Finanzaemtern kommunizieren · Abrechnungsergebnisse auf Plausibilitaet pruefen«",
           anchors: {
-            1: "Leitet einzelne Informationen auf Anweisung weiter.",
-            2: "Stellt Aenderungslisten nach Vorlage eigenstaendig zusammen.",
-            3: "Steuert Schnittstelle vollstaendig; prueft Plausibilitaet und klaert Abweichungen.",
-            4: "Optimiert Datenuebermittlungsprozesse; reduziert Fehlerquoten.",
-            5: "Entwickelt Schnittstellenstandards; verantwortet Abrechnungsqualitaet.",
+            1: "Fuehrt einzelne Abrechnungsschritte nach Anleitung durch; braucht Pruefung.",
+            2: "Bearbeitet Standardfaelle (Gehaltsanpassungen, Arbeitszeitaenderungen) eigenstaendig.",
+            3: "Fuehrt die monatliche Gehaltsabrechnung vollstaendig und eigenstaendig durch; klaert Ruecksprachen mit Aemtern und Sozialversicherungstraegern.",
+            4: "Loest komplexe Abrechnungsfaelle eigenstaendig; optimiert Abrechnungsprozesse.",
+            5: "Gilt als Abrechnungsexpertin; entwickelt Abrechnungsstandards und vertritt das Unternehmen gegenueber Behoerden bei Grundsatzfragen.",
           },
         },
         {
@@ -2196,14 +2213,15 @@ const hrGeneralist: Role = {
           name: "Offboarding & Zeugniserstellung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Strukturierter Abschlussprozess beim Austritt: Kuendigungsbearbeitung, Resturlaubsberechnung, Zeugniserstellung und Systemabmeldung. Typische Taetigkeiten: Austrittsprozesse fristgerecht einleiten · Qualifizierte Arbeitszeugnisse verfassen · Systemzugaenge koordiniert deaktivieren lassen«",
           anchors: {
             1: "Unterstuetzt beim Offboarding mit Anleitung; braucht Pruefung.",
             2: "Fuehrt Offboarding-Checklisten eigenstaendig durch; erstellt einfache Zeugnisse.",
             3: "Steuert Offboarding vollstaendig; erstellt qualifizierte Zeugnisse eigenstaendig.",
-            4: "Bearbeitet komplexe Abgaengerfaelle (Kuendigung durch AG, Aufhebung); beraet Fuehrungskraefte.",
-            5: "Gilt als Referenz fuer Zeugnisformulierungen; entwickelt Offboarding-Standards.",
+            4: "Koordiniert komplexe Abgaengerfaelle (Kuendigung durch AG, Aufhebung) eng mit externer Rechtsberatung; beraet Fuehrungskraefte.",
+            5: "Gilt als Referenz fuer den Offboarding-Prozess; entwickelt Offboarding-Standards.",
           },
         },
         {
@@ -2232,20 +2250,6 @@ const hrGeneralist: Role = {
             3: "Gestaltet HR-Prozesse eigenverantwortlich mit; koordiniert kleinere HR-Projekte.",
             4: "Leitet HR-Projekte (z. B. Tool-Einfuehrung); setzt Prozessveraenderungen strukturiert um.",
             5: "Entwickelt HR-Prozessstandards; positioniert HR als internen Treiber von Verbesserungen.",
-          },
-        },
-        {
-          name: "Health & Wellbeing Initiativen",
-          dep: "Evolving",
-          targetLevel: 2,
-          description:
-            "»Unterstuetzung und Koordination von Massnahmen zur Mitarbeitergesundheit und zum Wohlbefinden. Nicht gemeint: Betriebsaerztliche Leistungen oder klinische Angebote. Typische Taetigkeiten: Gesundheitsangebote koordinieren und kommunizieren · Betriebliches Eingliederungsmanagement begleiten · Bedarfe im Team erheben und Angebote vorschlagen«",
-          anchors: {
-            1: "Kommuniziert vorhandene Angebote auf Anweisung.",
-            2: "Koordiniert Gesundheitsangebote eigenstaendig; begleitet BEM-Prozesse.",
-            3: "Erhebt Bedarfe und schlaegt passende Massnahmen vor; steuert Umsetzung.",
-            4: "Entwickelt Wellbeing-Konzepte; bewertet Wirksamkeit von Massnahmen.",
-            5: "Definiert betriebliche Gesundheitsstrategie; gilt als interne Expertin.",
           },
         },
       ],
@@ -2279,20 +2283,6 @@ const hrGeneralist: Role = {
             3: "Fuehrt auch schwierige Gespraeche sicher; bleibt sachlich und empathisch.",
             4: "Begleitet Fuehrungskraefte bei herausfordernden HR-Gespraechen; coacht situativ.",
             5: "Gilt als Gespraechsexpertin; entwickelt Gespraechsleitfaeden und schult andere.",
-          },
-        },
-        {
-          name: "Konflikt- & Beschwerdemanagement",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Entgegennahme, Bearbeitung und Begleitung von Beschwerden und Konflikten zwischen Mitarbeitenden oder mit der Fuehrungskraft. Nicht gemeint: Rechtsstreitigkeiten oder externe Mediation. Typische Taetigkeiten: Beschwerden vertraulich aufnehmen und einordnen · Betroffene zu weiteren Schritten beraten · Klaerende Gespraeche vorbereiten und begleiten«",
-          anchors: {
-            1: "Nimmt Beschwerden entgegen; leitet an Vorgesetzte weiter.",
-            2: "Bearbeitet einfache Beschwerden eigenstaendig; erkennt wann Eskalation noetig ist.",
-            3: "Begleitet Konflikte strukturiert; empfiehlt Loesungsansaetze und bleibt neutral.",
-            4: "Moderiert komplexere Konfliktsituationen; schuetzt alle Beteiligten sachgerecht.",
-            5: "Gilt als erste Anlaufstelle fuer eskalierte Faelle; entwickelt Konfliktpraevention.",
           },
         },
         { ...RUMP_VERBAL, targetLevel: 3 },
