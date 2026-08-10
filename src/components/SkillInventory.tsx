@@ -14,7 +14,6 @@ import {
   TREND_LABELS,
   TREND_VALUES,
   TREND_COLORS,
-  evaluationModelFor,
   stageLabelsFor,
 } from "../types";
 import { exportSkillInventoryPdf, exportFullGroupCatalogPdf } from "../lib/pdfExport";
@@ -135,16 +134,14 @@ function DepSelect({
 
 function TargetSelect({
   value,
-  model,
   disabled,
   onChange,
 }: {
   value: DreyfusAnchorLevel | undefined;
-  model: EvaluationModel;
   disabled?: boolean;
   onChange: (v: DreyfusAnchorLevel | null) => void;
 }) {
-  const labels = stageLabelsFor(model);
+  const labels = stageLabelsFor();
   const setClass = typeof value === "number"
     ? "border-slate-300 bg-slate-50 text-slate-800 font-semibold"
     : "border-dashed border-gray-300 bg-white text-gray-400";
@@ -320,7 +317,6 @@ function RenameableSkillName({
 
 function SkillDetailEditor({
   skill,
-  categoryName,
   onEditDescription,
   onEditTarget,
   onEditAnchor,
@@ -329,7 +325,6 @@ function SkillDetailEditor({
   onEditKey,
 }: {
   skill: Skill;
-  categoryName: string;
   onEditDescription: (text: string) => void;
   onEditTarget: (level: DreyfusAnchorLevel | null) => void;
   onEditAnchor: (level: DreyfusAnchorLevel, text: string) => void;
@@ -337,8 +332,7 @@ function SkillDetailEditor({
   onEditTrendgrund: (text: string) => void;
   onEditKey: (isKey: boolean) => void;
 }) {
-  const effectiveModel = evaluationModelFor(skill, categoryName);
-  const labels = stageLabelsFor(effectiveModel);
+  const labels = stageLabelsFor();
 
   // Local draft state prevents textarea content from being cleared by re-renders
   // that are triggered by unrelated state updates (e.g. bumpLastModified).
@@ -717,7 +711,6 @@ function CategoryBlock(props: CategoryBlockProps) {
             skill.bewertungsmodell ||
             skill.keySkill
           );
-          const effectiveModel = evaluationModelFor(skill, name);
           return (
             <div
               key={skill.name}
@@ -815,7 +808,6 @@ function CategoryBlock(props: CategoryBlockProps) {
                   {canEdit && onEditTarget && (
                     <TargetSelect
                       value={skill.targetLevel}
-                      model={effectiveModel}
                       disabled={isDisabled}
                       onChange={onEditTarget}
                     />
@@ -907,7 +899,6 @@ function CategoryBlock(props: CategoryBlockProps) {
               {isOpen && canEdit && (
                 <SkillDetailEditor
                   skill={skill}
-                  categoryName={name}
                   onEditDescription={onEditDescription!}
                   onEditTarget={onEditTarget!}
                   onEditAnchor={onEditAnchor!}

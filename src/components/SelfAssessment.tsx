@@ -4,7 +4,7 @@ import type {
   Participant,
   SkillCategory,
 } from "../types";
-import { evaluationModelFor, stageLabelsFor } from "../types";
+import { stageLabelsFor } from "../types";
 import {
   exportAssessmentTemplate,
   importAssessmentResults,
@@ -416,8 +416,7 @@ export function SelfAssessment({
                     const anchorEntries = ([1, 2, 3, 4, 5] as const)
                       .map((l) => ({ level: l, text: anchors[l] }))
                       .filter((a) => !!a.text);
-                    const skillModel = evaluationModelFor(skill, cat.name);
-                    const skillLabels = stageLabelsFor(skillModel);
+                    const skillLabels = stageLabelsFor();
                     return (
                       <li
                         key={skill.name}

@@ -2,16 +2,11 @@ import { useMemo, useState } from "react";
 import type {
   DreyfusLevel,
   DreyfusAnchorLevel,
-  EvaluationModel,
   MarketDriver,
   Participant,
   SkillCategory,
 } from "../types";
-import {
-  DREYFUS_COLORS,
-  evaluationModelFor,
-  stageLabelsFor,
-} from "../types";
+import { DREYFUS_COLORS, stageLabelsFor } from "../types";
 import {
   computeAnalysis,
   filterByTrend,
@@ -63,18 +58,16 @@ function TargetCell({ level }: { level?: number }) {
 
 /**
  * ANF-06: Editable target cell — sichtbares Eingabefeld direkt in der
- * Auswertungs-Tabelle. Modellabhaengige Stufenbezeichnungen.
+ * Auswertungs-Tabelle.
  */
 function EditableTargetCell({
   level,
-  model,
   onChange,
 }: {
   level: number | undefined;
-  model: EvaluationModel;
   onChange: (v: DreyfusAnchorLevel | null) => void;
 }) {
-  const labels = stageLabelsFor(model);
+  const labels = stageLabelsFor();
   const isSet = typeof level === "number";
   return (
     <select
@@ -85,8 +78,8 @@ function EditableTargetCell({
       }}
       title={
         isSet
-          ? `Zielwert: ${level} — ${labels[level as DreyfusAnchorLevel]} (${model} 1–5)`
-          : `Zielwert setzen (${model} 1–5)`
+          ? `Zielwert: ${level} — ${labels[level as DreyfusAnchorLevel]}`
+          : `Zielwert setzen`
       }
       className={`inline-flex h-7 min-w-[3rem] items-center justify-center rounded px-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-slate-400 ${
         isSet
@@ -418,7 +411,6 @@ export function SkillProfile({
                         <span className="print:hidden">
                           <EditableTargetCell
                             level={target}
-                            model={evaluationModelFor(skill, cat.name)}
                             onChange={(v) =>
                               onEditSkillTarget(skill.name, v)
                             }

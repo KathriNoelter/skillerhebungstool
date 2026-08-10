@@ -14,7 +14,7 @@ import {
 } from "docx";
 
 import type { Group, MarketDriver, Role, Skill, SkillCategory } from "../types";
-import { evaluationModelFor, stageLabelsFor } from "../types";
+import { stageLabelsFor } from "../types";
 
 // ---------------------------------------------------------------------------
 // Helpers
@@ -32,10 +32,9 @@ function thinBorder(): { top: IBorderOptions; bottom: IBorderOptions; left: IBor
   return { top: b, bottom: b, left: b, right: b };
 }
 
-function metaText(skill: Skill, catName: string): string {
-  const model = evaluationModelFor(skill, catName);
-  const labels = stageLabelsFor(model);
-  const parts: string[] = [skill.dep, model];
+function metaText(skill: Skill): string {
+  const labels = stageLabelsFor();
+  const parts: string[] = [skill.dep];
   if (typeof skill.targetLevel === "number") {
     parts.push(`Ziel ${skill.targetLevel} – ${labels[skill.targetLevel]}`);
   }
@@ -47,7 +46,7 @@ function metaText(skill: Skill, catName: string): string {
 // Block builders
 // ---------------------------------------------------------------------------
 
-function skillBlock(skill: Skill, catName: string): (Paragraph | Table)[] {
+function skillBlock(skill: Skill): (Paragraph | Table)[] {
   const anchors = skill.anchors ?? {};
   const anchorEntries = ([1, 2, 3, 4, 5] as const).filter((l) => anchors[l]);
   const items: (Paragraph | Table)[] = [];
@@ -69,7 +68,7 @@ function skillBlock(skill: Skill, catName: string): (Paragraph | Table)[] {
     new Paragraph({
       spacing: { before: 0, after: 80 },
       children: [
-        new TextRun({ text: metaText(skill, catName), color: "64748B", size: 18 }),
+        new TextRun({ text: metaText(skill), color: "64748B", size: 18 }),
       ],
     }),
   );
@@ -84,9 +83,8 @@ function skillBlock(skill: Skill, catName: string): (Paragraph | Table)[] {
   }
 
   if (anchorEntries.length > 0) {
+    const labels = stageLabelsFor();
     const rows = anchorEntries.map((l) => {
-      const model = evaluationModelFor(skill, catName);
-      const labels = stageLabelsFor(model);
       return new TableRow({
         children: [
           new TableCell({
@@ -145,7 +143,7 @@ function categorySection(cat: SkillCategory): (Paragraph | Table)[] {
   ];
 
   for (const skill of active) {
-    items.push(...skillBlock(skill, cat.name));
+    items.push(...skillBlock(skill));
   }
 
   return items;

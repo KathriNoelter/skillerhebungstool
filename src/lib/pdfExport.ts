@@ -1,5 +1,5 @@
 import type { Group, MarketDriver, Skill, SkillCategory } from "../types";
-import { evaluationModelFor, stageLabelsFor } from "../types";
+import { stageLabelsFor } from "../types";
 
 function esc(s: string): string {
   return s
@@ -33,9 +33,8 @@ function badge(text: string, style: string): string {
   return `<span style="display:inline-block;font-size:10px;font-weight:700;padding:2px 8px;border-radius:20px;letter-spacing:.04em;text-transform:uppercase;${style}">${esc(text)}</span>`;
 }
 
-function skillCard(skill: Skill, catName: string): string {
-  const model = evaluationModelFor(skill, catName);
-  const labels = stageLabelsFor(model);
+function skillCard(skill: Skill): string {
+  const labels = stageLabelsFor();
   const anchors = skill.anchors ?? {};
   const anchorEntries = ([1, 2, 3, 4, 5] as const).filter((l) => anchors[l]);
 
@@ -49,7 +48,6 @@ function skillCard(skill: Skill, catName: string): string {
 
   html += `<span style="display:flex;gap:5px;flex-wrap:wrap;justify-content:flex-end;flex-shrink:0">`;
   html += badge(skill.dep, DEP_COLOR[skill.dep] ?? "");
-  html += badge(model, "background:#f1f5f9;color:#334155");
   if (skill.trend) html += badge(TREND_LABEL[skill.trend] ?? skill.trend, TREND_COLOR[skill.trend] ?? "");
   if (typeof skill.targetLevel === "number") {
     html += badge(`Ziel ${skill.targetLevel} – ${labels[skill.targetLevel]}`, "background:#e0e7ff;color:#3730a3");
@@ -152,7 +150,7 @@ export function exportSkillInventoryPdf(
     body += `color:#94a3b8;margin-bottom:12px;padding-bottom:8px;border-bottom:1.5px solid #e2e8f0">`;
     body += `${esc(cat.name)} <span style="font-weight:400">(${active.length} Skills)</span></h2>`;
     for (const skill of active) {
-      body += skillCard(skill, cat.name);
+      body += skillCard(skill);
     }
     body += `</section>`;
   }
@@ -308,7 +306,7 @@ export function exportFullGroupCatalogPdf(
       rolesHtml += `color:#94a3b8;margin:0 0 10px;padding-bottom:6px;border-bottom:1px solid #f1f5f9">`;
       rolesHtml += `${esc(cat.name)} <span style="font-weight:400">(${cat.skills.length})</span></h3>`;
       for (const skill of cat.skills) {
-        rolesHtml += skillCard(skill, cat.name);
+        rolesHtml += skillCard(skill);
       }
       rolesHtml += `</div>`;
     }

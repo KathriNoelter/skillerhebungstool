@@ -2,47 +2,39 @@ export type DepClassification = "Durable" | "Evolving" | "Perishable";
 
 export type DreyfusLevel = 0 | 1 | 2 | 3 | 4 | 5;
 
-export const DREYFUS_LABELS: Record<DreyfusLevel, string> = {
-  0: "—",
-  1: "Novice",
-  2: "Adv. Beginner",
-  3: "Competent",
-  4: "Proficient",
-  5: "Expert",
-};
-
-export const DREYFUS_LABELS_DE: Record<DreyfusLevel, string> = {
-  0: "Nicht bewertet",
-  1: "Anfaenger",
-  2: "Fortgeschr. Anfaenger",
-  3: "Kompetent",
-  4: "Gewandt",
-  5: "Experte",
-};
-
 /**
  * ANF-16: Hybrides Bewertungsmodell.
  * Fachkompetenz nutzt Bloom's Taxonomy (Wissensentwicklung), alle anderen
  * Dimensionen bleiben bei Dreyfus (Handwerksstufen). Beide normiert auf 1–5.
+ * Bewusst intern: bestimmt nur, wie Ankertexte fuer einen Skill formuliert
+ * werden (Wissensfortschritt vs. Erfahrungsaufbau) — Teilnehmende sehen nie
+ * "Bloom" oder "Dreyfus", nur die einheitlichen Stufenbezeichnungen unten.
  */
 export type EvaluationModel = "Bloom" | "Dreyfus";
 
-export const BLOOM_LABELS: Record<DreyfusLevel, string> = {
-  0: "—",
-  1: "Remember",
-  2: "Understand",
-  3: "Apply",
-  4: "Analyze & Evaluate",
-  5: "Create & Design",
+/**
+ * Einheitliche Stufenbezeichnungen, unabhaengig vom zugrundeliegenden Modell.
+ * Ersetzt die vormals getrennten Bloom-Labels (Erinnern/Verstehen/Anwenden/...)
+ * und Dreyfus-Labels (Anfaenger/Fortgeschr. Anfaenger/Kompetent/...), die in
+ * Workshops fuer Verwirrung sorgten, wenn dieselbe Zahl je Skill einen anderen
+ * Begriff trug.
+ */
+export const UNIFIED_LABELS_DE: Record<DreyfusLevel, string> = {
+  0: "Nicht bewertet",
+  1: "Einsteiger",
+  2: "Grundkenntnisse",
+  3: "Sicher",
+  4: "Erfahren",
+  5: "Vorbild",
 };
 
-export const BLOOM_LABELS_DE: Record<DreyfusLevel, string> = {
-  0: "Nicht bewertet",
-  1: "Erinnern",
-  2: "Verstehen",
-  3: "Anwenden",
-  4: "Analysieren & Evaluieren",
-  5: "Erschaffen & Gestalten",
+/** Kurzbeschreibung je Stufe — modellunabhaengig, ergaenzt das Label. */
+export const UNIFIED_LEVEL_DESCRIPTIONS_DE: Record<DreyfusAnchorLevel, string> = {
+  1: "Kennt die Grundbegriffe, benoetigt bei der Anwendung noch enge Anleitung.",
+  2: "Versteht die Zusammenhaenge, wendet sie in einfachen Faellen mit Unterstuetzung an.",
+  3: "Wendet das Wissen/Koennen selbststaendig in alltaeglichen Situationen an.",
+  4: "Analysiert komplexe Situationen eigenstaendig, beraet und unterstuetzt andere.",
+  5: "Entwickelt neue Loesungen/Standards, gibt Wissen strukturiert an andere weiter.",
 };
 
 export const DREYFUS_COLORS: Record<DreyfusLevel, string> = {
@@ -151,11 +143,13 @@ export function evaluationModelFor(
   return categoryName === "Fachlich" ? "Bloom" : "Dreyfus";
 }
 
-/** ANF-16: Stufenbezeichnungen fuer das jeweilige Modell (deutsch). */
-export function stageLabelsFor(
-  model: EvaluationModel,
-): Record<DreyfusLevel, string> {
-  return model === "Bloom" ? BLOOM_LABELS_DE : DREYFUS_LABELS_DE;
+/**
+ * Einheitliche Stufenbezeichnungen fuer die Anzeige — unabhaengig davon, ob
+ * der Skill intern nach Bloom oder Dreyfus formuliert ist (siehe
+ * {@link EvaluationModel}).
+ */
+export function stageLabelsFor(): Record<DreyfusLevel, string> {
+  return UNIFIED_LABELS_DE;
 }
 
 export interface SkillCategory {

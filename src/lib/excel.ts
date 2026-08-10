@@ -1,13 +1,14 @@
 import * as XLSX from "xlsx";
 import type {
+  DreyfusAnchorLevel,
   DreyfusLevel,
   MarketDriver,
   Participant,
   SkillCategory,
 } from "../types";
 import {
-  DREYFUS_LABELS_DE,
-  BLOOM_LABELS_DE,
+  UNIFIED_LABELS_DE,
+  UNIFIED_LEVEL_DESCRIPTIONS_DE,
   evaluationModelFor,
   stageLabelsFor,
 } from "../types";
@@ -65,19 +66,18 @@ export function exportAssessmentTemplate(
     "Skill",
     "Haltbarkeit",
     "Skill-Steckbrief",
-    "Verhaltensanker je Stufe (modellabhaengig)",
+    "Verhaltensanker je Stufe",
     "Dein Level (1-5)",
     "Hinweis",
     "Zuletzt geaendert",
   ]);
+  const labels = stageLabelsFor();
   for (const cat of categories) {
     const activeSkills = cat.skills.filter((s) => !s.disabled);
     if (activeSkills.length === 0) continue;
     // Category header row — spans col A, signals section start with skill count.
     rows.push([`${cat.name} (${activeSkills.length} Skills)`, "", "", "", "", "", "", ""]);
     for (const skill of activeSkills) {
-      const model = evaluationModelFor(skill, cat.name);
-      const labels = stageLabelsFor(model);
       const anchors = skill.anchors ?? {};
       const anchorText = ([1, 2, 3, 4, 5] as const)
         .filter((l) => anchors[l])
@@ -95,20 +95,15 @@ export function exportAssessmentTemplate(
       ]);
     }
   }
-  // Legend block — beide Modelle, da pro Skill unterschiedlich
+  // Legend block — einheitliche Skala fuer alle Dimensionen.
   rows.push([]);
-  rows.push([
-    "Skala 1–5 — Stufenbezeichnung haengt vom Bewertungsmodell des Skills ab:",
-  ]);
+  rows.push(["Skala 1–5:"]);
   rows.push([]);
-  rows.push(["Dreyfus (Handwerksstufen) — fuer alle Dimensionen ausser Fachlich"]);
   for (let l = 1; l <= 5; l++) {
-    rows.push([`${l} - ${DREYFUS_LABELS_DE[l as DreyfusLevel]}`]);
-  }
-  rows.push([]);
-  rows.push(["Bloom (Wissensentwicklung) — fuer Fachlich"]);
-  for (let l = 1; l <= 5; l++) {
-    rows.push([`${l} - ${BLOOM_LABELS_DE[l as DreyfusLevel]}`]);
+    rows.push([
+      `${l} - ${UNIFIED_LABELS_DE[l as DreyfusLevel]}`,
+      UNIFIED_LEVEL_DESCRIPTIONS_DE[l as DreyfusAnchorLevel],
+    ]);
   }
   rows.push([]);
   rows.push(["Hinweis", "Diese Auswertung ist qualitative Orientierung — keine statistisch belastbare Messung."]);

@@ -1,5 +1,5 @@
 import type { DreyfusLevel, SkillCategory, Participant } from "../types";
-import { evaluationModelFor, stageLabelsFor } from "../types";
+import { stageLabelsFor } from "../types";
 
 function esc(s: string): string {
   return s
@@ -93,31 +93,29 @@ body{
 .badge-spec{background:#ede9fe;color:#5b21b6}
 .skill-badges{display:flex;align-items:center;gap:6px;flex-shrink:0;flex-wrap:wrap;justify-content:flex-end}
 .skill-desc{font-size:13px;color:var(--s500);line-height:1.65;margin-bottom:12px}
-.anchor-btn{
-  display:inline-flex;align-items:center;gap:5px;background:none;border:none;
-  font-size:12px;color:var(--s400);cursor:pointer;padding:0;margin-bottom:8px;
-  transition:color .15s;font-family:inherit;
-}
-.anchor-btn:hover{color:var(--s600)}
-.anchor-box{
-  background:var(--s50);border:1px solid var(--s200);border-radius:8px;
-  padding:12px 14px;margin-bottom:14px;
-}
-.anchor-item{font-size:12px;color:var(--s600);margin-bottom:7px;line-height:1.5}
-.anchor-item:last-child{margin-bottom:0}
-.anchor-lvl{font-weight:600;color:var(--s700)}
 .rating-row{display:flex;flex-direction:column;gap:8px;margin-top:14px}
 .rating-status{font-size:11px;color:var(--s400);font-weight:500}
 .rating-status.ok{color:var(--em600);font-weight:600}
-.rating-btns{display:flex;gap:6px;flex-wrap:wrap}
-.rb{
-  width:48px;height:44px;border:1.5px solid var(--s200);border-radius:8px;
-  background:#fff;cursor:pointer;font-size:17px;font-weight:700;
-  color:var(--s600);transition:border-color .1s,background .1s,color .1s;
-  font-family:inherit;
+.rating-options{display:flex;flex-direction:column;gap:6px}
+.ro{
+  display:flex;align-items:flex-start;gap:10px;width:100%;text-align:left;
+  border:1.5px solid var(--s200);border-radius:8px;background:#fff;
+  padding:9px 12px;cursor:pointer;font-family:inherit;
+  transition:border-color .1s,background .1s;
 }
-.rb:hover{border-color:var(--s300);background:var(--s50)}
-.rb.sel{background:var(--s800);border-color:var(--s800);color:#fff}
+.ro:hover{border-color:var(--s300);background:var(--s50)}
+.ro.sel{background:var(--s800);border-color:var(--s800)}
+.ro.sel .ro-num{background:#fff;color:var(--s800)}
+.ro.sel .ro-label{color:#fff}
+.ro.sel .ro-text{color:rgba(255,255,255,.75)}
+.ro-num{
+  flex-shrink:0;width:26px;height:26px;border-radius:6px;background:var(--s100);
+  color:var(--s600);display:flex;align-items:center;justify-content:center;
+  font-size:13px;font-weight:700;
+}
+.ro-body{font-size:12.5px;line-height:1.5}
+.ro-label{font-weight:700;color:var(--s700)}
+.ro-text{color:var(--s500)}
 .action-bar{
   background:#fff;border:1px solid var(--s200);border-radius:12px;
   padding:14px 20px;margin-bottom:32px;
@@ -140,7 +138,7 @@ body{
   .header-inner{padding:14px 16px}
   .main{padding:20px 14px}
   .action-bar{gap:8px}
-  .rb{width:42px;height:40px;font-size:15px}
+  .ro-num{width:22px;height:22px;font-size:12px}
 }
 @media print{
   @page{size:A4;margin:normal}
@@ -154,12 +152,13 @@ body{
   .main{padding:12px 16px}
   .action-bar{display:none!important}
   .instructions{display:none!important}
-  .anchor-btn{display:none!important}
-  .anchor-box{display:none!important}
-  .rating-btns{display:flex!important}
-  .rb{width:26px;height:24px;font-size:11px;border-width:1px;border-color:#cbd5e1;color:#94a3b8;border-radius:5px}
-  .rb.sel{background:#1e293b!important;border-color:#1e293b!important;color:#fff!important}
-  .rb:not(.sel){opacity:0.2}
+  .ro-body{display:none!important}
+  .rating-options{display:flex!important;flex-direction:row!important;gap:4px!important}
+  .ro{width:22px;height:22px;padding:0;border-width:1px;border-color:#cbd5e1;border-radius:5px;justify-content:center}
+  .ro .ro-num{background:transparent;color:#94a3b8;font-size:11px}
+  .ro.sel{background:#1e293b!important;border-color:#1e293b!important}
+  .ro.sel .ro-num{color:#fff!important}
+  .ro:not(.sel){opacity:0.3}
   .rating-status{font-size:10px;font-weight:600;color:#059669}
   .rating-status:not(.ok){display:none}
   .skill-card{break-inside:avoid;page-break-inside:avoid;border-color:#e2e8f0;margin-bottom:6px;padding:10px 14px}
@@ -201,8 +200,7 @@ export function exportAssessmentTemplateHtml(
     skillsHtml += `<section class="category">\n<h2 class="category-title">${esc(cat.name)}<span class="cat-count">${activeSkills.length}</span></h2>\n`;
 
     for (const skill of activeSkills) {
-      const model = evaluationModelFor(skill, cat.name);
-      const labels = stageLabelsFor(model);
+      const labels = stageLabelsFor();
       const rawAnchors = skill.anchors ?? {};
       const id = sanitizeId(skill.name);
 
@@ -220,7 +218,6 @@ export function exportAssessmentTemplateHtml(
 
       const badgeClass =
         skill.dep === "Durable" ? "badge-d" : skill.dep === "Evolving" ? "badge-e" : "badge-p";
-      const hasAnchors = anchors.some((a) => a.text);
 
       // Source badge: "Core" (gray) or specialization name (violet).
       const isSpec =
@@ -243,24 +240,17 @@ export function exportAssessmentTemplateHtml(
         skillsHtml += `<p class="skill-desc">${esc(skill.description)}</p>\n`;
       }
 
-      if (hasAnchors) {
-        skillsHtml += `<button class="anchor-btn" id="atbtn-${id}" onclick="toggleAnchors('${id}')">`;
-        skillsHtml += `<span id="aticon-${id}">▶</span> Verhaltensanker anzeigen</button>\n`;
-        skillsHtml += `<div class="anchor-box" id="abox-${id}" hidden>\n`;
-        for (const a of anchors) {
-          if (!a.text) continue;
-          skillsHtml += `<div class="anchor-item"><span class="anchor-lvl">${a.level} (${esc(a.label)}):</span> ${esc(a.text)}</div>\n`;
-        }
-        skillsHtml += `</div>\n`;
-      }
-
       skillsHtml += `<div class="rating-row">\n`;
       skillsHtml += `<span class="rating-status" id="rs-${id}">Noch nicht bewertet</span>\n`;
-      skillsHtml += `<div class="rating-btns">`;
+      skillsHtml += `<div class="rating-options">`;
 
       for (const a of anchors) {
-        skillsHtml += `<button class="rb" data-skill="${id}" data-level="${a.level}" `;
-        skillsHtml += `title="${a.level} – ${esc(a.label)}" onclick="rate('${id}',${a.level})">${a.level}</button>`;
+        const body = a.text
+          ? `<span class="ro-label">${esc(a.label)}</span><br><span class="ro-text">${esc(a.text)}</span>`
+          : `<span class="ro-label">${esc(a.label)}</span>`;
+        skillsHtml += `<button class="ro" data-skill="${id}" data-level="${a.level}" onclick="rate('${id}',${a.level})">`;
+        skillsHtml += `<span class="ro-num">${a.level}</span><span class="ro-body">${body}</span>`;
+        skillsHtml += `</button>`;
       }
 
       skillsHtml += `</div>\n</div>\n</div>\n`;
@@ -310,9 +300,8 @@ export function exportAssessmentTemplateHtml(
 </header>
 <main class="main">
   <div class="instructions">
-    <strong>Anleitung:</strong> Bewerte jeden Skill auf einer Skala von 1 (Einstieg) bis 5 (Experte).
-    Klicke auf die Zahl, die deinem aktuellen Stand entspricht — ein zweiter Klick hebt die Auswahl auf.
-    Die Verhaltensanker je Skill helfen dir bei der Einordnung.
+    <strong>Anleitung:</strong> Waehle bei jedem Skill die Beschreibung, die deinem aktuellen Stand am
+    besten entspricht — ein zweiter Klick hebt die Auswahl auf.
     Lasse Skills, die du nicht kennst oder nicht bewerten kannst, frei.
   </div>
   <div class="action-bar">
@@ -353,22 +342,6 @@ function rate(skillId, level) {
     el.className = 'rating-status';
   }
   updateProg();
-}
-
-function toggleAnchors(id) {
-  var box = document.getElementById('abox-'+id);
-  var icon = document.getElementById('aticon-'+id);
-  var btn = document.getElementById('atbtn-'+id);
-  var hidden = box.hasAttribute('hidden');
-  if (hidden) {
-    box.removeAttribute('hidden');
-    icon.textContent = '▼';
-    btn.childNodes[1].textContent = ' Verhaltensanker ausblenden';
-  } else {
-    box.setAttribute('hidden', '');
-    icon.textContent = '▶';
-    btn.childNodes[1].textContent = ' Verhaltensanker anzeigen';
-  }
 }
 
 function exportPdf() {
