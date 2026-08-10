@@ -1763,44 +1763,336 @@ const productOwner: Role = {
     {
       name: "Fachlich",
       skills: [
-        { name: "Scrum Guide & Professional Scrum", dep: "Durable" },
-        { name: "Versicherungsprozesse (Vertrag, Schaden, Bestand)", dep: "Durable" },
-        { name: "Regulatorische Anforderungen (BaFin, VVG)", dep: "Evolving" },
+        {
+          name: "Scrum Guide & Professional Scrum",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Kenntnis des Scrum Guides und der Professional-Scrum-Prinzipien als gemeinsame Basis fuer die Zusammenarbeit im Team. Typische Taetigkeiten: Scrum-Rollen, -Events und -Artefakte korrekt anwenden · Abweichungen vom Scrum Guide bewusst und begruendet vornehmen · Neue Teammitglieder in Scrum einfuehren«",
+          anchors: {
+            1: "Kennt Scrum-Grundbegriffe; wendet Events nach Anleitung an.",
+            2: "Versteht Sinn und Zweck von Rollen, Events und Artefakten.",
+            3: "Wendet Scrum im Team-Alltag sicher und eigenstaendig an.",
+            4: "Bewertet Abweichungen vom Scrum Guide kritisch; passt Vorgehen begruendet an.",
+            5: "Gilt als Scrum-Referenz; entwickelt das Vorgehen im Team konzeptionell weiter.",
+          },
+        },
+        {
+          name: "Versicherungsprozesse (Vertrag, Schaden, Bestand)",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Verstaendnis zentraler Versicherungsprozesse — Vertragsabschluss, Schadenbearbeitung, Bestandsfuehrung — als fachliche Grundlage fuer Priorisierungsentscheidungen im Produkt. Typische Taetigkeiten: Anforderungen im Kontext der Versicherungsprozesse einordnen · Mit Fachbereichen auf Augenhoehe ueber Prozessdetails sprechen · Auswirkungen von Produktentscheidungen auf Bestands- und Schadenprozesse einschaetzen«",
+          anchors: {
+            1: "Kennt die Grundbegriffe; braucht Erklaerung bei Prozessdetails.",
+            2: "Versteht die zentralen Prozesse und deren Zusammenhaenge.",
+            3: "Ordnet Anforderungen eigenstaendig in die Versicherungsprozesse ein.",
+            4: "Erkennt Prozessabhaengigkeiten fruehzeitig; beraet Fachbereiche zu Auswirkungen.",
+            5: "Gilt als fachliche Referenz zwischen Produkt und Versicherungsfachlichkeit.",
+          },
+        },
+        {
+          name: "Regulatorische Anforderungen (BaFin, VVG)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Kenntnis regulatorischer Rahmenbedingungen (BaFin-Vorgaben, VVG) mit Auswirkung auf Produktentscheidungen. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Constraints in Anforderungen beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
+          anchors: {
+            1: "Kennt die Begriffe BaFin und VVG; braucht Unterstuetzung bei der Einordnung.",
+            2: "Erkennt gaengige regulatorische Anforderungen in Standardfaellen.",
+            3: "Beruecksichtigt regulatorische Vorgaben eigenstaendig in der Priorisierung.",
+            4: "Bewertet neue Regulatorik auf Produktauswirkung; klaert Grenzfaelle mit Fachstellen.",
+            5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
+          },
+        },
         { ...RUMP_DIGITALE },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "Jira & Confluence", dep: "Evolving" },
-        { name: "Story Mapping Tools", dep: "Evolving" },
-        { name: "Prototyping (Figma)", dep: "Evolving" },
-        { name: "Analytics-Grundlagen", dep: "Evolving" },
-        { name: "KI-Tools im Produktkontext", dep: "Perishable" },
+        {
+          name: "Jira & Confluence",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Sicherer Umgang mit Jira und Confluence fuer Backlog-Pflege, Sprint-Planung und Dokumentation. Typische Taetigkeiten: Backlog-Items und Epics strukturiert anlegen und pflegen · Boards und Filter fuer Team-Transparenz konfigurieren · Produktdokumentation in Confluence aktuell halten«",
+          anchors: {
+            1: "Bedient Jira/Confluence grundlegend; braucht Anleitung bei Konfiguration.",
+            2: "Pflegt Backlog und Dokumentation eigenstaendig fuer Standardfaelle.",
+            3: "Nutzt Jira/Confluence vollstaendig fuer den Produktalltag; konfiguriert Boards.",
+            4: "Optimiert Workflows und Strukturen fuer das Team.",
+            5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
+          },
+        },
+        {
+          name: "Story Mapping Tools",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Nutzung digitaler Story-Mapping-Werkzeuge (z. B. Miro, Mural) zur visuellen Strukturierung von Nutzerfluessen und Backlog. Typische Taetigkeiten: Story Maps digital aufbauen und pflegen · Workshops mit Story-Mapping-Tools moderieren · Ergebnisse in den Backlog ueberfuehren«",
+          anchors: {
+            1: "Nutzt vorgegebene Story Maps; braucht Anleitung beim Aufbau.",
+            2: "Erstellt einfache Story Maps eigenstaendig.",
+            3: "Baut und pflegt Story Maps eigenstaendig fuer laufende Produktarbeit.",
+            4: "Moderiert Story-Mapping-Workshops; ueberfuehrt Ergebnisse strukturiert in den Backlog.",
+            5: "Etabliert Story Mapping als festen Bestandteil der Produktarbeit im Team.",
+          },
+        },
+        {
+          name: "Prototyping (Figma)",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Grundlegender Umgang mit Figma, um Ideen zu visualisieren und mit Design/Entwicklung abzustimmen. Nicht gemeint: eigenstaendiges visuelles Design. Typische Taetigkeiten: Einfache Wireframes fuer Abstimmungen erstellen · Bestehende Figma-Prototypen nachvollziehen und kommentieren · Mit Design gemeinsam an Anforderungen arbeiten«",
+          anchors: {
+            1: "Kann Figma-Prototypen ansehen und kommentieren.",
+            2: "Erstellt einfache Wireframes mit Anleitung.",
+            3: "Erstellt eigenstaendig einfache Wireframes fuer Abstimmungszwecke.",
+            4: "Nutzt Figma gezielt zur Anforderungsklaerung mit Design.",
+            5: "Gestaltet gemeinsam mit Design komplexe Interaktionskonzepte.",
+          },
+        },
+        {
+          name: "Analytics-Grundlagen",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Grundverstaendnis produktrelevanter Kennzahlen und Analyse-Tools zur datenbasierten Priorisierung. Typische Taetigkeiten: Produkt-KPIs (Nutzung, Conversion) auslesen und interpretieren · Hypothesen anhand von Daten pruefen · Datenbasis fuer Priorisierungsentscheidungen einbeziehen«",
+          anchors: {
+            1: "Kennt gaengige Produkt-Kennzahlen; braucht Unterstuetzung bei der Interpretation.",
+            2: "Liest Standard-Dashboards eigenstaendig.",
+            3: "Nutzt Daten eigenstaendig zur Absicherung von Priorisierungsentscheidungen.",
+            4: "Entwickelt eigene Analysen fuer komplexe Fragestellungen.",
+            5: "Etabliert eine datengetriebene Priorisierungskultur im Team.",
+          },
+        },
+        {
+          name: "KI-Tools im Produktkontext",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Assistenten fuer Produktarbeit: Anforderungen strukturieren, Recherche beschleunigen, Texte fuer User Stories vorformulieren. Nicht gemeint: autonome Priorisierungsentscheidungen per KI treffen. Typische Taetigkeiten: User Stories und Akzeptanzkriterien per KI vorformulieren und pruefen · Wettbewerbs- und Marktrecherche mit KI-Unterstuetzung beschleunigen · KI-Outputs kritisch auf Praxistauglichkeit pruefen«",
+          anchors: {
+            1: "Kennt KI-Tools dem Namen nach.",
+            2: "Nutzt KI fuer einfache Texte (Stories, Recherche); prueft Outputs auf Korrektheit.",
+            3: "Setzt KI gezielt fuer verschiedene Produktarbeit-Aufgaben ein; optimiert Prompts.",
+            4: "Etabliert KI-gestuetzte Vorlagen und Workflows fuer das Team.",
+            5: "Definiert KI-Nutzungsstandards fuer die Produktarbeit.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "Backlog-Management & Refinement", dep: "Durable" },
-        { name: "User Stories schreiben (INVEST)", dep: "Durable" },
-        { name: "Akzeptanzkriterien definieren", dep: "Durable" },
-        { name: "Story Mapping", dep: "Durable" },
-        { name: "Priorisierungstechniken (WSJF, MoSCoW)", dep: "Durable" },
-        { name: "MVP-Definition", dep: "Durable" },
-        { name: "Sprint- & Release-Planung", dep: "Durable" },
-        { name: "Definition of Ready / Done", dep: "Durable" },
-        { name: "Discovery & Delivery", dep: "Durable" },
-        { name: "Velocity & Forecasting", dep: "Durable" },
+        {
+          name: "Backlog-Management & Refinement",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Kontinuierliche Pflege, Priorisierung und Verfeinerung des Produkt-Backlogs, sodass das Team stets an den wichtigsten Themen arbeitet. Typische Taetigkeiten: Backlog laufend priorisieren und aufraeumen · Refinement-Sessions mit dem Team vorbereiten und durchfuehren · Backlog-Items auf Umsetzungsreife bringen«",
+          anchors: {
+            1: "Pflegt den Backlog nach Anleitung; braucht Unterstuetzung bei Priorisierung.",
+            2: "Priorisiert Standardfaelle eigenstaendig; bereitet einfache Refinements vor.",
+            3: "Steuert Backlog-Pflege und Refinement eigenstaendig und kontinuierlich.",
+            4: "Optimiert Refinement-Prozesse; loest komplexe Priorisierungskonflikte.",
+            5: "Gilt als Referenz fuer Backlog-Management; entwickelt Standards im Unternehmen.",
+          },
+        },
+        {
+          name: "User Stories schreiben (INVEST)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Formulierung von User Stories nach dem INVEST-Prinzip (Independent, Negotiable, Valuable, Estimable, Small, Testable). Typische Taetigkeiten: User Stories aus Anforderungen ableiten · Stories auf INVEST-Kriterien pruefen und nachschaerfen · Team beim Verstaendnis von Stories unterstuetzen«",
+          anchors: {
+            1: "Schreibt einfache Stories nach Vorlage; braucht Feedback.",
+            2: "Formuliert Standard-Stories eigenstaendig nach INVEST.",
+            3: "Schreibt eigenstaendig gut geschnittene, klare Stories fuer das Team.",
+            4: "Coacht andere im Schreiben von Stories; loest schwierige Schnitte.",
+            5: "Gilt als Referenz fuer Story-Qualitaet im Unternehmen.",
+          },
+        },
+        {
+          name: "Akzeptanzkriterien definieren",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Formulierung klarer, testbarer Akzeptanzkriterien, die eindeutig festlegen, wann eine Story fertig ist. Typische Taetigkeiten: Akzeptanzkriterien gemeinsam mit dem Team ableiten · Kriterien testbar und eindeutig formulieren · Kriterien bei Aenderungen aktuell halten«",
+          anchors: {
+            1: "Uebernimmt vorgegebene Kriterien; braucht Unterstuetzung beim Formulieren.",
+            2: "Formuliert einfache Akzeptanzkriterien eigenstaendig.",
+            3: "Definiert eigenstaendig klare, testbare Kriterien fuer komplexe Stories.",
+            4: "Erkennt Luecken in Kriterien proaktiv; schult das Team.",
+            5: "Setzt Standards fuer Akzeptanzkriterien im Unternehmen.",
+          },
+        },
+        {
+          name: "Story Mapping",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Visuelle Strukturierung von Nutzerfluessen und Backlog-Items entlang der Nutzerreise zur besseren Priorisierung und Release-Planung. Typische Taetigkeiten: Story Maps mit dem Team erarbeiten · Releases anhand der Story Map schneiden · Luecken in der Nutzerreise identifizieren«",
+          anchors: {
+            1: "Nimmt an Story-Mapping-Sessions teil; braucht Anleitung.",
+            2: "Erstellt einfache Story Maps mit Unterstuetzung.",
+            3: "Erarbeitet eigenstaendig Story Maps und schneidet Releases sinnvoll.",
+            4: "Nutzt Story Mapping zur strategischen Priorisierung komplexer Produkte.",
+            5: "Etabliert Story Mapping als Standardmethode im Team.",
+          },
+        },
+        {
+          name: "Priorisierungstechniken (WSJF, MoSCoW)",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Anwendung strukturierter Priorisierungsmethoden (WSJF, MoSCoW u. a.), um Backlog-Entscheidungen nachvollziehbar zu treffen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Priorisierung transparent gegenueber Stakeholdern begruenden · Prioritaeten bei neuen Erkenntnissen anpassen«",
+          anchors: {
+            1: "Kennt die Methoden; braucht Unterstuetzung bei der Anwendung.",
+            2: "Wendet eine Standardmethode mit Anleitung an.",
+            3: "Waehlt und wendet Priorisierungsmethoden eigenstaendig an.",
+            4: "Kombiniert Methoden situativ; begruendet Priorisierung ueberzeugend.",
+            5: "Entwickelt eigene Priorisierungsrahmen fuer das Unternehmen.",
+          },
+        },
+        {
+          name: "MVP-Definition",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Abgrenzung eines Minimum Viable Products, das mit minimalem Aufwand maximalen Lernwert oder Kundennutzen liefert. Typische Taetigkeiten: Scope eines MVP gemeinsam mit Stakeholdern abgrenzen · Kernhypothesen des MVP explizit machen · Lernergebnisse aus dem MVP in die Weiterentwicklung einspeisen«",
+          anchors: {
+            1: "Kennt das Konzept; braucht Unterstuetzung bei der Abgrenzung.",
+            2: "Grenzt einfache MVPs mit Anleitung ab.",
+            3: "Definiert eigenstaendig MVPs mit klaren Kernhypothesen.",
+            4: "Verteidigt MVP-Scope gegenueber Stakeholdern; leitet Lernergebnisse strukturiert ab.",
+            5: "Etabliert MVP-Denken als festen Bestandteil der Produktkultur.",
+          },
+        },
+        {
+          name: "Sprint- & Release-Planung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Planung von Sprints und Releases, sodass Team-Kapazitaet und Produktziele zusammenpassen. Typische Taetigkeiten: Sprint-Ziele gemeinsam mit dem Team festlegen · Release-Umfang und -Termine mit Stakeholdern abstimmen · Planung bei Aenderungen anpassen«",
+          anchors: {
+            1: "Nimmt an der Planung teil; braucht Unterstuetzung bei eigener Planung.",
+            2: "Plant einfache Sprints eigenstaendig mit dem Team.",
+            3: "Plant Sprints und Releases eigenstaendig und realistisch.",
+            4: "Steuert komplexe Releases ueber mehrere Teams/Abhaengigkeiten hinweg.",
+            5: "Entwickelt Planungsstandards fuer das Produktteam.",
+          },
+        },
+        {
+          name: "Definition of Ready / Done",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Etablierung und Einhaltung klarer Kriterien, wann ein Item bereit fuer die Umsetzung ist (Ready) und wann es als fertig gilt (Done). Typische Taetigkeiten: DoR/DoD gemeinsam mit dem Team definieren · Einhaltung im Alltag konsequent einfordern · Kriterien bei Bedarf weiterentwickeln«",
+          anchors: {
+            1: "Kennt DoR/DoD des Teams; wendet sie mit Erinnerung an.",
+            2: "Wendet DoR/DoD im Alltag eigenstaendig an.",
+            3: "Foerdert konsequente Einhaltung von DoR/DoD im Team.",
+            4: "Passt DoR/DoD begruendet an veraenderte Anforderungen an.",
+            5: "Etabliert DoR/DoD-Standards ueber mehrere Teams hinweg.",
+          },
+        },
+        {
+          name: "Discovery & Delivery",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Bewusste Trennung und Verzahnung von Produkt-Discovery (Problem-/Loesungsvalidierung) und Delivery (Umsetzung), um das richtige Produkt richtig zu bauen. Typische Taetigkeiten: Discovery-Aktivitaeten (Interviews, Tests) parallel zur Delivery einplanen · Erkenntnisse aus der Discovery in den Backlog einspeisen · Balance zwischen Lernen und Liefern aktiv steuern«",
+          anchors: {
+            1: "Kennt das Konzept; Discovery und Delivery laufen unstrukturiert nebeneinander.",
+            2: "Plant einzelne Discovery-Aktivitaeten mit Unterstuetzung ein.",
+            3: "Verzahnt Discovery und Delivery eigenstaendig im laufenden Betrieb.",
+            4: "Steuert die Balance zwischen Discovery und Delivery bewusst und situativ.",
+            5: "Etabliert einen strukturierten Discovery-Delivery-Prozess im Team.",
+          },
+        },
+        {
+          name: "Velocity & Forecasting",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Nutzung von Velocity-Daten zur realistischen Vorhersage von Liefermengen und -terminen. Typische Taetigkeiten: Velocity-Trends beobachten und einordnen · Forecasts fuer Releases auf Datenbasis erstellen · Abweichungen zwischen Forecast und Realitaet erklaeren«",
+          anchors: {
+            1: "Kennt den Begriff Velocity; braucht Unterstuetzung bei der Interpretation.",
+            2: "Liest Velocity-Daten und leitet einfache Forecasts ab.",
+            3: "Erstellt eigenstaendig belastbare Forecasts auf Basis von Velocity-Daten.",
+            4: "Erklaert Abweichungen fundiert; passt Planung entsprechend an.",
+            5: "Entwickelt Forecasting-Standards fuer mehrere Teams.",
+          },
+        },
       ],
     },
     {
       name: "Kommunikativ",
       skills: [
-        { name: "Sprint Reviews moderieren", dep: "Durable" },
-        { name: "Stakeholder-Abstimmung", dep: "Durable" },
-        { name: "Anforderungserhebung", dep: "Durable" },
-        { name: "Teamarbeit mit Entwicklung & UX", dep: "Durable" },
+        {
+          name: "Sprint Reviews moderieren",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Vorbereitung und Moderation von Sprint Reviews, sodass Stakeholder den erzielten Fortschritt nachvollziehen und Feedback geben koennen. Typische Taetigkeiten: Sprint Reviews strukturiert vorbereiten · Ergebnisse verstaendlich praesentieren · Feedback aktiv einholen und in den Backlog ueberfuehren«",
+          anchors: {
+            1: "Nimmt an Sprint Reviews teil; moderiert mit Unterstuetzung.",
+            2: "Moderiert einfache Sprint Reviews eigenstaendig.",
+            3: "Bereitet Sprint Reviews eigenstaendig vor und moderiert sie souveraen.",
+            4: "Passt Reviews zielgruppengerecht an; navigiert kritisches Stakeholder-Feedback.",
+            5: "Gilt als Vorbild fuer Sprint-Review-Moderation; coacht andere Product Owner.",
+          },
+        },
+        {
+          name: "Stakeholder-Abstimmung",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Aktive Abstimmung mit relevanten Stakeholdern, um Erwartungen, Prioritaeten und Zielkonflikte transparent zu managen. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen und aufloesen · Regelmaessige Abstimmungsformate etablieren«",
+          anchors: {
+            1: "Nimmt Stakeholder-Wuensche entgegen; braucht Unterstuetzung bei der Abstimmung.",
+            2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
+            3: "Steuert Stakeholder-Beziehungen eigenstaendig und konsistent.",
+            4: "Navigiert komplexe Zielkonflikte zwischen mehreren Stakeholdern.",
+            5: "Setzt Standards fuer Stakeholder-Arbeit im Produktbereich.",
+          },
+        },
+        {
+          name: "Anforderungserhebung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Systematische Erhebung von Anforderungen aus Fachbereich, Kunden und Stakeholdern als Grundlage fuer den Backlog. Typische Taetigkeiten: Anforderungsgespraeche strukturiert fuehren · Anforderungen praezise dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
+          anchors: {
+            1: "Nimmt Anforderungen entgegen, wie sie formuliert werden.",
+            2: "Erhebt Standard-Anforderungen eigenstaendig mit Leitfaden.",
+            3: "Erhebt eigenstaendig vollstaendige Anforderungen; erkennt Widersprueche.",
+            4: "Hinterfragt Anforderungen kritisch; klaert komplexe Zielkonflikte.",
+            5: "Gilt als Referenz fuer Anforderungserhebung im Produktbereich.",
+          },
+        },
+        {
+          name: "Teamarbeit mit Entwicklung & UX",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Enge, vertrauensvolle Zusammenarbeit mit Entwicklung und UX/UI Design als gleichwertige Partner im Produktteam. Typische Taetigkeiten: Anforderungen gemeinsam mit Entwicklung und UX schaerfen · Technische und gestalterische Constraints fruehzeitig einbeziehen · Konflikte zwischen Anforderung und Umsetzbarkeit konstruktiv loesen«",
+          anchors: {
+            1: "Arbeitet mit Entwicklung/UX zusammen; braucht Unterstuetzung bei Abstimmung.",
+            2: "Stimmt sich in Standardformaten eigenstaendig mit dem Team ab.",
+            3: "Arbeitet eigenstaendig und partnerschaftlich mit Entwicklung und UX zusammen.",
+            4: "Loest komplexe Zielkonflikte zwischen Anforderung, Design und Machbarkeit.",
+            5: "Gilt als Vorbild fuer funktionsuebergreifende Teamarbeit.",
+          },
+        },
         { ...RUMP_VERBAL },
       ],
     },
