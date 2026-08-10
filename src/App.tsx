@@ -151,7 +151,7 @@ export function App() {
   });
 
   // Skill inventory state (Step 2) — ANF-17: ein einziger Skill-Bereich, alle
-  // Skills (inkl. zukunftsrelevanter) liegen direkt in den 4 Dimensionen.
+  // Skills (inkl. zukunftsrelevanter) liegen direkt in den Dimensionen der Rolle.
   const [customSkills, setCustomSkills] = useState<Record<string, Skill[]>>(
     () => _r?.customSkills ?? {},
   );
@@ -338,7 +338,7 @@ export function App() {
   // -------- Inventory builder --------
 
   /**
-   * Aktuelle Skill-Kategorien (4 Dimensionen) inkl. deaktivierter Skills —
+   * Aktuelle Skill-Kategorien (Dimensionen der Rolle) inkl. deaktivierter Skills —
    * Konsumenten (SkillInventory zeigt alle, SelfAssessment / SkillProfile
    * filtern disabled raus). Umbenannte Base-Skills sind unsichtbar; ihr
    * Inhalt lebt als Custom-Skill weiter (siehe handleRenameSkill).

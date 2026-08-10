@@ -340,7 +340,7 @@ const uxuiDesign: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Stakeholder-Management",
@@ -730,7 +730,7 @@ const businessAnalyst: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
       {
         name: "Stakeholder-Management",
@@ -1004,7 +1004,7 @@ const projektassistenz: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Serviceorientierung & Verlässlichkeit",
@@ -1279,7 +1279,27 @@ const scrumMaster: Role = {
       ],
     },
     {
-      name: "Sozial & Leadership",
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Stakeholder-Management (PO & Management)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Aktive Kommunikation mit Product Owner, Management und Kunden, um das Team zu schützen und Zusammenarbeit zu fördern. Typische Tätigkeiten: Team gegenüber Management vertreten · Erwartungen von PO und Stakeholdern managen · Transparenz über Teamfortschritt herstellen«",
+          anchors: {
+            1: "Kommuniziert auf Anfrage; leitet Informationen weiter.",
+            2: "Kommuniziert proaktiv mit PO und direktem Management.",
+            3: "Steuert Stakeholder-Erwartungen aktiv; schützt das Team vor übermäßigem Einfluss.",
+            4: "Navigiert in politisch komplexen Situationen; coacht Führungskräfte.",
+            5: "Prägt Stakeholder-Kultur; etabliert Standards für Team-Schutz.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 3 },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Empathie & aktives Zuhören",
@@ -1339,21 +1359,6 @@ const scrumMaster: Role = {
             5: "Präventiv: fördert psychologische Sicherheit; entwickelt Team-Agreements.",
           },
         },
-        {
-          name: "Stakeholder-Management (PO & Management)",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Aktive Kommunikation mit Product Owner, Management und Kunden, um das Team zu schützen und Zusammenarbeit zu fördern. Typische Tätigkeiten: Team gegenüber Management vertreten · Erwartungen von PO und Stakeholdern managen · Transparenz über Teamfortschritt herstellen«",
-          anchors: {
-            1: "Kommuniziert auf Anfrage; leitet Informationen weiter.",
-            2: "Kommuniziert proaktiv mit PO und direktem Management.",
-            3: "Steuert Stakeholder-Erwartungen aktiv; schützt das Team vor übermäßigem Einfluss.",
-            4: "Navigiert in politisch komplexen Situationen; coacht Führungskräfte.",
-            5: "Prägt Stakeholder-Kultur; etabliert Standards für Team-Schutz.",
-          },
-        },
-        { ...RUMP_VERBAL, targetLevel: 3 },
       ],
     },
   ],
@@ -1617,7 +1622,7 @@ const projektleitung: Role = {
       ],
     },
     {
-      name: "Sozial & Leadership",
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Belastbarkeit & Ambiguitätstoleranz",
@@ -1742,7 +1747,7 @@ const productManager: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         { name: "Stakeholder-Management", dep: "Durable" },
         { name: "Praesentation auf Management-Ebene", dep: "Durable" },
@@ -2034,7 +2039,7 @@ const productOwner: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Sprint Reviews moderieren",
@@ -2297,7 +2302,7 @@ const gfAssistenz: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Korrespondenz",
@@ -2586,7 +2591,7 @@ const teamassistenz: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Dienstleister- & Lieferantenkoordination",
@@ -2877,7 +2882,7 @@ const hrGeneralist: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Mitbestimmung & Gremienarbeit",
@@ -3108,7 +3113,27 @@ const hrBusinessPartner: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Employer Branding & externe Positionierung",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Mitgestaltung der externen Arbeitgeberpositionierung auf Karriereplattformen und sozialen Medien — im Schnittpunkt von HR und Marketing. Nicht gemeint: professionelles Social-Media-Management. Typische Taetigkeiten: Firmenprofile auf Karriereplattformen erstellen und pflegen · Entwuerfe fuer arbeitgeberbezogene Social-Media-Inhalte erstellen · Bewertungen auf Kununu beobachten und einordnen«",
+          anchors: {
+            1: "Veroeffentlicht Inhalte nach Vorgabe.",
+            2: "Pflegt Profile eigenstaendig; formuliert einfache Beitraege zur Arbeitgeberattraktivitaet.",
+            3: "Entwickelt Employer-Branding-Inhalte strategisch; koordiniert mit Marketing.",
+            4: "Konzipiert Kampagnen; bewertet Plattformen nach Zielgruppenpassung.",
+            5: "Entwickelt Employer-Branding-Strategie; definiert Positionierung und Kanalstrategie.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 4 },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Beratung & Sparring fuer GF und Leads",
@@ -3139,21 +3164,6 @@ const hrBusinessPartner: Role = {
             5: "Gilt als Referenz; trainiert Fuehrungskraefte systematisch.",
           },
         },
-        {
-          name: "Employer Branding & externe Positionierung",
-          dep: "Evolving",
-          targetLevel: 2,
-          description:
-            "»Mitgestaltung der externen Arbeitgeberpositionierung auf Karriereplattformen und sozialen Medien — im Schnittpunkt von HR und Marketing. Nicht gemeint: professionelles Social-Media-Management. Typische Taetigkeiten: Firmenprofile auf Karriereplattformen erstellen und pflegen · Entwuerfe fuer arbeitgeberbezogene Social-Media-Inhalte erstellen · Bewertungen auf Kununu beobachten und einordnen«",
-          anchors: {
-            1: "Veroeffentlicht Inhalte nach Vorgabe.",
-            2: "Pflegt Profile eigenstaendig; formuliert einfache Beitraege zur Arbeitgeberattraktivitaet.",
-            3: "Entwickelt Employer-Branding-Inhalte strategisch; koordiniert mit Marketing.",
-            4: "Konzipiert Kampagnen; bewertet Plattformen nach Zielgruppenpassung.",
-            5: "Entwickelt Employer-Branding-Strategie; definiert Positionierung und Kanalstrategie.",
-          },
-        },
-        { ...RUMP_VERBAL, targetLevel: 4 },
       ],
     },
   ],
@@ -3430,7 +3440,7 @@ const recruiting: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Direktansprache & Kandidatenkommunikation",
@@ -3746,7 +3756,7 @@ const controlling: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Management-Reporting & Ergebniskommunikation",
@@ -3951,7 +3961,7 @@ const inhouseProjektSupport: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Schnittstelle PM, Controlling & Kunde",
@@ -4325,7 +4335,7 @@ const itAdmin: Role = {
       ],
     },
     {
-      name: "Sozial & Kommunikation",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Anwenderberatung & -schulung",
@@ -4681,7 +4691,7 @@ const ldExpert: Role = {
       ],
     },
     {
-      name: "Sozial & Leadership",
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Train-the-Trainer",
@@ -4973,7 +4983,7 @@ const personalentwicklung: Role = {
       ],
     },
     {
-      name: "Sozial & Leadership",
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Systemisches Coaching",
@@ -5270,7 +5280,7 @@ const agileCoach: Role = {
       ],
     },
     {
-      name: "Sozial & Leadership",
+      name: "Führung & Coaching",
       skills: [
         {
           name: "Selbstreflexion & Präsenz",
@@ -5403,7 +5413,7 @@ const teamentwicklung: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Führung & Coaching",
       skills: [
         { name: "Konflikt-Moderation", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -5442,14 +5452,19 @@ const changebegleitung: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         { name: "Storytelling fuer Veraenderung", dep: "Durable" },
         { name: "Townhalls & Dialogformate", dep: "Durable" },
+        { ...RUMP_VERBAL },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
+      skills: [
         { name: "Widerstand erkennen & adressieren", dep: "Durable" },
         { name: "Fuehrungskraefte-Coaching im Change", dep: "Durable" },
         { name: "Konflikt-Moderation", dep: "Durable" },
-        { ...RUMP_VERBAL },
       ],
     },
   ],
@@ -5495,7 +5510,7 @@ const oeBeratung: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Führung & Coaching",
       skills: [
         { name: "Systemische Fragetechniken", dep: "Durable" },
         { ...RUMP_VERBAL },
@@ -5546,16 +5561,21 @@ const operativeGF: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        { name: "Stakeholder-Management (Gesellschafter, Kunden)", dep: "Durable" },
+        { name: "Interne & externe Kommunikation", dep: "Durable" },
+        { name: "Gremienarbeit & Reporting", dep: "Durable" },
+        { ...RUMP_VERBAL },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
       skills: [
         { name: "Vision & Purpose kommunizieren", dep: "Durable" },
         { name: "Senior Leadership", dep: "Durable" },
         { name: "Kulturentwicklung", dep: "Durable" },
-        { name: "Stakeholder-Management (Gesellschafter, Kunden)", dep: "Durable" },
-        { name: "Interne & externe Kommunikation", dep: "Durable" },
         { name: "Krisenmanagement", dep: "Durable" },
-        { name: "Gremienarbeit & Reporting", dep: "Durable" },
-        { ...RUMP_VERBAL },
       ],
     },
   ],
@@ -5600,16 +5620,21 @@ const gruppenleitung: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        { name: "Recruiting-Verantwortung", dep: "Durable" },
+        { name: "Reporting nach oben & zur Seite", dep: "Durable" },
+        { ...RUMP_VERBAL },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
       skills: [
         { name: "Feedback geben (wirksam, regelmaessig)", dep: "Durable" },
         { name: "Konfliktmanagement im Team", dep: "Durable" },
         { name: "Entwicklungsgespraeche fuehren", dep: "Durable" },
         { name: "Karriereplanung begleiten", dep: "Durable" },
         { name: "Mentoring", dep: "Durable" },
-        { name: "Recruiting-Verantwortung", dep: "Durable" },
-        { name: "Reporting nach oben & zur Seite", dep: "Durable" },
-        { ...RUMP_VERBAL },
       ],
     },
   ],

@@ -529,8 +529,10 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Die praktische Beherrschung von Werkzeugen, Sprachen und Entwicklungsprozessen — das Handwerk, das täglich zum Einsatz kommt und kontinuierlich schärfer wird.",
     Methodisch:
       "Strukturiertes Vorgehen bei Planung, Qualitätssicherung und Architekturentscheidungen — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
-    Kommunikativ:
+    "Kommunikation & Zusammenarbeit":
       "Technische Sachverhalte verständlich machen, Anforderungen klären und im Team sowie beim Kunden wirksam auftreten — die Dimension, die aus einem guten Entwickler einen wertvollen Berater macht.",
+    "Führung & Coaching":
+      "Entwicklerinnen und Entwickler technisch glaubwürdig führen, gezielt fördern und technische Konflikte konstruktiv lösen — die Dimension, die aus fachlicher Exzellenz wirksame technische Führung macht.",
   },
   "business-consulting": {
     Fachlich:
@@ -539,7 +541,7 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit den Werkzeugen und Systemen des jeweiligen Fachgebiets (z.B. Test- und Analyse-Tools) — das Handwerk für die tägliche Arbeit.",
     Methodisch:
       "Strukturiertes Vorgehen bei Analyse, Qualitätssicherung und Entscheidungsfindung — die Fähigkeit, Komplexität zu organisieren statt ihr zu erliegen.",
-    Kommunikativ:
+    "Kommunikation & Zusammenarbeit":
       "Anforderungen klären, Ergebnisse verständlich vermitteln und Vertrauen bei Kunden und Stakeholdern aufbauen — die Dimension, die aus fachlicher Expertise wirksame Beratung macht.",
   },
   projektmanagement: {
@@ -549,9 +551,9 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit Projektmanagement-Tools und -Techniken — das Handwerkszeug für Planung, Steuerung und Reporting.",
     Methodisch:
       "Strukturiertes Vorgehen bei Planung, Steuerung und Risikomanagement — die Fähigkeit, Projekte trotz Komplexität und Unsicherheit zum Erfolg zu führen.",
-    Kommunikativ:
+    "Kommunikation & Zusammenarbeit":
       "Anforderungen und Erwartungen klar kommunizieren und im Projektteam sowie mit Stakeholdern koordinieren — die Dimension, die Projektarbeit reibungslos macht.",
-    "Sozial & Leadership":
+    "Führung & Coaching":
       "Menschen führen, Teams entwickeln und in schwierigen Situationen souverän agieren — die Dimension, die aus fachlicher Methodik wirksame Führung macht.",
   },
   produktmanagement: {
@@ -561,7 +563,7 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit Produktmanagement-Tools und Analysetechniken — das Handwerkszeug für datengetriebene Entscheidungen.",
     Methodisch:
       "Strukturiertes Vorgehen bei Priorisierung, Roadmap-Planung und Entscheidungsfindung — die Fähigkeit, Komplexität in klare Produktentscheidungen zu übersetzen.",
-    Kommunikativ:
+    "Kommunikation & Zusammenarbeit":
       "Produktvisionen vermitteln und mit Entwicklungsteams, Stakeholdern und Kunden verhandeln — die Dimension, die aus einer guten Idee ein erfolgreiches Produkt macht.",
   },
   backoffice: {
@@ -571,8 +573,10 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit den Systemen und Werkzeugen des jeweiligen Aufgabenbereichs (z.B. HR-Software, ERP, Office-Anwendungen) — das Handwerkszeug für die tägliche Arbeit.",
     Methodisch:
       "Strukturiertes Vorgehen bei Organisation, Priorisierung und Prozessgestaltung — die Fähigkeit, den eigenen Aufgabenbereich eigenständig und vorausschauend zu steuern.",
-    "Sozial & Kommunikation":
-      "Konflikte moderieren, schwierige Gespräche führen und Beziehungen zu Kolleg:innen, Führungskräften und externen Stakeholdern aktiv gestalten — die Dimension, die aus fachlicher Kompetenz wirksame Zusammenarbeit macht.",
+    "Kommunikation & Zusammenarbeit":
+      "Mit Kolleg:innen, Führungskräften und externen Stakeholdern klar und zuverlässig kommunizieren und zusammenarbeiten — die Dimension, die aus fachlicher Kompetenz wirksame Zusammenarbeit macht.",
+    "Führung & Coaching":
+      "Führungskräfte beraten, schwierige Personalgespräche führen und Menschen in herausfordernden Situationen souverän begleiten — die Dimension, die aus HR-Fachwissen wirksame Beratung macht.",
   },
   poc: {
     Fachlich:
@@ -581,10 +585,10 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit Lern-, Diagnose- und Moderationswerkzeugen — das Handwerkszeug für die praktische Begleitung.",
     Methodisch:
       "Strukturiertes Vorgehen bei Diagnose, Konzeption und Begleitung von Lern- und Veränderungsprozessen — die Fähigkeit, Interventionen passgenau zu gestalten.",
-    Kommunikativ:
-      "Empathisch zuhören, Vertrauen aufbauen und in Konflikt- oder Veränderungssituationen sicher navigieren — die Dimension, die Beratung und Begleitung wirksam macht.",
-    "Sozial & Leadership":
-      "Menschen in ihrer Entwicklung begleiten, führen und in schwierigen Gesprächen souverän agieren — die Dimension, die aus Fachwissen wirksame Personalentwicklung macht.",
+    "Kommunikation & Zusammenarbeit":
+      "Botschaften zu Veränderung klar vermitteln und im Dialog mit Betroffenen Vertrauen aufbauen — die Dimension, die Begleitung nachvollziehbar macht.",
+    "Führung & Coaching":
+      "Menschen empathisch zuhören, in ihrer Entwicklung begleiten und in Konflikt- oder Veränderungssituationen souverän führen — die Dimension, die aus Fachwissen wirksames Coaching und Personalentwicklung macht.",
   },
   leadership: {
     Fachlich:
@@ -593,8 +597,10 @@ const DIMENSION_DESCRIPTIONS: Record<string, Record<string, string>> = {
       "Der sichere Umgang mit den Steuerungsinstrumenten der Geschäftsführung — das Handwerkszeug für operative und strategische Führung.",
     Methodisch:
       "Strukturiertes Vorgehen bei strategischer Planung und Entscheidungsfindung — die Fähigkeit, das Unternehmen trotz Komplexität zielgerichtet zu steuern.",
-    Kommunikativ:
-      "Klar kommunizieren, Menschen führen und in kritischen Situationen souverän auftreten — die Dimension, die aus unternehmerischem Wissen wirksame Führung macht.",
+    "Kommunikation & Zusammenarbeit":
+      "Mit Gesellschaftern, Kunden und Gremien klar kommunizieren und intern wie extern verlässlich informieren — die Dimension, die aus unternehmerischem Wissen nachvollziehbare Führung macht.",
+    "Führung & Coaching":
+      "Vision und Kultur prägen, Menschen führen und in Krisen souverän agieren — die Dimension, die aus unternehmerischem Wissen wirksame Führung macht.",
   },
 };
 
@@ -1921,7 +1927,7 @@ export function SkillInventory(props: Props) {
         )}
 
         <p className="mt-2 text-sm text-gray-500">
-          Alle Skills der Rolle in einem Tab — geordnet nach den 4 Dimensionen.
+          Alle Skills der Rolle in einem Tab — geordnet nach den Dimensionen dieser Rolle.
           Skills lassen sich vollstaendig redaktionell pflegen: umbenennen,
           deaktivieren, in andere Dimensionen verschieben, Steckbrief, Trend
           und Schluesselkompetenz pflegen.
@@ -1973,7 +1979,7 @@ export function SkillInventory(props: Props) {
         ))}
       </div>
 
-      {/* Skills tab — alle 4 Dimensionen in einem Bereich */}
+      {/* Skills tab — alle Dimensionen der Rolle in einem Bereich */}
       {activeTab === "skills" && (
         <div className="space-y-4">
           {/* Quellen-Filter — nur sichtbar wenn Spezialisierungen geladen */}
@@ -2022,7 +2028,7 @@ export function SkillInventory(props: Props) {
             />
           </div>
 
-          {/* 4 Dimensionen */}
+          {/* Dimensionen der Rolle */}
           {department.categories.map((cat) => {
             const baseSkills = baseSkillsByEffectiveCategory[cat.name] ?? [];
             const custom = customSkills[cat.name] ?? [];

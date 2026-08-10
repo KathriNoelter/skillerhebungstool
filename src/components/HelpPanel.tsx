@@ -39,12 +39,12 @@ const STEP_HELP: Record<number, StepHelp> = {
   2: {
     heading: "Skill-Inventur",
     intro:
-      "Alle Skills der Rolle in einem Tab — geordnet nach den 4 Dimensionen deiner Rolle (z.B. Fachlich, Technisch, Methodisch und eine soziale/kommunikative Dimension). Die Zukunftsperspektive je Skill wird ueber den Relevanztrend abgebildet, nicht ueber eine separate Liste.",
+      "Alle Skills der Rolle in einem Tab — geordnet nach den Dimensionen deiner Rolle (z.B. Fachlich, Technisch, Methodisch und ein bis zwei soziale/kommunikative Dimensionen). Die Zukunftsperspektive je Skill wird ueber den Relevanztrend abgebildet, nicht ueber eine separate Liste.",
     sections: [
       {
         title: "Skills-Tab",
         content:
-          "Zeigt alle Skills deiner Rolle gruppiert nach den 4 Dimensionen. Du kannst Skills ergaenzen, in andere Dimensionen verschieben und pro Skill Steckbrief, Zielwert, Verhaltensanker, Bewertungsmodell sowie Trend pflegen.",
+          "Zeigt alle Skills deiner Rolle gruppiert nach ihren Dimensionen. Du kannst Skills ergaenzen, in andere Dimensionen verschieben und pro Skill Steckbrief, Zielwert, Verhaltensanker, Bewertungsmodell sowie Trend pflegen.",
       },
       {
         title: "Skills redaktionell pflegen (ohne Code-Eingriff)",
@@ -148,7 +148,7 @@ const GENERAL_HELP: HelpSection[] = [
   {
     title: "Workshop-Ablauf auf einen Blick",
     content:
-      "1. Gruppe & Rolle — Kontext festlegen\n2. Skill-Inventur — alle Skills in einem Tab pflegen (4 Dimensionen, Trend statt separater Zukunfts-Liste)\n3. Selbsteinschaetzung — Excel-Vorlagen versenden und Antworten importieren\n4. Auswertung — Skill-Profil, Top 5 Felder, PDF/Excel-Export",
+      "1. Gruppe & Rolle — Kontext festlegen\n2. Skill-Inventur — alle Skills in einem Tab pflegen (Dimensionen je Rolle, Trend statt separater Zukunfts-Liste)\n3. Selbsteinschaetzung — Excel-Vorlagen versenden und Antworten importieren\n4. Auswertung — Skill-Profil, Top 5 Felder, PDF/Excel-Export",
   },
 ];
 

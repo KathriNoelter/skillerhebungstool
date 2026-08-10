@@ -305,7 +305,7 @@ export const qaCore: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Defektdokumentation & Fehlerkommunikation",
@@ -551,7 +551,7 @@ export const testManager: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "User Akzeptanztest (UAT)",
@@ -853,7 +853,7 @@ export const testAutomation: Role = {
       ],
     },
     {
-      name: "Kommunikativ",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
           name: "Code Reviews & Automatisierungsqualitaet",

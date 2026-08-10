@@ -87,22 +87,6 @@ export function filterByCategory(
 }
 
 /**
- * The four canonical Skill-Dimensions. Order is intentional and reflected 1:1
- * in the UI (Inventur, Auswertung, Excel). Mit ANF-17 ist dies die einzige
- * Gliederungsebene — alle Skills (heutige wie zukunftsrelevante) liegen
- * direkt in einer dieser Dimensionen; die Zukunftsperspektive bildet der
- * Relevanztrend am Skill ab.
- */
-export const SKILL_DIMENSIONS = [
-  "Fachlich",
-  "Technisch",
-  "Methodisch",
-  "Kommunikativ",
-] as const;
-
-export type SkillDimension = (typeof SKILL_DIMENSIONS)[number];
-
-/**
  * ANF-14 / ANF-17: Filtert Auswertungs-Items nach Relevanztrend.
  * Skills ohne Trend werden ausgeschlossen, sofern sie nicht explizit in der
  * Trend-Liste enthalten sind.

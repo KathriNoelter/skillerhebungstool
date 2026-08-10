@@ -258,7 +258,7 @@ const swSoftwareEntwickler: Role = {
     ],
   },
   {
-    name: `Kommunikativ`,
+    name: `Kommunikation & Zusammenarbeit`,
     skills: [
     {
       name: `Teamkommunikation & Feedback`,
@@ -485,7 +485,7 @@ const swFrontend: Role = {
     ],
   },
   {
-    name: `Kommunikativ`,
+    name: `Kommunikation & Zusammenarbeit`,
     skills: [
     {
       name: `UX-Kollaboration & Anforderungsumsetzung`,
@@ -694,7 +694,7 @@ const swBackend: Role = {
     ],
   },
   {
-    name: `Kommunikativ`,
+    name: `Kommunikation & Zusammenarbeit`,
     skills: [
     ],
   },
@@ -849,7 +849,7 @@ const swArchitekt: Role = {
     ],
   },
   {
-    name: `Kommunikativ`,
+    name: `Kommunikation & Zusammenarbeit`,
     skills: [
     {
       name: `Stakeholder-Kommunikation & Architektur-Review`,
@@ -1040,7 +1040,30 @@ const techLead: Role = {
     ],
   },
   {
-    name: `Kommunikativ`,
+    name: `Kommunikation & Zusammenarbeit`,
+    skills: [
+    {
+      name: `Stakeholder-Kommunikation & technisches Reporting`,
+      dep: "Durable",
+      description: `»Zielgruppengerechte Kommunikation technischer Status, Risiken und Entscheidungen gegenüber Projektleitung, Kunden und Management. Nicht gemeint: Architektur-Präsentationen. Typische Tätigkeiten: Sprint-Demos aus technischer Perspektive begleiten · Technische Risiken eskalieren · DORA-Metriken und Qualitätskennzahlen berichten«`,
+      targetLevel: 4,
+      trend: "steigend",
+      trendgrund: `Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz; WEF 2025: Kommunikation als Schlüsselkompetenz für Leadership-Rollen.`,
+      keySkill: false,
+      bewertungsmodell: "Dreyfus",
+      lastModified: "2026-05-13",
+      anchors: {
+        1: `Kommuniziert technischen Fortschritt verständlich in Teamrunden.`,
+        2: `Bereitet technische Updates für Projektleitung auf und eskaliert Risiken proaktiv.`,
+        3: `Erstellt verständliche Statusberichte für verschiedene Zielgruppen, kommuniziert Trade-offs und Entscheidungen klar.`,
+        4: `Entwickelt Reporting-Strukturen für technische Qualität und Risiken, kommuniziert auf Management-Ebene überzeugend.`,
+        5: `Etabliert technisches Reporting-Framework für Projekte und befähigt Tech Leads zur Stakeholder-Kommunikation.`,
+      },
+    },
+    ],
+  },
+  {
+    name: `Führung & Coaching`,
     skills: [
     {
       name: `Teamführung & Entwicklungsförderung`,
@@ -1058,24 +1081,6 @@ const techLead: Role = {
         3: `Entwickelt Entwicklungsziele mit jedem Teammitglied, delegiert Verantwortungsbereiche und begleitet Wachstum aktiv.`,
         4: `Gestaltet eine psychologisch sichere Teamdynamik, löst Konflikte konstruktiv und befähigt das Team zur Selbstorganisation.`,
         5: `Entwickelt Senior-Engineers zu Tech Leads, etabliert Führungskultur im technischen Team und befähigt das gesamte Projekt.`,
-      },
-    },
-    {
-      name: `Stakeholder-Kommunikation & technisches Reporting`,
-      dep: "Durable",
-      description: `»Zielgruppengerechte Kommunikation technischer Status, Risiken und Entscheidungen gegenüber Projektleitung, Kunden und Management. Nicht gemeint: Architektur-Präsentationen. Typische Tätigkeiten: Sprint-Demos aus technischer Perspektive begleiten · Technische Risiken eskalieren · DORA-Metriken und Qualitätskennzahlen berichten«`,
-      targetLevel: 4,
-      trend: "steigend",
-      trendgrund: `Rump 2025 (S. 4): Verbalisierungs- und Strukturierungskompetenz; WEF 2025: Kommunikation als Schlüsselkompetenz für Leadership-Rollen.`,
-      keySkill: false,
-      bewertungsmodell: "Dreyfus",
-      lastModified: "2026-05-13",
-      anchors: {
-        1: `Kommuniziert technischen Fortschritt verständlich in Teamrunden.`,
-        2: `Bereitet technische Updates für Projektleitung auf und eskaliert Risiken proaktiv.`,
-        3: `Erstellt verständliche Statusberichte für verschiedene Zielgruppen, kommuniziert Trade-offs und Entscheidungen klar.`,
-        4: `Entwickelt Reporting-Strukturen für technische Qualität und Risiken, kommuniziert auf Management-Ebene überzeugend.`,
-        5: `Etabliert technisches Reporting-Framework für Projekte und befähigt Tech Leads zur Stakeholder-Kommunikation.`,
       },
     },
     {
