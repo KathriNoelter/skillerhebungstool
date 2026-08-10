@@ -1,5 +1,5 @@
 import type { DreyfusLevel, SkillCategory, Participant } from "../types";
-import { stageLabelsFor } from "../types";
+import { stageLabelsFor, UNIFIED_LEVEL_DESCRIPTIONS_DE } from "../types";
 
 function esc(s: string): string {
   return s
@@ -64,6 +64,11 @@ body{
   padding:16px 20px;margin-bottom:32px;font-size:13px;
   color:var(--s600);line-height:1.7;
 }
+.scale-legend{
+  display:flex;flex-wrap:wrap;gap:6px 14px;margin-top:10px;
+  font-size:12px;color:var(--s500);
+}
+.scale-legend b{color:var(--s700);font-weight:700}
 .category{margin-bottom:40px}
 .category-title{
   font-size:10px;font-weight:800;letter-spacing:.1em;text-transform:uppercase;
@@ -104,6 +109,8 @@ body{
   transition:border-color .1s,background .1s;
 }
 .ro:hover{border-color:var(--s300);background:var(--s50)}
+.ro-zero{border-style:dashed}
+.ro-zero .ro-label,.ro-zero .ro-text{color:var(--s400)}
 .ro.sel{background:var(--s800);border-color:var(--s800)}
 .ro.sel .ro-num{background:#fff;color:var(--s800)}
 .ro.sel .ro-label{color:#fff}
@@ -204,11 +211,14 @@ export function exportAssessmentTemplateHtml(
       const rawAnchors = skill.anchors ?? {};
       const id = sanitizeId(skill.name);
 
-      const anchors: AnchorEntry[] = ([1, 2, 3, 4, 5] as const).map((l) => ({
-        level: l,
-        label: labels[l as DreyfusLevel],
-        text: rawAnchors[l] ?? "",
-      }));
+      const anchors: AnchorEntry[] = [
+        { level: 0, label: labels[0], text: UNIFIED_LEVEL_DESCRIPTIONS_DE[0] },
+        ...([1, 2, 3, 4, 5] as const).map((l) => ({
+          level: l,
+          label: labels[l as DreyfusLevel],
+          text: rawAnchors[l] ?? "",
+        })),
+      ];
 
       const source =
         skill.sourceLabel && skill.sourceLabel !== departmentName
@@ -248,7 +258,8 @@ export function exportAssessmentTemplateHtml(
         const body = a.text
           ? `<span class="ro-label">${esc(a.label)}</span><br><span class="ro-text">${esc(a.text)}</span>`
           : `<span class="ro-label">${esc(a.label)}</span>`;
-        skillsHtml += `<button class="ro" data-skill="${id}" data-level="${a.level}" onclick="rate('${id}',${a.level})">`;
+        const roClass = a.level === 0 ? "ro ro-zero" : "ro";
+        skillsHtml += `<button class="${roClass}" data-skill="${id}" data-level="${a.level}" onclick="rate('${id}',${a.level})">`;
         skillsHtml += `<span class="ro-num">${a.level}</span><span class="ro-body">${body}</span>`;
         skillsHtml += `</button>`;
       }
@@ -301,8 +312,12 @@ export function exportAssessmentTemplateHtml(
 <main class="main">
   <div class="instructions">
     <strong>Anleitung:</strong> Waehle bei jedem Skill die Beschreibung, die deinem aktuellen Stand am
-    besten entspricht — ein zweiter Klick hebt die Auswahl auf.
-    Lasse Skills, die du nicht kennst oder nicht bewerten kannst, frei.
+    besten entspricht — ein zweiter Klick hebt die Auswahl auf. Waehle 0, wenn du dich mit dem Skill
+    ueberhaupt nicht auskennst. Lass die Frage nur leer, wenn sie fuer dich nicht bewertbar oder nicht
+    relevant ist.
+    <div class="scale-legend">
+      ${([0, 1, 2, 3, 4, 5] as const).map((l) => `<span><b>${l}</b> ${esc(stageLabelsFor()[l as DreyfusLevel])}</span>`).join("")}
+    </div>
   </div>
   <div class="action-bar">
     <span class="progress" id="prog">0 / ${total} bewertet</span>
@@ -359,7 +374,7 @@ function dl(filename, mime, content) {
 
 function exportXlsx() {
   var date = new Date().toISOString().slice(0, 10);
-  var rows = [['Teilnehmer','Rolle','Datum','Kategorie','Quelle','Skill','Haltbarkeit','Bewertung (1-5)']];
+  var rows = [['Teilnehmer','Rolle','Datum','Kategorie','Quelle','Skill','Haltbarkeit','Bewertung (0-5)']];
   for (var i = 0; i < S.skills.length; i++) {
     var sk = S.skills[i];
     var sel = document.querySelector('[data-skill="'+sk.id+'"].sel');

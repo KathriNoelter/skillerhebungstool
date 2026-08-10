@@ -20,21 +20,27 @@ export type EvaluationModel = "Bloom" | "Dreyfus";
  * Begriff trug.
  */
 export const UNIFIED_LABELS_DE: Record<DreyfusLevel, string> = {
-  0: "Nicht bewertet",
-  1: "Einsteiger",
-  2: "Grundkenntnisse",
-  3: "Sicher",
-  4: "Erfahren",
-  5: "Vorbild",
+  0: "Unkenntnis",
+  1: "Grundverstaendnis",
+  2: "Grundfertigkeit",
+  3: "Selbststaendigkeit",
+  4: "Souveraenitaet",
+  5: "Meisterschaft",
 };
 
-/** Kurzbeschreibung je Stufe — modellunabhaengig, ergaenzt das Label. */
-export const UNIFIED_LEVEL_DESCRIPTIONS_DE: Record<DreyfusAnchorLevel, string> = {
+/**
+ * Kurzbeschreibung je Stufe — modellunabhaengig, ergaenzt das Label. Stufe 0
+ * ist bewusst generisch (nicht pro Skill formuliert): sie trifft per
+ * Definition auf jeden Skill gleich zu ("kenne ich ueberhaupt nicht"),
+ * waehrend Stufe 1-5 zusaetzlich noch skillspezifische Verhaltensanker haben.
+ */
+export const UNIFIED_LEVEL_DESCRIPTIONS_DE: Record<DreyfusLevel, string> = {
+  0: "Hat noch keine Beruehrung mit dem Skill; kennt weder Grundbegriffe noch Anwendungsfaelle.",
   1: "Kennt die Grundbegriffe, benoetigt bei der Anwendung noch enge Anleitung.",
   2: "Versteht die Zusammenhaenge, wendet sie in einfachen Faellen mit Unterstuetzung an.",
   3: "Wendet das Wissen/Koennen selbststaendig in alltaeglichen Situationen an.",
-  4: "Analysiert komplexe Situationen eigenstaendig, beraet und unterstuetzt andere.",
-  5: "Entwickelt neue Loesungen/Standards, gibt Wissen strukturiert an andere weiter.",
+  4: "Meistert auch komplexe oder untypische Situationen sicher; beraet und unterstuetzt andere.",
+  5: "Entwickelt neue Loesungen oder Standards; gibt Wissen strukturiert an andere weiter.",
 };
 
 export const DREYFUS_COLORS: Record<DreyfusLevel, string> = {

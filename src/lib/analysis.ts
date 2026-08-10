@@ -1,4 +1,5 @@
 import type {
+  DreyfusLevel,
   Participant,
   RelevanceTrend,
   Skill,
@@ -24,8 +25,9 @@ export function computeAnalysis(
   return categories.flatMap((cat) =>
     cat.skills.map((skill) => {
       const ratings = participants
-        .map((p) => (p.ratings[skill.name] ?? 0) as number)
-        .filter((r) => r > 0);
+        .map((p) => p.ratings[skill.name])
+        .filter((r): r is DreyfusLevel => r !== undefined)
+        .map((r) => r as number);
       const avg =
         ratings.length > 0
           ? ratings.reduce((a, b) => a + b, 0) / ratings.length
@@ -56,7 +58,7 @@ export function topDevelopmentAreas(
   analysis: SkillAnalysis[],
   n = 5,
 ): SkillAnalysis[] {
-  const rated = analysis.filter((a) => a.avg > 0);
+  const rated = analysis.filter((a) => a.ratings.length > 0);
   return [...rated]
     .sort((a, b) => {
       const aGap = a.gap ?? -Infinity;
@@ -72,7 +74,7 @@ export function topStrengths(
   n = 5,
 ): SkillAnalysis[] {
   return analysis
-    .filter((a) => a.avg > 0)
+    .filter((a) => a.ratings.length > 0)
     .sort((a, b) => b.avg - a.avg)
     .slice(0, n);
 }

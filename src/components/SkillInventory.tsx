@@ -15,6 +15,7 @@ import {
   TREND_VALUES,
   TREND_COLORS,
   stageLabelsFor,
+  UNIFIED_LEVEL_DESCRIPTIONS_DE,
 } from "../types";
 import { exportSkillInventoryPdf, exportFullGroupCatalogPdf } from "../lib/pdfExport";
 import { exportGroupCatalogExcel } from "../lib/excelExport";
@@ -156,7 +157,7 @@ function TargetSelect({
       onClick={(e) => e.stopPropagation()}
       title={
         typeof value === "number"
-          ? `Zielwert: ${value} — ${labels[value]}`
+          ? `Zielwert: ${value} — ${labels[value]}: ${UNIFIED_LEVEL_DESCRIPTIONS_DE[value]}`
           : `Zielwert setzen`
       }
       className={`rounded border px-1.5 py-0.5 text-xs focus:outline-none focus:ring-1 focus:ring-slate-300 disabled:opacity-50 ${setClass}`}

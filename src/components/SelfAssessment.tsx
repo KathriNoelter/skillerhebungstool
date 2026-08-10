@@ -82,7 +82,7 @@ export function SelfAssessment({
   );
 
   const ratingCounts = participants.map(
-    (p) => Object.values(p.ratings).filter((v) => (v ?? 0) > 0).length,
+    (p) => Object.keys(p.ratings).length,
   );
   const fullyRated = ratingCounts.filter((n) => n > 0).length;
   const canProceed = fullyRated > 0;

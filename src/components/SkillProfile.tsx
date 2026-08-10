@@ -6,7 +6,11 @@ import type {
   Participant,
   SkillCategory,
 } from "../types";
-import { DREYFUS_COLORS, stageLabelsFor } from "../types";
+import {
+  DREYFUS_COLORS,
+  stageLabelsFor,
+  UNIFIED_LEVEL_DESCRIPTIONS_DE,
+} from "../types";
 import {
   computeAnalysis,
   filterByTrend,
@@ -78,7 +82,7 @@ function EditableTargetCell({
       }}
       title={
         isSet
-          ? `Zielwert: ${level} — ${labels[level as DreyfusAnchorLevel]}`
+          ? `Zielwert: ${level} — ${labels[level as DreyfusAnchorLevel]}: ${UNIFIED_LEVEL_DESCRIPTIONS_DE[level as DreyfusAnchorLevel]}`
           : `Zielwert setzen`
       }
       className={`inline-flex h-7 min-w-[3rem] items-center justify-center rounded px-1.5 text-xs font-semibold focus:outline-none focus:ring-1 focus:ring-slate-400 ${
@@ -110,18 +114,25 @@ interface Props {
   onBack: () => void;
 }
 
-function LevelBadge({ level }: { level: DreyfusLevel }) {
+function LevelBadge({ level }: { level: DreyfusLevel | undefined }) {
+  if (level === undefined) {
+    return (
+      <span className="inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold bg-gray-100 text-gray-400">
+        —
+      </span>
+    );
+  }
   return (
     <span
       className={`inline-flex h-8 w-8 items-center justify-center rounded-lg text-sm font-bold ${DREYFUS_COLORS[level]}`}
     >
-      {level === 0 ? "—" : level}
+      {level}
     </span>
   );
 }
 
-function AverageBadge({ avg }: { avg: number }) {
-  if (avg === 0) return <span className="text-xs text-gray-400">—</span>;
+function AverageBadge({ avg, hasData }: { avg: number; hasData: boolean }) {
+  if (!hasData) return <span className="text-xs text-gray-400">—</span>;
   const rounded = Math.round(avg * 10) / 10;
   const level = Math.round(avg) as DreyfusLevel;
   const colorClass = DREYFUS_COLORS[level] || DREYFUS_COLORS[0];
@@ -377,13 +388,14 @@ export function SkillProfile({
               <tbody>
                 {cat.skills.map((skill) => {
                   const ratings = participants.map(
-                    (p) => p.ratings[skill.name] ?? (0 as DreyfusLevel),
+                    (p) => p.ratings[skill.name],
                   );
-                  const numRatings = ratings.map((r) => r as number);
-                  const rated = numRatings.filter((r) => r > 0);
+                  const rated = ratings.filter(
+                    (r): r is DreyfusLevel => r !== undefined,
+                  );
                   const avg =
                     rated.length > 0
-                      ? rated.reduce((a, b) => a + b, 0) / rated.length
+                      ? rated.reduce((a: number, b) => a + b, 0) / rated.length
                       : 0;
                   const target =
                     typeof skill.targetLevel === "number"
@@ -401,11 +413,11 @@ export function SkillProfile({
                       {showIndividual &&
                         ratings.map((r, i) => (
                           <td key={i} className="px-2 py-2 text-center">
-                            <LevelBadge level={r as DreyfusLevel} />
+                            <LevelBadge level={r} />
                           </td>
                         ))}
                       <td className="px-2 py-2 text-center">
-                        <AverageBadge avg={avg} />
+                        <AverageBadge avg={avg} hasData={rated.length > 0} />
                       </td>
                       <td className="px-2 py-2 text-center">
                         <span className="print:hidden">

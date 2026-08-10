@@ -1,6 +1,5 @@
 import * as XLSX from "xlsx";
 import type {
-  DreyfusAnchorLevel,
   DreyfusLevel,
   MarketDriver,
   Participant,
@@ -55,7 +54,7 @@ export function exportAssessmentTemplate(
 
   // --- Assessment sheet ---
   // Columns: Kategorie | Skill | Haltbarkeit | Skill-Steckbrief | Zielwert |
-  //          Verhaltensanker | Dein Level (1-5) | Hinweis
+  //          Verhaltensanker | Dein Level (0-5) | Hinweis
   const rows: (string | number)[][] = [];
   // Teilnehmer-Vorlage: nur Spalten, die zur Selbsteinschaetzung beitragen.
   // Zielwert / Trend / Trendbegruendung / Bewertungsmodell / Schluessel-
@@ -67,7 +66,7 @@ export function exportAssessmentTemplate(
     "Haltbarkeit",
     "Skill-Steckbrief",
     "Verhaltensanker je Stufe",
-    "Dein Level (1-5)",
+    "Dein Level (0-5)",
     "Hinweis",
     "Zuletzt geaendert",
   ]);
@@ -97,12 +96,12 @@ export function exportAssessmentTemplate(
   }
   // Legend block — einheitliche Skala fuer alle Dimensionen.
   rows.push([]);
-  rows.push(["Skala 1–5:"]);
+  rows.push(["Skala 0–5:"]);
   rows.push([]);
-  for (let l = 1; l <= 5; l++) {
+  for (let l = 0; l <= 5; l++) {
     rows.push([
       `${l} - ${UNIFIED_LABELS_DE[l as DreyfusLevel]}`,
-      UNIFIED_LEVEL_DESCRIPTIONS_DE[l as DreyfusAnchorLevel],
+      UNIFIED_LEVEL_DESCRIPTIONS_DE[l as DreyfusLevel],
     ]);
   }
   rows.push([]);
@@ -135,7 +134,7 @@ export function exportAssessmentTemplate(
     [],
     [
       "Anleitung",
-      "Bitte trage in der Spalte 'Dein Level (1-5)' fuer jeden Skill deine Selbsteinschaetzung ein (Zahl von 1 bis 5). Leer lassen wenn nicht bewertbar. Steckbrief und Verhaltensanker geben dir Orientierung. Datei anschliessend zurueckschicken.",
+      "Bitte trage in der Spalte 'Dein Level (0-5)' fuer jeden Skill deine Selbsteinschaetzung ein (Zahl von 0 bis 5 — 0, wenn du dich mit dem Skill ueberhaupt nicht auskennst). Leer lassen wenn nicht bewertbar oder nicht relevant. Steckbrief und Verhaltensanker geben dir Orientierung. Datei anschliessend zurueckschicken.",
     ],
     [
       "Hinweis",
@@ -197,7 +196,7 @@ export async function importAssessmentResultsFromJson(
     const level = Number(rawLevel);
     if (!Number.isFinite(level)) continue;
     const rounded = Math.round(level);
-    if (rounded < 1 || rounded > 5) continue;
+    if (rounded < 0 || rounded > 5) continue;
     if (!knownSkillNames.has(skillName)) {
       unknownSkills.push(skillName);
       continue;
@@ -288,7 +287,7 @@ export async function importAssessmentResults(
     const num = Number(raw);
     if (!Number.isFinite(num)) continue;
     const level = Math.round(num);
-    if (level < 1 || level > 5) continue;
+    if (level < 0 || level > 5) continue;
     if (!knownSkillNames.has(skillName)) {
       unknownSkills.push(skillName);
       continue;
@@ -362,9 +361,9 @@ export function exportAssessmentResults(
       ];
       for (const p of participants) {
         const v = p.ratings[skill.name];
-        row.push(v && v > 0 ? v : "");
+        row.push(v !== undefined ? v : "");
       }
-      row.push(a && a.avg > 0 ? Math.round(a.avg * 10) / 10 : "");
+      row.push(a && a.ratings.length > 0 ? Math.round(a.avg * 10) / 10 : "");
       row.push(typeof skill.targetLevel === "number" ? skill.targetLevel : "");
       row.push(
         a && a.gap !== null ? Math.round(a.gap * 10) / 10 : "",

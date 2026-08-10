@@ -81,12 +81,12 @@ const STEP_HELP: Record<number, StepHelp> = {
       {
         title: "Ablauf",
         content:
-          "1. Teilnehmer-Namen eintragen.\n2. Pro Teilnehmer 'Vorlage herunterladen' klicken und die Datei per Mail versenden.\n3. Teilnehmer fuellt die Spalte 'Dein Level (1-5)' aus und schickt die Datei zurueck.\n4. Ueber 'Ausgefuellte Vorlagen importieren' eine oder mehrere Dateien auswaehlen - die Zuordnung erfolgt automatisch ueber den Namen.",
+          "1. Teilnehmer-Namen eintragen.\n2. Pro Teilnehmer 'Vorlage herunterladen' klicken und die Datei per Mail versenden.\n3. Teilnehmer fuellt die Spalte 'Dein Level (0-5)' aus und schickt die Datei zurueck.\n4. Ueber 'Ausgefuellte Vorlagen importieren' eine oder mehrere Dateien auswaehlen - die Zuordnung erfolgt automatisch ueber den Namen.",
       },
       {
-        title: "Die 5 Dreyfus-Stufen",
+        title: "Die 6 Kompetenzstufen",
         content:
-          "1 — Anfaenger: Braucht klare Regeln und Anleitung.\n2 — Fortgeschr. Anfaenger: Erkennt Muster, braucht noch Fuehrung.\n3 — Kompetent: Plant eigenstaendig und priorisiert.\n4 — Gewandt: Sieht das Gesamtbild, handelt intuitiv.\n5 — Experte: Meistert Ausnahmen, innoviert und mentort andere.",
+          "0 — Unkenntnis: Hat noch keine Beruehrung mit dem Skill.\n1 — Grundverstaendnis: Kennt die Grundbegriffe, braucht enge Anleitung.\n2 — Grundfertigkeit: Wendet es in einfachen Faellen mit Unterstuetzung an.\n3 — Selbststaendigkeit: Wendet es selbststaendig im Alltag an.\n4 — Souveraenitaet: Meistert auch komplexe Situationen, beraet andere.\n5 — Meisterschaft: Entwickelt neue Loesungen, gibt Wissen strukturiert weiter.",
       },
       {
         title: "Tipps",
