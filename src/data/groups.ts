@@ -31,34 +31,312 @@ const uxuiDesign: Role = {
     {
       name: "Fachlich",
       skills: [
-        { name: "Versicherungsprodukte & Kundenreisen", dep: "Durable" },
-        { name: "Regulatorische UI-Anforderungen (DSGVO, BFSG)", dep: "Evolving" },
-        { name: "Branchen-Patterns (Insurance, FinTech)", dep: "Evolving" },
+        {
+          name: "Versicherungsprodukte & Kundenreisen",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentriertes Design im Versicherungskontext. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Interface-Entscheidungen uebersetzen · Mit Fachbereichen auf Augenhoehe ueber Versicherungsprozesse sprechen«",
+          anchors: {
+            1: "Kennt grundlegende Versicherungsbegriffe; braucht Erklaerung bei Fachfragen.",
+            2: "Versteht typische Kundenreisen und Produktarten; ordnet Screens grob ein.",
+            3: "Gestaltet eigenstaendig fuer versicherungsspezifische Prozesse; stellt gezielte Fachfragen.",
+            4: "Erkennt Optimierungspotenzial in Kundenreisen; beraet Fachbereiche zu UX-Implikationen.",
+            5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit; praegt Produktentscheidungen mit.",
+          },
+        },
+        {
+          name: "Regulatorische UI-Anforderungen (DSGVO, BFSG)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Kenntnis der regulatorischen Anforderungen an digitale Oberflaechen — Barrierefreiheit (BFSG) und Datenschutz (DSGVO) — als Design-Constraint. Nicht gemeint: juristische Bewertung von Grenzfaellen. Typische Taetigkeiten: Einwilligungs- und Consent-Flows datenschutzkonform gestalten · Barrierefreiheits-Anforderungen in Designs beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen«",
+          anchors: {
+            1: "Kennt die Begriffe DSGVO und BFSG; braucht Unterstuetzung bei der Umsetzung.",
+            2: "Setzt Standard-Anforderungen (Consent-Banner, Kontrastwerte) mit Vorlage um.",
+            3: "Gestaltet eigenstaendig konform zu DSGVO und BFSG; erkennt Risikofaelle.",
+            4: "Bewertet neue Design-Patterns auf Regulatorik-Konformitaet; klaert Grenzfaelle mit Fachstellen.",
+            5: "Definiert interne Design-Standards fuer Barrierefreiheit und Datenschutz.",
+          },
+        },
+        {
+          name: "Branchen-Patterns (Insurance, FinTech)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Kenntnis etablierter UX-Patterns und Interface-Konventionen aus Versicherung und FinTech (z. B. Antragsstrecken, Vertragsuebersichten, Zahlungsfluesse). Typische Taetigkeiten: Bestehende Branchenloesungen fuer Inspiration und Benchmarking einordnen · Bewaehrte Patterns gezielt uebernehmen oder bewusst abweichen · Wettbewerbsanalysen im Versicherungs-/FinTech-Umfeld durchfuehren«",
+          anchors: {
+            1: "Kennt einzelne bekannte Beispiele; braucht Anleitung bei der Einordnung.",
+            2: "Erkennt gaengige Branchen-Patterns; wendet sie mit Unterstuetzung an.",
+            3: "Waehlt eigenstaendig passende Patterns aus; begruendet Abweichungen.",
+            4: "Bewertet Patterns kritisch auf Uebertragbarkeit; entwickelt eigene Varianten.",
+            5: "Gilt als Referenz fuer Branchen-Patterns; praegt Design-Sprache des Unternehmens.",
+          },
+        },
         { ...RUMP_DIGITALE },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "Typografie und visuelle Hierarchie", dep: "Durable" },
-        { name: "Figma (Prototyping & Auto Layout)", dep: "Evolving" },
-        { name: "Design Tokens & Theming", dep: "Evolving" },
-        { name: "Accessibility (WCAG-Konformitaet)", dep: "Evolving" },
-        { name: "Responsive & Adaptive Design", dep: "Durable" },
-        { name: "Design Systems aufbauen und pflegen", dep: "Evolving" },
-        { name: "Interaction Design & Micro-Animations", dep: "Durable" },
+        {
+          name: "Typografie und visuelle Hierarchie",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Gestaltung von Textelementen und visueller Ordnung, sodass Nutzer:innen Inhalte muehelos erfassen und priorisieren koennen. Typische Taetigkeiten: Schriftgroessen, -gewichte und Zeilenabstaende gezielt einsetzen · Visuelle Hierarchien fuer komplexe Screens aufbauen · Typografie-Systeme konsistent ueber Produkte hinweg anwenden«",
+          anchors: {
+            1: "Nutzt vorgegebene Textstile; erstellt selten eigene Hierarchien.",
+            2: "Setzt Standard-Typografie-Regeln eigenstaendig um.",
+            3: "Baut eigenstaendig klare visuelle Hierarchien fuer neue Screens auf.",
+            4: "Optimiert Typografie-Systeme uebergreifend; loest komplexe Lesbarkeitsprobleme.",
+            5: "Definiert Typografie-Standards fuer das Unternehmen; schult andere.",
+          },
+        },
+        {
+          name: "Figma (Prototyping & Auto Layout)",
+          dep: "Perishable",
+          targetLevel: 3,
+          description:
+            "»Sicherer Umgang mit Figma fuer Gestaltung, interaktive Prototypen und Auto-Layout-Strukturen. Typische Taetigkeiten: Komponenten und Auto-Layout-Frames strukturiert aufbauen · Interaktive Prototypen fuer Testing und Reviews erstellen · Mit Entwicklerteams via Dev Mode/Inspect zusammenarbeiten«",
+          anchors: {
+            1: "Bedient Figma grundlegend; braucht Anleitung bei Auto Layout.",
+            2: "Erstellt einfache Komponenten und Prototypen eigenstaendig.",
+            3: "Nutzt Auto Layout und Prototyping-Funktionen vollstaendig und effizient.",
+            4: "Optimiert komplexe Figma-Dateien; etabliert Best Practices im Team.",
+            5: "Gilt als Figma-Expertin; entwickelt Team-weite Nutzungsstandards.",
+          },
+        },
+        {
+          name: "Accessibility (WCAG-Konformitaet)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Gestaltung barrierefreier Interfaces gemaess WCAG-Richtlinien — Kontraste, Tastaturbedienung, Screenreader-Kompatibilitaet. Nicht gemeint: automatisierte Accessibility-Audits durchfuehren (Aufgabe QA/Entwicklung). Typische Taetigkeiten: Kontrastwerte und Fokuszustaende pruefen · Designs fuer Tastatur- und Screenreader-Nutzung gestalten · Accessibility-Anforderungen in Reviews einbringen«",
+          anchors: {
+            1: "Kennt WCAG-Grundprinzipien; braucht Unterstuetzung bei der Umsetzung.",
+            2: "Setzt Standard-Anforderungen (Kontrast, Alt-Texte) eigenstaendig um.",
+            3: "Gestaltet eigenstaendig WCAG-konform; erkennt haeufige Barrieren.",
+            4: "Bewertet komplexe Interaktionsmuster auf Barrierefreiheit; beraet das Team.",
+            5: "Definiert Accessibility-Standards; gilt als interne Referenz.",
+          },
+        },
+        {
+          name: "Responsive & Adaptive Design",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Gestaltung von Interfaces, die sich konsistent an unterschiedliche Bildschirmgroessen und Geraete anpassen. Typische Taetigkeiten: Breakpoints und Grid-Systeme definieren · Layouts fuer Mobile, Tablet und Desktop konsistent gestalten · Adaptive Komponenten fuer wechselnde Kontexte entwerfen«",
+          anchors: {
+            1: "Passt vorgegebene Layouts fuer andere Bildschirmgroessen mit Anleitung an.",
+            2: "Gestaltet Standard-Breakpoints eigenstaendig.",
+            3: "Entwirft eigenstaendig responsive Layouts fuer neue Features.",
+            4: "Loest komplexe Adaptionsprobleme; definiert Grid-Systeme fuer Produkte.",
+            5: "Setzt Responsive-Design-Standards fuer das Unternehmen.",
+          },
+        },
+        {
+          name: "Design Systems aufbauen und pflegen",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Aufbau, Pflege und Weiterentwicklung eines konsistenten Design Systems (Komponenten, Tokens, Richtlinien) fuer skalierbares Produktdesign. Typische Taetigkeiten: Neue Komponenten ins Design System integrieren · Konsistenz zwischen Design und Entwicklung sicherstellen · Dokumentation fuer Design-System-Nutzung pflegen«",
+          anchors: {
+            1: "Nutzt bestehende Design-System-Komponenten nach Vorgabe.",
+            2: "Passt Komponenten innerhalb des Systems eigenstaendig an.",
+            3: "Erweitert das Design System eigenstaendig um neue Komponenten.",
+            4: "Verantwortet Konsistenz und Governance des Design Systems.",
+            5: "Entwickelt die Design-System-Strategie; skaliert es ueber Teams hinweg.",
+          },
+        },
+        {
+          name: "Interaction Design & Micro-Animations",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Gestaltung von Interaktionsmustern und feingranularen Animationen, die Nutzerfuehrung und Feedback verstaendlich machen. Typische Taetigkeiten: Uebergaenge und Zustandswechsel gestalten · Micro-Animations fuer Feedback und Orientierung einsetzen · Interaktionskonzepte mit Entwicklung technisch abstimmen«",
+          anchors: {
+            1: "Nutzt vorgegebene Interaktionsmuster; braucht Anleitung bei Animationen.",
+            2: "Gestaltet Standard-Interaktionen und einfache Animationen eigenstaendig.",
+            3: "Entwirft eigenstaendig durchdachte Interaktions- und Animationskonzepte.",
+            4: "Loest komplexe Interaktionsprobleme; stimmt Machbarkeit mit Entwicklung ab.",
+            5: "Setzt Interaction-Design-Standards; praegt die Produktsprache.",
+          },
+        },
+        {
+          name: "Grundlagen HTML und CSS",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Grundverstaendnis von HTML-Struktur und CSS-Styling, um mit Entwicklung auf Augenhoehe zu kommunizieren und Umsetzbarkeit einzuschaetzen. Nicht gemeint: eigenstaendige Frontend-Entwicklung. Typische Taetigkeiten: Technische Machbarkeit von Designs grob einschaetzen · Mit Entwicklung in gemeinsamer Sprache ueber Umsetzung sprechen · Einfache CSS-Anpassungen selbst nachvollziehen«",
+          anchors: {
+            1: "Kennt HTML/CSS-Grundbegriffe; kann Code nicht selbststaendig lesen.",
+            2: "Liest einfachen HTML/CSS-Code und versteht grundlegende Struktur.",
+            3: "Schaetzt Umsetzbarkeit von Designs technisch fundiert ein.",
+            4: "Diskutiert komplexe CSS-Fragestellungen (Layout, Responsive) mit Entwicklung.",
+            5: "Gilt als technische Ansprechpartnerin zwischen Design und Entwicklung.",
+          },
+        },
+        {
+          name: "Prompt Engineering",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Effektive Formulierung von Prompts fuer KI-Tools im Designprozess (Text-, Bild- und Codegenerierung). Typische Taetigkeiten: Prompts fuer Design- und Recherche-Aufgaben praezise formulieren · Prompts iterativ verfeinern und Ergebnisse kritisch pruefen · Wiederverwendbare Prompt-Vorlagen fuer haeufige Aufgaben entwickeln«",
+          anchors: {
+            1: "Nutzt vorgegebene Prompts; braucht Unterstuetzung bei der Formulierung.",
+            2: "Formuliert einfache Prompts eigenstaendig fuer Standardaufgaben.",
+            3: "Verfeinert Prompts gezielt und prueft Ergebnisse kritisch.",
+            4: "Entwickelt wiederverwendbare Prompt-Vorlagen fuer das Team.",
+            5: "Gilt als Prompt-Expertin; schult andere im Umgang mit KI-Tools.",
+          },
+        },
+        {
+          name: "KI-gestuetztes Design & generative Tools (z. B. Midjourney)",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz generativer KI-Tools (z. B. Midjourney, KI-Bildgenerierung) zur Ideenfindung, Moodboard-Erstellung und schnellen Visualisierung. Nicht gemeint: finale Assets ohne Nachbearbeitung uebernehmen. Typische Taetigkeiten: Moodboards und Stilrichtungen per KI generieren · Generierte Ergebnisse kritisch pruefen und weiterverarbeiten · Rechtliche und ethische Grenzen von KI-generierten Assets beachten«",
+          anchors: {
+            1: "Kennt gaengige generative Tools dem Namen nach.",
+            2: "Nutzt generative Tools fuer einfache Moodboards mit Unterstuetzung.",
+            3: "Setzt generative Tools gezielt fuer Ideenfindung und Visualisierung ein.",
+            4: "Kombiniert mehrere Tools effizient; etabliert Workflows im Team.",
+            5: "Definiert Nutzungsstandards fuer generative KI-Tools im Designprozess.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "User Research & qualitative Interviews", dep: "Durable" },
-        { name: "Usability Testing (moderated & unmoderated)", dep: "Durable" },
-        { name: "Jobs-to-be-Done Framework", dep: "Durable" },
-        { name: "UX-Writing & Microcopy", dep: "Durable" },
-        { name: "Service Blueprint & Journey Mapping", dep: "Durable" },
-        { name: "KI-gestuetzte UX-Analyse und Generierung", dep: "Perishable" },
-        { name: "Information Architecture & Navigation", dep: "Durable" },
+        {
+          name: "Qualitative Interviews",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Planung und Durchfuehrung qualitativer Nutzerinterviews zur Erhebung von Beduerfnissen, Motivationen und Schmerzpunkten. Typische Taetigkeiten: Interviewleitfaeden entwickeln · Interviews neutral und ergebnisoffen fuehren · Erkenntnisse strukturiert auswerten und dokumentieren«",
+          anchors: {
+            1: "Fuehrt Interviews nach vorgegebenem Leitfaden; braucht Coaching.",
+            2: "Entwickelt einfache Leitfaeden und fuehrt Standardinterviews eigenstaendig.",
+            3: "Fuehrt Interviews souveraen und ergebnisoffen; leitet Erkenntnisse ab.",
+            4: "Passt Interviewmethodik an komplexe Fragestellungen an; coacht andere.",
+            5: "Gilt als Referenz fuer qualitative Forschung; entwickelt Methodik weiter.",
+          },
+        },
+        {
+          name: "Usability Testing (moderated & unmoderated)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Planung und Durchfuehrung moderierter und unmoderierter Usability-Tests zur Validierung von Designs. Typische Taetigkeiten: Testszenarien und Aufgaben entwickeln · Tests moderieren oder unmoderierte Testsettings aufsetzen · Ergebnisse in konkrete Design-Empfehlungen uebersetzen«",
+          anchors: {
+            1: "Unterstuetzt bei Usability-Tests nach Anleitung.",
+            2: "Fuehrt einfache moderierte Tests eigenstaendig durch.",
+            3: "Plant und fuehrt moderierte und unmoderierte Tests eigenstaendig durch.",
+            4: "Waehlt Testmethodik passend zur Fragestellung; loest methodische Probleme.",
+            5: "Entwickelt Testing-Standards; schult andere in Usability-Testing.",
+          },
+        },
+        {
+          name: "Jobs-to-be-Done Framework",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Anwendung des Jobs-to-be-Done-Frameworks, um die eigentliche Aufgabe hinter Nutzerverhalten zu verstehen und Loesungen daran auszurichten. Typische Taetigkeiten: Job Stories aus Nutzerforschung ableiten · Feature-Entscheidungen anhand des \"Jobs\" priorisieren · Team fuer die JTBD-Denkweise sensibilisieren«",
+          anchors: {
+            1: "Kennt das Konzept; braucht Unterstuetzung bei der Anwendung.",
+            2: "Formuliert einfache Job Stories mit Anleitung.",
+            3: "Wendet JTBD eigenstaendig zur Priorisierung von Features an.",
+            4: "Vermittelt JTBD-Denkweise im Team; loest komplexe Priorisierungsfragen.",
+            5: "Etabliert JTBD als festen Bestandteil des Produktprozesses.",
+          },
+        },
+        {
+          name: "UX-Writing & Microcopy",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Verfassen klarer, nutzerfreundlicher Texte fuer Interfaces — Buttons, Fehlermeldungen, Onboarding-Texte. Typische Taetigkeiten: Microcopy fuer neue Features verfassen · Tonalitaet und Terminologie konsistent halten · Texte anhand von Nutzerfeedback iterieren«",
+          anchors: {
+            1: "Uebernimmt vorgegebene Texte; braucht Unterstuetzung beim Formulieren.",
+            2: "Verfasst einfache Standardtexte eigenstaendig.",
+            3: "Formuliert eigenstaendig klare, konsistente Microcopy fuer neue Features.",
+            4: "Entwickelt Tonalitaets- und Terminologie-Richtlinien; loest knifflige Formulierungen.",
+            5: "Gilt als UX-Writing-Referenz; praegt die Sprache des Produkts.",
+          },
+        },
+        {
+          name: "Service Blueprint & Journey Mapping",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Visualisierung von Nutzerreisen und dahinterliegenden Serviceprozessen, um Beruehrungspunkte und Bruchstellen zu identifizieren. Typische Taetigkeiten: Journey Maps aus Nutzerforschung erstellen · Service Blueprints mit Front- und Backstage-Prozessen entwickeln · Bruchstellen priorisiert an Stakeholder kommunizieren«",
+          anchors: {
+            1: "Unterstuetzt bei der Erstellung von Journey Maps nach Vorlage.",
+            2: "Erstellt einfache Journey Maps eigenstaendig.",
+            3: "Entwickelt eigenstaendig Journey Maps und Service Blueprints fuer komplexe Prozesse.",
+            4: "Identifiziert kritische Bruchstellen proaktiv; beraet Stakeholder zu Priorisierung.",
+            5: "Etabliert Journey Mapping als Standardmethode im Unternehmen.",
+          },
+        },
+        {
+          name: "UX-Analyse",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Systematische Analyse bestehender Interfaces und Nutzungsdaten (Heuristiken, Nutzerflows, Funnel-Daten) zur Identifikation von Verbesserungspotenzial. Typische Taetigkeiten: Heuristische Evaluationen durchfuehren · Nutzungsdaten und Funnels auf Auffaelligkeiten pruefen · Verbesserungspotenzial priorisiert aufbereiten«",
+          anchors: {
+            1: "Fuehrt einfache Analysen nach Vorlage durch.",
+            2: "Wendet Standard-Heuristiken eigenstaendig an.",
+            3: "Fuehrt eigenstaendig UX-Analysen durch; leitet priorisierte Empfehlungen ab.",
+            4: "Kombiniert qualitative und quantitative Analysemethoden; loest komplexe Fragestellungen.",
+            5: "Etabliert UX-Analyse-Standards; entwickelt neue Analyseansaetze.",
+          },
+        },
+        {
+          name: "Information Architecture & Navigation",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Strukturierung von Inhalten und Navigation, sodass Nutzer:innen Informationen intuitiv finden. Typische Taetigkeiten: Sitemaps und Navigationsstrukturen entwickeln · Card Sorting/Tree Testing zur Validierung einsetzen · Informationsarchitektur bei wachsendem Produktumfang weiterentwickeln«",
+          anchors: {
+            1: "Nutzt vorgegebene Strukturen; braucht Anleitung bei eigener Gestaltung.",
+            2: "Entwickelt einfache Sitemaps und Navigationsstrukturen eigenstaendig.",
+            3: "Strukturiert eigenstaendig komplexe Informationsarchitekturen; validiert mit Testing.",
+            4: "Loest Architekturprobleme bei stark wachsendem Produktumfang.",
+            5: "Definiert IA-Standards fuer das gesamte Produktportfolio.",
+          },
+        },
+        {
+          name: "Online-Befragung",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Konzeption und Durchfuehrung quantitativer Online-Befragungen zur Validierung von Hypothesen an einer groesseren Nutzerbasis. Typische Taetigkeiten: Fragebogen methodisch sauber aufbauen · Befragungen aussenden und Ruecklauf steuern · Ergebnisse statistisch auswerten und einordnen«",
+          anchors: {
+            1: "Unterstuetzt bei der Erstellung von Befragungen nach Vorlage.",
+            2: "Erstellt einfache Befragungen mit Standardfragetypen eigenstaendig.",
+            3: "Konzipiert eigenstaendig methodisch saubere Befragungen; wertet Ergebnisse aus.",
+            4: "Vermeidet haeufige methodische Fehler (Bias, Fragestellung); beraet andere.",
+            5: "Gilt als Referenz fuer quantitative Nutzerforschung im Unternehmen.",
+          },
+        },
+        {
+          name: "Prototyping",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Konzeption von Prototypen unterschiedlicher Wirklichkeitsnaehe (Paper, Klick-Dummy, High-Fidelity) passend zur jeweiligen Testfrage. Typische Taetigkeiten: Fidelity-Level passend zur Fragestellung waehlen · Prototypen fuer Testing und Stakeholder-Reviews aufbauen · Feedback aus Tests in naechste Prototyp-Iteration einarbeiten«",
+          anchors: {
+            1: "Baut einfache Prototypen nach Anleitung.",
+            2: "Erstellt Standard-Prototypen (Klick-Dummys) eigenstaendig.",
+            3: "Waehlt eigenstaendig passendes Fidelity-Level; iteriert Prototypen zielgerichtet.",
+            4: "Entwickelt komplexe interaktive Prototypen fuer anspruchsvolle Testfragen.",
+            5: "Definiert Prototyping-Standards; schult andere in Methodenwahl.",
+          },
+        },
       ],
     },
     {
@@ -67,8 +345,9 @@ const uxuiDesign: Role = {
         {
           name: "Stakeholder-Management",
           dep: "Durable",
+          targetLevel: 3,
           description:
-            "Erwartungen, Interessen und Einfluss relevanter Stakeholder identifizieren und ueber den Designprozess hinweg aktiv steuern. Typische Taetigkeit: Stakeholder-Map pflegen, Reviews vorbereiten, Eskalationen einordnen.",
+            "»Erwartungen, Interessen und Einfluss relevanter Stakeholder identifizieren und ueber den Designprozess hinweg aktiv steuern. Typische Taetigkeiten: Stakeholder-Map pflegen · Reviews vorbereiten · Eskalationen einordnen«",
           anchors: {
             1: "Erkennt einzelne Stakeholder, ist aber stark angeleitet.",
             2: "Fuehrt Standardabstimmungen mit Hilfe einer Vorlage.",
@@ -77,11 +356,62 @@ const uxuiDesign: Role = {
             5: "Setzt Standards fuer Stakeholder-Arbeit auf Bereichsebene.",
           },
         },
-        { name: "Praesentation von Design-Entscheidungen", dep: "Durable" },
-        { name: "Anforderungserhebung und Briefing-Methodik", dep: "Durable" },
-        { name: "UX-Metriken und ROI-Argumentation", dep: "Evolving" },
-        { name: "Prompt Engineering fuer Design-Tools", dep: "Perishable" },
-        { name: "Cross-funktionale Teamkollaboration (agil)", dep: "Evolving" },
+        {
+          name: "Praesentation von Design-Entscheidungen",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Ueberzeugende Praesentation von Design-Entscheidungen gegenueber Stakeholdern, inkl. Herleitung aus Nutzerforschung. Typische Taetigkeiten: Design-Rationale nachvollziehbar aufbereiten · Praesentationen fuer unterschiedliche Zielgruppen (Fachbereich, GF) anpassen · Kritische Rueckfragen souveraen beantworten«",
+          anchors: {
+            1: "Praesentiert Designs nach Vorlage; braucht Unterstuetzung bei Rueckfragen.",
+            2: "Bereitet einfache Praesentationen eigenstaendig vor.",
+            3: "Praesentiert Design-Entscheidungen souveraen und nachvollziehbar.",
+            4: "Passt Praesentationen zielgruppengerecht an; navigiert kritische Diskussionen.",
+            5: "Gilt als Vorbild fuer Design-Praesentationen; coacht andere.",
+          },
+        },
+        {
+          name: "Anforderungserhebung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Systematische Erhebung von Anforderungen aus Fachbereich und Stakeholdern als Grundlage fuer den Designprozess. Typische Taetigkeiten: Kick-off-Gespraeche mit Fachbereichen fuehren · Anforderungen strukturiert dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
+          anchors: {
+            1: "Nimmt Anforderungen entgegen, wie sie formuliert werden.",
+            2: "Erhebt Standard-Anforderungen eigenstaendig mit Leitfaden.",
+            3: "Erhebt eigenstaendig vollstaendige Anforderungen; erkennt Widersprueche.",
+            4: "Hinterfragt Anforderungen kritisch; klaert komplexe Zielkonflikte.",
+            5: "Gilt als Referenz fuer Anforderungserhebung; entwickelt Vorgehen weiter.",
+          },
+        },
+        {
+          name: "UX-Metriken und ROI-Argumentation",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Definition und Interpretation von UX-Metriken (z. B. Task Success Rate, SUS-Score) sowie Argumentation des Geschaeftswerts von UX-Investitionen. Typische Taetigkeiten: Passende UX-Metriken fuer ein Projekt auswaehlen · Metriken erheben und interpretieren · UX-Verbesserungen in Geschaeftswert (ROI) uebersetzen«",
+          anchors: {
+            1: "Kennt gaengige UX-Metriken; braucht Unterstuetzung bei der Interpretation.",
+            2: "Erhebt Standard-Metriken eigenstaendig.",
+            3: "Waehlt passende Metriken aus; interpretiert Ergebnisse eigenstaendig.",
+            4: "Uebersetzt UX-Verbesserungen ueberzeugend in Geschaeftswert; beraet Stakeholder.",
+            5: "Etabliert UX-Metriken-Standards; verankert ROI-Denken im Unternehmen.",
+          },
+        },
+        {
+          name: "Cross-funktionale Teamkollaboration (agil)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Effektive Zusammenarbeit mit Product, Entwicklung und anderen Disziplinen in agilen Teams. Typische Taetigkeiten: An Sprint-Planung und Refinements aktiv teilnehmen · Design-Entscheidungen im Team transparent kommunizieren · Abhaengigkeiten mit anderen Disziplinen fruehzeitig klaeren«",
+          anchors: {
+            1: "Nimmt an Teamformaten teil; braucht Unterstuetzung bei Abstimmung.",
+            2: "Arbeitet in Standardformaten (Sprint-Planung, Refinement) eigenstaendig mit.",
+            3: "Kollaboriert eigenstaendig und proaktiv mit allen Disziplinen im Team.",
+            4: "Loest komplexe cross-funktionale Abhaengigkeiten; verbessert Teamprozesse.",
+            5: "Gilt als Vorbild fuer agile Zusammenarbeit; praegt Teamkultur.",
+          },
+        },
         { ...RUMP_VERBAL },
       ],
     },
