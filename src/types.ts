@@ -21,8 +21,8 @@ export type EvaluationModel = "Bloom" | "Dreyfus";
  */
 export const UNIFIED_LABELS_DE: Record<DreyfusLevel, string> = {
   0: "Unkenntnis",
-  1: "Grundverstaendnis",
-  2: "Grundfertigkeit",
+  1: "Grundwissen",
+  2: "Anwendungswissen",
   3: "Selbststaendigkeit",
   4: "Souveraenitaet",
   5: "Meisterschaft",

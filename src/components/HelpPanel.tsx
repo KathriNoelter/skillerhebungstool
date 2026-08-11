@@ -86,7 +86,7 @@ const STEP_HELP: Record<number, StepHelp> = {
       {
         title: "Die 6 Kompetenzstufen",
         content:
-          "0 — Unkenntnis: Hat noch keine Beruehrung mit dem Skill.\n1 — Grundverstaendnis: Kennt die Grundbegriffe, braucht enge Anleitung.\n2 — Grundfertigkeit: Wendet es in einfachen Faellen mit Unterstuetzung an.\n3 — Selbststaendigkeit: Wendet es selbststaendig im Alltag an.\n4 — Souveraenitaet: Meistert auch komplexe Situationen, beraet andere.\n5 — Meisterschaft: Entwickelt neue Loesungen, gibt Wissen strukturiert weiter.",
+          "0 — Unkenntnis: Hat noch keine Beruehrung mit dem Skill.\n1 — Grundwissen: Kennt die Grundbegriffe, braucht enge Anleitung.\n2 — Anwendungswissen: Wendet es in einfachen Faellen mit Unterstuetzung an.\n3 — Selbststaendigkeit: Wendet es selbststaendig im Alltag an.\n4 — Souveraenitaet: Meistert auch komplexe Situationen, beraet andere.\n5 — Meisterschaft: Entwickelt neue Loesungen, gibt Wissen strukturiert weiter.",
       },
       {
         title: "Tipps",
