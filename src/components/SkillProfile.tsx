@@ -1,5 +1,6 @@
 import { useMemo, useState } from "react";
 import type {
+  DepClassification,
   DreyfusLevel,
   DreyfusAnchorLevel,
   MarketDriver,
@@ -8,13 +9,16 @@ import type {
 } from "../types";
 import {
   DREYFUS_COLORS,
+  DEP_COLORS,
   stageLabelsFor,
   UNIFIED_LEVEL_DESCRIPTIONS_DE,
 } from "../types";
 import {
   computeAnalysis,
+  filterByDep,
   filterByTrend,
   topDevelopmentAreas,
+  topSpread,
   topStrengths,
   type SkillAnalysis,
 } from "../lib/analysis";
@@ -217,6 +221,82 @@ function SummaryList({
   );
 }
 
+/**
+ * Zeigt Skills mit der groessten Uneinigkeit zwischen Teilnehmenden
+ * (max - min). Nennt die staerkste und schwaechste Person je Skill, damit
+ * im Workshop direkt sichtbar wird, wer sich bei wem Unterstuetzung holen
+ * koennte.
+ */
+function SpreadList({
+  items,
+  participants,
+  emptyText,
+}: {
+  items: SkillAnalysis[];
+  participants: Participant[];
+  emptyText: string;
+}) {
+  return (
+    <div className="rounded-xl border border-violet-200 bg-violet-50 p-5">
+      <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-violet-900">
+        Top 5 größte Uneinigkeit
+      </h4>
+      {items.length === 0 ? (
+        <p className="text-sm text-gray-500">{emptyText}</p>
+      ) : (
+        <ol className="space-y-3">
+          {items.map((item, i) => {
+            const named = participants
+              .map((p) => ({
+                name: p.name || "?",
+                level: p.ratings[item.skill.name],
+              }))
+              .filter(
+                (r): r is { name: string; level: DreyfusLevel } =>
+                  r.level !== undefined,
+              )
+              .sort((a, b) => a.level - b.level);
+            const lowest = named[0];
+            const highest = named[named.length - 1];
+            return (
+              <li
+                key={item.skill.name}
+                className="flex items-start justify-between gap-3"
+              >
+                <div className="flex items-start gap-3">
+                  <span className="flex h-6 w-6 shrink-0 items-center justify-center rounded-full bg-white text-xs font-bold text-slate-700">
+                    {i + 1}
+                  </span>
+                  <div>
+                    <span className="text-sm font-medium">
+                      {item.skill.name}
+                    </span>
+                    <span className="ml-2 text-xs text-gray-500">
+                      {item.category}
+                    </span>
+                    {lowest && highest && (
+                      <p className="mt-0.5 text-xs text-violet-700">
+                        {highest.name} ({highest.level}) &rarr; {lowest.name}{" "}
+                        ({lowest.level})
+                      </p>
+                    )}
+                  </div>
+                </div>
+                <span
+                  className="shrink-0 rounded bg-white/70 px-1.5 py-0.5 text-[10px] font-semibold text-violet-800"
+                  title="Differenz zwischen hoechster und niedrigster Bewertung"
+                >
+                  Δ {item.spread}
+                </span>
+              </li>
+            );
+          })}
+        </ol>
+      )}
+    </div>
+  );
+}
+
 export function SkillProfile({
   departmentName,
   groupName,
@@ -227,20 +307,39 @@ export function SkillProfile({
   onBack,
 }: Props) {
   const [showIndividual, setShowIndividual] = useState(true);
+  const [depFilter, setDepFilter] = useState<DepClassification | "all">(
+    "all",
+  );
 
   const analysis = useMemo(
     () => computeAnalysis(categories, participants),
     [categories, participants],
   );
-  const topDev = useMemo(() => topDevelopmentAreas(analysis, 5), [analysis]);
-  const topStr = useMemo(() => topStrengths(analysis, 5), [analysis]);
+  // DEP-Filter wirkt nur auf die Live-Ansicht (Tabelle + Top-Listen), nicht
+  // auf PDF-/Excel-Export — der Export bleibt bewusst vollstaendig.
+  const filteredAnalysis = useMemo(
+    () => (depFilter === "all" ? analysis : filterByDep(analysis, depFilter)),
+    [analysis, depFilter],
+  );
+  const topDev = useMemo(
+    () => topDevelopmentAreas(filteredAnalysis, 5),
+    [filteredAnalysis],
+  );
+  const topStr = useMemo(
+    () => topStrengths(filteredAnalysis, 5),
+    [filteredAnalysis],
+  );
+  const topSpreadItems = useMemo(
+    () => topSpread(filteredAnalysis, 5),
+    [filteredAnalysis],
+  );
 
   // ANF-17: Zukunftsperspektive wird ueber den Skill-Trend abgebildet, nicht
   // ueber eine separate Kategorie. Wir zeigen einen Auswertungs-Block fuer
   // Skills mit Trend "stark steigend" oder "steigend".
   const trendingAnalysis = useMemo(
-    () => filterByTrend(analysis, ["stark steigend", "steigend"]),
-    [analysis],
+    () => filterByTrend(filteredAnalysis, ["stark steigend", "steigend"]),
+    [filteredAnalysis],
   );
   const trendingTopDev = useMemo(
     () => topDevelopmentAreas(trendingAnalysis, 5),
@@ -291,25 +390,40 @@ export function SkillProfile({
             Top 5 Entwicklungsfelder und Top 5 Staerken.
           </p>
           <div className="mt-3 flex flex-wrap items-center gap-2 text-xs">
-            <span className="rounded bg-red-500 px-2 py-0.5 text-white">
-              1 Novice
-            </span>
-            <span className="rounded bg-orange-400 px-2 py-0.5 text-white">
-              2 Adv. Beginner
-            </span>
-            <span className="rounded bg-yellow-400 px-2 py-0.5 text-gray-900">
-              3 Competent
-            </span>
-            <span className="rounded bg-blue-500 px-2 py-0.5 text-white">
-              4 Proficient
-            </span>
-            <span className="rounded bg-emerald-500 px-2 py-0.5 text-white">
-              5 Expert
-            </span>
+            {([0, 1, 2, 3, 4, 5] as const).map((l) => (
+              <span
+                key={l}
+                className={`rounded px-2 py-0.5 ${DREYFUS_COLORS[l]}`}
+              >
+                {l} {stageLabelsFor()[l]}
+              </span>
+            ))}
           </div>
         </div>
 
         <div className="no-print flex flex-wrap items-center gap-2">
+          <div className="flex items-center gap-1 rounded-lg border border-gray-300 bg-white p-1 text-xs font-medium">
+            {(["all", "Durable", "Evolving", "Perishable"] as const).map(
+              (d) => (
+                <button
+                  key={d}
+                  onClick={() => setDepFilter(d)}
+                  className={`rounded px-2 py-1.5 transition ${
+                    depFilter === d
+                      ? "bg-slate-800 text-white"
+                      : "text-gray-600 hover:bg-gray-100"
+                  }`}
+                  title={
+                    d === "all"
+                      ? "Alle Haltbarkeitsklassen anzeigen"
+                      : `Nur ${d}-Skills anzeigen`
+                  }
+                >
+                  {d === "all" ? "Alle" : d}
+                </button>
+              ),
+            )}
+          </div>
           <label className="flex items-center gap-2 rounded-lg border border-gray-300 bg-white px-3 py-2 text-xs font-medium text-gray-700">
             <input
               type="checkbox"
@@ -348,7 +462,13 @@ export function SkillProfile({
         </p>
       </div>
 
-      {categories.map((cat) => (
+      {categories
+        .filter(
+          (cat) =>
+            depFilter === "all" ||
+            cat.skills.some((s) => s.dep === depFilter),
+        )
+        .map((cat) => (
         <div
           key={cat.name}
           className="mb-6 rounded-xl border border-gray-200 bg-white shadow-sm"
@@ -387,6 +507,8 @@ export function SkillProfile({
               </thead>
               <tbody>
                 {cat.skills.map((skill) => {
+                  if (depFilter !== "all" && skill.dep !== depFilter)
+                    return null;
                   const ratings = participants.map(
                     (p) => p.ratings[skill.name],
                   );
@@ -409,6 +531,11 @@ export function SkillProfile({
                     <tr key={skill.name} className="border-b border-gray-50">
                       <td className="py-2 pr-4 text-sm text-gray-700">
                         {skill.name}
+                        <span
+                          className={`ml-2 rounded border px-1.5 py-0.5 text-[10px] font-medium ${DEP_COLORS[skill.dep]}`}
+                        >
+                          {skill.dep}
+                        </span>
                       </td>
                       {showIndividual &&
                         ratings.map((r, i) => (
@@ -459,6 +586,14 @@ export function SkillProfile({
           items={topStr}
           emptyText="Noch keine Bewertungen vorhanden."
           colorClass="border-emerald-200 bg-emerald-50"
+        />
+      </div>
+
+      <div className="mb-8">
+        <SpreadList
+          items={topSpreadItems}
+          participants={participants}
+          emptyText="Keine Skills mit unterschiedlichen Bewertungen zwischen den Teilnehmenden."
         />
       </div>
 

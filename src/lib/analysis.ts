@@ -1,4 +1,5 @@
 import type {
+  DepClassification,
   DreyfusLevel,
   Participant,
   RelevanceTrend,
@@ -84,6 +85,26 @@ export function filterByCategory(
   categoryName: string,
 ): SkillAnalysis[] {
   return analysis.filter((a) => a.category === categoryName);
+}
+
+export function filterByDep(
+  analysis: SkillAnalysis[],
+  dep: DepClassification,
+): SkillAnalysis[] {
+  return analysis.filter((a) => a.skill.dep === dep);
+}
+
+/**
+ * Groesste Uneinigkeit in der Gruppe (max - min Bewertung). Braucht
+ * mindestens 2 Bewertungen, sonst ist Streuung nicht aussagekraeftig.
+ * Hilft bei Fragen wie "wo gibt es grosse Unterschiede zwischen euch?"
+ * und "bei welchen Skills koennt ihr euch gegenseitig unterstuetzen?".
+ */
+export function topSpread(analysis: SkillAnalysis[], n = 5): SkillAnalysis[] {
+  return analysis
+    .filter((a) => a.ratings.length >= 2 && a.spread > 0)
+    .sort((a, b) => b.spread - a.spread)
+    .slice(0, n);
 }
 
 /**
