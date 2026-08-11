@@ -119,3 +119,62 @@ export function filterByTrend(
   const set = new Set(trends);
   return analysis.filter((a) => a.skill.trend && set.has(a.skill.trend));
 }
+
+export interface ThresholdShare {
+  analysis: SkillAnalysis;
+  /** Anteil der Bewertungen <= threshold, 0..1. */
+  shareBelow: number;
+}
+
+/**
+ * Anteil der Gruppe je Skill unterhalb einer Schwelle — bewusst relativ
+ * (Anteil, nicht absolute Personenzahl), damit die Kennzahl unabhaengig
+ * von der Gruppengroesse funktioniert. shareBelow === 1 ("Team-Blindstelle")
+ * heisst: wirklich alle liegen unter der Schwelle, nicht nur ein Teil.
+ * Beantwortet "wo haben alle ein niedriges Level?" praeziser als der reine
+ * Durchschnitt, der einen Ausreisser verschleiern kann.
+ */
+export function shareBelowThreshold(
+  analysis: SkillAnalysis[],
+  threshold: number,
+  minShare = 0.5,
+): ThresholdShare[] {
+  return analysis
+    .filter((a) => a.ratings.length > 0)
+    .map((a) => ({
+      analysis: a,
+      shareBelow:
+        a.ratings.filter((r) => r <= threshold).length / a.ratings.length,
+    }))
+    .filter((x) => x.shareBelow >= minShare)
+    .sort((a, b) => b.shareBelow - a.shareBelow || b.analysis.ratings.length - a.analysis.ratings.length);
+}
+
+export interface CategoryAverage {
+  category: string;
+  avg: number;
+  /** Anzahl bewerteter Skills, die in den Durchschnitt eingeflossen sind. */
+  ratedSkillCount: number;
+}
+
+/**
+ * Aggregierter Durchschnitt je Kategorie (Dimension) — ein Balken pro
+ * Dimension statt pro Einzelskill. Nur Skills mit mind. einer Bewertung
+ * fliessen ein; Kategorien ganz ohne Bewertungen werden ausgelassen.
+ */
+export function categoryAverages(analysis: SkillAnalysis[]): CategoryAverage[] {
+  const byCategory = new Map<string, SkillAnalysis[]>();
+  for (const a of analysis) {
+    if (a.ratings.length === 0) continue;
+    const list = byCategory.get(a.category) ?? [];
+    list.push(a);
+    byCategory.set(a.category, list);
+  }
+  return [...byCategory.entries()]
+    .map(([category, items]) => ({
+      category,
+      avg: items.reduce((sum, a) => sum + a.avg, 0) / items.length,
+      ratedSkillCount: items.length,
+    }))
+    .sort((a, b) => b.avg - a.avg);
+}

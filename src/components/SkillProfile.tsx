@@ -14,13 +14,17 @@ import {
   UNIFIED_LEVEL_DESCRIPTIONS_DE,
 } from "../types";
 import {
+  categoryAverages,
   computeAnalysis,
   filterByDep,
   filterByTrend,
+  shareBelowThreshold,
   topDevelopmentAreas,
   topSpread,
   topStrengths,
+  type CategoryAverage,
   type SkillAnalysis,
+  type ThresholdShare,
 } from "../lib/analysis";
 import { exportAssessmentResults } from "../lib/excel";
 
@@ -231,10 +235,12 @@ function SpreadList({
   items,
   participants,
   emptyText,
+  showNames,
 }: {
   items: SkillAnalysis[];
   participants: Participant[];
   emptyText: string;
+  showNames: boolean;
 }) {
   return (
     <div className="rounded-xl border border-violet-200 bg-violet-50 p-5">
@@ -274,7 +280,7 @@ function SpreadList({
                     <span className="ml-2 text-xs text-gray-500">
                       {item.category}
                     </span>
-                    {lowest && highest && (
+                    {showNames && lowest && highest && (
                       <p className="mt-0.5 text-xs text-violet-700">
                         {highest.name} ({highest.level}) &rarr; {lowest.name}{" "}
                         ({lowest.level})
@@ -297,6 +303,382 @@ function SpreadList({
   );
 }
 
+const THRESHOLD_STYLES: {
+  test: (share: number) => boolean;
+  label: string;
+  className: string;
+}[] = [
+  { test: (s) => s >= 1, label: "Team-Blindstelle", className: "bg-red-500 text-white" },
+  { test: (s) => s >= 0.7, label: "Mehrheits-Lücke", className: "bg-orange-400 text-white" },
+  { test: (s) => s >= 0.5, label: "Geteiltes Bild", className: "bg-yellow-300 text-gray-900" },
+];
+
+/**
+ * Anteil der Gruppe unterhalb einer Schwelle, relativ statt absolut — damit
+ * "alle" bei 3 von 3 genauso funktioniert wie bei 9 von 9. Beantwortet "wo
+ * haben alle (oder fast alle) ein niedriges Level?" praeziser als der reine
+ * Gruppendurchschnitt, der einzelne starke Auesreisser verschleiern kann.
+ */
+function ThresholdList({
+  items,
+  threshold,
+  emptyText,
+}: {
+  items: ThresholdShare[];
+  threshold: number;
+  emptyText: string;
+}) {
+  const labels = stageLabelsFor();
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-5">
+      <h4 className="mb-1 text-sm font-bold uppercase tracking-wide text-slate-700">
+        Team-Blindstellen &amp; Mehrheits-Lücken
+      </h4>
+      <p className="mb-3 text-xs text-gray-500">
+        Anteil der Gruppe bei Stufe {threshold} ({labels[threshold as DreyfusLevel]}
+        ) oder darunter — unabhängig von der Gruppengröße.
+      </p>
+      {items.length === 0 ? (
+        <p className="text-sm text-gray-500">{emptyText}</p>
+      ) : (
+        <ul className="space-y-2">
+          {items.map((x) => {
+            const style =
+              THRESHOLD_STYLES.find((s) => s.test(x.shareBelow)) ??
+              THRESHOLD_STYLES[THRESHOLD_STYLES.length - 1];
+            const pct = Math.round(x.shareBelow * 100);
+            return (
+              <li
+                key={x.analysis.skill.name}
+                className="flex items-center justify-between gap-3"
+              >
+                <div>
+                  <span className="text-sm font-medium">
+                    {x.analysis.skill.name}
+                  </span>
+                  <span className="ml-2 text-xs text-gray-500">
+                    {x.analysis.category}
+                  </span>
+                </div>
+                <span
+                  className={`shrink-0 rounded px-2 py-0.5 text-[10px] font-semibold ${style.className}`}
+                  title={`${pct}% der Bewertungen bei Stufe ${threshold} oder darunter`}
+                >
+                  {pct}% · {style.label}
+                </span>
+              </li>
+            );
+          })}
+        </ul>
+      )}
+    </div>
+  );
+}
+
+/**
+ * Aggregierter Vergleich der Dimensionen (Kategorien) — ein Balken pro
+ * Dimension statt pro Einzelskill, fuer den "was faellt als erstes auf"
+ * Einstieg ins Auswertungsgespraech.
+ */
+function CategoryBarChart({ items }: { items: CategoryAverage[] }) {
+  if (items.length === 0) return null;
+  const scaleMax = 5;
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-5">
+      <h4 className="mb-3 text-sm font-bold uppercase tracking-wide text-slate-700">
+        Dimensionen im Vergleich
+      </h4>
+      <ul className="space-y-3">
+        {items.map((c) => {
+          const level = Math.round(c.avg) as DreyfusLevel;
+          const fillClass = DREYFUS_COLORS[level].split(" ")[0];
+          return (
+            <li key={c.category}>
+              <div className="mb-1 flex items-center justify-between text-xs">
+                <span className="font-medium text-slate-700">
+                  {c.category}
+                </span>
+                <span className="font-semibold text-slate-600">
+                  {c.avg.toFixed(1)}
+                </span>
+              </div>
+              <div className="h-3 w-full overflow-hidden rounded-full bg-gray-100">
+                <div
+                  className={`h-full rounded-full ${fillClass}`}
+                  style={{ width: `${(c.avg / scaleMax) * 100}%` }}
+                />
+              </div>
+            </li>
+          );
+        })}
+      </ul>
+    </div>
+  );
+}
+
+const DEP_HEX: Record<DepClassification, string> = {
+  Durable: "#10b981",
+  Evolving: "#3b82f6",
+  Perishable: "#f59e0b",
+};
+
+/**
+ * Ist-Soll-Streudiagramm: X = Zielwert der Rolle (Relevanz-Proxy),
+ * Y = aktuelles Gruppen-Niveau. Zeigt Prioritaet statt nur Bestandsaufnahme
+ * — der Quadrant unten rechts (hoher Zielwert, niedriges Niveau) ist der
+ * Handlungsdruck-Bereich. Nur Skills mit gesetztem Zielwert UND mindestens
+ * einer Bewertung koennen eingezeichnet werden.
+ */
+function IstSollMatrix({ items }: { items: SkillAnalysis[] }) {
+  const [hoveredName, setHoveredName] = useState<string | null>(null);
+  const plottable = items.filter(
+    (a) => typeof a.skill.targetLevel === "number" && a.ratings.length > 0,
+  );
+
+  if (plottable.length === 0) {
+    return (
+      <div className="rounded-xl border border-gray-200 bg-white p-5">
+        <h4 className="mb-2 text-sm font-bold uppercase tracking-wide text-slate-700">
+          Ist-Soll-Matrix
+        </h4>
+        <p className="text-sm text-gray-500">
+          Für diese Ansicht braucht es Skills mit Zielwert und mindestens
+          einer Bewertung — aktuell keine vorhanden.
+        </p>
+      </div>
+    );
+  }
+
+  const W = 560;
+  const H = 400;
+  const PAD = { top: 16, right: 16, bottom: 36, left: 36 };
+  const plotW = W - PAD.left - PAD.right;
+  const plotH = H - PAD.top - PAD.bottom;
+  const xMin = 1;
+  const xMax = 5;
+  const yMin = 0;
+  const yMax = 5;
+  const xScale = (v: number) =>
+    PAD.left + ((v - xMin) / (xMax - xMin)) * plotW;
+  const yScale = (v: number) =>
+    PAD.top + plotH - ((v - yMin) / (yMax - yMin)) * plotH;
+  const xMid = 3;
+  const yMid = 2.5;
+  const hovered = plottable.find((a) => a.skill.name === hoveredName);
+
+  return (
+    <div className="rounded-xl border border-gray-200 bg-white p-5">
+      <h4 className="mb-1 text-sm font-bold uppercase tracking-wide text-slate-700">
+        Ist-Soll-Matrix
+      </h4>
+      <p className="mb-3 text-xs text-gray-500">
+        X: Zielwert der Rolle (Relevanz-Proxy) · Y: aktuelles Gruppen-Niveau ·
+        Farbe: Haltbarkeit · Rand: Schlüsselkompetenz
+      </p>
+      <svg
+        viewBox={`0 0 ${W} ${H}`}
+        className="w-full"
+        role="img"
+        aria-label="Ist-Soll-Matrix je Skill: Zielwert gegen aktuelles Niveau"
+      >
+        {/* Quadrant-Hintergruende */}
+        <rect
+          x={xScale(xMid)}
+          y={PAD.top}
+          width={xScale(xMax) - xScale(xMid)}
+          height={yScale(yMid) - PAD.top}
+          fill="#fef2f2"
+        />
+        <rect
+          x={xScale(xMid)}
+          y={yScale(yMid)}
+          width={xScale(xMax) - xScale(xMid)}
+          height={PAD.top + plotH - yScale(yMid)}
+          fill="#ecfdf5"
+        />
+        <rect
+          x={PAD.left}
+          y={PAD.top}
+          width={xScale(xMid) - PAD.left}
+          height={plotH}
+          fill="#f8fafc"
+        />
+        {/* Quadrant-Beschriftung */}
+        <text
+          x={xScale(xMax) - 6}
+          y={PAD.top + 14}
+          textAnchor="end"
+          className="fill-red-700"
+          fontSize="11"
+          fontWeight="600"
+        >
+          Handlungsdruck
+        </text>
+        <text
+          x={xScale(xMax) - 6}
+          y={PAD.top + plotH - 8}
+          textAnchor="end"
+          className="fill-emerald-700"
+          fontSize="11"
+          fontWeight="600"
+        >
+          Stärke genutzt
+        </text>
+        <text
+          x={xScale(xMin) + 6}
+          y={PAD.top + 14}
+          textAnchor="start"
+          className="fill-slate-400"
+          fontSize="11"
+        >
+          unkritisch
+        </text>
+        <text
+          x={xScale(xMin) + 6}
+          y={PAD.top + plotH - 8}
+          textAnchor="start"
+          className="fill-slate-500"
+          fontSize="11"
+        >
+          ungenutztes Potenzial
+        </text>
+        {/* Divider */}
+        <line
+          x1={xScale(xMid)}
+          y1={PAD.top}
+          x2={xScale(xMid)}
+          y2={PAD.top + plotH}
+          stroke="#cbd5e1"
+          strokeDasharray="3,3"
+        />
+        <line
+          x1={PAD.left}
+          y1={yScale(yMid)}
+          x2={PAD.left + plotW}
+          y2={yScale(yMid)}
+          stroke="#cbd5e1"
+          strokeDasharray="3,3"
+        />
+        {/* Achsen */}
+        <line
+          x1={PAD.left}
+          y1={PAD.top + plotH}
+          x2={PAD.left + plotW}
+          y2={PAD.top + plotH}
+          stroke="#94a3b8"
+        />
+        <line
+          x1={PAD.left}
+          y1={PAD.top}
+          x2={PAD.left}
+          y2={PAD.top + plotH}
+          stroke="#94a3b8"
+        />
+        {[1, 2, 3, 4, 5].map((v) => (
+          <text
+            key={`x${v}`}
+            x={xScale(v)}
+            y={PAD.top + plotH + 16}
+            textAnchor="middle"
+            fontSize="10"
+            className="fill-slate-500"
+          >
+            {v}
+          </text>
+        ))}
+        {[0, 1, 2, 3, 4, 5].map((v) => (
+          <text
+            key={`y${v}`}
+            x={PAD.left - 8}
+            y={yScale(v) + 3}
+            textAnchor="end"
+            fontSize="10"
+            className="fill-slate-500"
+          >
+            {v}
+          </text>
+        ))}
+        <text
+          x={PAD.left + plotW / 2}
+          y={H - 4}
+          textAnchor="middle"
+          fontSize="10"
+          className="fill-slate-500"
+        >
+          Zielwert (Relevanz)
+        </text>
+        <text
+          x={12}
+          y={PAD.top + plotH / 2}
+          textAnchor="middle"
+          fontSize="10"
+          className="fill-slate-500"
+          transform={`rotate(-90 12 ${PAD.top + plotH / 2})`}
+        >
+          Ø Gruppen-Niveau
+        </text>
+        {/* Punkte */}
+        {plottable.map((a) => {
+          const isHovered = a.skill.name === hoveredName;
+          return (
+            <circle
+              key={a.skill.name}
+              cx={xScale(a.skill.targetLevel as number)}
+              cy={yScale(a.avg)}
+              r={a.skill.keySkill ? 7 : 5}
+              fill={DEP_HEX[a.skill.dep]}
+              stroke={a.skill.keySkill ? "#1e293b" : "#ffffff"}
+              strokeWidth={a.skill.keySkill ? 2 : 1}
+              opacity={hoveredName && !isHovered ? 0.35 : 0.9}
+              tabIndex={0}
+              onMouseEnter={() => setHoveredName(a.skill.name)}
+              onMouseLeave={() => setHoveredName(null)}
+              onFocus={() => setHoveredName(a.skill.name)}
+              onBlur={() => setHoveredName(null)}
+              style={{ cursor: "pointer" }}
+            >
+              <title>
+                {a.skill.name}: Ziel {a.skill.targetLevel}, Ø{" "}
+                {a.avg.toFixed(1)}
+              </title>
+            </circle>
+          );
+        })}
+      </svg>
+      <div className="mt-2 min-h-[2.25rem] rounded-lg border border-slate-200 bg-slate-50 px-3 py-2 text-xs">
+        {hovered ? (
+          <>
+            <span className="font-semibold">{hovered.skill.name}</span> —
+            Ziel {hovered.skill.targetLevel}, Ø {hovered.avg.toFixed(1)}
+            {hovered.skill.keySkill && (
+              <span className="ml-1 text-amber-600">★ Schlüssel</span>
+            )}
+          </>
+        ) : (
+          <span className="text-slate-400">
+            Punkt auswählen für Details.
+          </span>
+        )}
+      </div>
+      <div className="mt-3 flex flex-wrap gap-3 text-xs text-gray-600">
+        {(["Durable", "Evolving", "Perishable"] as const).map((d) => (
+          <span key={d} className="flex items-center gap-1.5">
+            <span
+              className="h-2.5 w-2.5 rounded-full"
+              style={{ background: DEP_HEX[d] }}
+            />
+            {d}
+          </span>
+        ))}
+        <span className="flex items-center gap-1.5">
+          <span className="h-2.5 w-2.5 rounded-full border-2 border-slate-800 bg-white" />
+          ★ Schlüsselkompetenz
+        </span>
+      </div>
+    </div>
+  );
+}
+
 export function SkillProfile({
   departmentName,
   groupName,
@@ -310,6 +692,10 @@ export function SkillProfile({
   const [depFilter, setDepFilter] = useState<DepClassification | "all">(
     "all",
   );
+  // Bewusst standardmaessig aus: eine kuratierte "wer ist unten"-Liste ist
+  // zugespitzter als die ohnehin sichtbare Matrix-Tabelle und sollte nur
+  // gezeigt werden, wenn im Team eine entsprechende Vertrauensbasis da ist.
+  const [showSpreadNames, setShowSpreadNames] = useState(false);
 
   const analysis = useMemo(
     () => computeAnalysis(categories, participants),
@@ -331,6 +717,14 @@ export function SkillProfile({
   );
   const topSpreadItems = useMemo(
     () => topSpread(filteredAnalysis, 5),
+    [filteredAnalysis],
+  );
+  const blindspotItems = useMemo(
+    () => shareBelowThreshold(filteredAnalysis, 2, 0.5),
+    [filteredAnalysis],
+  );
+  const categoryAvgItems = useMemo(
+    () => categoryAverages(filteredAnalysis),
     [filteredAnalysis],
   );
 
@@ -462,6 +856,12 @@ export function SkillProfile({
         </p>
       </div>
 
+      {/* Einstieg: Ueberblick vor dem Detail — "was faellt als erstes auf" */}
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <CategoryBarChart items={categoryAvgItems} />
+        <IstSollMatrix items={filteredAnalysis} />
+      </div>
+
       {categories
         .filter(
           (cat) =>
@@ -589,11 +989,28 @@ export function SkillProfile({
         />
       </div>
 
-      <div className="mb-8">
-        <SpreadList
-          items={topSpreadItems}
-          participants={participants}
-          emptyText="Keine Skills mit unterschiedlichen Bewertungen zwischen den Teilnehmenden."
+      <div className="mb-8 grid gap-6 lg:grid-cols-2">
+        <div>
+          <label className="no-print mb-2 flex items-center gap-2 text-xs font-medium text-gray-600">
+            <input
+              type="checkbox"
+              checked={showSpreadNames}
+              onChange={(e) => setShowSpreadNames(e.target.checked)}
+              className="h-3.5 w-3.5 rounded border-gray-300 text-violet-700 focus:ring-violet-400"
+            />
+            Namen zeigen (nur mit Vertrauensbasis im Team einsetzen)
+          </label>
+          <SpreadList
+            items={topSpreadItems}
+            participants={participants}
+            emptyText="Keine Skills mit unterschiedlichen Bewertungen zwischen den Teilnehmenden."
+            showNames={showSpreadNames}
+          />
+        </div>
+        <ThresholdList
+          items={blindspotItems}
+          threshold={2}
+          emptyText="Keine Skills, bei denen mindestens die Haelfte der Gruppe bei Stufe 2 oder darunter liegt."
         />
       </div>
 
