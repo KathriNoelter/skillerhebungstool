@@ -1211,6 +1211,7 @@ export function App() {
               handleSetGroupDrivers(key || driversKey, drivers)
             }
             onLoadSpecialization={handleLoadSpecialization}
+            onSwitchRole={handleSelectDepartment}
             customRoles={customRoles}
             onProceed={handleProceedToAssessment}
             onBack={() => setStep(1)}

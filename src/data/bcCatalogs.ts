@@ -380,6 +380,7 @@ export const testManager: Role = {
   name: "Test Manager",
   description:
     "Strategisches Testmanagement — Teststrategie entwickeln, Testteams fuehren, Qualitaet auf Programmebene verantworten und Stakeholder sicher berichten.",
+  isSpecialization: true,
   categories: [
     {
       name: "Fachlich",
@@ -651,6 +652,7 @@ export const testAutomation: Role = {
   name: "Test Automation Engineer",
   description:
     "Automatisierte Tests konzipieren, entwickeln, pflegen und in CI/CD-Pipelines integrieren — mit Fokus auf Wartbarkeit, Stabilitaet und Wertbeitrag fuer das Team.",
+  isSpecialization: true,
   categories: [
     {
       name: "Fachlich",

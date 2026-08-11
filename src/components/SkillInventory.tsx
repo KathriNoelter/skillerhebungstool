@@ -84,6 +84,7 @@ interface Props {
   onSetGroupDrivers: (groupId: string, drivers: MarketDriver[]) => void;
 
   onLoadSpecialization: (role: Role) => void;
+  onSwitchRole: (role: Role) => void;
   customRoles: Role[];
 
   onProceed: () => void;
@@ -1303,10 +1304,32 @@ export function SkillInventory(props: Props) {
     groupDrivers,
     onSetGroupDrivers,
     onLoadSpecialization,
+    onSwitchRole,
     customRoles,
     onProceed,
     onBack,
   } = props;
+
+  const hasUnsavedCuration =
+    Object.values(customSkills).some((list) => list.length > 0) ||
+    disabledBaseSkills.size > 0 ||
+    renamedBaseSkills.size > 0;
+
+  const handleRoleTabClick = useCallback(
+    (role: Role) => {
+      if (role.id === department.id) return;
+      if (
+        hasUnsavedCuration &&
+        !window.confirm(
+          `Zu „${role.name}" wechseln? Anpassungen an „${department.name}" (z. B. deaktivierte, umbenannte oder eigene Skills) gehen dabei verloren.`,
+        )
+      ) {
+        return;
+      }
+      onSwitchRole(role);
+    },
+    [department, hasUnsavedCuration, onSwitchRole],
+  );
 
   const skillCategoryNames = useMemo(
     () => department.categories.map((c) => c.name),
@@ -1677,6 +1700,28 @@ export function SkillInventory(props: Props) {
             </button>
           </div>
         </div>
+
+        {/* Rollen-Tabs: schneller Wechsel zwischen den Rollen der Gruppe */}
+        {currentGroup && currentGroup.roles.length > 1 && (
+          <div className="mt-4 flex flex-wrap gap-1.5 border-b border-slate-200 pb-px">
+            {currentGroup.roles.map((r) => {
+              const active = r.id === department.id;
+              return (
+                <button
+                  key={r.id}
+                  onClick={() => handleRoleTabClick(r)}
+                  className={`rounded-t-lg border-b-2 px-3 py-2 text-sm font-medium transition ${
+                    active
+                      ? "border-slate-700 text-slate-800"
+                      : "border-transparent text-gray-500 hover:border-slate-300 hover:text-slate-700"
+                  }`}
+                >
+                  {r.name}
+                </button>
+              );
+            })}
+          </div>
+        )}
 
         {/* Spezialisierungs-Picker */}
         {showSpecPicker && (

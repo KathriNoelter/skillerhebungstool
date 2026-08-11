@@ -35,13 +35,9 @@ export function DepartmentSelect({
   }, [importSuccess]);
 
   const handleGroupChange = (groupId: string) => {
-    setSelectedGroup(groups.find((x) => x.id === groupId) ?? null);
-  };
-
-  const handleRoleChange = (roleId: string) => {
-    if (!selectedGroup) return;
-    const r = selectedGroup.roles.find((x) => x.id === roleId);
-    if (r) onSelect(r);
+    const g = groups.find((x) => x.id === groupId) ?? null;
+    setSelectedGroup(g);
+    if (g && g.roles.length > 0) onSelect(g.roles[0]);
   };
 
   const handleImportFile = async (file: File | null | undefined) => {
@@ -72,7 +68,7 @@ export function DepartmentSelect({
           Willkommen zur red6 Skill-Erhebung
         </h2>
         <p className="mt-2 text-gray-500">
-          Waehle eine bestehende Rolle oder importiere einen eigenen Katalog.
+          Waehle eine Gruppe oder importiere einen eigenen Katalog.
         </p>
       </div>
 
@@ -86,7 +82,7 @@ export function DepartmentSelect({
           htmlFor="group-select"
           className="mb-2 block text-sm font-semibold text-slate-700"
         >
-          1. Gruppe
+          Gruppe
         </label>
         <select
           id="group-select"
@@ -106,36 +102,19 @@ export function DepartmentSelect({
           <p className="mt-2 text-xs text-gray-500">{selectedGroup.description}</p>
         )}
 
-        <label
-          htmlFor="role-select"
-          className={`mt-6 mb-2 block text-sm font-semibold ${selectedGroup ? "text-slate-700" : "text-gray-300"}`}
-        >
-          2. Rolle / Fachbereich
-        </label>
-        <select
-          id="role-select"
-          value={isBuiltinSelected ? (selected?.id ?? "") : ""}
-          onChange={(e) => handleRoleChange(e.target.value)}
-          disabled={!selectedGroup}
-          className="w-full rounded-lg border border-gray-300 bg-white px-4 py-3 text-base shadow-sm transition focus:border-slate-500 focus:outline-none focus:ring-2 focus:ring-slate-200 disabled:cursor-not-allowed disabled:bg-gray-50 disabled:text-gray-400"
-        >
-          <option value="">
-            {selectedGroup ? "— Rolle waehlen —" : "— Erst Gruppe waehlen —"}
-          </option>
-          {selectedGroup?.roles.filter((r) => !r.isSpecialization).map((r) => (
-            <option key={r.id} value={r.id}>
-              {r.name}
-            </option>
-          ))}
-        </select>
-
         {isBuiltinSelected && selectedGroup?.roles.some((r) => r.id === selected?.id) && (
           <div className="mt-4 rounded-lg bg-slate-50 p-4">
-            <p className="text-sm text-gray-600">{selected!.description}</p>
+            <p className="text-sm font-semibold text-slate-700">{selected!.name}</p>
+            <p className="mt-1 text-sm text-gray-600">{selected!.description}</p>
             <p className="mt-2 text-sm text-gray-400">
               {selected!.categories.length} Skill-Bereiche ·{" "}
               {selected!.categories.reduce((s, c) => s + c.skills.length, 0)} Skills
             </p>
+            {selectedGroup && selectedGroup.roles.length > 1 && (
+              <p className="mt-2 text-xs text-gray-400">
+                Die Rollen der Gruppe lassen sich auf der Skill-Inventur-Seite per Tab wechseln.
+              </p>
+            )}
           </div>
         )}
       </div>
