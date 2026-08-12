@@ -2666,18 +2666,18 @@ const hrGeneralist: Role = {
           },
         },
         {
-          name: "Sozial- und Lohnsteuerrecht",
+          name: "Sozialversicherungs- und Lohnsteuerrecht",
           dep: "Evolving",
           targetLevel: 4,
           keySkill: true,
           description:
-            "»Tiefgehende Kenntnisse zu Sozialversicherungspflicht, Lohnsteuer und Entgeltbestandteilen als Schnittstelle zur externen Gehaltsabrechnung. Typische Taetigkeiten: Sozialversicherungspflicht bei Sonderfaellen einordnen · Rueckfragen der Gehaltsabrechnung beantworten · Entgeltaenderungen korrekt dokumentieren und weiterleiten«",
+            "»Tiefgehende und anwendungsorientierte Kenntnisse im Sozialversicherungs-, Lohnsteuer- und Entgeltrecht — Grundlage fuer die rechtssichere Beurteilung von Sonderfaellen und die Beratung von Fuehrungskraeften zu abrechnungsrelevanten Fragestellungen. Nicht gemeint: die operative Durchfuehrung der Abrechnung selbst (siehe Gehaltsabrechnung). Typische Taetigkeiten: Steuer- und sozialversicherungsrechtliche Sachverhalte beurteilen · Sonderfaelle und Einmalzahlungen rechtlich einordnen · gesetzliche Aenderungen auf ihre Abrechnungsrelevanz pruefen · Fuehrungskraefte und Mitarbeitende zu abrechnungsrelevanten Fragestellungen beraten«",
           anchors: {
-            1: "Kennt Grundbegriffe (SV-Pflicht, Lohnsteuerklassen); braucht Unterstuetzung.",
-            2: "Beantwortet einfache Rueckfragen; leitet komplexe Faelle korrekt weiter.",
-            3: "Bewertet gaengige Sonderfaelle eigenstaendig; kommuniziert sicher mit der Gehaltsabrechnung.",
-            4: "Erkennt systemische Auswirkungen von Entgeltentscheidungen; beraet Fuehrungskraefte.",
-            5: "Definiert Schnittstellen zur Durchführung der Gehaltsabrechnung; entwickelt Prozessstandards.",
+            1: "Kennt Grundbegriffe (SV-Pflicht, Beitragsgruppen, Steuerklassen); braucht Unterstuetzung bei der rechtlichen Einordnung.",
+            2: "Versteht die wesentlichen Regelungen; erkennt Standardfaelle und weiss, wann eine fachliche Pruefung erforderlich ist.",
+            3: "Beurteilt gaengige Sonderfaelle und Einmalzahlungen rechtlich sicher; leitet Konsequenzen fuer die Abrechnung korrekt ab.",
+            4: "Analysiert steuer- und sozialversicherungsrechtliche Auswirkungen komplexer Faelle; erkennt Risiken und beraet Fuehrungskraefte fundiert; setzt gesetzliche Aenderungen eigenstaendig in Bewertungsregeln um.",
+            5: "Definiert rechtssichere Beurteilungsstandards fuer Sonderfaelle; vertritt das Unternehmen bei sozialversicherungs- und steuerrechtlichen Grundsatzfragen gegenueber Behoerden.",
           },
         },
         {
