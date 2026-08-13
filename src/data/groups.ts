@@ -5071,6 +5071,23 @@ const personalentwicklung: Role = {
             5: "Beraet auf GF-Ebene zur PE-Strategie; entwickelt die Beratungskompetenz anderer PE-Profis.",
           },
         },
+        {
+          name: "Vertrauliche Konflikt- & Beschwerdebegleitung",
+          dep: "Durable",
+          description:
+            "»Vertrauliches Entgegennehmen und Begleiten individueller Konflikte und Beschwerden zwischen Mitarbeitenden oder zwischen Mitarbeitenden und Fuehrungskraeften, ausserhalb der offiziellen HR-Administration. Nicht gemeint: Team- oder Gruppenkonflikte (siehe Konflikt-Moderation bei Teamentwicklung/Changebegleitung) oder disziplinarische bzw. arbeitsrechtliche Beschwerdebearbeitung durch HR. Typische Taetigkeiten: Vertrauliche Erstgespraeche fuehren und Anliegen einordnen · Zwischen den Konfliktparteien vermitteln oder an die passende Stelle verweisen · Eskalationsrisiken einschaetzen und Handlungsoptionen aufzeigen«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "Vertrauliche interne Anlaufstellen fuer Konflikte und Beschwerden gewinnen an Bedeutung (u. a. im Kontext des Hinweisgeberschutzgesetzes); Mitarbeitende erwarten zunehmend niedrigschwellige, vertrauliche Ansprechpartner abseits der offiziellen HR-Administration.",
+          anchors: {
+            1: "Kennt den Unterschied zwischen vertraulicher Konfliktbegleitung und offizieller HR-Beschwerdebearbeitung.",
+            2: "Nimmt einfache Anliegen vertraulich entgegen und ordnet sie ein; zieht bei Unsicherheit erfahrene Kolleg:innen hinzu.",
+            3: "Fuehrt vertrauliche Erstgespraeche eigenstaendig; vermittelt bei klar abgrenzbaren Zweier-Konflikten zwischen Mitarbeitenden oder mit Fuehrungskraeften.",
+            4: "Begleitet auch sensible oder eskalierte Einzelkonflikte souveraen; schaetzt Risiken ein und waehlt zwischen Vermittlung, Weiterverweisung oder Einbindung weiterer Stellen.",
+            5: "Etabliert vertrauliche Konflikt- und Beschwerdewege als Teil der PE-Struktur; befaehigt und beraet andere in schwierigen Faellen.",
+          },
+        },
         { ...RUMP_VERBAL, targetLevel: 4 },
       ],
     },
