@@ -4747,7 +4747,7 @@ const personalentwicklung: Role = {
           name: "Eignungsdiagnostik (DIN 33430)",
           dep: "Durable",
           description:
-            "»Fundierte Anwendung diagnostischer Verfahren zur Beurteilung der Eignung von Personen fuer bestimmte Aufgaben oder Positionen gemaess DIN 33430. Nicht gemeint: allgemeine HR-Interviews ohne Normorientierung. Typische Taetigkeiten: Eignungsdiagnostische Verfahren auswaehlen und anwenden · Anforderungsprofile erstellen · Diagnostische Ergebnisse verstaendlich und guetekriteriengerecht rueckmelden«",
+            "»Systematische Anwendung eignungsdiagnostischer Prinzipien zur Beurteilung der Eignung von Personen fuer Aufgaben oder Positionen, mit dem Ziel wachsender Orientierung an DIN 33430. Nicht gemeint: freie HR-Gespraeche ohne Anforderungsbezug. Typische Taetigkeiten: Anforderungs- und Skill-Profile erstellen · Verfahren auswaehlen und schrittweise standardisieren · Diagnostische Ergebnisse verstaendlich und kriteriengerecht rueckmelden«",
           targetLevel: 3,
           trend: "stabil",
           trendgrund:
@@ -4755,10 +4755,10 @@ const personalentwicklung: Role = {
           bewertungsmodell: "Bloom",
           anchors: {
             1: "Kennt DIN 33430 und grundlegende eignungsdiagnostische Prinzipien.",
-            2: "Erklaert Guetekriterien (Validitaet, Reliabilitaet) und kann gaengige Verfahren benennen.",
-            3: "Waehlt normkonform geeignete Verfahren aus, wendet sie an und meldet Ergebnisse fachgerecht zurueck.",
-            4: "Entwickelt auf DIN 33430 basierende Auswahlprozesse fuer verschiedene Zielgruppen; begleitet Guetekriterien-Reviews.",
-            5: "Setzt unternehmensweite Eignungsdiagnostik-Standards; befaehigt andere und beraet zum rechtssicheren Einsatz.",
+            2: "Erklaert Guetekriterien (Validitaet, Reliabilitaet, Objektivitaet) und kann gaengige Verfahren benennen.",
+            3: "Fuehrt strukturierte Interviews und Feedbackprozesse eigenstaendig auf Basis vorhandener Anforderungs-/Skill-Profile durch; meldet Ergebnisse nachvollziehbar zurueck.",
+            4: "Standardisiert Verfahren (Auswertungsraster, feste Kriterien), prueft erste Guetekriterien, naehert Prozesse schrittweise an DIN 33430 an; beraet andere in komplexen Faellen.",
+            5: "Setzt normkonforme Verfahren um, dokumentiert Guetekriterien, etabliert unternehmensweite Standards; gibt Wissen strukturiert weiter.",
           },
         },
         {
