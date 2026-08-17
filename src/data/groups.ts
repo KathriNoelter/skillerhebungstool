@@ -1368,7 +1368,7 @@ const projektleitung: Role = {
   id: "projektmanager",
   name: "Projektmanager",
   description:
-    "Ganzheitliche Verantwortung für IT-Projekte im Versicherungsumfeld — souveräner Einsatz klassischer und agiler Methoden je nach Projektkontext, kombiniert mit Planung, Steuerung, Budget, Teamführung und Stakeholder-Management von der Initiierung bis zum Abschluss.",
+    "Ganzheitliche Verantwortung für IT-Projekte im Finanzdienstleistungsumfeld — souveräner Einsatz klassischer und agiler Methoden je nach Projektkontext, kombiniert mit Planung, Steuerung, Budgetverantwortung, Teamführung und Stakeholder-Management von der Initiierung bis zum Abschluss.",
   categories: [
     {
       name: "Fachlich",
@@ -1376,10 +1376,10 @@ const projektleitung: Role = {
         {
           name: "Projektmanagement-Standards (klassisch & agil)",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           keySkill: true,
           description:
-            "»Fundiertes Wissen über anerkannte PM-Standards als methodische Grundlage: klassische Frameworks (z. B. PMI/PMBOK, PRINCE2, IPMA) sowie agile Ansätze (z. B. Scrum, Kanban). Nicht gemeint: schematische Anwendung aller Prozesse eines Frameworks. Typische Tätigkeiten: Projekte nach geeignetem Standard initiieren und strukturieren · Methodik situativ am Kundenbedarf ausrichten · Zertifizierungsnachweis als Qualitätssignal nutzen«",
+            "»Fundiertes Wissen über anerkannte PM-Standards als methodische Grundlage: klassische Frameworks (z. B. PMI/PMBOK, PRINCE2, IPMA) sowie agile Ansätze (z. B. Scrum, Kanban). Nicht gemeint: schematische Anwendung aller Prozesse eines Frameworks. Typische Tätigkeiten: Projekte nach geeignetem Standard initiieren und strukturieren · Methodik situativ am Kundenbedarf ausrichten und begründen können · Zertifizierungsnachweis oder echte Praxiserfahrung als Qualitätssignal nutzen«",
           anchors: {
             1: "Kennt mindestens einen klassischen und einen agilen PM-Standard; hat Grundbegriffe verinnerlicht.",
             2: "Erklärt Kernkonzepte beider Welten (Phasen, Prozessgruppen, Sprints, Backlogs); leitet daraus Projektvorgehen ab.",
@@ -1393,13 +1393,13 @@ const projektleitung: Role = {
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im Kundenumfeld — Basis für fachliche Einordnung, Stakeholder-Kommunikation und kontextgerechte Entscheidungen. Typische Tätigkeiten: Aufgaben und Risiken im Versicherungskontext einordnen · Stakeholder-Sprache verstehen · Branchentypische Priorisierungen und Entscheidungsprozesse nachvollziehen«",
+            "»Grundverständnis für Versicherungsprozesse, -systeme und typische IT-Projekte im jeweiligen fachlichen Einsatzbereich – Basis für fachliche Einordnung, Stakeholder-Kommunikation und kontextgerechte Entscheidungen. Die Bewertung erfolgt bezogen auf den fachlichen Schwerpunkt bzw. Haupteinsatzbereich des Mitarbeitenden. Eine hohe Ausprägung setzt fundierte Domänenkenntnisse im eigenen Projekt- und Fachkontext voraus, nicht über die gesamte Versicherungs-IT. Typische Tätigkeiten: Aufgaben, Risiken und Anforderungen im eigenen Versicherungskontext einordnen · Fachliche Sprache und Erwartungen der relevanten Stakeholder verstehen und adressieren · Branchentypische Prioritäten und Entscheidungsprozesse im eigenen Einsatzbereich nachvollziehen · Fachliche und technische Zusammenhänge im jeweiligen Projektkontext berücksichtigen. Bewertungsleitlinie: Die Einstufung erfolgt immer bezogen auf den fachlichen Schwerpunkt des Mitarbeitenden. Eine Person muss nicht in allen Bereichen der Versicherungs-IT (z. B. Vertrieb, Bestand, Schaden, IAM/Berechtigungen, DORA oder Systemmodernisierung) gleichermaßen Expertise besitzen. Entscheidend ist die Fähigkeit, im jeweiligen Einsatzkontext fachlich kompetent zu agieren und Mehrwert zu schaffen.«",
           anchors: {
-            1: "Kennt grundlegende Versicherungsbegriffe und typische Prozesse; ordnet Projekte grob ein.",
-            2: "Erklärt Zusammenhänge zwischen Versicherungsprozessen, IT-Systemen und Projektzielen; versteht Kundenperspektive.",
-            3: "Setzt Domänenwissen aktiv ein: ordnet Risiken und Entscheidungen in den Fachkontext ein; kommuniziert auf Augenhöhe mit dem Fachbereich.",
-            4: "Navigiert mit Fachkenntnis in komplexen Kundensituationen; antizipiert spartenspezifische Anforderungen.",
-            5: "Gilt als Domänenexperte; befähigt andere in der Branchenorientierung.",
+            1: "Kennt grundlegende Versicherungsbegriffe sowie die wesentlichen Prozesse und Systeme des eigenen Einsatzbereichs; kann Projekte grob fachlich einordnen.",
+            2: "Erklärt Zusammenhänge zwischen Versicherungsprozessen, IT-Systemen und Projektzielen im eigenen Fachkontext; versteht die Perspektive der relevanten Fachbereiche und Stakeholder.",
+            3: "Nutzt Domänenwissen sicher im eigenen fachlichen Schwerpunkt, ordnet Risiken und Entscheidungen fachlich ein und kommuniziert auf Augenhöhe mit dem Fachbereich.",
+            4: "Bewertet komplexe fachliche Zusammenhänge und antizipiert Anforderungen im eigenen Domänenbereich; berät Kunden und Projektbeteiligte bei fachlichen Fragestellungen.",
+            5: "Gilt im eigenen fachlichen Schwerpunkt als Domänenexperte, gestaltet Lösungen aktiv mit und befähigt andere im Aufbau von Domänen- und Branchenwissen.",
           },
         },
         {
@@ -1433,14 +1433,28 @@ const projektleitung: Role = {
             5: "Entwickelt Projektstandards für regulierte Großvorhaben; befähigt andere PMs im Umgang mit Normdruck.",
           },
         },
-        { ...RUMP_DIGITALE, targetLevel: 3 },
+        {
+          name: "Digitale Anwendungskompetenz",
+          dep: "Evolving",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Digitale Systeme, KI-Werkzeuge und moderne Arbeitsplattformen verstehen, kritisch bewerten und im Projektkontext zielgerichtet einsetzen. Dazu gehören KI-Modelle und -Agenten, Kollaborationsplattformen, datenbasierte Auswertungen sowie digitale Arbeitsprozesse. Ziel ist nicht die Beherrschung einzelner Tools, sondern die Fähigkeit, deren Mehrwert, Grenzen und Risiken für den jeweiligen Anwendungsfall zu beurteilen und den verantwortungsvollen Einsatz zu begleiten. Typische Tätigkeiten: Digitale Werkzeuge und KI-Lösungen hinsichtlich Nutzen, Grenzen und Wirtschaftlichkeit bewerten · Geeignete Werkzeuge und KI-Modelle kennen und die Auswahl für unterschiedliche Anwendungsfälle und deren Einsatz begleiten · KI-Outputs kritisch auf Qualität, Plausibilität, Bias und Datenschutz prüfen · Optimierungspotenziale von Prozessen durch KI und Automatisierung identifizieren · Datenschutz-, Informationssicherheits- und Compliance-Vorgaben beim Einsatz digitaler Werkzeuge berücksichtigen · Stakeholder zu Chancen, Risiken, Kosten und Grenzen digitaler Lösungen beraten«",
+          anchors: {
+            1: "Kennt grundlegende Begriffe digitaler Systeme, KI, LLMs und moderner Arbeitsplattformen; versteht typische Einsatzmöglichkeiten sowie grundlegende Datenschutz- und Sicherheitsanforderungen.",
+            2: "Nutzt digitale Werkzeuge und KI-Assistenten sicher im Arbeitsalltag; versteht deren Stärken, Grenzen und typische Einsatzszenarien und berücksichtigt Datenschutz- und Compliance-Vorgaben.",
+            3: "Bewertet digitale Werkzeuge und KI-Lösungen im Projektkontext hinsichtlich Eignung, Nutzen und Risiken. Prüft KI-Ergebnisse kritisch, erkennt ungeeignete Anwendungsfälle und unterstützt Teams bei der Auswahl geeigneter Werkzeuge und Modelle.",
+            4: "Analysiert Geschäftsprozesse hinsichtlich ihres Potenzials für KI und Automatisierung. Wägt Nutzen, Kosten, Risiken sowie Datenschutz- und Compliance-Anforderungen ab und berät Stakeholder fundiert zu geeigneten Lösungsansätzen und Werkzeugen.",
+            5: "Gestaltet den verantwortungsvollen Einsatz digitaler Systeme und KI im Projekt- und Unternehmenskontext aktiv mit. Entwickelt Leitlinien und Best Practices, etabliert Entscheidungskriterien für Werkzeug- und Modellauswahl und befähigt Teams und Stakeholder zum effektiven und wirtschaftlichen Einsatz digitaler Lösungen.",
+          },
+        },
       ],
     },
     {
       name: "Technisch",
       skills: [
         {
-          name: "Projektmanagement-Tools (z. B. MS Project, Jira)",
+          name: "Projektmanagement-Tools (z. B. Confluence, Jira, MS Office Suite, MS-Project, SeaTable oder vergleichbar Tools)",
           dep: "Evolving",
           targetLevel: 3,
           description:
@@ -1456,7 +1470,7 @@ const projektleitung: Role = {
         {
           name: "KI-gestützte Projektsteuerung",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stark steigend",
           description:
             "»PMs nutzen KI-Werkzeuge, um Routineaufgaben im Projektalltag zu beschleunigen und Steuerungsinformationen schneller aufzubereiten. Typische Tätigkeiten: Meeting-Protokolle und Action Items KI-gestützt erstellen · Statusbericht-Drafts generieren und redaktionell finalisieren · Abweichungsanalysen und Forecasts KI-gestützt vorbereiten · KI-Outputs kritisch prüfen und verantwortungsvoll einsetzen«",
@@ -1476,10 +1490,10 @@ const projektleitung: Role = {
         {
           name: "Projektinitialisierung & Auftragsklärung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 5,
           bewertungsmodell: "Dreyfus",
           description:
-            "»Strukturierte Initialisierung neuer Projekte: Auftragsklärung mit dem Kunden, Definition von Scope, Zielen und Erfolgskriterien sowie Vorbereitung und Durchführung des Kick-offs. Typische Tätigkeiten: Projektauftrag/-charter mit Kunden erarbeiten und abstimmen · Scope, Ziele und Nicht-Ziele klar definieren · Kick-off-Veranstaltung vorbereiten und durchführen · Rahmenbedingungen und Constraints zu Projektbeginn erfassen«",
+            "»Strukturierte Initialisierung neuer Projekte: Auftragsklärung mit dem Kunden, Definition von Scope, Zielen und Erfolgskriterien sowie Vorbereitung und Durchführung des Kick-offs. Typische Tätigkeiten: Projektauftrag/-charter mit Kunden erarbeiten und abstimmen · Scope, Ziele und Nicht-Ziele klar definieren · Kick-off-Veranstaltung vorbereiten und durchführen und dokumentieren · Rahmenbedingungen und Constraints zu Projektbeginn erfassen«",
           anchors: {
             1: "Bereitet Kick-off nach Vorlage vor; hält Standardinhalte eines Projektauftrags ein.",
             2: "Erarbeitet eigenständig einen Projektauftrag; führt strukturierte Auftragsklärung mit Unterstützung durch.",
@@ -1491,7 +1505,7 @@ const projektleitung: Role = {
         {
           name: "Reporting & Forecasting",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
             "»Reporting & Forecasting ist die primäre Steuerungs- und Kommunikationsschnittstelle zum Kunden — nicht PM-Hygiene, sondern explizite Kundenleistung. Typische Tätigkeiten: Aussagekräftige Statusberichte und Forecasts erstellen · Budget-Abweichungen erklären und Handlungsoptionen ableiten · Earned-Value-Analysen für Steuerungskreise aufbereiten«",
           anchors: {
@@ -1505,7 +1519,7 @@ const projektleitung: Role = {
         {
           name: "Projektplanung & Meilensteinsteuerung",
           dep: "Durable",
-          targetLevel: 4,
+          targetLevel: 3,
           keySkill: true,
           description:
             "»Strukturierte Planung von Projektphasen, Arbeitspaketen, Meilensteinen und Abhängigkeiten — realistisch, kommunizierbar und steuerbar. Typische Tätigkeiten: Projektstrukturplan erstellen · Meilensteine mit Stakeholdern abstimmen · Pläne regelmäßig aktualisieren und Abweichungen erklären«",
@@ -1520,7 +1534,7 @@ const projektleitung: Role = {
         {
           name: "Ressourcen- & Budgetplanung",
           dep: "Durable",
-          targetLevel: 4,
+          targetLevel: 3,
           keySkill: true,
           description:
             "»Planung, Allokation und Überwachung von Personal, Sachkosten und externen Leistungen im Projektverlauf. Budgetkontrolle und Forecasting. Typische Tätigkeiten: Ressourcenbedarf pro Phase abschätzen · Budget aufstellen und verfolgen · Abweichungen gegenüber Steuerungskreis begründen«",
@@ -1535,7 +1549,7 @@ const projektleitung: Role = {
         {
           name: "Risikomanagement",
           dep: "Durable",
-          targetLevel: 4,
+          targetLevel: 3,
           keySkill: true,
           description:
             "»Systematische Identifikation, Bewertung, Steuerung und Nachverfolgung von Projektrisiken und Chancen. Typische Tätigkeiten: Risikoregister führen und regelmäßig aktualisieren · Maßnahmen für Hoch-Risiken definieren · Risikostatus im Steuerungskreis berichten«",
@@ -1567,13 +1581,13 @@ const projektleitung: Role = {
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Planung und Steuerung von Releases über Scrum-Teams hinweg aus PM-Perspektive — Velocity-basiertes Forecasting, Feature-Priorisierung, Release-Koordination und PI-Planning-Beteiligung. Abgrenzung zum Scrum Master: Nicht Event-Facilitation, sondern übergreifende Release-Verantwortung und Lieferplanung. Typische Tätigkeiten: Release-Pläne auf Basis von Velocity und Epic-Breakdown erstellen · Sprint-Ziele mit Projektmeilensteinen abgleichen · Stakeholder über voraussichtliche Liefertermine informieren · In SAFe-Umgebungen PI-Planning-Beiträge koordinieren«",
+            "»Planung und Steuerung von Releases über mehrere agile Teams hinweg aus Projektmanagement-Perspektive. Umfasst die Erstellung belastbarer Lieferprognosen auf Basis empirischer Daten, die Abstimmung von Prioritäten, die Koordination teamübergreifender Abhängigkeiten sowie die Integration agiler Lieferplanung in die Projektsteuerung. Der Skill ist unabhängig vom eingesetzten Skalierungsframework (z. B. SAFe, LeSS, Nexus oder organisationsspezifische Modelle). Abgrenzung zum Scrum Master: Fokus liegt auf übergreifender Release- und Lieferplanung sowie Stakeholder- und Projektkoordination, nicht auf der Moderation agiler Events. Typische Tätigkeiten: Release- und Lieferpläne auf Basis von Velocity, Kapazitäten und Backlog-Entwicklung erstellen · Features, Epics und Meilensteine mit den Sprint- und Release-Zielen abstimmen · Teamübergreifende Abhängigkeiten identifizieren und koordinieren · Liefertermine und Forecasts transparent gegenüber Stakeholdern kommunizieren · Inhalte und Abhängigkeiten für agile Programm- und Release-Planungen (z. B. PI Planning oder vergleichbare Planungsformate) vorbereiten und abstimmen · Agile Lieferplanung mit klassischer Projektsteuerung, Budget- und Terminplanung verbinden«",
           anchors: {
-            1: "Versteht Sprint-Zyklen; kann Velocity-Daten lesen.",
-            2: "Erstellt einfache Release-Pläne auf Basis von Velocity; stimmt Termine mit Team ab.",
-            3: "Leitet Velocity-basierte Forecasts ab; koordiniert Releases über mehrere Teams eigenständig.",
-            4: "Integriert agile Lieferplanung in klassische Projektsteuerung; unterstützt PI Planning als PM.",
-            5: "Gilt als Experte für agile Release-Koordination in komplexen Programmstrukturen.",
+            1: "Versteht agile Planungszyklen, Sprint- und Release-Konzepte sowie die Bedeutung von Velocity und anderen Planungskennzahlen.",
+            2: "Erstellt einfache Release- und Lieferpläne auf Basis vorhandener Planungsdaten und stimmt diese mit den beteiligten Teams ab.",
+            3: "Erstellt belastbare Forecasts, koordiniert Releases über mehrere Teams hinweg, steuert Abhängigkeiten und kommuniziert Lieferprognosen gegenüber Stakeholdern.",
+            4: "Integriert agile Release- und Lieferplanung in die Gesamtprojektsteuerung, unterstützt teamübergreifende Programmplanungen (z. B. PI Planning) und steuert Risiken sowie Auswirkungen auf Termine und Meilensteine.",
+            5: "Gestaltet Release- und Lieferplanungsprozesse in komplexen skalierten agilen Organisationen, entwickelt Vorgehensweisen weiter und berät Projekte und Stakeholder bei der Optimierung der übergreifenden Lieferplanung.",
           },
         },
         {
@@ -1607,7 +1621,7 @@ const projektleitung: Role = {
         {
           name: "Projektabschluss & nachhaltiger Transfer",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           bewertungsmodell: "Dreyfus",
           description:
             "»Strukturierter Projektabschluss mit Fokus auf nachhaltige Wirkung: formale Abnahme und Übergabe, Wissenssicherung für Folgeprojekte und aktive Sicherstellung, dass Projektergebnisse in den Betrieb übergehen und genutzt werden. Typische Tätigkeiten: Abnahmedokumente erstellen und unterzeichnen lassen · Übergabe an Betrieb und Kundenmitarbeiter strukturiert gestalten · Lessons-Learned-Workshop moderieren · Wissenstransfer für Folgeprojekte sichern«",
@@ -1622,23 +1636,8 @@ const projektleitung: Role = {
       ],
     },
     {
-      name: "Führung & Coaching",
+      name: "Kommunikation & Zusammenarbeit",
       skills: [
-        {
-          name: "Belastbarkeit & Ambiguitätstoleranz",
-          dep: "Durable",
-          targetLevel: 3,
-          bewertungsmodell: "Dreyfus",
-          description:
-            "»Fähigkeit, unter Druck, Unsicherheit und widersprüchlichen Anforderungen handlungsfähig zu bleiben. PM-Rollen navigieren regelmäßig in Projekten ohne vollständige Information, mit konkurrierenden Stakeholder-Interessen und unter Zeitdruck. Typische Tätigkeiten: Entscheidungen bei unvollständiger Datenlage treffen · Eigene Belastbarkeit im Projektalltag erhalten · Unsicherheit im Team transparent und konstruktiv kommunizieren«",
-          anchors: {
-            1: "Erkennt Stresssituationen; holt sich bei Bedarf Unterstützung.",
-            2: "Bleibt in bekannten Drucksituationen handlungsfähig; kommuniziert Unsicherheit offen.",
-            3: "Trifft Entscheidungen bei unvollständiger Datenlage; hält Team trotz Ambiguität auf Kurs.",
-            4: "Navigiert komplexe Krisen ruhig und strukturiert; schützt das Team vor übermäßigem Druck.",
-            5: "Gilt als Vorbild in Belastbarkeit; befähigt andere im Umgang mit Unsicherheit.",
-          },
-        },
         {
           name: "Stakeholder-Steuerung & -Kommunikation",
           dep: "Durable",
@@ -1652,6 +1651,55 @@ const projektleitung: Role = {
             3: "Steuert Erwartungen aktiv; erkennt Spannungsfelder frühzeitig.",
             4: "Navigiert politisch sensible Situationen; positioniert Projekt strategisch.",
             5: "Gilt als vertrauenswürdiger Berater auf C-Level; prägt PM-Kultur.",
+          },
+        },
+        {
+          name: "Verhandlungsführung",
+          dep: "Durable",
+          targetLevel: 4,
+          description:
+            "»Interessen- und sachbezogene Verhandlung mit Kunden, Lieferanten und intern bei Scope, Ressourcen, Budget und Fristen. Typische Tätigkeiten: Verhandlungspositionen vorbereiten · Zielkonflikte zwischen Parteien ausgleichen · Verhandlungsergebnisse verbindlich dokumentieren«",
+          anchors: {
+            1: "Nimmt an Verhandlungen teil; bereitet Unterlagen vor.",
+            2: "Führt einfache Verhandlungen eigenständig; findet Kompromisse.",
+            3: "Verhandelt Scope, Budget und Fristen professionell; nutzt Verhandlungstechniken.",
+            4: "Führt komplexe Mehrparteiverhandlungen; sichert Projektziele.",
+            5: "Gilt als Verhandlungsexperte; coacht andere PMs.",
+          },
+        },
+        {
+          name: "Verbalisierung & Strukturierung",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Komplexe Sachverhalte analysieren, strukturieren und adressatengerecht kommunizieren – schriftlich und mündlich. Die Kompetenz umfasst die Fähigkeit, Informationen zielgruppengerecht aufzubereiten, Komplexität zu reduzieren, überzeugend zu argumentieren und unterschiedliche Kommunikationssituationen professionell zu gestalten. Sie basiert auf methodischem Wissen zu Kommunikation, Präsentation und Moderation und wird im Projektalltag sicher angewendet. Typische Tätigkeiten: Komplexe Sachverhalte für Management, Fachbereiche und Entwicklung zielgruppengerecht aufbereiten · Anforderungen, Risiken und Entscheidungen verständlich zusammenfassen und kommunizieren · Workshops, Statusberichte, Konzepte und Entscheidungsvorlagen klar strukturieren · Unterschiedliche Stakeholder adressatengerecht informieren und argumentativ überzeugen · Konflikt- und Abstimmungsgespräche professionell führen · Kommunikationsmethoden (z. B. Fragetechniken, aktives Zuhören, Storylining, Pyramidenprinzip, Visualisierung) situationsgerecht einsetzen«",
+          anchors: {
+            1: "Formuliert verständlich, wenn Inhalt und Zielsetzung klar sind. Nutzt einfache Strukturen und berücksichtigt grundlegende Kommunikationsregeln.",
+            2: "Strukturiert Inhalte mithilfe etablierter Methoden oder Vorlagen. Kommuniziert einfache Sachverhalte nachvollziehbar und orientiert sich an der jeweiligen Zielgruppe.",
+            3: "Bereitet komplexe Inhalte adressatengerecht auf, reduziert Komplexität auf das Wesentliche und kommuniziert auch in anspruchsvollen Projektsituationen klar, nachvollziehbar und überzeugend. Nutzt Kommunikationsmethoden bewusst und situationsgerecht.",
+            4: "Steuert Kommunikation bewusst in unterschiedlichen Stakeholder-Konstellationen. Erklärt komplexe fachliche und technische Zusammenhänge verständlich, entwickelt überzeugende Argumentationslinien und passt Kommunikation sicher an Management, Fachbereiche, Entwicklung oder Kunden an. Verfügt über fundiertes methodisches Wissen in Kommunikation und setzt dieses gezielt ein.",
+            5: "Prägt Kommunikationsstandards im Unternehmen oder Projektumfeld. Coacht andere in strukturierter Kommunikation, Moderation und adressatengerechter Darstellung komplexer Inhalte. Gilt als Referenz für wirkungsvolle Kommunikation und überzeugende Entscheidungsunterlagen.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
+      skills: [
+        {
+          name: "Belastbarkeit & Ambiguitätstoleranz",
+          dep: "Durable",
+          targetLevel: 3,
+          bewertungsmodell: "Dreyfus",
+          description:
+            "»Fähigkeit, unter Druck, Unsicherheit und widersprüchlichen Anforderungen handlungsfähig zu bleiben. PM-Rollen navigieren regelmäßig in Projekten ohne vollständige Information, mit konkurrierenden Stakeholder-Interessen und unter Zeitdruck. Typische Tätigkeiten: Fundierte Entscheidungen auch bei unvollständigen Informationen ermöglichen · Eigene Belastbarkeit im Projektalltag erhalten · Unsicherheit im Team transparent und konstruktiv kommunizieren«",
+          anchors: {
+            1: "Erkennt Stresssituationen; holt sich bei Bedarf Unterstützung.",
+            2: "Bleibt in bekannten Drucksituationen handlungsfähig; kommuniziert Unsicherheit offen.",
+            3: "Trifft Entscheidungen bei unvollständiger Datenlage; hält Team trotz Ambiguität auf Kurs.",
+            4: "Navigiert komplexe Krisen ruhig und strukturiert; schützt das Team vor übermäßigem Druck.",
+            5: "Gilt als Vorbild in Belastbarkeit; befähigt andere im Umgang mit Unsicherheit.",
           },
         },
         {
@@ -1673,30 +1721,15 @@ const projektleitung: Role = {
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Professioneller Umgang mit Eskalationen — eigene Eskalation nach oben und Deeskalation bei Konflikten im Projekt. Typische Tätigkeiten: Eskalationsbedarf frühzeitig erkennen · Sachbezogen und lösungsorientiert eskalieren · Deeskalation bei Kundenkonflikten moderieren«",
+            "»Professioneller Umgang mit Eskalationen — eigene Eskalation nach oben und Deeskalation bei Konflikten im Projekt. Typische Tätigkeiten: Eskalationsbedarf frühzeitig erkennen · sachbezogen und lösungsorientiert eskalieren · Deeskalation bei Kundenkonflikten moderieren«",
           anchors: {
             1: "Meldet Probleme; eskaliert auf Anweisung.",
-            2: "Eskaliert eigenständig wenn Probleme unlösbar; hält Format ein.",
+            2: "Eskaliert eigenständig, wenn Probleme unlösbar; hält Format ein.",
             3: "Eskaliert lösungsorientiert; deeskaliert aktiv Spannungen.",
             4: "Navigiert auch emotional aufgeladene Eskalationen; schützt Projektbeziehungen.",
             5: "Entwickelt Eskalations-Frameworks; coacht andere PMs.",
           },
         },
-        {
-          name: "Verhandlungsführung",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Interessen- und sachbezogene Verhandlung mit Kunden, Lieferanten und intern bei Scope, Ressourcen, Budget und Fristen. Typische Tätigkeiten: Verhandlungspositionen vorbereiten · Zielkonflikte zwischen Parteien ausgleichen · Verhandlungsergebnisse verbindlich dokumentieren«",
-          anchors: {
-            1: "Nimmt an Verhandlungen teil; bereitet Unterlagen vor.",
-            2: "Führt einfache Verhandlungen eigenständig; findet Kompromisse.",
-            3: "Verhandelt Scope, Budget und Fristen professionell; nutzt Verhandlungstechniken.",
-            4: "Führt komplexe Mehrparteiverhandlungen; sichert Projektziele.",
-            5: "Gilt als Verhandlungsexperte; coacht andere PMs.",
-          },
-        },
-        { ...RUMP_VERBAL, targetLevel: 4 },
       ],
     },
   ],
