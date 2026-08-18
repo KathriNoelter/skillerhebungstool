@@ -2137,6 +2137,475 @@ const productOwner: Role = {
   ],
 };
 
+const ux: Role = {
+  id: "ux",
+  name: "UX",
+  description:
+    "Nutzerzentrierte Gestaltung im Produktteam — von Nutzerverstaendnis ueber Design und Prototyping bis zur Einarbeitung von Feedback, eng verzahnt mit Product Management und Entwicklung.",
+  categories: [
+    {
+      name: "Fachlich",
+      skills: [
+        {
+          name: "Versicherungsprodukte & Kundenreisen",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentrierte Design-Entscheidungen im Produktteam. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Design-Entscheidungen uebersetzen · Mit Product Management auf Augenhoehe ueber Versicherungsprozesse sprechen«",
+          anchors: {
+            1: "Kennt grundlegende Versicherungsbegriffe; braucht Erklaerung bei Fachfragen.",
+            2: "Versteht typische Kundenreisen und Produktarten; ordnet Screens grob ein.",
+            3: "Gestaltet eigenstaendig fuer versicherungsspezifische Prozesse; stellt gezielte Fachfragen.",
+            4: "Erkennt Optimierungspotenzial in Kundenreisen; beraet Product Management zu Nutzerimplikationen.",
+            5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit im Produktteam.",
+          },
+        },
+        { ...RUMP_DIGITALE },
+      ],
+    },
+    {
+      name: "Technisch",
+      skills: [
+        {
+          name: "Figma (Design & Prototyping)",
+          dep: "Evolving",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Sicherer Umgang mit Figma zur Gestaltung von Screens und interaktiven Prototypen im Produktalltag. Typische Taetigkeiten: Screens und einfache Komponenten in Figma gestalten · Klickbare Prototypen fuer Tests und Reviews erstellen · Mit Entwicklung ueber Figma (Dev Mode/Inspect) abstimmen«",
+          anchors: {
+            1: "Bedient Figma grundlegend; braucht Anleitung bei der Gestaltung.",
+            2: "Erstellt einfache Screens und Prototypen eigenstaendig.",
+            3: "Gestaltet Screens und klickbare Prototypen fuer den Produktalltag selbststaendig.",
+            4: "Nutzt Figma gezielt zur Anforderungsklaerung und Abstimmung mit Entwicklung.",
+            5: "Gilt als Figma-Ansprechpartnerin im Produktteam; etabliert Nutzungsstandards.",
+          },
+        },
+        {
+          name: "UI-Gestaltung & visuelle Grundlagen",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Grundlagen der visuellen Gestaltung — Typografie, Layout, visuelle Hierarchie und responsive Darstellung — fuer verstaendliche, konsistente Oberflaechen. Typische Taetigkeiten: Bestehende Design-Vorgaben und Komponenten korrekt anwenden · Visuelle Hierarchien fuer einfache Screens aufbauen · Layouts fuer verschiedene Bildschirmgroessen anpassen«",
+          anchors: {
+            1: "Nutzt vorgegebene Textstile und Layouts; erstellt selten eigene Hierarchien.",
+            2: "Setzt Standard-Gestaltungsregeln eigenstaendig um.",
+            3: "Baut eigenstaendig klare visuelle Hierarchien fuer neue Screens auf.",
+            4: "Passt Layouts fuer unterschiedliche Bildschirmgroessen souveraen an; loest einfache Gestaltungsprobleme.",
+            5: "Gilt als gestalterische Referenz im Produktteam.",
+          },
+        },
+        {
+          name: "KI-Tools im Designprozess",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Tools zur Ideenfindung, Recherche und Beschleunigung typischer Design-Aufgaben. Typische Taetigkeiten: Moodboards und erste Entwuerfe per KI generieren · Prompts fuer Design- und Rechercheaufgaben formulieren · Generierte Ergebnisse kritisch pruefen und weiterverarbeiten«",
+          anchors: {
+            1: "Kennt gaengige KI-Tools dem Namen nach.",
+            2: "Nutzt KI-Tools fuer einfache Aufgaben (Moodboards, Recherche) mit Unterstuetzung.",
+            3: "Setzt KI-Tools gezielt fuer Ideenfindung und erste Entwuerfe ein; prueft Ergebnisse kritisch.",
+            4: "Entwickelt wiederverwendbare Prompts und Workflows fuer das Team.",
+            5: "Definiert Nutzungsstandards fuer KI-Tools im Designprozess.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Methodisch",
+      skills: [
+        {
+          name: "Nutzerforschung & Interviews",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Planung und Durchfuehrung einfacher qualitativer Interviews zur Erhebung von Nutzerbeduerfnissen und Schmerzpunkten. Typische Taetigkeiten: Interviewleitfaeden mit Unterstuetzung entwickeln · Interviews ergebnisoffen fuehren · Erkenntnisse strukturiert festhalten und teilen«",
+          anchors: {
+            1: "Fuehrt Interviews nach vorgegebenem Leitfaden; braucht Coaching.",
+            2: "Entwickelt einfache Leitfaeden und fuehrt Standardinterviews eigenstaendig.",
+            3: "Fuehrt Interviews souveraen und ergebnisoffen; leitet Erkenntnisse ab.",
+            4: "Passt Interviewmethodik an komplexere Fragestellungen an.",
+            5: "Gilt als Ansprechpartnerin fuer Nutzerforschung im Produktteam.",
+          },
+        },
+        {
+          name: "Personas & Nutzerbeduerfnisse",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Verdichtung von Nutzerforschung zu Personas und klar formulierten Nutzerbeduerfnissen als gemeinsame Grundlage fuer Produktentscheidungen. Typische Taetigkeiten: Personas aus Nutzerforschung ableiten und aktuell halten · Nutzerbeduerfnisse fuer Feature-Entscheidungen einordnen · Team fuer Nutzerperspektive sensibilisieren«",
+          anchors: {
+            1: "Kennt bestehende Personas; wendet sie mit Anleitung an.",
+            2: "Aktualisiert Personas eigenstaendig anhand neuer Erkenntnisse.",
+            3: "Leitet eigenstaendig Personas und Beduerfnisse aus Nutzerforschung ab.",
+            4: "Nutzt Personas gezielt zur Priorisierung; vermittelt Nutzerperspektive im Team.",
+            5: "Etabliert Personas als festen Bestandteil der Produktarbeit.",
+          },
+        },
+        {
+          name: "Usability Testing",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Planung und Durchfuehrung einfacher moderierter Usability-Tests zur Validierung von Designs. Typische Taetigkeiten: Testszenarien und Aufgaben entwickeln · Tests moderieren und Beobachtungen dokumentieren · Ergebnisse in konkrete Design-Anpassungen uebersetzen«",
+          anchors: {
+            1: "Unterstuetzt bei Usability-Tests nach Anleitung.",
+            2: "Fuehrt einfache moderierte Tests eigenstaendig durch.",
+            3: "Plant und fuehrt Usability-Tests eigenstaendig durch; leitet Anpassungen ab.",
+            4: "Waehlt Testmethodik passend zur Fragestellung; loest methodische Probleme.",
+            5: "Gilt als Referenz fuer Usability Testing im Produktteam.",
+          },
+        },
+        {
+          name: "Prototyping (Fidelity-Wahl)",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Konzeption von Prototypen unterschiedlicher Wirklichkeitsnaehe (Wireframe, Klick-Dummy, High-Fidelity) passend zur jeweiligen Fragestellung. Typische Taetigkeiten: Passendes Fidelity-Level fuer die Testfrage waehlen · Prototypen fuer Tests und Stakeholder-Reviews aufbauen · Feedback aus Tests in die naechste Iteration einarbeiten«",
+          anchors: {
+            1: "Baut einfache Prototypen nach Anleitung.",
+            2: "Erstellt Standard-Prototypen (Klick-Dummys) eigenstaendig.",
+            3: "Waehlt eigenstaendig passendes Fidelity-Level; iteriert Prototypen zielgerichtet.",
+            4: "Entwickelt Prototypen fuer anspruchsvollere Testfragen; beraet zur Methodenwahl.",
+            5: "Gilt als Referenz fuer Prototyping im Produktteam.",
+          },
+        },
+        {
+          name: "Nutzerfeedback einholen & einarbeiten",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Systematisches Einholen, Buendeln und Einarbeiten von Nutzerfeedback aus Tests, Support und Produktnutzung in die Designarbeit. Typische Taetigkeiten: Feedback aus verschiedenen Quellen (Tests, Support, Analytics) buendeln · Feedback priorisiert in Design-Iterationen einspeisen · Rueckmeldung an Nutzer und Stakeholder zu umgesetztem Feedback geben«",
+          anchors: {
+            1: "Nimmt Feedback entgegen; braucht Unterstuetzung bei der Einordnung.",
+            2: "Sammelt Feedback aus Standardquellen eigenstaendig.",
+            3: "Buendelt Feedback systematisch und arbeitet es priorisiert in die Designarbeit ein.",
+            4: "Verknuepft Feedback aus mehreren Quellen zu belastbaren Erkenntnissen; schliesst den Feedback-Kreislauf aktiv.",
+            5: "Etabliert einen strukturierten Feedback-Prozess im Produktteam.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Zusammenarbeit mit Product Management & Entwicklung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Enge, partnerschaftliche Zusammenarbeit mit Product Management und Entwicklung im Produktteam. Typische Taetigkeiten: Anforderungen gemeinsam mit Product Management schaerfen · Design-Entscheidungen mit Entwicklung auf Machbarkeit abstimmen · Konflikte zwischen Anforderung, Design und Umsetzbarkeit konstruktiv loesen«",
+          anchors: {
+            1: "Arbeitet mit Product Management/Entwicklung zusammen; braucht Unterstuetzung bei Abstimmung.",
+            2: "Stimmt sich in Standardformaten eigenstaendig mit dem Team ab.",
+            3: "Arbeitet eigenstaendig und partnerschaftlich mit Product Management und Entwicklung zusammen.",
+            4: "Loest Zielkonflikte zwischen Anforderung, Design und Machbarkeit eigenstaendig.",
+            5: "Gilt als Vorbild fuer funktionsuebergreifende Teamarbeit.",
+          },
+        },
+        {
+          name: "Praesentation von Design-Entscheidungen",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Nachvollziehbare Praesentation von Design-Entscheidungen gegenueber Product Management und Stakeholdern, inkl. Herleitung aus Nutzerforschung. Typische Taetigkeiten: Design-Rationale verstaendlich aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Rueckfragen souveraen beantworten«",
+          anchors: {
+            1: "Praesentiert Designs nach Vorlage; braucht Unterstuetzung bei Rueckfragen.",
+            2: "Bereitet einfache Praesentationen eigenstaendig vor.",
+            3: "Praesentiert Design-Entscheidungen souveraen und nachvollziehbar.",
+            4: "Passt Praesentationen zielgruppengerecht an; navigiert kritische Rueckfragen.",
+            5: "Gilt als Vorbild fuer Design-Praesentationen im Produktteam.",
+          },
+        },
+        { ...RUMP_VERBAL },
+      ],
+    },
+  ],
+};
+
+const businessDeveloper: Role = {
+  id: "business-developer",
+  name: "Business Developer",
+  description:
+    "Kommerzielle Weiterentwicklung des Produkts — Pricing, Vertrags- und Accountmanagement sowie Aufbau strategischer Kooperationen und Partnerschaften.",
+  categories: [
+    {
+      name: "Fachlich",
+      skills: [
+        {
+          name: "Versicherungsmarkt & Wettbewerbslandschaft",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Kenntnis des Versicherungsmarktes, relevanter Wettbewerber und Marktentwicklungen als Grundlage fuer Preis-, Account- und Partnerschaftsentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Positionierung des eigenen Produkts im Markt einordnen · Marktchancen fuer neue Kooperationen identifizieren«",
+          anchors: {
+            1: "Kennt die wichtigsten Marktteilnehmer; braucht Unterstuetzung bei der Einordnung.",
+            2: "Verfolgt Marktentwicklungen und ordnet sie grundlegend ein.",
+            3: "Ordnet Markt- und Wettbewerbsentwicklungen eigenstaendig in Geschaeftsentscheidungen ein.",
+            4: "Erkennt Marktchancen fruehzeitig; leitet strategische Empfehlungen ab.",
+            5: "Gilt als Marktexpertin; praegt die Positionierung des Unternehmens im Markt.",
+          },
+        },
+        {
+          name: "Vertragsrecht & Konditionengestaltung (Grundlagen)",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Grundlegende Kenntnisse im Vertragsrecht und in der Gestaltung kommerzieller Konditionen fuer Kunden- und Partnervertraege. Nicht gemeint: eigenstaendige juristische Bewertung komplexer Vertragswerke. Typische Taetigkeiten: Standardvertragsklauseln verstehen und anwenden · Konditionen im vorgegebenen Rahmen gestalten · Bei rechtlichen Unsicherheiten Recht/Compliance einbeziehen«",
+          anchors: {
+            1: "Kennt vertragliche Grundbegriffe; braucht Unterstuetzung bei der Einordnung.",
+            2: "Versteht Standardvertragsklauseln; wendet Vorlagen eigenstaendig an.",
+            3: "Gestaltet Konditionen im vorgegebenen Rahmen eigenstaendig; erkennt Grenzfaelle.",
+            4: "Verhandelt komplexere Vertragsklauseln; klaert Grenzfaelle proaktiv mit Recht/Compliance.",
+            5: "Gilt als Ansprechpartnerin fuer Vertragsgestaltung im Geschaeftsbereich.",
+          },
+        },
+        {
+          name: "Pricing- & Geschaeftsmodelle",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Verstaendnis der Geschaefts- und Preismodelle des eigenen Produkts sowie gaengiger Modelle im Versicherungs- und Softwaregeschaeft. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Geschaeftsmodell einschaetzen · Geschaeftsmodell gegenueber Kunden und Partnern erklaeren · Preismodelle im Vergleich zum Wettbewerb einordnen«",
+          anchors: {
+            1: "Kennt das eigene Geschaeftsmodell in Grundzuegen.",
+            2: "Erklaert das Geschaeftsmodell und gaengige Preismodelle nachvollziehbar.",
+            3: "Ordnet Preisentscheidungen eigenstaendig in das Geschaeftsmodell ein.",
+            4: "Bewertet alternative Preis- und Geschaeftsmodelle fundiert; beraet dazu.",
+            5: "Entwickelt das Geschaefts- und Preismodell aktiv mit.",
+          },
+        },
+        { ...RUMP_DIGITALE },
+      ],
+    },
+    {
+      name: "Technisch",
+      skills: [
+        {
+          name: "CRM-Systeme (z. B. Salesforce, HubSpot)",
+          dep: "Evolving",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Sicherer Umgang mit CRM-Systemen zur Pflege von Kunden- und Partnerbeziehungen, Opportunities und Vertragsdaten. Typische Taetigkeiten: Kunden- und Partnerdaten strukturiert im CRM pflegen · Opportunities und Vertragsstatus nachhalten · Berichte und Auswertungen aus dem CRM aufbereiten«",
+          anchors: {
+            1: "Bedient das CRM grundlegend; pflegt einfache Datensaetze.",
+            2: "Pflegt Kunden- und Partnerdaten eigenstaendig nach vorgegebener Struktur.",
+            3: "Nutzt das CRM vollstaendig fuer Account- und Vertragssteuerung; erstellt Berichte.",
+            4: "Konfiguriert Ansichten und Automatisierungen fuer den eigenen Bereich.",
+            5: "Gilt als Key User; entwickelt Nutzungsstandards fuer das Team.",
+          },
+        },
+        {
+          name: "Vertrags- & Angebotsmanagement-Tools",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Nutzung von Tools zur Erstellung, Ablage und Nachverfolgung von Angeboten und Vertraegen. Typische Taetigkeiten: Angebote und Vertraege aus Vorlagen erstellen · Frist- und Verlaengerungstermine nachhalten · Vertragsversionen und Freigabestatus pflegen«",
+          anchors: {
+            1: "Erstellt Angebote/Vertraege nach Vorlage mit Anleitung.",
+            2: "Erstellt und pflegt Angebote und Vertraege eigenstaendig.",
+            3: "Nutzt Tools vollstaendig zur Fristueberwachung und Versionspflege.",
+            4: "Optimiert Vorlagen und Ablaeufe fuer wiederkehrende Vertragsarten.",
+            5: "Definiert Tool-Standards fuer Angebots- und Vertragsmanagement.",
+          },
+        },
+        {
+          name: "KI-Tools fuer Vertriebs-/Accountarbeit",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Assistenten zur Effizienzsteigerung bei Account- und Vertriebsaufgaben: Recherche, Angebotsentwuerfe, Gespraechsvorbereitung. Typische Taetigkeiten: Kunden- und Marktrecherche mit KI-Unterstuetzung beschleunigen · Angebots- und Praesentationstexte per KI vorformulieren · KI-Outputs kritisch auf Richtigkeit und Ton pruefen«",
+          anchors: {
+            1: "Kennt gaengige KI-Tools dem Namen nach.",
+            2: "Nutzt KI-Tools fuer einfache Recherche- und Textaufgaben; prueft Outputs.",
+            3: "Setzt KI gezielt fuer Vertriebs- und Accountaufgaben ein; optimiert Prompts.",
+            4: "Etabliert wiederverwendbare Prompt-Vorlagen fuer das Team.",
+            5: "Definiert KI-Nutzungsstandards fuer den Geschaeftsbereich.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Methodisch",
+      skills: [
+        {
+          name: "Preisentwicklung & Pricing-Strategie",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Weiterentwicklung von Preisen und Preismodellen auf Basis von Markt-, Wettbewerbs- und Kundendaten. Typische Taetigkeiten: Preisanpassungen datenbasiert vorbereiten und begruenden · Preismodelle gegen Markt- und Wettbewerbsentwicklung pruefen · Auswirkungen von Preisaenderungen auf Umsatz und Kundenbindung einschaetzen«",
+          anchors: {
+            1: "Setzt vorgegebene Preise um; braucht Unterstuetzung bei Anpassungen.",
+            2: "Bereitet einfache Preisanpassungen mit Anleitung vor.",
+            3: "Bereitet Preisanpassungen eigenstaendig datenbasiert vor und begruendet sie.",
+            4: "Entwickelt Preismodelle eigenstaendig weiter; bewertet komplexe Auswirkungen.",
+            5: "Verantwortet die Pricing-Strategie fuer den Geschaeftsbereich.",
+          },
+        },
+        {
+          name: "Account-Planung & -Steuerung",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Systematische Planung und Steuerung von Kundenaccounts — Potenziale erkennen, Ziele setzen, Entwicklung nachhalten. Typische Taetigkeiten: Account-Plaene fuer Schluesselkunden erstellen · Umsatz- und Entwicklungspotenziale je Account bewerten · Account-Status regelmaessig nachhalten und anpassen«",
+          anchors: {
+            1: "Pflegt Account-Informationen nach Vorgabe.",
+            2: "Erstellt einfache Account-Plaene eigenstaendig.",
+            3: "Plant und steuert Accounts eigenstaendig; erkennt Potenziale.",
+            4: "Entwickelt Account-Strategien fuer komplexe Schluesselkunden.",
+            5: "Etabliert Account-Planungsstandards fuer den Geschaeftsbereich.",
+          },
+        },
+        {
+          name: "Vertragsverhandlung & Vertragsmanagement",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Verhandlung, Abschluss und laufende Betreuung von Kunden- und Partnervertraegen. Typische Taetigkeiten: Vertragsverhandlungen vorbereiten und fuehren · Vertragsinhalte mit internen Stellen (Recht, Finance) abstimmen · Laufende Vertraege auf Erfuellung und Anpassungsbedarf pruefen«",
+          anchors: {
+            1: "Nimmt an Verhandlungen teil; bereitet Unterlagen vor.",
+            2: "Fuehrt einfache Vertragsverhandlungen eigenstaendig.",
+            3: "Verhandelt und betreut Vertraege eigenstaendig; stimmt sich intern ab.",
+            4: "Fuehrt komplexe Mehrparteienverhandlungen; loest Vertragskonflikte.",
+            5: "Gilt als Verhandlungsexpertin; entwickelt Vertragsstandards.",
+          },
+        },
+        {
+          name: "Kooperations- & Partnerschaftsentwicklung",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          trend: "steigend",
+          description:
+            "»Identifikation, Aufbau und Pflege strategischer Kooperationen und Partnerschaften zur Erweiterung von Produkt- und Marktreichweite. Typische Taetigkeiten: Potenzielle Partner identifizieren und ansprechen · Kooperationsmodelle gemeinsam mit Partnern entwickeln · Bestehende Partnerschaften aktiv weiterentwickeln«",
+          anchors: {
+            1: "Unterstuetzt bei der Pflege bestehender Partnerschaften.",
+            2: "Pflegt bestehende Partnerschaften eigenstaendig.",
+            3: "Identifiziert und entwickelt neue Kooperationen eigenstaendig.",
+            4: "Baut strategisch wichtige Partnerschaften aktiv auf; loest Konflikte in der Zusammenarbeit.",
+            5: "Praegt die Partnerschaftsstrategie des Unternehmens.",
+          },
+        },
+        {
+          name: "Markt- & Partnerschaftsanalyse",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Systematische Analyse von Markt, Wettbewerb und potenziellen Partnern zur Identifikation neuer Geschaeftschancen. Typische Taetigkeiten: Markt- und Partnerlandschaft strukturiert erfassen · Chancen und Risiken potenzieller Kooperationen bewerten · Ergebnisse fuer Entscheidungen aufbereiten«",
+          anchors: {
+            1: "Sammelt Marktinformationen nach Vorgabe.",
+            2: "Erstellt einfache Markt- und Partneranalysen eigenstaendig.",
+            3: "Analysiert Markt und potenzielle Partner eigenstaendig; leitet Chancen ab.",
+            4: "Bewertet komplexe Marktkonstellationen fundiert; beraet zu strategischen Optionen.",
+            5: "Gilt als Referenz fuer Markt- und Partnerschaftsanalyse.",
+          },
+        },
+        {
+          name: "Cross- & Upselling-Potenzialidentifikation",
+          dep: "Durable",
+          targetLevel: 2,
+          description:
+            "»Erkennen und Erschliessen von Cross- und Upselling-Potenzialen in bestehenden Kundenbeziehungen. Typische Taetigkeiten: Kundenbedarfe ueber das Kernprodukt hinaus erkennen · Zusatzangebote passend zum Kundenbedarf vorschlagen · Erfolg von Cross-/Upselling-Massnahmen nachhalten«",
+          anchors: {
+            1: "Erkennt offensichtliche Zusatzbedarfe mit Unterstuetzung.",
+            2: "Identifiziert Cross-/Upselling-Potenziale bei Standardkunden eigenstaendig.",
+            3: "Erschliesst Potenziale eigenstaendig und systematisch; spricht Zusatzangebote proaktiv an.",
+            4: "Entwickelt zielgerichtete Cross-/Upselling-Ansaetze fuer komplexe Accounts.",
+            5: "Etabliert eine systematische Cross-/Upselling-Praxis im Team.",
+          },
+        },
+        {
+          name: "Business-Case-Bewertung fuer Kooperationen",
+          dep: "Evolving",
+          targetLevel: 2,
+          description:
+            "»Bewertung des wirtschaftlichen Nutzens geplanter Kooperationen und Partnerschaften anhand belastbarer Business Cases. Typische Taetigkeiten: Kosten und Nutzen einer Kooperation gegenueberstellen · Annahmen fuer den Business Case transparent machen · Business Case gegenueber internen Entscheidern vertreten«",
+          anchors: {
+            1: "Traegt Zahlen fuer einen Business Case nach Vorlage zusammen.",
+            2: "Erstellt einfache Business Cases eigenstaendig.",
+            3: "Erstellt eigenstaendig belastbare Business Cases fuer Kooperationsentscheidungen.",
+            4: "Bewertet komplexe Business Cases kritisch; vertritt sie ueberzeugend gegenueber Entscheidern.",
+            5: "Definiert Standards fuer die Business-Case-Bewertung im Geschaeftsbereich.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Kundenbeziehungsmanagement & Kundenpflege",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Aufbau und Pflege vertrauensvoller, langfristiger Kundenbeziehungen als Grundlage fuer Kundenbindung und Geschaeftswachstum. Typische Taetigkeiten: Regelmaessigen Kontakt zu Schluesselkunden pflegen · Kundenzufriedenheit aktiv erfragen und sichern · Bei Unzufriedenheit fruehzeitig gegensteuern«",
+          anchors: {
+            1: "Haelt Kundenkontakt auf Anfrage; braucht Unterstuetzung bei der Pflege.",
+            2: "Pflegt Kundenkontakt regelmaessig und zuverlaessig.",
+            3: "Baut vertrauensvolle Kundenbeziehungen eigenstaendig auf und pflegt sie aktiv.",
+            4: "Erkennt Unzufriedenheit fruehzeitig; steuert proaktiv gegen und staerkt die Bindung.",
+            5: "Gilt als vertrauenswuerdige Ansprechpartnerin fuer Schluesselkunden; praegt die Kundenkultur.",
+          },
+        },
+        {
+          name: "Verhandlungsfuehrung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Interessen- und sachbezogene Verhandlung mit Kunden und Partnern bei Preisen, Konditionen und Vertragsinhalten. Typische Taetigkeiten: Verhandlungspositionen vorbereiten · Zielkonflikte zwischen Parteien ausgleichen · Verhandlungsergebnisse verbindlich dokumentieren«",
+          anchors: {
+            1: "Nimmt an Verhandlungen teil; bereitet Unterlagen vor.",
+            2: "Fuehrt einfache Verhandlungen eigenstaendig; findet Kompromisse.",
+            3: "Verhandelt Preise und Konditionen professionell; nutzt Verhandlungstechniken.",
+            4: "Fuehrt komplexe Mehrparteienverhandlungen; sichert Geschaeftsziele.",
+            5: "Gilt als Verhandlungsexpertin; coacht andere.",
+          },
+        },
+        {
+          name: "Stakeholder- & Partnermanagement",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Abstimmung mit internen Stakeholdern (Product, Finance, Recht) und externen Partnern, um Kooperationen und Accounts erfolgreich zu steuern. Typische Taetigkeiten: Interne Stakeholder frueh in Kooperationsvorhaben einbinden · Erwartungen zwischen internen und externen Partnern ausgleichen · Regelmaessige Abstimmungsformate etablieren«",
+          anchors: {
+            1: "Nimmt Abstimmungsbedarfe entgegen; braucht Unterstuetzung.",
+            2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
+            3: "Steuert Stakeholder- und Partnerbeziehungen eigenstaendig und konsistent.",
+            4: "Navigiert komplexe Zielkonflikte zwischen mehreren Parteien.",
+            5: "Setzt Standards fuer Stakeholder- und Partnerarbeit im Geschaeftsbereich.",
+          },
+        },
+        {
+          name: "Praesentation & Angebotskommunikation",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Ueberzeugende Praesentation von Angeboten, Kooperationsmodellen und Geschaeftsergebnissen gegenueber Kunden, Partnern und intern. Typische Taetigkeiten: Angebote und Kooperationsvorschlaege verstaendlich aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Kritische Rueckfragen souveraen beantworten«",
+          anchors: {
+            1: "Praesentiert nach Vorlage; braucht Unterstuetzung bei Rueckfragen.",
+            2: "Bereitet einfache Praesentationen eigenstaendig vor.",
+            3: "Praesentiert Angebote und Ergebnisse souveraen und ueberzeugend.",
+            4: "Passt Praesentationen zielgruppengerecht an; navigiert kritische Diskussionen.",
+            5: "Gilt als Vorbild fuer Angebots- und Geschaeftspraesentationen.",
+          },
+        },
+        { ...RUMP_VERBAL },
+      ],
+    },
+  ],
+};
+
 // -----------------------------------------------------------------------------
 // Backoffice
 // -----------------------------------------------------------------------------
@@ -5859,6 +6328,62 @@ const backofficeDrivers: MarketDriver[] = [
   },
 ];
 
+/** Markttreiber Produktmanagement (August 2026). */
+const produktmanagementDrivers: MarketDriver[] = [
+  {
+    id: "drv-pdm-ki-transformation",
+    title: "KI-Transformation der Produktarbeit",
+    horizon: "0–2 Jahre",
+    description:
+      "KI-Tools veraendern die Produktarbeit ueber alle Rollen hinweg — von Anforderungstexten und Recherche (Product Manager/Owner) ueber Design-Ideation (UX) bis zur Vertriebsvorbereitung (Business Developer). Wer KI-Outputs nicht kritisch pruefen und gezielt einsetzen kann, verliert Tempo und Qualitaet gegenueber schnelleren Wettbewerbern.",
+    affectedSkillNames: [
+      "Digitale Anwendungskompetenz",
+      "KI-Tools im Produktkontext",
+      "KI-Tools im Designprozess",
+      "KI-Tools fuer Vertriebs-/Accountarbeit",
+    ],
+  },
+  {
+    id: "drv-pdm-regulatorik-produkte",
+    title: "Regulatorischer Druck auf Versicherungsprodukte (VVG, BaFin, DORA, EU AI Act)",
+    horizon: "0–3 Jahre",
+    description:
+      "Versicherungsprodukte und die zugrundeliegende Software unterliegen wachsendem regulatorischem Druck — von Produktaufsicht (VVG/BaFin) ueber operationale Resilienz (DORA) bis zu KI-spezifischen Vorgaben (EU AI Act). Produktverantwortliche muessen Regulatorik fruehzeitig in Anforderungen, Vertraege und Priorisierung einpreisen.",
+    affectedSkillNames: [
+      "Regulatorik fuer Versicherungsprodukte (VVG, BaFin)",
+      "Regulatorische Anforderungen (BaFin, VVG)",
+      "Vertragsrecht & Konditionengestaltung (Grundlagen)",
+    ],
+  },
+  {
+    id: "drv-pdm-insurtech-oekosysteme",
+    title: "Insurtech-Wettbewerb & Plattform-Oekosysteme",
+    horizon: "1–3 Jahre",
+    description:
+      "Insurtechs, Vergleichsportale und Embedded-Insurance-Modelle erhoehen den Preis- und Innovationsdruck. Erfolg haengt zunehmend von strategischen Kooperationen, differenziertem Pricing und schneller Marktbeobachtung ab — statt von isolierter Produktentwicklung.",
+    affectedSkillNames: [
+      "Pricing- & Geschaeftsmodelle",
+      "Preisentwicklung & Pricing-Strategie",
+      "Kooperations- & Partnerschaftsentwicklung",
+      "Markt- und Wettbewerbsanalyse",
+      "Markt- & Partnerschaftsanalyse",
+    ],
+  },
+  {
+    id: "drv-pdm-nutzerzentrierung",
+    title: "Nutzerzentrierte, digitale Kundenerlebnisse",
+    horizon: "1–3 Jahre",
+    description:
+      "Kundinnen und Kunden erwarten durchgaengig digitale, einfache Abschluss- und Schadenprozesse, wie sie es aus anderen Branchen gewohnt sind. Produkt- und UX-Rollen muessen Nutzerbeduerfnisse kontinuierlich erheben und schnell in validierte, priorisierte Verbesserungen uebersetzen.",
+    affectedSkillNames: [
+      "Nutzerforschung & Interviews",
+      "Nutzerfeedback einholen & einarbeiten",
+      "Jobs-to-be-Done Framework",
+      "Customer Lifecycle Management",
+    ],
+  },
+];
+
 // -----------------------------------------------------------------------------
 // Export: all groups
 // -----------------------------------------------------------------------------
@@ -5892,7 +6417,8 @@ export const groups: Group[] = [
     name: "Produktmanagement",
     description:
       "Produktverantwortung von Strategie und Marktbearbeitung bis Backlog und Auslieferung.",
-    roles: [productManager, productOwner],
+    roles: [productManager, productOwner, ux, businessDeveloper],
+    defaultDrivers: produktmanagementDrivers,
   },
   {
     id: "backoffice",
