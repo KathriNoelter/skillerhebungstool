@@ -1328,18 +1328,18 @@ const scrumMaster: Role = {
           },
         },
         {
-          name: "Scrum Events faciliten",
+          name: "Scrum Events durchführen",
           dep: "Durable",
           targetLevel: 4,
           keySkill: true,
           description:
-            "»Professionelle Facilitation aller fünf Scrum Events: Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospektive, Backlog Refinement. Zeitboxing, Zielorientierung und Teameinbindung sicherstellen. Typische Tätigkeiten: Events strukturiert vorbereiten und leiten · Sprint-Ziel im Planning schützen · Review-Format zielgruppengerecht gestalten«",
+            "»Professionelle Durchführung aller fünf Scrum Events: Sprint Planning, Daily Scrum, Sprint Review, Sprint Retrospektive, Backlog Refinement. Timeboxing, Zielorientierung und Teameinbindung sicherstellen. Typische Tätigkeiten: Events strukturiert vorbereiten und leiten · Sprint-Ziel im Planning schützen · Review-Format zielgruppengerecht gestalten«",
           anchors: {
             1: "Moderiert einfache Events nach Vorlage.",
-            2: "Facilitet alle Events eigenständig; hält Zeitboxen ein.",
+            2: "Führt alle Events eigenständig durch; hält Timeboxen ein.",
             3: "Gestaltet Events variabel und situativ; steigert Engagement und Ergebnisqualität.",
-            4: "Optimiert Event-Formate kontinuierlich; coacht PO bei Sprint-Ziel-Definition.",
-            5: "Gilt als Facilitation-Experte; entwickelt Event-Formate für besondere Situationen.",
+            4: "Optimiert Event-Formate kontinuierlich.",
+            5: "Gilt als Scrum-Experte; entwickelt Event-Formate für besondere Situationen.",
           },
         },
         {
@@ -1355,34 +1355,6 @@ const scrumMaster: Role = {
             3: "Priorisiert und eskaliert Impediments auf der richtigen Ebene; berichtet transparent.",
             4: "Erkennt systemische Impedimentmuster; adressiert diese strukturell.",
             5: "Eliminiert Impediment-Ursachen auf Organisationsebene; coacht andere Scrum Master.",
-          },
-        },
-        {
-          name: "Retrospektiven-Design & -Facilitation",
-          dep: "Durable",
-          targetLevel: 4,
-          description:
-            "»Gestaltung und Durchführung wirkungsvoller Retrospektiven — mit variierten Formaten, Fokus auf psychologische Sicherheit und nachverfolgbaren Verbesserungen. Typische Tätigkeiten: Retro-Format variieren (z. B. Lean Coffee, 4Ls, Starfish) · Ehrlichen Dialog fördern · Action Items konsequent verfolgen«",
-          anchors: {
-            1: "Moderiert Standard-Retrospektive nach Vorlage.",
-            2: "Variiert Formate; erstellt Action Items mit dem Team.",
-            3: "Passt Format an Teamstimmung und -themen an; fördert ehrlichen Dialog.",
-            4: "Gestaltet Retros für schwierige Situationen (Konflikte, Rückschläge); coacht Kollegen.",
-            5: "Entwickelt neue Retro-Formate; etabliert Retrospektiven-Kultur im Unternehmen.",
-          },
-        },
-        {
-          name: "Kanban & Flow-Metriken",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Anwendung von Kanban-Prinzipien (Visualisierung, WIP-Limits, Flow) und zugehörigen Metriken als Ergänzung zu Scrum oder als eigenständige Methode. Typische Tätigkeiten: WIP-Limits definieren · Cycle Time und Throughput messen · Engpässe im Flow erkennen und adressieren«",
-          anchors: {
-            1: "Kennt Kanban-Grundprinzipien.",
-            2: "Setzt Kanban-Boards mit WIP-Limits auf.",
-            3: "Nutzt Flow-Metriken zur Teamsteuerung; optimiert Workflow-Design.",
-            4: "Kombiniert Scrum und Kanban situativ (Scrumban); coacht Team.",
-            5: "Gilt als Kanban-Experte; etabliert Kanban in neuen Teams.",
           },
         },
         {
@@ -1404,10 +1376,10 @@ const scrumMaster: Role = {
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Facilitation von Schätzprozessen im agilen Team — Story Points, T-Shirt-Sizing, Planning Poker. Nicht gemeint: inhaltliche Fachschätzung. Typische Tätigkeiten: Planning Poker faciliten · Team für relative Schätzung sensibilisieren · Konsens bei großen Differenzen herbeiführen«",
+            "»Etablierung von Schätzgrößen im agilen Team — Story Points, T-Shirt-Sizing. Nicht gemeint: inhaltliche Fachschätzung. Typische Tätigkeiten: Planning Poker durchführen · Team für relative Schätzung sensibilisieren · Konsens bei großen Differenzen herbeiführen«",
           anchors: {
             1: "Kennt Planning Poker; erklärt Story Points.",
-            2: "Facilitet Estimation-Sessions nach Vorlage.",
+            2: "Führt Estimation-Sessions nach Vorlage durch.",
             3: "Wählt Methode situativ; erklärt Relativschätzung verständlich.",
             4: "Verbessert Schätzqualität durch Coaching; erkennt und adressiert Biases.",
             5: "Etabliert Schätzstandards im Team; coacht POs bei Story-Vorbereitung.",
@@ -1461,7 +1433,7 @@ const scrumMaster: Role = {
             "»Fähigkeit, Teammitglieder und Stakeholder wirklich zu verstehen — nicht nur zu hören, was gesagt wird, sondern auch was dahintersteht. Grundlage für effektives Coaching, Impediment-Erkennung und psychologische Sicherheit. Typische Tätigkeiten: Aktiv zuhören ohne vorschnelles Problemlösen · Unausgesprochene Bedenken erkennen und ansprechen · Emotionale Zustände im Team wahrnehmen und berücksichtigen«",
           anchors: {
             1: "Hört zu; reagiert auf Aussagen ohne zu unterbrechen.",
-            2: "Stellt Verständnisfragen; paraphrasiert Gesagtes; erkennt offensichtliche emotionale Signale.",
+            2: "Stellt Verständnisfragen; fasst Gesagtes zusammen; erkennt offensichtliche emotionale Signale.",
             3: "Hört aktiv zu; erkennt auch unausgesprochene Bedenken; schafft Raum für ehrlichen Dialog.",
             4: "Liest Teamdynamiken intuitiv; antizipiert Widerstände und Bedürfnisse; coacht aus Empathie heraus.",
             5: "Gilt als empathische Führungspersönlichkeit; prägt psychologische Sicherheit im Team nachhaltig.",
@@ -1480,20 +1452,6 @@ const scrumMaster: Role = {
             3: "Lebt Servant Leadership konsistent; baut Vertrauen und psychologische Sicherheit auf.",
             4: "Begründet eigene Entscheidungen aus Servant-Leadership-Perspektive; coacht andere.",
             5: "Gilt als Vorbild; prägt Führungskultur in der Organisation.",
-          },
-        },
-        {
-          name: "Team-Coaching (systemisch)",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Coaching des Scrum-Teams in Richtung Selbstorganisation, Eigenverantwortung und kontinuierlicher Verbesserung — Einzel- und Gruppencoaching-Ansätze. Typische Tätigkeiten: Powerful Questions stellen statt Lösungen vorgeben · Teamkonflikte moderieren · Einzelne Teammitglieder in ihrer Entwicklung begleiten«",
-          anchors: {
-            1: "Gibt Ratschläge; reagiert auf Probleme wenn gebeten.",
-            2: "Stellt gelegentlich offene Fragen; beginnt Coaching-Haltung zu leben.",
-            3: "Coacht eigenständig; fördert Selbstorganisation aktiv; moderiert Dynamiken.",
-            4: "Kombiniert systemisches Denken mit Coaching; begleitet komplexe Teamdynamiken.",
-            5: "Gilt als erfahrener Team-Coach; entwickelt Coaching-Ansätze weiter.",
           },
         },
         {
