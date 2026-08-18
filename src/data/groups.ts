@@ -1024,6 +1024,197 @@ const projektassistenz: Role = {
             5: "Gilt als Dreh- und Angelpunkt für interne Koordination; entwickelt Standards.",
           },
         },
+        { ...RUMP_VERBAL, targetLevel: 3 },
+      ],
+    },
+  ],
+};
+
+const anforderungsmanager: Role = {
+  id: "anforderungsmanager",
+  name: "Anforderungsmanager",
+  description:
+    "Schnittstelle zwischen Stakeholdern, Fachabteilungen und Entwicklungsteams — erhebt, dokumentiert, validiert und priorisiert Anforderungen, moderiert Workshops und löst Konflikte im Versicherungsumfeld.",
+  categories: [
+    {
+      name: "Fachlich",
+      skills: [
+        {
+          name: "Anforderungserhebung",
+          dep: "Evolving",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Systematische Erhebung und Strukturierung von Anforderungen für IT-/Softwaresysteme. Typische Tätigkeiten: Anforderungen von Stakeholdern aufnehmen · Geschäftsprozesse analysieren · Funktionale und nicht-funktionale Anforderungen dokumentieren · Rückfragen mit Fachexperten klären«",
+          anchors: {
+            1: "Nimmt Anforderungen auf, die Stakeholder direkt nennen, und dokumentiert sie.",
+            2: "Stellt gezielte Rückfragen; erstellt strukturierte Anforderungsdokumente mit Unterstützung.",
+            3: "Führt Interviews oder Workshops durch; dokumentiert Anforderungen in Form von User Stories oder anderen geeigneten Formaten.",
+            4: "Analysiert widersprüchliche Anforderungen und identifiziert Ursachen.",
+            5: "Entwickelt einen neuen Ansatz zur Anforderungsanalyse für ein spezifisches Projekt.",
+          },
+        },
+        {
+          name: "Anforderungsdokumentation",
+          dep: "Evolving",
+          targetLevel: 4,
+          description:
+            "»Erstellung und Pflege klarer, vollständiger und nachvollziehbarer Anforderungsdokumente. Typische Tätigkeiten: Lasten-/Pflichtenhefte verfassen und aktualisieren · Dokumentationsstandards einhalten · Versionierung und Nachverfolgbarkeit sicherstellen · Modellsprachen wie BPMN ergänzend einsetzen«",
+          anchors: {
+            1: "Benennt die Bestandteile eines Anforderungsdokuments.",
+            2: "Beschreibt, warum Nachverfolgbarkeit in der Dokumentation wichtig ist.",
+            3: "Nutzt ein RM-Tool zur strukturierten Dokumentation.",
+            4: "Prüft ein Dokument auf Inkonsistenzen und Lücken.",
+            5: "Erstellt eine neue Dokumentationsvorlage für das Projekt.",
+          },
+        },
+        {
+          name: "Anforderungsvalidierung",
+          dep: "Evolving",
+          targetLevel: 2,
+          keySkill: true,
+          description:
+            "»Sicherstellung, dass Anforderungen eindeutig, realisierbar und testbar sind. Typische Tätigkeiten: Reviews und Walkthroughs durchführen · Anforderungen mit Stakeholdern abstimmen · Konflikte identifizieren und lösen«",
+          anchors: {
+            1: "Listet Validierungsmethoden auf.",
+            2: "Erklärt, warum Validierung für den Projekterfolg entscheidend ist.",
+            3: "Führt eine Validierungssitzung mit Stakeholdern durch.",
+            4: "Untersucht Anforderungen auf Widersprüche und Unklarheiten.",
+            5: "Entwickelt ein neues Validierungskonzept für komplexe Projekte.",
+          },
+        },
+        {
+          name: "Priorisieren von Anforderungen",
+          dep: "Evolving",
+          targetLevel: 2,
+          keySkill: true,
+          description:
+            "»Bewertung und Priorisierung von Anforderungen nach Geschäftswert und Umsetzbarkeit. Typische Tätigkeiten: Priorisierungstechniken anwenden (z. B. MoSCoW, Kano) · Priorisierungsworkshops moderieren · Prioritäten dokumentieren und kommunizieren«",
+          anchors: {
+            1: "Nennt gängige Priorisierungsmethoden.",
+            2: "Erklärt, warum Priorisierung für das Projektmanagement wichtig ist.",
+            3: "Setzt eine Priorisierungsmethode im Projekt ein.",
+            4: "Bewertet Auswirkungen von Priorisierungsentscheidungen.",
+            5: "Entwickelt ein individuelles Priorisierungskonzept für das Projekt.",
+          },
+        },
+        { ...RUMP_DIGITALE, targetLevel: 3 },
+      ],
+    },
+    {
+      name: "Technisch",
+      skills: [
+        {
+          name: "Toolkompetenz Anforderungsmanagement (Jira, Confluence)",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Sicherer Umgang mit Anforderungsmanagement- und Dokumentationstools inkl. projektspezifischem Customizing (Boards, Ticketprozesse, Confluence-Vorlagen). Nicht gemeint: technische Tool-Administration. Typische Tätigkeiten: RM-Tools konfigurieren und pflegen · Backlogs filtern, priorisieren und mit dem Team synchronisieren · Teammitglieder schulen«",
+          anchors: {
+            1: "Nutzt das Tool nach Anleitung für einfache Aufgaben.",
+            2: "Erfasst Anforderungen selbstständig, legt eigenständig User Stories und Epics an und pflegt Confluence nach vorhandenen Strukturen.",
+            3: "Nutzt Jira und Confluence sicher; strukturiert Backlogs, Filter und Dashboards eigenständig.",
+            4: "Konfiguriert Boards, definiert Ticketprozesse und legt Confluence-Vorlagen projektspezifisch an.",
+            5: "Definiert team- oder projektweite Standards, setzt neue Strukturen auf und ist Anlaufstelle für andere.",
+          },
+        },
+        {
+          name: "IT-Systemverständnis",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Verständnis für IT-Architekturen, Schnittstellen und Systemabhängigkeiten. Typische Tätigkeiten: Systemlandschaften analysieren · Technische Machbarkeit bewerten · Austausch mit Architekten und Entwicklern«",
+          anchors: {
+            1: "Erkennt grundlegende Systemkomponenten.",
+            2: "Versteht einfache Zusammenhänge zwischen Systemen.",
+            3: "Analysiert Schnittstellen und bewertet technische Risiken.",
+            4: "Berät bei Architekturentscheidungen und erkennt Auswirkungen auf Anforderungen.",
+            5: "Entwickelt innovative Systemlösungen und gestaltet die IT-Landschaft aktiv mit.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Methodisch",
+      skills: [
+        {
+          name: "Requirements Engineering Methoden",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Methoden zur Erhebung, Modellierung, Validierung und Verwaltung von Anforderungen situationsgerecht einsetzen. Typische Tätigkeiten: Interviews, Workshops, Beobachtungen durchführen · Validierungs- und Verifikationsmethoden zur Bewertung nutzen (z. B. Kano, MoSCoW)«",
+          anchors: {
+            1: "Wendet Methoden nach Anleitung an.",
+            2: "Nutzt Methoden eigenständig für Standardfälle.",
+            3: "Wählt passende Methoden situationsgerecht aus.",
+            4: "Kombiniert Methoden flexibel und passt sie an Projekterfordernisse an.",
+            5: "Entwickelt neue Methoden und schult andere darin.",
+          },
+        },
+        {
+          name: "Konfliktlösungstechniken",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Methoden zur Identifikation und Lösung von Anforderungskonflikten. Typische Tätigkeiten: Konfliktgespräche moderieren · Verhandlungstechniken anwenden · Lösungen dokumentieren«",
+          anchors: {
+            1: "Erkennt Konflikte und informiert Vorgesetzte.",
+            2: "Unterstützt bei der Konfliktlösung nach Anleitung.",
+            3: "Moderiert Konfliktgespräche eigenständig.",
+            4: "Löst komplexe Konflikte und erzielt nachhaltige Einigungen.",
+            5: "Entwickelt neue Konfliktlösungsstrategien und coacht andere.",
+          },
+        },
+        {
+          name: "Versions- und Änderungsmanagement",
+          dep: "Evolving",
+          targetLevel: 3,
+          description:
+            "»Verwaltung von Anforderungsänderungen und Versionen über den gesamten Projektlebenszyklus. Typische Tätigkeiten: Änderungen nachverfolgen und dokumentieren · Änderungsanträge koordinieren · Stakeholder über Änderungen informieren«",
+          anchors: {
+            1: "Dokumentiert Änderungen nach Vorgabe.",
+            2: "Erkennt Änderungsbedarf und meldet diesen weiter.",
+            3: "Koordiniert Änderungsprozesse und informiert alle Beteiligten.",
+            4: "Optimiert das Änderungsmanagement und minimiert Auswirkungen auf das Projekt.",
+            5: "Entwickelt unternehmensweite Change-Management-Strategien.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Kommunikationsfähigkeit",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Identifikation und Management aller relevanten Stakeholder und ihrer Interessen; zielgruppengerechte, klare Kommunikation auf allen Ebenen. Typische Tätigkeiten: Workshops moderieren · Anforderungen und Lösungen präsentieren · Feedbackschleifen gestalten«",
+          anchors: {
+            1: "Kommuniziert nach Vorgabe, meist schriftlich.",
+            2: "Kommuniziert sicher in Standardsituationen.",
+            3: "Passt Kommunikation an Zielgruppen an.",
+            4: "Moderiert anspruchsvolle Diskussionen und vermittelt zwischen Parteien.",
+            5: "Setzt Kommunikationsstandards, coacht andere und entwickelt eine neue Strategie zur Stakeholder-Einbindung.",
+          },
+        },
+        {
+          name: "Teamarbeit & Kollaboration",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Effektive Zusammenarbeit in interdisziplinären Teams. Typische Tätigkeiten: Abstimmung mit Entwicklern, Testern, Business-Analysten · Teamentscheidungen unterstützen · Konstruktive Zusammenarbeit fördern«",
+          anchors: {
+            1: "Arbeitet im Team nach klaren Anweisungen.",
+            2: "Bringt sich aktiv in Teammeetings ein.",
+            3: "Fördert die Zusammenarbeit und unterstützt Kollegen.",
+            4: "Löst Teamkonflikte und fördert Synergien.",
+            5: "Entwickelt die Teamkultur mit und coacht Teams.",
+          },
+        },
+        { ...RUMP_VERBAL, targetLevel: 3 },
       ],
     },
   ],
@@ -6369,7 +6560,13 @@ export const groups: Group[] = [
     name: "Projektmanagement",
     description:
       "Projekte planen, steuern und erfolgreich zum Abschluss bringen.",
-    roles: [projektleitung, scrumMaster, agileCoach, projektassistenz],
+    roles: [
+      projektleitung,
+      scrumMaster,
+      agileCoach,
+      projektassistenz,
+      anforderungsmanager,
+    ],
     defaultDrivers: projektmanagementDrivers,
   },
   {
