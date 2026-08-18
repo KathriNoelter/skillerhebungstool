@@ -840,9 +840,9 @@ const businessAnalyst: Role = {
 
 const projektassistenz: Role = {
   id: "projektassistenz",
-  name: "Project Assistance",
+  name: "Projektassistenz (operativ)",
   description:
-    "Operative Unterstützung der Projektleitung — Koordination, Dokumentation und Kommunikation im laufenden Projektalltag im Versicherungsumfeld.",
+    "Operative Unterstützung des Projektteams und/oder der Projektleitung — Übernahme von projektspezifischen Aufgaben sowie Koordination, Dokumentation und Kommunikation im laufenden Projektalltag im Versicherungsumfeld.",
   categories: [
     {
       name: "Fachlich",
@@ -862,16 +862,31 @@ const projektassistenz: Role = {
           },
         },
         {
+          name: "Projektmanagement-Standards",
+          dep: "Evolving",
+          targetLevel: 4,
+          keySkill: true,
+          description:
+            "»Kenntnis der wesentlichen Projektmanagement-Frameworks oder agilen Methoden wie Scrum und Kanban. Typische Tätigkeiten: Pflege des Projektstrukturplans · Aktualisierung der Ressourcenplanung · Nachverfolgung von Projektaufgaben«",
+          anchors: {
+            1: "Kennt Begriffe des Projektmanagements, Projektphasen sowie agile Methoden.",
+            2: "Interpretiert die Anforderungen eines Projekts und ordnet sie den entsprechenden Projektphasen oder Standards zu.",
+            3: "Unterstützt das Projekt bei der praktischen Umsetzung von Standards, in der Planung, Dokumentation oder der Nachverfolgung von Aufgaben.",
+            4: "Bewertet die Einhaltung von Projektmanagementstandards und empfiehlt Verbesserungen; ist Sparringpartner für die Projektleitung, um den Projekterfolg zu sichern.",
+            5: "Definiert Projektmanagementstandards für das Projektbüro.",
+          },
+        },
+        {
           name: "Compliance-Vorgaben für Projektdokumentation",
           dep: "Evolving",
-          targetLevel: 2,
+          targetLevel: 3,
           description:
             "»Kenntnis der wesentlichen Dokumentations- und Revisionspflichten in IT-Projekten im regulierten Umfeld (z. B. DSGVO, VAIT, interne Governance). Typische Tätigkeiten: Schutzbedarf von Dokumenten einschätzen · Ablageregeln und Zugriffssicherung einhalten · Dokumentationspflicht bei Verträgen und Protokollen beachten«",
           anchors: {
             1: "Kennt Begriffe wie Revisionssicherheit und DSGVO; hält Vorgaben auf Hinweis ein.",
-            2: "Erklärt relevante Dokumentations- und Ablageregeln; wendet sie eigenständig an.",
-            3: "Erkennt Lücken in der Dokumentation und spricht Handlungsbedarf proaktiv an.",
-            4: "Bewertet Dokumentationsqualität und empfiehlt Verbesserungen.",
+            2: "Erklärt relevante Dokumentations- und Ablageregeln.",
+            3: "Wendet die relevanten Dokumentationsregeln im Projektalltag an.",
+            4: "Erkennt Lücken in der Dokumentation, spricht Handlungsbedarf proaktiv an und empfiehlt Verbesserungen.",
             5: "Definiert Dokumentationsstandards für das Projektbüro.",
           },
         },
@@ -911,7 +926,7 @@ const projektassistenz: Role = {
           },
         },
         {
-          name: "Projektmanagement-Tools (z. B. MS Project, Smartsheet)",
+          name: "Projektmanagement-Tools (z. B. MS Project, SeaTable oder vergleichbare Tools)",
           dep: "Evolving",
           targetLevel: 2,
           description:
@@ -924,67 +939,39 @@ const projektassistenz: Role = {
             5: "Definiert Tool-Standards für das Projektbüro; schult andere.",
           },
         },
-        {
-          name: "KI-Tools für Protokolle & Zusammenfassungen",
-          dep: "Perishable",
-          targetLevel: 2,
-          trend: "stark steigend",
-          description:
-            "»Einsatz von KI-Assistenten zur Effizienzsteigerung bei typischen Assistenzaufgaben: Besprechungen transkribieren, Protokolle strukturieren, Dokumente zusammenfassen. Typische Tätigkeiten: Transkripte aus Besprechungen automatisch aufbereiten · Texte per Prompt verbessern · Ergebnisse kritisch prüfen und freigeben«",
-          anchors: {
-            1: "Kennt gängige KI-Tools dem Namen nach.",
-            2: "Nutzt KI-Tools für Protokolle und Zusammenfassungen mit einfachem Prompting.",
-            3: "Optimiert Prompts situativ; prüft Outputs auf Vollständigkeit und Korrektheit.",
-            4: "Etabliert wiederverwendbare Prompt-Vorlagen für das Assistenzbüro.",
-            5: "Definiert KI-Nutzungsstandards im Assistenzbereich.",
-          },
-        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
         {
-          name: "Protokollführung & Dokumentation",
+          name: "Meeting Management",
           dep: "Durable",
           targetLevel: 3,
-          keySkill: true,
           description:
-            "»Strukturierte Erstellung von Sitzungsprotokollen, Entscheidungsnotizen und Besprechungsergebnissen — nachvollziehbar, vollständig und empfängergerecht. Typische Tätigkeiten: Protokolle während oder nach Besprechungen erstellen · Aufgaben, Verantwortlichkeiten und Fristen festhalten · Protokolle für verschiedene Zielgruppen (z. B. Team, Steuerungskreis) aufbereiten«",
+            "»Organisation von Projektmeetings, Vorbereitung von Unterlagen sowie strukturierte Erstellung von Sitzungsprotokollen, Entscheidungsnotizen und Besprechungsergebnissen — nachvollziehbar, vollständig und empfängergerecht. Typische Tätigkeiten: Projekttermine koordinieren und Agenden vorbereiten · Protokolle während oder nach Besprechungen erstellen · Aufgaben, Verantwortlichkeiten und Fristen festhalten«",
           anchors: {
-            1: "Erstellt einfache Protokolle nach Vorlage; hält wesentliche Ergebnisse fest.",
+            1: "Erstellt Projekttermine und einfache Protokolle nach Vorlage; hält wesentliche Ergebnisse fest.",
             2: "Protokolliert eigenständig; erfasst Entscheidungen, Aufgaben und offene Punkte vollständig.",
-            3: "Passt Protokolltiefe und -format zielgruppengerecht an; trennt relevante von irrelevanten Inhalten.",
+            3: "Bereitet Unterlagen und Agenda vor, passt Protokolltiefe und -format zielgruppengerecht an, trennt relevante von irrelevanten Inhalten und verfolgt Aufgaben aus den Terminen nach.",
             4: "Erstellt revisionssichere Protokolle für Steuerungskreise; bewertet Qualität anderer Protokolle.",
             5: "Definiert Protokollstandards für das Projektbüro; coacht andere.",
           },
         },
         {
-          name: "Terminkoordination & Meeting-Management",
-          dep: "Durable",
-          targetLevel: 3,
+          name: "Reporting und Monitoring",
+          dep: "Evolving",
+          targetLevel: 4,
+          keySkill: true,
+          bewertungsmodell: "Bloom",
           description:
-            "»Planung, Vor- und Nachbereitung von Terminen und Besprechungen — inkl. Einladungen, Agenda, Raumorganisation und Nachverfolgung. Typische Tätigkeiten: Regelmeetings koordinieren und Terminreihen einrichten · Agenden vorbereiten und abstimmen · Offene Punkte aus Besprechungen nachverfolgen«",
+            "»Erstellung von Berichten zur Auswertung des Projektstatus sowie zur Analyse und Vorbereitung von Projektaufgaben. Typische Tätigkeiten: Plan-Ist-Vergleiche aus Zeitmanagementsystemen erstellen · Projektbudget überwachen · Statusberichte erstellen«",
           anchors: {
-            1: "Plant einfache Termine; verschickt Einladungen mit Anleitung.",
-            2: "Koordiniert regelmäßige Meetings eigenständig; erstellt Standardagenden.",
-            3: "Organisiert komplexe Terminplanung (mehrere Parteien, Zeitzonen); trackt offene Punkte.",
-            4: "Optimiert Meeting-Strukturen; entlastet die Projektleitung proaktiv.",
-            5: "Definiert Meeting-Management-Standards für große Projekte.",
-          },
-        },
-        {
-          name: "Budget- und Kostenverfolgung",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Unterstützung der Projektleitung bei Budgetverfolgung: Ist-Kosten erfassen, Abweichungen erkennen, Berichtvorlagen pflegen. Typische Tätigkeiten: Kostenübersichten aktualisieren · Rechnungsfreigaben vorbereiten und verfolgen · Abweichungsreports für die Projektleitung aufbereiten«",
-          anchors: {
-            1: "Trägt Kostendaten nach Vorlage ein; braucht Unterstützung bei Auswertungen.",
-            2: "Pflegt Budgetübersichten eigenständig; erkennt einfache Abweichungen.",
-            3: "Erstellt Abweichungsberichte; verfolgt Rechnungsfreigaben proaktiv nach.",
-            4: "Analysiert Kostenentwicklung und bereitet Handlungsempfehlungen für die Projektleitung vor.",
-            5: "Entwickelt Budgetcontrolling-Vorlagen und -Standards für das Projektbüro.",
+            1: "Kann die grundlegenden Begriffe und Definitionen im Zusammenhang mit Reporting und Monitoring (z. B. KPIs, Meilensteine, Statusberichte) korrekt wiedergeben.",
+            2: "Versteht die Zusammenhänge zwischen Projektzielen, KPIs und den im Reporting dargestellten Daten.",
+            3: "Erstellt eigenständig regelmäßige Statusberichte basierend auf den vorgegebenen Projektmanagement-Standards; nutzt Tools, um Daten visuell darzustellen.",
+            4: "Analysiert Berichte und identifiziert kritische Abweichungen oder Risiken, die den Projektfortschritt gefährden könnten.",
+            5: "Unterstützt die Projektleitung bei der Einführung neuer Monitoring-Methoden oder -Tools und schult Teammitglieder in deren Anwendung.",
           },
         },
         {
@@ -996,7 +983,7 @@ const projektassistenz: Role = {
           anchors: {
             1: "Legt Dokumente nach vorgegebener Struktur ab.",
             2: "Pflegt Ablagestruktur eigenständig; hält Versionierung ein.",
-            3: "Optimiert Ablagestruktur; stellt Auffindbarkeit aktiv sicher.",
+            3: "Optimiert Ablagestruktur; stellt Auffindbarkeit aktiv sicher; schützt aktiv sensible Informationen.",
             4: "Entwirft Dokumentenmanagement-Konzepte für große Projekte.",
             5: "Definiert unternehmensweite Ablagestandards für Projekte.",
           },
@@ -1010,60 +997,33 @@ const projektassistenz: Role = {
           name: "Serviceorientierung & Verlässlichkeit",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           bewertungsmodell: "Dreyfus",
           description:
-            "»Proaktive Unterstützungshaltung und konsequente Verlässlichkeit als Grundprinzip der Assistenzrolle: Aufgaben zuverlässig und termingerecht erfüllen, Bedarfe der Projektleitung und des Teams antizipieren und ohne Erinnerung handeln. Typische Tätigkeiten: Zugesagte Aufgaben fristgerecht liefern · Bedarfe proaktiv erkennen und ansprechen · Qualität der eigenen Arbeit eigenständig sicherstellen«",
+            "»Proaktive Unterstützungshaltung und konsequente Verlässlichkeit als Grundprinzip der Assistenzrolle: Aufgaben zuverlässig und termingerecht erfüllen, Bedarfe des Projekts antizipieren und ohne Erinnerung handeln. Typische Tätigkeiten: Zugesagte Aufgaben fristgerecht liefern · Bedarfe proaktiv erkennen und ansprechen · Qualität der eigenen Arbeit eigenständig sicherstellen«",
           anchors: {
             1: "Erledigt übertragene Aufgaben termingerecht; braucht klare Anweisung.",
             2: "Handelt zuverlässig ohne Erinnerung; meldet proaktiv, wenn Fristen gefährdet sind.",
-            3: "Antizipiert Bedarfe der Projektleitung; liefert Arbeitsergebnisse proaktiv und in hoher Qualität.",
+            3: "Antizipiert Bedarfe im Projekt; liefert Arbeitsergebnisse proaktiv und in hoher Qualität.",
             4: "Entlastet die Projektleitung spürbar durch vorausschauendes Handeln; wird als verlässliche Konstante wahrgenommen.",
             5: "Gilt als unverzichtbare Stütze im Projektbüro; prägt Servicekultur und befähigt andere.",
           },
         },
         {
-          name: "Interne Abstimmung & Nachverfolgung",
+          name: "Interne und externe Kommunikation & Nachverfolgung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
-            "»Aktive Unterstützung der Projektleitung bei der internen Koordination: Informationsfluss sicherstellen, Prioritäten kommunizieren, Aufgaben nachverfolgen. Typische Tätigkeiten: Offene Punkte und Aufgaben nachverfolgen · Zuständige eigenständig kontaktieren · Projektstatus intern kommunizieren«",
+            "»Professionelle Kommunikation mit externen Partnern und im Projektteam; aktive Unterstützung der Projektleitung bei der internen Koordination: Informationsfluss sicherstellen, Prioritäten kommunizieren, Aufgaben nachverfolgen. Typische Tätigkeiten: Offene Punkte und Aufgaben nachverfolgen · Zuständige eigenständig kontaktieren · Projektstatus intern kommunizieren«",
           anchors: {
             1: "Gibt Informationen weiter wenn gebeten; verfolgt Aufgaben auf Anweisung nach.",
             2: "Stellt Informationsfluss im Team sicher; verfolgt eigenständig nach.",
-            3: "Koordiniert Abstimmungsbedarfe proaktiv; eskaliert rechtzeitig.",
+            3: "Formuliert empfängergerecht; koordiniert Abstimmungsbedarfe proaktiv; eskaliert rechtzeitig.",
             4: "Moderiert einfache Abstimmungsrunden; erkennt Priorisierungskonflikte.",
             5: "Gilt als Dreh- und Angelpunkt für interne Koordination; entwickelt Standards.",
           },
         },
-        {
-          name: "Externe Kommunikation & Korrespondenz",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Professionelle schriftliche Kommunikation mit Kunden, Lieferanten und externen Projektpartnern im Auftrag der Projektleitung. Typische Tätigkeiten: E-Mails und Schreiben formulieren · Antworten auf Rückfragen vorbereiten · Korrespondenz revisionssicher ablegen«",
-          anchors: {
-            1: "Formuliert einfache E-Mails; braucht Korrekturen.",
-            2: "Erstellt professionelle Korrespondenz eigenständig; hält Ton und Form ein.",
-            3: "Formuliert auch sensible Nachrichten situationsgerecht; beachtet Vertraulichkeit.",
-            4: "Vertritt die Projektleitung in einfachen Abstimmungen schriftlich.",
-            5: "Definiert Korrespondenzstandards; berät andere.",
-          },
-        },
-        {
-          name: "Diskretion & Vertraulichkeit",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Verantwortungsvoller Umgang mit vertraulichen Projekt- und Personalinformationen. Schutz sensibler Daten im Projektalltag. Typische Tätigkeiten: Zugang zu sensiblen Dokumenten beschränken · Vertraulichkeitsregeln einhalten und vorleben · Unklarheiten zu Vertraulichkeit proaktiv klären«",
-          anchors: {
-            1: "Hält Vertraulichkeit ein wenn explizit darauf hingewiesen.",
-            2: "Erkennt vertrauliche Informationen eigenständig; hält Regeln konsequent ein.",
-            3: "Handelt diskret ohne Erinnerung; schützt aktiv sensible Informationen.",
-            4: "Erkennt Risiken frühzeitig; empfiehlt Schutzmaßnahmen.",
-            5: "Gilt als Vertrauensperson; prägt Vertraulichkeitskultur im Büro.",
-          },
-        },
-        { ...RUMP_VERBAL, targetLevel: 3 },
       ],
     },
   ],
