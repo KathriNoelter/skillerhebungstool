@@ -4417,6 +4417,7 @@ const inhouseProjektSupport: Role = {
           name: "Beratungsprojekte & Abrechnungsmodelle",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Grundverstaendnis der typischen Projektstrukturen und Vertragsmodelle (Time & Material, Festpreis, Rahmenvertrag) als Basis fuer Abrechnungs- und Koordinationsaufgaben. Nicht gemeint: kaufmaennische Vertragsgestaltung. Typische Taetigkeiten: Projektstruktur und Abrechnungsmodell eines Auftrags einordnen · Stundennachweise den richtigen Positionen zuordnen · Rechnungsgrundlagen auf Plausibilitaet pruefen«",
           anchors: {
@@ -4431,6 +4432,7 @@ const inhouseProjektSupport: Role = {
           name: "Datenschutz im Projektkontext",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Grundkenntnisse zu DSGVO-Anforderungen bei der Verarbeitung von Kundendaten und Projektdokumenten. Nicht gemeint: rechtliche Beratung oder DSGVO-Beauftragung. Typische Taetigkeiten: Projektdokumente schutzbedarfsgerecht ablegen und weiterleiten · Kundendaten nur zweckgebunden verarbeiten · Loeschfristen fuer Projektakten einhalten«",
           anchors: {
@@ -4441,7 +4443,7 @@ const inhouseProjektSupport: Role = {
             5: "Definiert Datenschutzstandards fuer die Projektadministration.",
           },
         },
-        { ...RUMP_DIGITALE, targetLevel: 2 },
+        { ...RUMP_DIGITALE, targetLevel: 2, trend: "stark steigend" },
       ],
     },
     {
@@ -4452,8 +4454,9 @@ const inhouseProjektSupport: Role = {
           dep: "Evolving",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
-            "»Operative Nutzung des Projektmanagement-Tools zur Aufgabenverfolgung, Zeiterfassung und Statusdokumentation. Nicht gemeint: Projektkonfiguration oder agile Steuerung. Typische Taetigkeiten: Aufgaben und Meilensteine im Tool pflegen und aktuell halten · Zeitbuchungen pruefen und nachhalten · Statusberichte aus dem Tool aufbereiten«",
+            "»Operative Nutzung des Projektmanagement-Tools zur Aufgabenverfolgung, Zeiterfassung und Statusdokumentation. Nicht gemeint: Projektkonfiguration oder agile Steuerung. Typische Taetigkeiten: Aufgaben und Meilensteine im Tool neu anlegen, pflegen und aktuell halten · offene ToDo's pruefen und nachhalten · Statusberichte aus dem Tool aufbereiten«",
           anchors: {
             1: "Bedient das Tool grundlegend; traegt Daten nach Anweisung ein.",
             2: "Pflegt Aufgaben und Zeitbuchungen eigenstaendig; haelt Status aktuell.",
@@ -4465,8 +4468,11 @@ const inhouseProjektSupport: Role = {
         {
           name: "Zeiterfassung & ERP-System",
           dep: "Evolving",
-          targetLevel: 3,
+          targetLevel: 5,
           keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "Systemo ist Herzstueck-Tool der Organisation (Abrechnung, Buchungen); ab 2027 kommt die gesetzliche E-Rechnungspflicht als weiterer Entwicklungstreiber hinzu.",
           description:
             "»Sicherer Umgang mit dem Zeiterfassungs- und ERP-System fuer Projektbuchungen, Auslastungsuebersichten und Abrechnungsgrundlagen. Typische Taetigkeiten: Stundenbuchungen auf Projekte pruefen und klaeren · Auslastungsberichte aus dem System aufbereiten · Abrechnungslaeufe vorbereiten und Daten auf Vollstaendigkeit pruefen«",
           anchors: {
@@ -4481,8 +4487,9 @@ const inhouseProjektSupport: Role = {
           name: "MS Office (Excel, Word, PowerPoint)",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
-            "»Sicherer Umgang mit MS Office fuer Projektverfolgung, Angebotsvorbereitung und Statusberichte. Typische Taetigkeiten: Auslastungs- und Projektverfolgungslisten in Excel fuehren · Angebote und Statusberichte nach Vorlage aufbereiten · Stundennachweise und Abrechnungsunterlagen in Word strukturieren«",
+            "»Sicherer Umgang mit MS Office fuer Projektverfolgung, Angebotsvorbereitung und Statusberichte. Typische Taetigkeiten: Auslastungs- und Projektverfolgungslisten in Excel fuehren · Angebote und Statusberichte nach Vorlage aufbereiten«",
           anchors: {
             1: "Bedient alle drei Programme grundlegend; erstellt Dokumente nach Vorlage.",
             2: "Nutzt Standardfunktionen sicher; fuehrt Listen und Tabellen eigenstaendig.",
@@ -4494,7 +4501,7 @@ const inhouseProjektSupport: Role = {
         {
           name: "KI-Tools fuer Projektdokumentation",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 4,
           trend: "stark steigend",
           description:
             "»Einsatz von KI-Assistenten fuer Dokumentationsaufgaben im Projektumfeld: Berichte formulieren, Besprechungsnotizen strukturieren, Angebote vorbereiten. Typische Taetigkeiten: Projektberichte per KI formulieren und verfeinern · Besprechungsprotokolle automatisch aufbereiten · Outputs pruefen und anpassen«",
@@ -4516,8 +4523,9 @@ const inhouseProjektSupport: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
-            "»Operative Pflege der Einsatz- und Auslastungsplanung: Wer arbeitet in welchem Projekt, in welchem Umfang — als Grundlage fuer Abrechnung und Kapazitaetsplanung. Nicht gemeint: strategische Ressourcenplanung oder Kapazitaetsentscheidungen. Typische Taetigkeiten: Projektzuordnungen erfassen und aktuell halten · Auslastungsuebersichten fuer Projektleitungen aufbereiten · Abweichungen zwischen Planung und Ist erkennen und melden«",
+            "»Operative Pflege der Einsatz- und Auslastungsplanung: Wer arbeitet in welchem Projekt, in welchem Umfang — als Grundlage fuer Abrechnung. Nicht gemeint: strategische Ressourcenplanung oder Kapazitaetsentscheidungen. Typische Taetigkeiten: Projektzuordnungen erfassen und aktuell halten · Auslastungsuebersichten fuer Projektleitungen aufbereiten · Abweichungen zwischen Planung und Ist erkennen und melden«",
           anchors: {
             1: "Traegt Zuordnungen auf Anweisung ein; braucht Unterstuetzung bei der Auswertung.",
             2: "Pflegt Einsatzplanung eigenstaendig; erstellt einfache Auslastungsuebersichten.",
@@ -4529,10 +4537,13 @@ const inhouseProjektSupport: Role = {
         {
           name: "Projektabrechnung & Rechnungsvorbereitung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 5,
           keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "Die Rolle traegt diesen Prozess end-to-end allein; mit wachsendem externem Geschaeft nimmt Volumen und Komplexitaet der Abrechnung weiter zu.",
           description:
-            "»Vorbereitung von Projektabrechnungen: Stundennachweise pruefen, Abrechnungsunterlagen zusammenstellen und Rechnungen fuer die Freigabe vorbereiten. Nicht gemeint: Buchungsvorgaenge in der Finanzbuchhaltung. Typische Taetigkeiten: Stundennachweise auf Vollstaendigkeit und Richtigkeit pruefen · Abrechnungsunterlagen fuer den Kunden zusammenstellen · Rechnungsdaten an Buchhaltung uebergeben«",
+            "»Vorbereitung von Projektabrechnungen: Stundennachweise pruefen, Abrechnungsunterlagen zusammenstellen und Rechnungen fuer den Kunden erstellen. Nicht gemeint: Buchungsvorgaenge in der Finanzbuchhaltung. Typische Taetigkeiten: Stundennachweise auf Vollstaendigkeit und Richtigkeit pruefen · Abrechnungsunterlagen fuer den Kunden zusammenstellen · Rechnungsdaten an Buchhaltung uebergeben«",
           anchors: {
             1: "Sammelt Unterlagen auf Anweisung; braucht Unterstuetzung bei der Pruefung.",
             2: "Prueft Stundennachweise eigenstaendig; stellt Abrechnungsunterlagen zusammen.",
@@ -4544,9 +4555,10 @@ const inhouseProjektSupport: Role = {
         {
           name: "Angebots- & Auftragsadministration",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
+          trend: "stabil",
           description:
-            "»Administrative Unterstuetzung bei der Vorbereitung und Anlage von Angeboten und Auftraegen. Nicht gemeint: kaufmaennische Verhandlung oder Angebotsstrategie. Typische Taetigkeiten: Angebotsvorlagen aufbereiten und Inhalte einpflegen · Auftraege im System anlegen · Unterlagen fuer Angebotsprozesse zusammenstellen«",
+            "»Administrative Unterstuetzung bei der Vorbereitung und Anlage von Angeboten und Auftraegen. Nicht gemeint: kaufmaennische Verhandlung oder Angebotsstrategie. Typische Taetigkeiten: Angebotsvorlagen aufbereiten und Inhalte einpflegen · Auftraege im System anlegen · Unterlagen fuer Angebotsprozesse zusammenstellen, Unterschriftsprozess begleiten und Unterlagen verschicken, nachhalten und ablegen«",
           anchors: {
             1: "Pflegt Vorlagen auf Anweisung; traegt Inhalte ein.",
             2: "Bereitet Angebote und Auftraege eigenstaendig nach Vorlage vor.",
@@ -4559,6 +4571,7 @@ const inhouseProjektSupport: Role = {
           name: "Projektdokumentation & Ablage",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Strukturiertes Fuehren und Aktualisieren von Projektakten, Vertraegen und Dokumenten ueber den gesamten Projektlebenszyklus. Typische Taetigkeiten: Projektordner anlegen und Dokumente strukturiert ablegen · Versionierung und Aktualitaet sicherstellen · Archivierung abgeschlossener Projekte koordinieren«",
           anchors: {
@@ -4579,6 +4592,9 @@ const inhouseProjektSupport: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "steigend",
+          trendgrund:
+            "Wenn Routineaufgaben zunehmend an KI abgegeben werden, gewinnt die menschliche Schnittstelle zum Kunden an Gewicht.",
           description:
             "»Koordination des Informationsflusses zwischen Projektleitungen, Controlling und Kunden auf operativer Ebene — zuverlaessig, klar und ohne Informationsverlust. Typische Taetigkeiten: Rueckfragen zu Stunden und Rechnungen klaeren · Status-Updates an Projektleitungen weiterleiten · Offene Punkte nachverfolgen und eskalieren«",
           anchors: {
@@ -4592,7 +4608,10 @@ const inhouseProjektSupport: Role = {
         {
           name: "Operative Kundenkommunikation",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Wenn Routineaufgaben zunehmend an KI abgegeben werden, gewinnt die menschliche Schnittstelle zum Kunden an Gewicht.",
           description:
             "»Professionelle schriftliche Kommunikation mit Kunden zu operativen Projektthemen: Rechnungsrueckfragen, Lieferbestaetigung, Terminkoordination. Nicht gemeint: strategische Kundenbeziehung oder Vertrieb. Typische Taetigkeiten: Rueckfragen zu Rechnungen und Lieferungen klaeren · Terminerinnerungen und Statusinfos versenden · Anfragen an zustaendige Projektleitungen weiterleiten«",
           anchors: {
@@ -4603,7 +4622,13 @@ const inhouseProjektSupport: Role = {
             5: "Gilt als Vorbild fuer operative Kundenkommunikation; schult andere.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 3 },
+        {
+          ...RUMP_VERBAL,
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Traegt die Qualitaet der Schnittstellen- und Kundenkommunikation, die im selben Zug an Bedeutung gewinnt.",
+        },
       ],
     },
   ],
