@@ -1124,13 +1124,13 @@ const anforderungsmanager: Role = {
           dep: "Evolving",
           targetLevel: 3,
           description:
-            "»Verständnis für IT-Architekturen, Schnittstellen und Systemabhängigkeiten. Typische Tätigkeiten: Systemlandschaften analysieren · Technische Machbarkeit bewerten · Austausch mit Architekten und Entwicklern«",
+            "»Verständnis für IT-Architekturen, Schnittstellen und Systemabhängigkeiten, um deren Auswirkungen auf Anforderungen einzuschätzen. Nicht gemeint: eigenverantwortliche Architekturgestaltung oder Systementwicklung. Typische Tätigkeiten: Systemlandschaften analysieren · Technische Machbarkeit bewerten · Austausch mit Architekten und Entwicklern«",
           anchors: {
             1: "Erkennt grundlegende Systemkomponenten.",
             2: "Versteht einfache Zusammenhänge zwischen Systemen.",
             3: "Analysiert Schnittstellen und bewertet technische Risiken.",
-            4: "Berät bei Architekturentscheidungen und erkennt Auswirkungen auf Anforderungen.",
-            5: "Entwickelt innovative Systemlösungen und gestaltet die IT-Landschaft aktiv mit.",
+            4: "Antizipiert Auswirkungen von Anforderungen auf Nachbarsysteme und bewertet technische Lösungsoptionen.",
+            5: "Führt Diskussionen mit Architekten und Entwicklern auf Augenhöhe und bewertet Auswirkungen komplexer Systemänderungen auf Anforderungen.",
           },
         },
       ],
