@@ -4098,11 +4098,11 @@ const controlling: Role = {
       name: "Fachlich",
       skills: [
         {
-          name: "Rechnungswesen & Bilanzierung (HGB)",
+          name: "Grundlagen Rechnungswesen & Bilanzierung (HGB)",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 2,
           description:
-            "»Grundlegende Kenntnisse des deutschen Rechnungswesens (internes und externes) und der Bilanzierungslogik nach HGB als Basis fuer Controlling-Aufgaben. Nicht gemeint: steuerrechtliche Gestaltung oder Jahresabschlusserstellung. Typische Taetigkeiten: Buchungen und Konten im Controlling-Kontext interpretieren · GuV und Bilanz fuer Steuerungszwecke lesen · Schnittstelle zur Buchhaltung fachlich begleiten«",
+            "»Grundlegende Kenntnisse des deutschen Rechnungswesens (internes und externes) und der Bilanzierungslogik nach HGB als Basis fuer Controlling-Aufgaben — bewusst auf Grundlagenniveau, ohne fachliche Tiefe. Vertiefte Rechnungswesen- und Bilanzierungsaufgaben liegen perspektivisch bei einer eigenen Rolle. Nicht gemeint: steuerrechtliche Gestaltung oder Jahresabschlusserstellung. Typische Taetigkeiten: Buchungen und Konten im Controlling-Kontext einordnen · GuV und Bilanz fuer Steuerungszwecke lesen · Schnittstelle zur Buchhaltung fachlich begleiten«",
           anchors: {
             1: "Kennt Grundbegriffe (Aktiva, Passiva, GuV); braucht Erklaerung bei der Einordnung.",
             2: "Liest GuV und Bilanz eigenstaendig; versteht Zusammenhaenge zwischen Buchung und Ausweis.",
@@ -4114,7 +4114,7 @@ const controlling: Role = {
         {
           name: "Projektcontrolling-Grundlagen",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 5,
           description:
             "»Kenntnisse der Methoden und Logiken des Projektcontrollings: Earned Value, Meilensteinplanung, Stundenerfassung und Deckungsbeitragsrechnung auf Projektebene. Typische Taetigkeiten: Projektbudgets strukturieren und verfolgen · Abweichungen zwischen geplantem und verbrauchtem Budget analysieren · Stundennachweise und Ressourceneinsatz je Projekt auswerten«",
           anchors: {
@@ -4122,21 +4122,7 @@ const controlling: Role = {
             2: "Erstellt einfache Projektkostenberichte eigenstaendig.",
             3: "Steuert Projektcontrolling-Prozess vollstaendig; erkennt Risiken fruehzeitig.",
             4: "Analysiert Abweichungen mehrdimensional; beraet Projektleitungen zur Gegensteuerung.",
-            5: "Entwickelt Projektcontrolling-Standards; definiert KPIs und Berichtsformate.",
-          },
-        },
-        {
-          name: "Compliance & internes Kontrollsystem",
-          dep: "Evolving",
-          targetLevel: 2,
-          description:
-            "»Grundkenntnisse zu Compliance-Anforderungen im Finanzbereich (z. B. GoBD, Aufbewahrungsfristen) und zum internen Kontrollsystem (IKS) als Rahmenbedingung fuer Controlling-Prozesse. Typische Taetigkeiten: Revisionssichere Dokumentation sicherstellen · Kontrollen in Prozessen benennen und dokumentieren · Externe Pruefungen unterstuetzen«",
-          anchors: {
-            1: "Kennt Begriff IKS und GoBD; haelt Vorgaben auf Hinweis ein.",
-            2: "Erklaert relevante Compliance-Anforderungen; wendet sie im Arbeitsalltag an.",
-            3: "Beurteilt Prozesse auf Compliance-Konformitaet; erkennt Risiken eigenstaendig.",
-            4: "Entwickelt und dokumentiert Kontrollen; unterstuetzt externe Pruefungen eigenstaendig.",
-            5: "Gestaltet IKS-Rahmen; gilt als Ansprechpartner fuer Revisionen.",
+            5: "Definiert Anforderungen an Dashboards und Berichtsformate als fachliche Vorgabe fuer die Umsetzung (nicht Software-Entwicklung); entwickelt Projektcontrolling-Standards und KPIs.",
           },
         },
         { ...RUMP_DIGITALE, targetLevel: 3 },
@@ -4146,26 +4132,26 @@ const controlling: Role = {
       name: "Technisch",
       skills: [
         {
-          name: "Excel (fortgeschritten, Power Query)",
+          name: "Excel (fortgeschritten, Power Query, VBA)",
           dep: "Evolving",
           targetLevel: 4,
           keySkill: true,
           description:
-            "»Professioneller Einsatz von Excel fuer Controlling-Aufgaben: komplexe Formeln, Pivot-Tabellen, Power Query fuer Datenimport und -transformation, Szenariomodelle. Typische Taetigkeiten: Planungsmodelle und Forecast-Tabellen bauen · Daten aus verschiedenen Quellen per Power Query zusammenfuehren · Berichte und Dashboards per Excel automatisieren«",
+            "»Professioneller Einsatz von Excel fuer Controlling-Aufgaben: komplexe Formeln, Pivot-Tabellen, Power Query fuer Datenimport und -transformation, Szenariomodelle sowie VBA-/Makro-Programmierung zur Automatisierung. Typische Taetigkeiten: Planungsmodelle und Forecast-Tabellen bauen · Daten aus verschiedenen Quellen per Power Query zusammenfuehren · Berichte und Dashboards per Excel automatisieren · wiederkehrende Auswertungen per Makro automatisieren«",
           anchors: {
             1: "Nutzt Grundfunktionen; erstellt einfache Tabellen und Diagramme.",
             2: "Setzt Pivot-Tabellen und SVERWEIS sicher ein; erstellt strukturierte Reports.",
             3: "Baut komplexe Modelle mit verschachtelten Formeln; nutzt Power Query fuer Datentransformation.",
-            4: "Automatisiert Reports; erstellt skalierbare Planungsmodelle und Szenario-Analysen.",
+            4: "Automatisiert Reports per VBA/Makro; erstellt skalierbare Planungsmodelle und Szenario-Analysen.",
             5: "Gilt als Excel-Expertin; entwickelt Controlling-Vorlagen fuer das gesamte Unternehmen.",
           },
         },
         {
-          name: "ERP- & Projektsteuerungssystem (inkl. Jira, MS Project)",
+          name: "ERP- & Projektsteuerungssystem (Zistemo, SAP, Board, Loga)",
           dep: "Evolving",
           targetLevel: 3,
           description:
-            "»Sicherer Umgang mit dem unternehmensinternen ERP-System sowie projektbezogenen Steuerungstools (Jira, MS Project) fuer buchhalterische Auswertungen, Rechnungsstellung, Kostenstellen-Reporting und Datenexporte ins Controlling. Typische Taetigkeiten: Kosten- und Erloesdaten aus ERP extrahieren · Ausgangsrechnungen vorbereiten und pruefen · Ist-Stunden und Projektfortschritt aus Jira/MS Project fuer Controlling-Auswertungen auslesen · Buchungen auf Plausibilitaet pruefen«",
+            "»Sicherer Umgang mit dem unternehmensinternen ERP-System (SAP) sowie den projektbezogenen Steuerungstools (Zistemo, Board, teilweise Loga) fuer buchhalterische Auswertungen, Rechnungsstellung, Kostenstellen-Reporting und Datenexporte ins Controlling — inklusive Betreuung und Weiterentwicklung des Projektmanagement-Tools. Typische Taetigkeiten: Kosten- und Erloesdaten aus ERP extrahieren · Ausgangsrechnungen vorbereiten und pruefen · Ist-Stunden und Projektfortschritt aus Zistemo fuer Controlling-Auswertungen auslesen · Buchungen auf Plausibilitaet pruefen · Projektmanagement-Tool betreuen und weiterentwickeln«",
           anchors: {
             1: "Navigiert im ERP; extrahiert einfache Berichte mit Anleitung.",
             2: "Extrahiert Daten eigenstaendig; versteht Buchungslogik; liest Projektdaten aus PM-Tools.",
@@ -4189,23 +4175,23 @@ const controlling: Role = {
           },
         },
         {
-          name: "SQL-Grundlagen",
-          dep: "Durable",
-          targetLevel: 2,
+          name: "Datenqualitaetssicherung",
+          dep: "Evolving",
+          targetLevel: 3,
           description:
-            "»Grundlegende SQL-Kenntnisse fuer eigenstaendige Datenbankabfragen zur Unterstuetzung von Controlling-Analysen. Nicht gemeint: Datenbankadministration. Typische Taetigkeiten: Einfache SELECT-Abfragen fuer Kostenauswertungen formulieren · Daten aus Datenbanken fuer Excel-Analysen exportieren · Ergebnisse von IT-seitigen Abfragen prufen«",
+            "»Sicherstellen, dass operative Daten in Zistemo, SAP und im Board-Dashboard korrekt und vollstaendig sind, als Voraussetzung fuer valide Controlling-Auswertungen. Typische Taetigkeiten: Zeiterfassung auf Vollstaendigkeit und Plausibilitaet pruefen · Projekt-Start- und Enddaten sowie PT-Budgets in Zistemo kontrollieren · Datenabweichungen mit Projektleitungen klaeren und korrigieren lassen«",
           anchors: {
-            1: "Versteht SQL-Grundstruktur; liest einfache Abfragen.",
-            2: "Schreibt eigenstaendig einfache SELECT-Abfragen mit WHERE und JOIN.",
-            3: "Formuliert komplexere Abfragen mit Aggregation und Unterabfragen.",
-            4: "Optimiert Abfragen; versteht Datenbankstruktur des eingesetzten Systems.",
-            5: "Entwickelt SQL-Abfragen fuer das gesamte Controlling-Reporting.",
+            1: "Erkennt offensichtliche Datenfehler; meldet sie nach Vorgabe.",
+            2: "Prueft Zeiterfassung und Projektdaten eigenstaendig auf Plausibilitaet.",
+            3: "Stellt Datenqualitaet in Zistemo, SAP und Dashboard systematisch sicher; klaert Abweichungen mit Projektleitungen.",
+            4: "Entwickelt Pruefroutinen zur Datenqualitaetssicherung; reduziert Fehlerquellen strukturell.",
+            5: "Definiert Datenqualitaetsstandards fuer alle Controlling-relevanten Systeme.",
           },
         },
         {
           name: "KI-gestuetzte Finanzanalyse",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stark steigend",
           description:
             "»Einsatz von KI-Assistenten fuer Controlling-Aufgaben: Kommentare zu Abweichungen formulieren, Forecasts plausibilisieren, Berichte strukturieren. Nicht gemeint: automatisierte Entscheidungen ohne Pruefung. Typische Taetigkeiten: Managementkommentare per KI vorformulieren · Abweichungserklaerungen mit KI strukturieren · Forecast-Annahmen per KI hinterfragen lassen«",
@@ -4225,7 +4211,7 @@ const controlling: Role = {
         {
           name: "Budgetplanung & -koordination",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
             "»Koordination des unternehmensweiten Budgetprozesses: Planung, Abstimmung mit Fachbereichen, Konsolidierung und Verabschiedung. Typische Taetigkeiten: Planungsunterlagen vorbereiten und Fachbereiche begleiten · Teilplaene konsolidieren und Gesamtbudget ableiten · Budgetzusagen und -freigaben dokumentieren«",
           anchors: {
@@ -4254,7 +4240,7 @@ const controlling: Role = {
         {
           name: "Forecasting & Rolling Forecasts",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
             "»Erstellung und Pflege von Forecasts auf Unternehmens- und Projektebene — rollierend und anlassbezogen. Typische Taetigkeiten: Forecast-Modelle aufbauen und Annahmen dokumentieren · Fachbereiche zur Forecast-Guete beraten · Abweichungen zwischen Forecast und Plan erklaeren«",
           anchors: {
@@ -4268,7 +4254,7 @@ const controlling: Role = {
         {
           name: "Liquiditaetsplanung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
             "»Kurz- und mittelfristige Planung von Zahlungsein- und -ausgaengen zur Sicherung der Zahlungsfaehigkeit. Typische Taetigkeiten: Liquiditaetsplan woechentlich aktualisieren · Zahlungsfluesse aus ERP und Projekten zusammenfuehren · Engpaesse fruehzeitig erkennen und kommunizieren«",
           anchors: {
@@ -4277,20 +4263,6 @@ const controlling: Role = {
             3: "Erstellt und pflegt Liquiditaetsplanung vollstaendig; erkennt Engpaesse fruehzeitig.",
             4: "Bewertet Liquiditaetsrisiken; leitet Massnahmen zur Optimierung ab.",
             5: "Entwickelt Liquiditaetssteuerungskonzepte; optimiert Working Capital.",
-          },
-        },
-        {
-          name: "Kostenrechnung (Kostenstellen & -traeger)",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Aufbau und Pflege der internen Kostenrechnung: Kostenstellen, Kostentraeger, Umlagen und Deckungsbeitragsrechnung. Typische Taetigkeiten: Kostenstellenstruktur pflegen und Umbuchungen vornehmen · Deckungsbeitraege je Projekt oder Produkt berechnen · Kostenverteilungslogiken entwickeln und dokumentieren«",
-          anchors: {
-            1: "Kennt Kostenstellen und -traeger; tragt Daten nach Vorgabe ein.",
-            2: "Fuehrt Kostenrechnung fuer definierte Bereiche eigenstaendig durch.",
-            3: "Gestaltet Kostenrechnungsstruktur mit; berechnet Deckungsbeitraege eigenstaendig.",
-            4: "Entwickelt Umlageschluessel; bewertet Kostenstruktur und empfiehlt Optimierungen.",
-            5: "Definiert Kostenrechnungsstandards; verantwortet Methodenguete.",
           },
         },
         {
@@ -4325,7 +4297,7 @@ const controlling: Role = {
         {
           name: "Einsatzplanung & Auslastungssteuerung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
             "»Unterstuetzung der uebergreifenden Einsatzplanung im Projektgeschaeft: Auslastungsauswertungen erstellen, Planungsabgleiche bereitstellen und Kapazitaetsengpaesse fruehzeitig sichtbar machen. Typische Taetigkeiten: Auslastungsquoten je Mitarbeiterin und Projekt auswerten · Soll-Ist-Vergleiche der Ressourcenplanung aufbereiten · Planungsluecken und Ueberlasten an Fuehrungskraefte kommunizieren«",
           anchors: {
@@ -4337,31 +4309,32 @@ const controlling: Role = {
           },
         },
         {
-          name: "Angebots- & Auftragsmanagement",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Eigenstaendige Erstellung, Verwaltung und Nachverfolgung von Kundenangeboten, Projektvereinbarungen und Vertraegen als kaufmaennische Schnittstelle zwischen GF, Projektleitung und Kunden. Typische Taetigkeiten: Angebote kalkulieren und erstellen · Projektvereinbarungen und Vertraege anlegen und versionieren · Vertragsfristen und Verlaengerungen proaktiv nachhalten«",
-          anchors: {
-            1: "Pflegt bestehende Angebote und Vertraege in Vorlagen; braucht Anleitung bei Kalkulation.",
-            2: "Erstellt einfache Angebote eigenstaendig; verwaltet Vertraege strukturiert.",
-            3: "Kalkuliert und erstellt Angebote vollstaendig; verwaltet Projektvereinbarungen eigenverantwortlich.",
-            4: "Verhandelt kaufmaennische Konditionen vor; beraet GF zu Vertragsrisiken.",
-            5: "Entwickelt Angebots- und Vertragsstandards; optimiert den kaufmaennischen Prozess.",
-          },
-        },
-        {
           name: "Investitionsrechnung & Business Cases",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
           description:
-            "»Bewertung von Investitionen und Projekten anhand betriebswirtschaftlicher Kennzahlen (ROI, NPV, Amortisation) als Entscheidungsgrundlage. Typische Taetigkeiten: Business Cases strukturieren und berechnen · Sensitivitaetsanalysen zu Annahmen durchfuehren · Ergebnisse fuer Entscheider aufbereiten«",
+            "»Unterstuetzung des Business-Case-Prozesses durch Bewertung von Investitionen und Projekten anhand betriebswirtschaftlicher Kennzahlen (ROI, NPV, Amortisation) als Entscheidungsgrundlage — Controlling rechnet und begleitet, die Investitionsentscheidung liegt bei der Geschaeftsfuehrung. Typische Taetigkeiten: Business Cases strukturieren und berechnen · Sensitivitaetsanalysen zu Annahmen durchfuehren · Ergebnisse fuer Entscheider aufbereiten«",
           anchors: {
             1: "Kennt Grundbegriffe (ROI, Amortisation); braucht Anleitung bei der Berechnung.",
             2: "Erstellt einfache Business Cases nach Vorlage eigenstaendig.",
             3: "Erstellt vollstaendige Business Cases mit Sensitivitaetsanalyse.",
             4: "Hinterfragt Annahmen kritisch; beraet Fuehrungskraefte zu Investitionsentscheidungen.",
             5: "Entwickelt Business-Case-Methodik; gilt als betriebswirtschaftliche Referenz.",
+          },
+        },
+        {
+          name: "Budget- und Reporting",
+          dep: "Durable",
+          targetLevel: 4,
+          description:
+            "»Erstellung von Monats- und Quartalsberichten sowie laufender Plan-Ist-Abgleich fuer Personal-, Umsatz- und Kostencontrolling auf Unternehmensebene. Typische Taetigkeiten: Monats- und Quartalsberichte fristgerecht erstellen · Plan-, Prognose- und Ist-Werte gegen Ziele abgleichen · Zahlen im Board-Tool der HM und in Zistemo pflegen und plausibilisieren«",
+          anchors: {
+            1: "Traegt Zahlen in Vorlagen ein; braucht Anleitung beim Plan-Ist-Abgleich.",
+            2: "Erstellt einfache Monatsberichte eigenstaendig; gleicht Ist-Werte mit Plan ab.",
+            3: "Erstellt vollstaendige Monats- und Quartalsberichte; erklaert Abweichungen ursaechengenau.",
+            4: "Pflegt und plausibilisiert Zahlen im Board-Tool und in Zistemo eigenverantwortlich; antizipiert Planabweichungen.",
+            5: "Entwickelt Standards fuer Budget- und Reportingprozesse; verantwortet Berichtsqualitaet unternehmensweit.",
           },
         },
       ],
