@@ -6361,18 +6361,20 @@ const projektmanagementDrivers: MarketDriver[] = [
   },
 ];
 
-/** Markttreiber Business Consulting — Test-Perspektive (Juni 2026, FK-Review Diemo Gresch). */
+/** Markttreiber Business Consulting — gelten fuer alle Rollen der Gruppe (UX/UI, Business Analyse, Test) (Sept. 2026). */
 const businessConsultingDrivers: MarketDriver[] = [
   {
     id: "drv-bc-ki-transformation",
     title: "KI-Transformation in der Versicherungsbranche",
     horizon: "0–2 Jahre",
     description:
-      "Versicherungskunden integrieren KI in Kernprozesse (Schadenbearbeitung, Underwriting, Kundenservice). Tester muessen KI-gestuetzte Systeme pruefen — mit Verstaendnis fuer KI-Outputs, neue Testanforderungen und Datenschutzgrenzen.",
+      "Versicherungskunden integrieren KI in Kernprozesse (Schadenbearbeitung, Underwriting, Kundenservice) und in kundennahe Oberflaechen wie Chat- und Assistenz-Bots. Business Consulting begleitet diese Vorhaben ueber alle Rollen hinweg: UX/UI gestaltet KI-Interaktionen, Business Analyse formuliert KI- und Automatisierungsanforderungen, Test und Testautomatisierung pruefen KI-gestuetzte Systeme — jeweils mit Verstaendnis fuer KI-Outputs und Datenschutzgrenzen.",
     affectedSkillNames: [
       "Digitale Anwendungskompetenz",
+      "KI und Automatisierungsanforderungen",
+      "KI-gestuetztes Design & generative Tools (z. B. Figma AI, Miro AI, Claude)",
       "KI-gestuetzte QS & verantwortungsvoller KI-Einsatz",
-      "Versicherungsfachlichkeit & Prozessverstaendnis",
+      "KI-gestuetzte Testautomatisierung & verantwortungsvoller Einsatz",
     ],
   },
   {
@@ -6380,8 +6382,10 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "EU AI Act, Regulatorik & Governance",
     horizon: "0–3 Jahre",
     description:
-      "Der EU AI Act und bestehende Regulatoriken schaffen neue Anforderungen an Testdokumentation, Nachweisfuehrung und Transparenz. QA-Teams muessen Compliance-konforme Testprozesse und auditfeste Nachweise sicherstellen.",
+      "Der EU AI Act, DORA sowie Vorgaben zu Barrierefreiheit und Datenschutz (BFSG, DSGVO) schaffen neue Anforderungen an Transparenz, Nachweisfuehrung und Konformitaet. Business Analyse uebersetzt Regulatorik in Anforderungen, UX/UI gestaltet konforme Oberflaechen, QA und Testmanagement stellen compliance-konforme Testprozesse und auditfeste Nachweise sicher.",
     affectedSkillNames: [
+      "Regulatorische Umsetzungskompetenz",
+      "Regulatorische UI-Anforderungen (DSGVO, BFSG)",
       "Regulatorik, Auditfaehigkeit & Nachweisfuehrung",
       "Nichtfunktionale Qualitaet (Security, Resilienz, Performance, Accessibility)",
       "Verbalisierung & Strukturierung",
@@ -6392,11 +6396,13 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Digitalisierung von Versicherungskernprozessen",
     horizon: "1–3 Jahre",
     description:
-      "Antrag, Police, Schaden und Vertragsverwaltung werden durchgaengig digitalisiert. Tester mit tiefem Prozessverstaendnis und Systemkenntnis koennen realistische End-to-End-Testszenarien entwerfen und Schnittstellen gezielt absichern.",
+      "Antrag, Police, Schaden und Vertragsverwaltung werden durchgaengig digitalisiert. Gefragt ist tiefes Prozessverstaendnis in allen Rollen: Business Analyse modelliert Soll-Prozesse, UX/UI gestaltet durchgaengige User Journeys, Test entwirft realistische End-to-End-Szenarien und sichert Schnittstellen gezielt ab.",
     affectedSkillNames: [
+      "Geschäftsprozessverständnis",
+      "Versicherungsprodukte & User Journeys",
+      "Service Blueprint & Journey Mapping",
       "Versicherungsfachlichkeit & Prozessverstaendnis",
       "Integrations- & E2E-Test",
-      "Testdaten- & Testumgebungsmanagement",
     ],
   },
   {
@@ -6404,10 +6410,12 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Agile Skalierung und SAFe-Einfuehrung bei Kunden",
     horizon: "1–3 Jahre",
     description:
-      "Versicherungsunternehmen skalieren agile Methoden auf Unternehmensebene. QA-Rollen binden sich fruehzeitig in Anforderungs- und Planungsprozesse ein (Shift-Left) und tragen zur Definition of Done bei.",
+      "Versicherungsunternehmen skalieren agile Methoden auf Unternehmensebene. Alle Beratungsrollen binden sich fruehzeitig in Anforderungs- und Planungsprozesse ein: Anforderungen und Akzeptanzkriterien entstehen gemeinsam, Design und Qualitaetssicherung wirken von Beginn an mit (Shift-Left) und tragen zur Definition of Done bei.",
     affectedSkillNames: [
+      "User Stories & Akzeptanzkriterien",
+      "Cross-funktionale Teamkollaboration",
+      "Cross-funktionale Teamkollaboration (agil)",
       "Shift-Left Testing im agilen Prozess",
-      "Requirements-Reviews & Akzeptanzkriterien",
       "Teststrategie entwickeln",
     ],
   },
@@ -6416,11 +6424,13 @@ const businessConsultingDrivers: MarketDriver[] = [
     title: "Wachsende Systemkomplexitaet (Legacy + Cloud + KI)",
     horizon: "2–5 Jahre",
     description:
-      "Hybrid-Architekturen aus Altsystemen, Cloud-Loesungen und KI-Komponenten erhoehen Schnittstellenkomplexitaet erheblich. Integrationstest- und Testarchitektur-Kompetenz gewinnen stark an Bedeutung.",
+      "Hybrid-Architekturen aus Altsystemen, Cloud-Loesungen und KI-Komponenten erhoehen die Schnittstellenkomplexitaet erheblich. Business Analyse braucht fundiertes System- und Loesungsverstaendnis, UX/UI sichert Konsistenz ueber heterogene Systeme, Integrationstest- und Testarchitektur-Kompetenz gewinnen stark an Bedeutung.",
     affectedSkillNames: [
+      "IT-Systemverständnis",
+      "Systemanalyse & Lösungsdesign",
+      "Design Systems aufbauen und pflegen",
       "Integrations- & E2E-Test",
       "Testarchitektur & Quality Enablement",
-      "Nichtfunktionale Qualitaet (Security, Resilienz, Performance, Accessibility)",
     ],
   },
 ];
