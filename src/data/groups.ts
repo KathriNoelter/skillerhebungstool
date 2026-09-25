@@ -24,17 +24,19 @@ export { RUMP_DIGITALE, RUMP_VERBAL };
 
 const uxuiDesign: Role = {
   id: "uxui-design",
-  name: "UX/UI Design",
+  name: "UX/UI Design und Consulting",
   description:
-    "User Experience und Interface Design — von Research ueber Prototyping bis zur visuellen Gestaltung.",
+    "User Experience und Interface Design — von Research ueber Prototyping bis zur visuellen Gestaltung und strategischen Beratung.",
   categories: [
     {
       name: "Fachlich",
       skills: [
         {
-          name: "Versicherungsprodukte & Kundenreisen",
+          name: "Versicherungsprodukte & User Journeys",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Produkt- und Prozessverstaendnis bleibt Grundlage nutzerzentrierten Designs; KI veraendert die Produktlogik der Versicherung kaum.",
           description:
             "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentriertes Design im Versicherungskontext. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Interface-Entscheidungen uebersetzen · Mit Fachbereichen auf Augenhoehe ueber Versicherungsprozesse sprechen«",
           anchors: {
@@ -49,6 +51,8 @@ const uxuiDesign: Role = {
           name: "Regulatorische UI-Anforderungen (DSGVO, BFSG)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Das BFSG gilt seit Juni 2025; der EU AI Act verlangt zusaetzlich Transparenzhinweise in KI-gestuetzten Oberflaechen.",
           description:
             "»Kenntnis der regulatorischen Anforderungen an digitale Oberflaechen — Barrierefreiheit (BFSG) und Datenschutz (DSGVO) — als Design-Constraint. Nicht gemeint: juristische Bewertung von Grenzfaellen. Typische Taetigkeiten: Einwilligungs- und Consent-Flows datenschutzkonform gestalten · Barrierefreiheits-Anforderungen in Designs beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen«",
           anchors: {
@@ -63,6 +67,8 @@ const uxuiDesign: Role = {
           name: "Branchen-Patterns (Insurance, FinTech)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Mit KI-Chat- und Assistenz-Oberflaechen entstehen neue Interface-Patterns im Versicherungs- und FinTech-Umfeld.",
           description:
             "»Kenntnis etablierter UX-Patterns und Interface-Konventionen aus Versicherung und FinTech (z. B. Antragsstrecken, Vertragsuebersichten, Zahlungsfluesse). Typische Taetigkeiten: Bestehende Branchenloesungen fuer Inspiration und Benchmarking einordnen · Bewaehrte Patterns gezielt uebernehmen oder bewusst abweichen · Wettbewerbsanalysen im Versicherungs-/FinTech-Umfeld durchfuehren«",
           anchors: {
@@ -73,7 +79,7 @@ const uxuiDesign: Role = {
             5: "Gilt als Referenz fuer Branchen-Patterns; praegt Design-Sprache des Unternehmens.",
           },
         },
-        { ...RUMP_DIGITALE },
+        { ...RUMP_DIGITALE, trend: "stark steigend" },
       ],
     },
     {
@@ -83,6 +89,8 @@ const uxuiDesign: Role = {
           name: "Typografie und visuelle Hierarchie",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Gestalterisches Grundhandwerk, das von KI-Tools kaum ersetzt wird.",
           description:
             "»Gestaltung von Textelementen und visueller Ordnung, sodass Nutzer:innen Inhalte muehelos erfassen und priorisieren koennen. Typische Taetigkeiten: Schriftgroessen, -gewichte und Zeilenabstaende gezielt einsetzen · Visuelle Hierarchien fuer komplexe Screens aufbauen · Typografie-Systeme konsistent ueber Produkte hinweg anwenden«",
           anchors: {
@@ -94,9 +102,11 @@ const uxuiDesign: Role = {
           },
         },
         {
-          name: "Figma (Prototyping & Auto Layout)",
+          name: "Figma (Gestaltung & Prototyping)",
           dep: "Perishable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Figma bleibt etabliertes Standardwerkzeug fuer Gestaltung und Prototyping.",
           description:
             "»Sicherer Umgang mit Figma fuer Gestaltung, interaktive Prototypen und Auto-Layout-Strukturen. Typische Taetigkeiten: Komponenten und Auto-Layout-Frames strukturiert aufbauen · Interaktive Prototypen fuer Testing und Reviews erstellen · Mit Entwicklerteams via Dev Mode/Inspect zusammenarbeiten«",
           anchors: {
@@ -111,6 +121,8 @@ const uxuiDesign: Role = {
           name: "Accessibility (WCAG-Konformitaet)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Das BFSG macht Barrierefreiheit digitaler Angebote fuer Versicherer verpflichtend.",
           description:
             "»Gestaltung barrierefreier Interfaces gemaess WCAG-Richtlinien — Kontraste, Tastaturbedienung, Screenreader-Kompatibilitaet. Nicht gemeint: automatisierte Accessibility-Audits durchfuehren (Aufgabe QA/Entwicklung). Typische Taetigkeiten: Kontrastwerte und Fokuszustaende pruefen · Designs fuer Tastatur- und Screenreader-Nutzung gestalten · Accessibility-Anforderungen in Reviews einbringen«",
           anchors: {
@@ -125,6 +137,8 @@ const uxuiDesign: Role = {
           name: "Responsive & Adaptive Design",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Etablierter Gestaltungsstandard ohne grundlegende Verschiebung.",
           description:
             "»Gestaltung von Interfaces, die sich konsistent an unterschiedliche Bildschirmgroessen und Geraete anpassen. Typische Taetigkeiten: Breakpoints und Grid-Systeme definieren · Layouts fuer Mobile, Tablet und Desktop konsistent gestalten · Adaptive Komponenten fuer wechselnde Kontexte entwerfen«",
           anchors: {
@@ -139,6 +153,8 @@ const uxuiDesign: Role = {
           name: "Design Systems aufbauen und pflegen",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Tokens und Komponenten werden zur Grundlage KI-gestuetzter Design-to-Code-Workflows.",
           description:
             "»Aufbau, Pflege und Weiterentwicklung eines konsistenten Design Systems (Komponenten, Tokens, Richtlinien) fuer skalierbares Produktdesign. Typische Taetigkeiten: Neue Komponenten ins Design System integrieren · Konsistenz zwischen Design und Entwicklung sicherstellen · Dokumentation fuer Design-System-Nutzung pflegen«",
           anchors: {
@@ -153,6 +169,8 @@ const uxuiDesign: Role = {
           name: "Interaction Design & Micro-Animations",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "KI-Interfaces erfordern neue Interaktionszustaende wie Laden, Streaming und Unsicherheitsanzeigen.",
           description:
             "»Gestaltung von Interaktionsmustern und feingranularen Animationen, die Nutzerfuehrung und Feedback verstaendlich machen. Typische Taetigkeiten: Uebergaenge und Zustandswechsel gestalten · Micro-Animations fuer Feedback und Orientierung einsetzen · Interaktionskonzepte mit Entwicklung technisch abstimmen«",
           anchors: {
@@ -167,6 +185,8 @@ const uxuiDesign: Role = {
           name: "Grundlagen HTML und CSS",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "steigend",
+          trendgrund: "KI-Code-Tools ermoeglichen Designer:innen, Prototypen selbst in Code umzusetzen (Rump 2025: Technikverstaendnis).",
           description:
             "»Grundverstaendnis von HTML-Struktur und CSS-Styling, um mit Entwicklung auf Augenhoehe zu kommunizieren und Umsetzbarkeit einzuschaetzen. Nicht gemeint: eigenstaendige Frontend-Entwicklung. Typische Taetigkeiten: Technische Machbarkeit von Designs grob einschaetzen · Mit Entwicklung in gemeinsamer Sprache ueber Umsetzung sprechen · Einfache CSS-Anpassungen selbst nachvollziehen«",
           anchors: {
@@ -181,6 +201,8 @@ const uxuiDesign: Role = {
           name: "Prompt Engineering",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "stark steigend",
+          trendgrund: "Rump 2025 und WEF Future of Jobs 2025: KI-Kompetenz ist die am staerksten wachsende Faehigkeit.",
           description:
             "»Effektive Formulierung von Prompts fuer KI-Tools im Designprozess (Text-, Bild- und Codegenerierung). Typische Taetigkeiten: Prompts fuer Design- und Recherche-Aufgaben praezise formulieren · Prompts iterativ verfeinern und Ergebnisse kritisch pruefen · Wiederverwendbare Prompt-Vorlagen fuer haeufige Aufgaben entwickeln«",
           anchors: {
@@ -192,16 +214,17 @@ const uxuiDesign: Role = {
           },
         },
         {
-          name: "KI-gestuetztes Design & generative Tools (z. B. Midjourney)",
+          name: "KI-gestuetztes Design & generative Tools (z. B. Figma AI, Miro AI, Claude)",
           dep: "Perishable",
           targetLevel: 2,
           trend: "stark steigend",
+          trendgrund: "Generative KI beschleunigt Ideation und Variantenbildung im Designprozess erheblich (WEF Future of Jobs 2025).",
           description:
-            "»Einsatz generativer KI-Tools (z. B. Midjourney, KI-Bildgenerierung) zur Ideenfindung, Moodboard-Erstellung und schnellen Visualisierung. Nicht gemeint: finale Assets ohne Nachbearbeitung uebernehmen. Typische Taetigkeiten: Moodboards und Stilrichtungen per KI generieren · Generierte Ergebnisse kritisch pruefen und weiterverarbeiten · Rechtliche und ethische Grenzen von KI-generierten Assets beachten«",
+            "»Einsatz generativer KI-Tools zur Ideation und schnellen Visualisierung von Loesungsvarianten — etwa verschiedener Design Patterns zur Abbildung einer Funktion — innerhalb eines vorgegebenen visuellen Stils. Nicht gemeint: generierte Designs ohne Nachbearbeitung uebernehmen. Typische Taetigkeiten: Alternative Design Patterns und Interaktionsvarianten fuer eine Funktion per KI generieren · Generierte Varianten kritisch pruefen, auswaehlen und weiterverarbeiten · Rechtliche und ethische Grenzen von KI-generierten Inhalten beachten«",
           anchors: {
-            1: "Kennt gaengige generative Tools dem Namen nach.",
-            2: "Nutzt generative Tools fuer einfache Moodboards mit Unterstuetzung.",
-            3: "Setzt generative Tools gezielt fuer Ideenfindung und Visualisierung ein.",
+            1: "Kennt gaengige generative Design-Tools und ihre Einsatzmoeglichkeiten.",
+            2: "Generiert mit Unterstuetzung erste Loesungsvarianten fuer einfache Funktionen.",
+            3: "Setzt generative Tools gezielt zur Ideation von Design Patterns ein; bewertet Varianten kritisch.",
             4: "Kombiniert mehrere Tools effizient; etabliert Workflows im Team.",
             5: "Definiert Nutzungsstandards fuer generative KI-Tools im Designprozess.",
           },
@@ -215,6 +238,8 @@ const uxuiDesign: Role = {
           name: "Qualitative Interviews",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Empathie und Gespraechsfuehrung bleiben menschliche Kernkompetenzen (WEF Future of Jobs 2025).",
           description:
             "»Planung und Durchfuehrung qualitativer Nutzerinterviews zur Erhebung von Beduerfnissen, Motivationen und Schmerzpunkten. Typische Taetigkeiten: Interviewleitfaeden entwickeln · Interviews neutral und ergebnisoffen fuehren · Erkenntnisse strukturiert auswerten und dokumentieren«",
           anchors: {
@@ -229,6 +254,8 @@ const uxuiDesign: Role = {
           name: "Usability Testing (moderated & unmoderated)",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Etablierte Validierungsmethode; KI unterstuetzt die Auswertung, ersetzt aber nicht die Durchfuehrung.",
           description:
             "»Planung und Durchfuehrung moderierter und unmoderierter Usability-Tests zur Validierung von Designs. Typische Taetigkeiten: Testszenarien und Aufgaben entwickeln · Tests moderieren oder unmoderierte Testsettings aufsetzen · Ergebnisse in konkrete Design-Empfehlungen uebersetzen«",
           anchors: {
@@ -243,6 +270,8 @@ const uxuiDesign: Role = {
           name: "Jobs-to-be-Done Framework",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
+          trendgrund: "Etabliertes Framework ohne grundlegende Verschiebung.",
           description:
             "»Anwendung des Jobs-to-be-Done-Frameworks, um die eigentliche Aufgabe hinter Nutzerverhalten zu verstehen und Loesungen daran auszurichten. Typische Taetigkeiten: Job Stories aus Nutzerforschung ableiten · Feature-Entscheidungen anhand des \"Jobs\" priorisieren · Team fuer die JTBD-Denkweise sensibilisieren«",
           anchors: {
@@ -257,6 +286,8 @@ const uxuiDesign: Role = {
           name: "UX-Writing & Microcopy",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Dialoge von KI-Bots und Conversational UIs erfordern gezieltes, nutzerzentriertes Schreiben.",
           description:
             "»Verfassen klarer, nutzerfreundlicher Texte fuer Interfaces — Buttons, Fehlermeldungen, Onboarding-Texte. Typische Taetigkeiten: Microcopy fuer neue Features verfassen · Tonalitaet und Terminologie konsistent halten · Texte anhand von Nutzerfeedback iterieren«",
           anchors: {
@@ -271,6 +302,8 @@ const uxuiDesign: Role = {
           name: "Service Blueprint & Journey Mapping",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Macht sichtbar, wo KI und Automatisierung in Front- und Backstage-Prozesse eingreifen.",
           description:
             "»Visualisierung von Nutzerreisen und dahinterliegenden Serviceprozessen, um Beruehrungspunkte und Bruchstellen zu identifizieren. Typische Taetigkeiten: Journey Maps aus Nutzerforschung erstellen · Service Blueprints mit Front- und Backstage-Prozessen entwickeln · Bruchstellen priorisiert an Stakeholder kommunizieren«",
           anchors: {
@@ -282,9 +315,11 @@ const uxuiDesign: Role = {
           },
         },
         {
-          name: "UX-Analyse",
+          name: "UX-Audit",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "KI beschleunigt Heuristik-Checks; die fachliche Bewertung bleibt beim Menschen.",
           description:
             "»Systematische Analyse bestehender Interfaces und Nutzungsdaten (Heuristiken, Nutzerflows, Funnel-Daten) zur Identifikation von Verbesserungspotenzial. Typische Taetigkeiten: Heuristische Evaluationen durchfuehren · Nutzungsdaten und Funnels auf Auffaelligkeiten pruefen · Verbesserungspotenzial priorisiert aufbereiten«",
           anchors: {
@@ -299,6 +334,8 @@ const uxuiDesign: Role = {
           name: "Information Architecture & Navigation",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Etablierte Methode ohne grundlegende Verschiebung.",
           description:
             "»Strukturierung von Inhalten und Navigation, sodass Nutzer:innen Informationen intuitiv finden. Typische Taetigkeiten: Sitemaps und Navigationsstrukturen entwickeln · Card Sorting/Tree Testing zur Validierung einsetzen · Informationsarchitektur bei wachsendem Produktumfang weiterentwickeln«",
           anchors: {
@@ -313,6 +350,8 @@ const uxuiDesign: Role = {
           name: "Online-Befragung",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
+          trendgrund: "KI unterstuetzt Erstellung und Auswertung; die methodische Kompetenz bleibt gefragt.",
           description:
             "»Konzeption und Durchfuehrung quantitativer Online-Befragungen zur Validierung von Hypothesen an einer groesseren Nutzerbasis. Typische Taetigkeiten: Fragebogen methodisch sauber aufbauen · Befragungen aussenden und Ruecklauf steuern · Ergebnisse statistisch auswerten und einordnen«",
           anchors: {
@@ -327,6 +366,8 @@ const uxuiDesign: Role = {
           name: "Prototyping",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
+          trendgrund: "Etablierte Kernmethode im Designprozess.",
           description:
             "»Konzeption von Prototypen unterschiedlicher Wirklichkeitsnaehe (Paper, Klick-Dummy, High-Fidelity) passend zur jeweiligen Testfrage. Typische Taetigkeiten: Fidelity-Level passend zur Fragestellung waehlen · Prototypen fuer Testing und Stakeholder-Reviews aufbauen · Feedback aus Tests in naechste Prototyp-Iteration einarbeiten«",
           anchors: {
@@ -346,6 +387,8 @@ const uxuiDesign: Role = {
           name: "Stakeholder-Management",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "KI-Projekte bringen neue Stakeholder und politisch sensiblere Entscheidungssituationen.",
           description:
             "»Erwartungen, Interessen und Einfluss relevanter Stakeholder identifizieren und ueber den Designprozess hinweg aktiv steuern. Typische Taetigkeiten: Stakeholder-Map pflegen · Reviews vorbereiten · Eskalationen einordnen«",
           anchors: {
@@ -360,6 +403,8 @@ const uxuiDesign: Role = {
           name: "Praesentation von Design-Entscheidungen",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Der Beratungsanteil der Rolle rueckt die Ueberzeugungsarbeit gegenueber Fachbereich und Management in den Vordergrund.",
           description:
             "»Ueberzeugende Praesentation von Design-Entscheidungen gegenueber Stakeholdern, inkl. Herleitung aus Nutzerforschung. Typische Taetigkeiten: Design-Rationale nachvollziehbar aufbereiten · Praesentationen fuer unterschiedliche Zielgruppen (Fachbereich, GF) anpassen · Kritische Rueckfragen souveraen beantworten«",
           anchors: {
@@ -374,6 +419,8 @@ const uxuiDesign: Role = {
           name: "Anforderungserhebung",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "KI-Projekte erzeugen neue Anforderungstypen. Erhebungskompetenz wird komplexer und wichtiger.",
           description:
             "»Systematische Erhebung von Anforderungen aus Fachbereich und Stakeholdern als Grundlage fuer den Designprozess. Typische Taetigkeiten: Kick-off-Gespraeche mit Fachbereichen fuehren · Anforderungen strukturiert dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
           anchors: {
@@ -388,6 +435,8 @@ const uxuiDesign: Role = {
           name: "UX-Metriken und ROI-Argumentation",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "steigend",
+          trendgrund: "Budgetdruck und geforderte Wirksamkeitsnachweise fuer KI-Investitionen erhoehen den Bedarf an belastbaren UX-Metriken.",
           description:
             "»Definition und Interpretation von UX-Metriken (z. B. Task Success Rate, SUS-Score) sowie Argumentation des Geschaeftswerts von UX-Investitionen. Typische Taetigkeiten: Passende UX-Metriken fuer ein Projekt auswaehlen · Metriken erheben und interpretieren · UX-Verbesserungen in Geschaeftswert (ROI) uebersetzen«",
           anchors: {
@@ -402,6 +451,8 @@ const uxuiDesign: Role = {
           name: "Cross-funktionale Teamkollaboration (agil)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "KI-Projekte erfordern Zusammenarbeit mit neuen Rollen (Data Engineers, KI-Spezialisten).",
           description:
             "»Effektive Zusammenarbeit mit Product, Entwicklung und anderen Disziplinen in agilen Teams. Typische Taetigkeiten: An Sprint-Planung und Refinements aktiv teilnehmen · Design-Entscheidungen im Team transparent kommunizieren · Abhaengigkeiten mit anderen Disziplinen fruehzeitig klaeren«",
           anchors: {
@@ -412,7 +463,7 @@ const uxuiDesign: Role = {
             5: "Gilt als Vorbild fuer agile Zusammenarbeit; praegt Teamkultur.",
           },
         },
-        { ...RUMP_VERBAL },
+        { ...RUMP_VERBAL, trend: "stabil" },
       ],
     },
   ],
