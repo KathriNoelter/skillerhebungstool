@@ -8,7 +8,7 @@ export const RUMP_DIGITALE: Skill = {
     "Digitale Systeme und KI-Werkzeuge verstehen, kritisch anwenden und mitgestalten. Digitale Systeme umfasst dabei KI-Tools, Kollaborationsplattformen, datenbasierte Auswertungen und digitale Arbeitsprozesse. Wissenskompetenz, nicht Tool-Beherrschung — daher Fachkompetenz. Querschnittskompetenz nach Prof. Dr. Jutta Rump (2025). Bewertung nach Bloom's Taxonomy (1-5). Typische Taetigkeit: KI-Vorschlaege kritisch pruefen, Daten- und Datenschutzgrenzen einhalten, digitale Werkzeuge situationsgerecht einsetzen.",
   anchors: {
     1: "Kennt grundlegende Begriffe digitaler Systeme und KI; kann erklaeren, wofuer typische Tools eingesetzt werden.",
-    2: "Nutzt digitale Tools und KI-Assistenten in vorgegebenen Faellen produktiv; haelt Daten- und Datenschutzregeln ein.",
+    2: "Nutzt digitale Tools und KI-Assistenten in bekannten Standardsituationen produktiv; haelt Daten- und Datenschutzregeln ein.",
     3: "Bewertet KI-Outputs kritisch auf Plausibilitaet, Bias und Quellenlage; erkennt, wann ein Tool ungeeignet ist.",
     4: "Wiegt Nutzen, Risiken und Grenzen digitaler Loesungen ab; trifft fundierte Tool- und Prompting-Entscheidungen im Arbeitskontext.",
     5: "Verantwortet Outputs, definiert Leitplanken fuer Team und Prozess, gestaltet den verantwortungsvollen Einsatz digitaler Systeme aktiv mit.",
