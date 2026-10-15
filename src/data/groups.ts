@@ -9,8 +9,8 @@ import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL, RUMP_VERBAL_V2 } from "./
 
 /** Skill-Katalog Version. Erhoehen, wenn Strukturen, Steckbriefe oder Anker
  *  geaendert werden. CHANGELOG.md fuehrt die Historie. */
-export const CATALOG_VERSION = "0.6.2";
-export const CATALOG_UPDATED_AT = "2026-06-17";
+export const CATALOG_VERSION = "0.7.0";
+export const CATALOG_UPDATED_AT = "2026-10-15";
 
 // -----------------------------------------------------------------------------
 // Rump-Pflichtskills (ANF-04, ANF-05) — gelten fuer alle Rollengruppen

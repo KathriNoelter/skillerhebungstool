@@ -5,6 +5,14 @@ Alle wesentlichen Aenderungen an diesem Projekt werden hier dokumentiert.
 Das Format basiert auf [Keep a Changelog](https://keepachangelog.com/de/1.1.0/)
 und das Projekt folgt [Semantic Versioning](https://semver.org/lang/de/).
 
+## [Unreleased]
+
+### Geaendert
+
+- **Gruppe Produktmanagement nach Team-Review (Okt. 2026)**: Kommentare zu Product Manager, Product Owner, UX und Business Developer eingearbeitet, soweit sie widerspruchsfrei sind und keine Workshop-Frage beruehren (Zielwerte, Schluesselkompetenzen, zusammengefuehrte und gestrichene Skills, toolneutrale Titel, geschaerfte Steckbriefe). Grundsatzfragen (Zielmarkt, Rollenabgrenzung, Markttreiber) bleiben fuer den Workshop offen.
+- **Geschaerfte Rump-Skills nur fuer Produktmanagement**: `RUMP_DIGITALE_V2` (vier Elemente nach Rump, Tool-Bedienung explizit ausgegrenzt) und `RUMP_VERBAL_V2` (Strukturierung und Verbalisierung inkl. Prompting). Die uebrigen Gruppen nutzen weiter die bisherigen Fassungen, mit denen ihre Selbsteinschaetzungen durchgefuehrt wurden.
+- **Katalog-Version**: `CATALOG_VERSION` auf `0.7.0`, `CATALOG_UPDATED_AT` auf `2026-10-15`. In der App bearbeitete Markttreiber werden dadurch einmalig auf den Katalogstand zurueckgesetzt.
+
 ## [0.5.2-beta] - 2026-05-06
 
 ### Geaendert
