@@ -1903,7 +1903,7 @@ const productManager: Role = {
   id: "product-manager",
   name: "Product Manager",
   description:
-    "Strategische Verantwortung fuer ein Produkt — von Vision und Marktanalyse bis Roadmap und Erfolgsmessung.",
+    "Strategische Verantwortung fuer ein Produkt — von Vision und Marktanalyse ueber Roadmap und Anforderungen bis Release, Markteinfuehrung und Erfolgsmessung.",
   categories: [
     {
       name: "Fachlich",
@@ -1969,7 +1969,7 @@ const productManager: Role = {
             5: "Entwickelt das Geschaefts- und Erloesmodell aktiv mit.",
           },
         },
-        { ...RUMP_DIGITALE, trend: "stark steigend" },
+        { ...RUMP_DIGITALE, targetLevel: 4, trend: "stark steigend" },
       ],
     },
     {
@@ -2006,48 +2006,18 @@ const productManager: Role = {
           },
         },
         {
-          name: "A/B-Testing-Plattformen",
-          dep: "Evolving",
-          targetLevel: 2,
-          trend: "stabil",
-          description:
-            "»Grundlegender Umgang mit A/B-Testing-Plattformen zur Validierung von Produkthypothesen. Typische Taetigkeiten: Einfache A/B-Tests aufsetzen und auswerten lassen · Testergebnisse interpretieren · Ergebnisse in Priorisierungsentscheidungen einbeziehen«",
-          anchors: {
-            1: "Kennt das Konzept von A/B-Tests; braucht Unterstuetzung beim Aufsetzen.",
-            2: "Setzt einfache Tests mit Anleitung auf.",
-            3: "Setzt eigenstaendig A/B-Tests auf und interpretiert die Ergebnisse.",
-            4: "Entwickelt aussagekraeftige Testdesigns fuer komplexere Fragestellungen.",
-            5: "Etabliert eine Testing-Kultur im Produktteam.",
-          },
-        },
-        {
           name: "Jira & Confluence",
           dep: "Evolving",
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Sicherer Umgang mit Jira und Confluence zur Planung, Dokumentation und Abstimmung mit dem Entwicklungsteam. Typische Taetigkeiten: Epics und Initiativen strukturiert anlegen · Produktdokumentation in Confluence aktuell halten · Fortschritt im Board nachvollziehen«",
+            "»Sicherer Umgang mit Jira und Confluence (oder vergleichbaren Planungstools) zur Planung, Dokumentation und Abstimmung mit dem Entwicklungsteam — inkl. Administration aus Produktsicht (Backlog-Struktur, Workflows). Typische Taetigkeiten: Epics und Initiativen strukturiert anlegen · Backlog-Struktur und Workflows aus Produktsicht pflegen · Produktdokumentation in Confluence aktuell halten · Fortschritt im Board nachvollziehen«",
           anchors: {
             1: "Bedient Jira/Confluence grundlegend; braucht Anleitung bei Konfiguration.",
             2: "Pflegt Epics und Dokumentation eigenstaendig fuer Standardfaelle.",
             3: "Nutzt Jira/Confluence vollstaendig fuer den Produktalltag.",
             4: "Optimiert Strukturen und Workflows fuer das Team.",
             5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
-          },
-        },
-        {
-          name: "KI-Tools fuer Produktanalyse",
-          dep: "Perishable",
-          targetLevel: 2,
-          trend: "stark steigend",
-          description:
-            "»Einsatz von KI-Assistenten zur Beschleunigung von Markt- und Wettbewerbsrecherche sowie zur Vorbereitung von Produktentscheidungen. Nicht gemeint: autonome Produktentscheidungen per KI treffen. Typische Taetigkeiten: Wettbewerbs- und Marktrecherche mit KI-Unterstuetzung beschleunigen · Erste Analysen und Zusammenfassungen per KI erstellen lassen · KI-Outputs kritisch auf Praxistauglichkeit pruefen«",
-          anchors: {
-            1: "Kennt KI-Tools dem Namen nach.",
-            2: "Nutzt KI fuer einfache Recherche- und Textaufgaben; prueft Outputs auf Korrektheit.",
-            3: "Setzt KI gezielt fuer verschiedene Produktarbeit-Aufgaben ein; optimiert Prompts.",
-            4: "Etabliert KI-gestuetzte Vorlagen und Workflows fuer das Team.",
-            5: "Definiert KI-Nutzungsstandards fuer die Produktarbeit.",
           },
         },
       ],
@@ -2062,7 +2032,7 @@ const productManager: Role = {
           keySkill: true,
           trend: "stabil",
           description:
-            "»Entwicklung und Kommunikation einer klaren Produktvision und -strategie, die Marktchancen, Unternehmensziele und Kundenbeduerfnisse verbindet. Typische Taetigkeiten: Produktvision entwickeln und im Team verankern · Strategie aus Markt- und Unternehmenszielen ableiten · Roadmap konsistent an der Strategie ausrichten«",
+            "»Entwicklung und Kommunikation einer klaren Produktvision und -strategie, die Marktchancen, Unternehmensziele und Kundenbeduerfnisse verbindet — inkl. Positionierung/Value Proposition, Delivery Model und Abgrenzung von Produkt- und Projektgeschaeft. Typische Taetigkeiten: Produktvision entwickeln und im Team verankern · Positionierung und Value Proposition schaerfen · Delivery Model festlegen und Produkt- von Projektanfragen abgrenzen · Strategie aus Markt- und Unternehmenszielen ableiten · Roadmap konsistent an der Strategie ausrichten«",
           anchors: {
             1: "Kennt die bestehende Produktvision; wendet sie mit Anleitung an.",
             2: "Erklaert die Produktstrategie nachvollziehbar; leitet einfache Entscheidungen daraus ab.",
@@ -2077,7 +2047,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Systematische Analyse von Markt, Wettbewerb und Trends zur fundierten Ableitung von Produktentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Chancen und Risiken fuer das eigene Produkt einordnen · Ergebnisse fuer Entscheidungen aufbereiten«",
+            "»Systematische Analyse von Markt, Wettbewerb und Trends zur fundierten Ableitung von Produktentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Marktpotenziale abschaetzen (Marktsizing) · Gewonnene und verlorene Deals auswerten (Win/Loss-Analysen) · Chancen und Risiken fuer das eigene Produkt einordnen · Ergebnisse fuer Entscheidungen aufbereiten«",
           anchors: {
             1: "Sammelt Marktinformationen nach Vorgabe.",
             2: "Erstellt einfache Markt- und Wettbewerbsanalysen eigenstaendig.",
@@ -2092,7 +2062,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Systematische Validierung von Produktideen und Hypothesen vor der Umsetzung, um das richtige Produkt zu bauen. Typische Taetigkeiten: Annahmen und Risiken einer Produktidee explizit machen · Validierungsformate (Interviews, Prototypen, Tests) auswaehlen und durchfuehren · Erkenntnisse in Priorisierungsentscheidungen einspeisen«",
+            "»Systematische Validierung von Produktideen und Hypothesen vor der Umsetzung, um das richtige Produkt zu bauen. Methoden u. a. Interviews, Jobs-to-be-Done, Prototypen und Tests; A/B-Tests nur dort, wo genug Nutzung fuer aussagekraeftige Ergebnisse vorhanden ist (im B2B oft nicht der Fall). Typische Taetigkeiten: Annahmen und Risiken einer Produktidee explizit machen · Passende Validierungsmethode (Interviews, Jobs-to-be-Done, Prototypen, Tests) auswaehlen und einsetzen · Erkenntnisse in Priorisierungsentscheidungen einspeisen«",
           anchors: {
             1: "Kennt das Konzept; Discovery findet unstrukturiert statt.",
             2: "Fuehrt einzelne Discovery-Aktivitaeten mit Unterstuetzung durch.",
@@ -2102,27 +2072,12 @@ const productManager: Role = {
           },
         },
         {
-          name: "Jobs-to-be-Done Framework",
-          dep: "Durable",
-          targetLevel: 3,
-          trend: "stabil",
-          description:
-            "»Anwendung des Jobs-to-be-Done-Ansatzes, um zugrunde liegende Kundenbeduerfnisse unabhaengig von konkreten Loesungen zu verstehen. Typische Taetigkeiten: Jobs-to-be-Done aus Kundeninterviews ableiten · Featureentscheidungen anhand des zu erledigenden Jobs bewerten · Team fuer die Kundenperspektive sensibilisieren«",
-          anchors: {
-            1: "Kennt das Konzept; wendet es mit Anleitung an.",
-            2: "Leitet einfache Jobs-to-be-Done aus vorhandenen Erkenntnissen ab.",
-            3: "Wendet das Framework eigenstaendig zur Bewertung von Featureentscheidungen an.",
-            4: "Nutzt Jobs-to-be-Done gezielt zur strategischen Priorisierung.",
-            5: "Etabliert Jobs-to-be-Done als festen Bestandteil der Produktarbeit.",
-          },
-        },
-        {
           name: "OKRs & Produkt-KPIs",
           dep: "Durable",
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Definition und Nachverfolgung von OKRs und produktrelevanten KPIs zur zielgerichteten Steuerung des Produkts. Typische Taetigkeiten: OKRs aus der Produktstrategie ableiten · Produkt-KPIs regelmaessig nachhalten · Fortschritt transparent gegenueber dem Team und Stakeholdern kommunizieren«",
+            "»Definition und Nachverfolgung von OKRs und produktrelevanten KPIs zur zielgerichteten Steuerung des Produkts — inkl. Outcome-Messung je Initiative und SaaS-Kennzahlen (Adoption, Retention, Churn, NRR). Typische Taetigkeiten: OKRs aus der Produktstrategie ableiten · Outcome je Initiative messen · SaaS-Kennzahlen wie Adoption, Retention, Churn und NRR regelmaessig nachhalten · Fortschritt transparent gegenueber dem Team und Stakeholdern kommunizieren«",
           anchors: {
             1: "Kennt die Begriffe OKR und KPI; wendet vorgegebene Ziele an.",
             2: "Verfolgt bestehende OKRs und KPIs eigenstaendig nach.",
@@ -2137,7 +2092,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Verstaendnis und Mitgestaltung von Preis- und Monetarisierungsmodellen fuer das eigene Produkt. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Produkt einschaetzen · Monetarisierungsoptionen gegenueberstellen · Mit Pricing- und Vertriebsverantwortlichen abstimmen«",
+            "»Verstaendnis und Mitgestaltung von Preis- und Monetarisierungsmodellen fuer das eigene Produkt. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Produkt einschaetzen · Monetarisierungsoptionen gegenueberstellen · Leitplanken fuer Rabatte und Sonderkonditionen mitdefinieren · Mit Pricing- und Vertriebsverantwortlichen abstimmen«",
           anchors: {
             1: "Kennt das bestehende Preismodell in Grundzuegen.",
             2: "Erklaert das Preismodell nachvollziehbar; versteht gaengige Alternativen.",
@@ -2147,12 +2102,12 @@ const productManager: Role = {
           },
         },
         {
-          name: "Roadmap-Priorisierung (RICE, MoSCoW)",
+          name: "Roadmap-Priorisierung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           trend: "stabil",
           description:
-            "»Anwendung strukturierter Priorisierungsmethoden (RICE, MoSCoW u. a.), um Roadmap-Entscheidungen nachvollziehbar zu treffen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Priorisierung transparent gegenueber Stakeholdern begruenden · Roadmap bei neuen Erkenntnissen anpassen«",
+            "»Anwendung strukturierter Priorisierungsmethoden (z. B. RICE, MoSCoW), um Roadmap-Entscheidungen nachvollziehbar zu treffen — inkl. Abgleich von Vertriebszusagen mit der Roadmap und Umgang mit Einzelkundenwuenschen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Vertriebszusagen mit der Roadmap abgleichen · Einzelkundenwuensche gegen den Nutzen fuer die gesamte Kundenbasis abwaegen · Priorisierung transparent gegenueber Stakeholdern begruenden · Roadmap bei neuen Erkenntnissen anpassen«",
           anchors: {
             1: "Kennt die Methoden; braucht Unterstuetzung bei der Anwendung.",
             2: "Wendet eine Standardmethode mit Anleitung an.",
@@ -2167,7 +2122,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Verstaendnis und Gestaltung des Kundenlebenszyklus (Akquise, Onboarding, Bindung, Cross-/Upselling, Kuendigung) aus Produktsicht. Typische Taetigkeiten: Kundenlebenszyklus-Phasen aus Produktsicht analysieren · Massnahmen zur Kundenbindung priorisieren · Mit Vertrieb und Customer Success abstimmen«",
+            "»Verstaendnis und Gestaltung des Kundenlebenszyklus im B2B-SaaS (Onboarding, Adoption, Renewal, Expansion, Churn) aus Produktsicht. Typische Taetigkeiten: Lifecycle-Phasen aus Produktsicht analysieren · Massnahmen fuer Adoption und Kundenbindung priorisieren · Renewal- und Expansion-Potenziale sowie Churn-Risiken frueh erkennen · Mit Vertrieb und Customer Success abstimmen«",
           anchors: {
             1: "Kennt die Phasen des Kundenlebenszyklus in Grundzuegen.",
             2: "Ordnet Featureentscheidungen einzelnen Lifecycle-Phasen zu.",
@@ -2182,7 +2137,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Planung und Koordination der Markteinfuehrung neuer Produkte oder Features gemeinsam mit Vertrieb, Marketing und Kundenservice. Typische Taetigkeiten: Go-to-Market-Plan fuer Launches erstellen · Vertrieb und Marketing rechtzeitig einbinden · Launch-Erfolg nachhalten und Learnings einspeisen«",
+            "»Planung und Koordination der Markteinfuehrung neuer Produkte oder Features gemeinsam mit Vertrieb, Marketing und Kundenservice — inkl. Sales Enablement und Support-Readiness. Typische Taetigkeiten: Go-to-Market-Plan fuer Launches erstellen · Vertrieb und Marketing rechtzeitig einbinden · Vertrieb mit Nutzenargumentation und Demo befaehigen (Sales Enablement) · Support auf den Launch vorbereiten (Support-Readiness) · Launch-Erfolg nachhalten und Learnings einspeisen«",
           anchors: {
             1: "Nimmt an Go-to-Market-Planung teil; braucht Unterstuetzung bei eigener Planung.",
             2: "Plant einfache Launches eigenstaendig mit den beteiligten Bereichen.",
@@ -2199,7 +2154,7 @@ const productManager: Role = {
         {
           name: "Stakeholder-Management",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           keySkill: true,
           trend: "stabil",
           description:
@@ -2218,7 +2173,7 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Nachvollziehbare, entscheidungsorientierte Praesentation von Produktthemen gegenueber Management und Fuehrungskraeften. Typische Taetigkeiten: Produktentscheidungen management-gerecht aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Rueckfragen souveraen beantworten«",
+            "»Nachvollziehbare, entscheidungsorientierte Praesentation von Produktthemen gegenueber Management und Fuehrungskraeften (interne Zielgruppen; externe Kommunikation siehe Storytelling & Pitch). Typische Taetigkeiten: Produktentscheidungen management-gerecht aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Rueckfragen souveraen beantworten«",
           anchors: {
             1: "Praesentiert nach Vorlage; braucht Unterstuetzung bei Rueckfragen.",
             2: "Bereitet einfache Praesentationen eigenstaendig vor.",
@@ -2233,35 +2188,13 @@ const productManager: Role = {
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Ueberzeugende narrative Vermittlung von Produktvision, -entscheidungen und -erfolgen gegenueber internen und externen Zielgruppen. Typische Taetigkeiten: Produktvision als nachvollziehbare Geschichte erzaehlen · Pitches fuer neue Produktideen vorbereiten und halten · Komplexe Sachverhalte auf den Punkt bringen«",
+            "»Ueberzeugende narrative Vermittlung von Produktvision, -nutzen und -erfolgen gegenueber externen Zielgruppen (Kunden, Interessenten, Partner) — inkl. Nutzenargumentation. Typische Taetigkeiten: Produktvision als nachvollziehbare Geschichte erzaehlen · Produktnutzen gegenueber Kunden ueberzeugend argumentieren · Pitches fuer Kunden und Interessenten vorbereiten und halten · Komplexe Sachverhalte auf den Punkt bringen«",
           anchors: {
             1: "Praesentiert Fakten; Storytelling entsteht selten bewusst.",
             2: "Baut einfache Praesentationen mit narrativem Rahmen auf.",
             3: "Vermittelt Produktvision und -entscheidungen ueberzeugend als Geschichte.",
             4: "Passt Storytelling zielgruppengerecht an; ueberzeugt in Pitches.",
             5: "Gilt als Vorbild fuer Storytelling und Pitches im Produktteam.",
-          },
-        },
-        { ...RUMP_VERBAL, trend: "stabil" },
-      ],
-    },
-    {
-      name: "Führung & Coaching",
-      skills: [
-        {
-          name: "Cross-funktionale Teamfuehrung (ohne disziplinarische Weisungsbefugnis)",
-          dep: "Durable",
-          targetLevel: 4,
-          keySkill: true,
-          trend: "steigend",
-          description:
-            "»Fuehrung eines funktionsuebergreifenden Produktteams (Entwicklung, UX, ggf. Vertrieb) allein ueber Vision, Ueberzeugungskraft und Vertrauen — ohne disziplinarische Weisungsbefugnis. Typische Taetigkeiten: Team auf ein gemeinsames Produktziel einschwoeren · Verantwortung und Entscheidungen ans Team zurueckgeben · Vertrauen durch Verlaesslichkeit und Transparenz aufbauen«",
-          anchors: {
-            1: "Nimmt an Teamentscheidungen teil; fuehrt punktuell mit Anleitung.",
-            2: "Uebernimmt Verantwortung fuer Teilziele; koordiniert Beitraege einzelner Funktionen.",
-            3: "Fuehrt das Team eigenstaendig auf ein gemeinsames Produktziel hin; baut Vertrauen aktiv auf.",
-            4: "Vereint unterschiedliche Interessen (Entwicklung, Design, Vertrieb) zu einer gemeinsamen Linie; delegiert Entscheidungen bewusst ans Team.",
-            5: "Gilt als Vorbild fuer laterale Fuehrung; entwickelt die Fuehrungskultur im Produktbereich weiter.",
           },
         },
         {
@@ -2279,6 +2212,28 @@ const productManager: Role = {
             5: "Praegt eine Kultur konsequenter Priorisierung im Produktbereich; coacht andere im Umgang mit Zielkonflikten.",
           },
         },
+        { ...RUMP_VERBAL, targetLevel: 4, trend: "stabil" },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
+      skills: [
+        {
+          name: "Cross-funktionale Teamfuehrung (ohne disziplinarische Weisungsbefugnis)",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          description:
+            "»Fuehrung eines funktionsuebergreifenden Produktteams (Entwicklung, UX, ggf. Vertrieb) allein ueber Vision, Ueberzeugungskraft und Vertrauen — ohne disziplinarische Weisungsbefugnis. Typische Taetigkeiten: Team auf ein gemeinsames Produktziel einschwoeren · Engineering frueh ins Problemverstaendnis einbinden · Verantwortung und Entscheidungen ans Team zurueckgeben · Vertrauen durch Verlaesslichkeit und Transparenz aufbauen«",
+          anchors: {
+            1: "Nimmt an Teamentscheidungen teil; fuehrt punktuell mit Anleitung.",
+            2: "Uebernimmt Verantwortung fuer Teilziele; koordiniert Beitraege einzelner Funktionen.",
+            3: "Fuehrt das Team eigenstaendig auf ein gemeinsames Produktziel hin; baut Vertrauen aktiv auf.",
+            4: "Vereint unterschiedliche Interessen (Entwicklung, Design, Vertrieb) zu einer gemeinsamen Linie; delegiert Entscheidungen bewusst ans Team.",
+            5: "Gilt als Vorbild fuer laterale Fuehrung; entwickelt die Fuehrungskultur im Produktbereich weiter.",
+          },
+        },
         {
           name: "Konfliktmoderation zwischen Stakeholdern & Team",
           dep: "Durable",
@@ -2291,7 +2246,7 @@ const productManager: Role = {
             2: "Spricht offensichtliche Spannungen eigenstaendig an.",
             3: "Moderiert Konflikte zwischen Stakeholdern und Team neutral und loesungsorientiert.",
             4: "Loest komplexe Mehrparteienkonflikte; verhindert Eskalationen fruehzeitig.",
-            5: "Gilt als Vermittlerin bei grundsaetzlichen Zielkonflikten im Produktbereich.",
+            5: "Gilt als neutrale Vermittlungsinstanz bei grundsaetzlichen Zielkonflikten im Produktbereich.",
           },
         },
       ],
@@ -2309,19 +2264,19 @@ const productOwner: Role = {
       name: "Fachlich",
       skills: [
         {
-          name: "Scrum Guide & Professional Scrum",
+          name: "Agile Prinzipien",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Kenntnis des Scrum Guides und der Professional-Scrum-Prinzipien als gemeinsame Basis fuer die Zusammenarbeit im Team. Typische Taetigkeiten: Scrum-Rollen, -Events und -Artefakte korrekt anwenden · Abweichungen vom Scrum Guide bewusst und begruendet vornehmen · Neue Teammitglieder in Scrum einfuehren«",
+            "»Kenntnis agiler Prinzipien und Vorgehensmodelle (z. B. Scrum, Kanban) als gemeinsame Basis fuer die Zusammenarbeit im Team. Typische Taetigkeiten: Agile Rollen, Termine und Artefakte sinnvoll anwenden · Abweichungen vom gewaehlten Vorgehen bewusst und begruendet vornehmen · Neue Teammitglieder in die agile Arbeitsweise einfuehren«",
           anchors: {
-            1: "Kennt Scrum-Grundbegriffe; wendet Events nach Anleitung an.",
-            2: "Versteht Sinn und Zweck von Rollen, Events und Artefakten.",
-            3: "Wendet Scrum im Team-Alltag sicher und eigenstaendig an.",
-            4: "Bewertet Abweichungen vom Scrum Guide kritisch; passt Vorgehen begruendet an.",
-            5: "Gilt als Scrum-Referenz; entwickelt das Vorgehen im Team konzeptionell weiter.",
+            1: "Kennt agile Grundbegriffe; wendet Termine nach Anleitung an.",
+            2: "Versteht Sinn und Zweck agiler Rollen, Termine und Artefakte.",
+            3: "Wendet agile Prinzipien im Team-Alltag sicher und eigenstaendig an.",
+            4: "Bewertet Abweichungen vom gewaehlten Vorgehen kritisch; passt es begruendet an.",
+            5: "Gilt als Referenz fuer agiles Arbeiten; entwickelt das Vorgehen im Team konzeptionell weiter.",
           },
         },
         {
@@ -2364,7 +2319,7 @@ const productOwner: Role = {
         {
           name: "Jira & Confluence",
           dep: "Evolving",
-          targetLevel: 3,
+          targetLevel: 4,
           trend: "stabil",
           description:
             "»Sicherer Umgang mit Jira und Confluence fuer Backlog-Pflege, Sprint-Planung und Dokumentation. Typische Taetigkeiten: Backlog-Items und Epics strukturiert anlegen und pflegen · Boards und Filter fuer Team-Transparenz konfigurieren · Produktdokumentation in Confluence aktuell halten«",
@@ -2379,7 +2334,7 @@ const productOwner: Role = {
         {
           name: "Story Mapping Tools",
           dep: "Evolving",
-          targetLevel: 2,
+          targetLevel: 4,
           trend: "stabil",
           description:
             "»Nutzung digitaler Story-Mapping-Werkzeuge (z. B. Miro, Mural) zur visuellen Strukturierung von Nutzerfluessen und Backlog. Typische Taetigkeiten: Story Maps digital aufbauen und pflegen · Workshops mit Story-Mapping-Tools moderieren · Ergebnisse in den Backlog ueberfuehren«",
@@ -2389,21 +2344,6 @@ const productOwner: Role = {
             3: "Baut und pflegt Story Maps eigenstaendig fuer laufende Produktarbeit.",
             4: "Moderiert Story-Mapping-Workshops; ueberfuehrt Ergebnisse strukturiert in den Backlog.",
             5: "Etabliert Story Mapping als festen Bestandteil der Produktarbeit im Team.",
-          },
-        },
-        {
-          name: "Prototyping (Figma)",
-          dep: "Evolving",
-          targetLevel: 2,
-          trend: "stabil",
-          description:
-            "»Grundlegender Umgang mit Figma, um Ideen zu visualisieren und mit Design/Entwicklung abzustimmen. Nicht gemeint: eigenstaendiges visuelles Design. Typische Taetigkeiten: Einfache Wireframes fuer Abstimmungen erstellen · Bestehende Figma-Prototypen nachvollziehen und kommentieren · Mit Design gemeinsam an Anforderungen arbeiten«",
-          anchors: {
-            1: "Kann Figma-Prototypen ansehen und kommentieren.",
-            2: "Erstellt einfache Wireframes mit Anleitung.",
-            3: "Erstellt eigenstaendig einfache Wireframes fuer Abstimmungszwecke.",
-            4: "Nutzt Figma gezielt zur Anforderungsklaerung mit Design.",
-            5: "Gestaltet gemeinsam mit Design komplexe Interaktionskonzepte.",
           },
         },
         {
@@ -2424,7 +2364,7 @@ const productOwner: Role = {
         {
           name: "KI-Tools im Produktkontext",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stark steigend",
           description:
             "»Einsatz von KI-Assistenten fuer Produktarbeit: Anforderungen strukturieren, Recherche beschleunigen, Texte fuer User Stories vorformulieren. Nicht gemeint: autonome Priorisierungsentscheidungen per KI treffen. Typische Taetigkeiten: User Stories und Akzeptanzkriterien per KI vorformulieren und pruefen · Wettbewerbs- und Marktrecherche mit KI-Unterstuetzung beschleunigen · KI-Outputs kritisch auf Praxistauglichkeit pruefen«",
@@ -2444,7 +2384,7 @@ const productOwner: Role = {
         {
           name: "Backlog-Management & Refinement",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           keySkill: true,
           trend: "stabil",
           description:
@@ -2458,39 +2398,25 @@ const productOwner: Role = {
           },
         },
         {
-          name: "User Stories schreiben (INVEST)",
+          name: "User Stories & Akzeptanzkriterien",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
+          keySkill: true,
           trend: "stabil",
           description:
-            "»Formulierung von User Stories nach dem INVEST-Prinzip (Independent, Negotiable, Valuable, Estimable, Small, Testable). Typische Taetigkeiten: User Stories aus Anforderungen ableiten · Stories auf INVEST-Kriterien pruefen und nachschaerfen · Team beim Verstaendnis von Stories unterstuetzen«",
+            "»Formulierung gut geschnittener User Stories nach dem INVEST-Prinzip mit klaren, testbaren Akzeptanzkriterien, die eindeutig festlegen, wann eine Story fertig ist. Typische Taetigkeiten: User Stories aus Anforderungen ableiten und auf INVEST-Kriterien pruefen · Akzeptanzkriterien gemeinsam mit dem Team testbar und eindeutig formulieren · Stories und Kriterien bei Aenderungen aktuell halten«",
           anchors: {
-            1: "Schreibt einfache Stories nach Vorlage; braucht Feedback.",
-            2: "Formuliert Standard-Stories eigenstaendig nach INVEST.",
-            3: "Schreibt eigenstaendig gut geschnittene, klare Stories fuer das Team.",
-            4: "Coacht andere im Schreiben von Stories; loest schwierige Schnitte.",
+            1: "Schreibt einfache Stories nach Vorlage und uebernimmt vorgegebene Kriterien; braucht Feedback.",
+            2: "Formuliert Standard-Stories nach INVEST und einfache Akzeptanzkriterien eigenstaendig.",
+            3: "Schreibt eigenstaendig gut geschnittene Stories mit klaren, testbaren Akzeptanzkriterien.",
+            4: "Loest schwierige Story-Schnitte; erkennt Luecken in Akzeptanzkriterien proaktiv.",
             5: "Gilt als Referenz fuer Story-Qualitaet im Unternehmen.",
-          },
-        },
-        {
-          name: "Akzeptanzkriterien definieren",
-          dep: "Durable",
-          targetLevel: 3,
-          trend: "stabil",
-          description:
-            "»Formulierung klarer, testbarer Akzeptanzkriterien, die eindeutig festlegen, wann eine Story fertig ist. Typische Taetigkeiten: Akzeptanzkriterien gemeinsam mit dem Team ableiten · Kriterien testbar und eindeutig formulieren · Kriterien bei Aenderungen aktuell halten«",
-          anchors: {
-            1: "Uebernimmt vorgegebene Kriterien; braucht Unterstuetzung beim Formulieren.",
-            2: "Formuliert einfache Akzeptanzkriterien eigenstaendig.",
-            3: "Definiert eigenstaendig klare, testbare Kriterien fuer komplexe Stories.",
-            4: "Erkennt Luecken in Kriterien proaktiv; schult das Team.",
-            5: "Setzt Standards fuer Akzeptanzkriterien im Unternehmen.",
           },
         },
         {
           name: "Story Mapping",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stabil",
           description:
             "»Visuelle Strukturierung von Nutzerfluessen und Backlog-Items entlang der Nutzerreise zur besseren Priorisierung und Release-Planung. Typische Taetigkeiten: Story Maps mit dem Team erarbeiten · Releases anhand der Story Map schneiden · Luecken in der Nutzerreise identifizieren«",
@@ -2505,7 +2431,7 @@ const productOwner: Role = {
         {
           name: "Priorisierungstechniken (WSJF, MoSCoW)",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           keySkill: true,
           trend: "stabil",
           description:
@@ -2537,6 +2463,7 @@ const productOwner: Role = {
           name: "Sprint- & Release-Planung",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           trend: "stabil",
           description:
             "»Planung von Sprints und Releases, sodass Team-Kapazitaet und Produktziele zusammenpassen. Typische Taetigkeiten: Sprint-Ziele gemeinsam mit dem Team festlegen · Release-Umfang und -Termine mit Stakeholdern abstimmen · Planung bei Aenderungen anpassen«",
@@ -2551,7 +2478,8 @@ const productOwner: Role = {
         {
           name: "Definition of Ready / Done",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 4,
+          keySkill: true,
           trend: "stabil",
           description:
             "»Etablierung und Einhaltung klarer Kriterien, wann ein Item bereit fuer die Umsetzung ist (Ready) und wann es als fertig gilt (Done). Typische Taetigkeiten: DoR/DoD gemeinsam mit dem Team definieren · Einhaltung im Alltag konsequent einfordern · Kriterien bei Bedarf weiterentwickeln«",
@@ -2564,24 +2492,9 @@ const productOwner: Role = {
           },
         },
         {
-          name: "Discovery & Delivery",
-          dep: "Durable",
-          targetLevel: 2,
-          trend: "steigend",
-          description:
-            "»Bewusste Trennung und Verzahnung von Produkt-Discovery (Problem-/Loesungsvalidierung) und Delivery (Umsetzung), um das richtige Produkt richtig zu bauen. Typische Taetigkeiten: Discovery-Aktivitaeten (Interviews, Tests) parallel zur Delivery einplanen · Erkenntnisse aus der Discovery in den Backlog einspeisen · Balance zwischen Lernen und Liefern aktiv steuern«",
-          anchors: {
-            1: "Kennt das Konzept; Discovery und Delivery laufen unstrukturiert nebeneinander.",
-            2: "Plant einzelne Discovery-Aktivitaeten mit Unterstuetzung ein.",
-            3: "Verzahnt Discovery und Delivery eigenstaendig im laufenden Betrieb.",
-            4: "Steuert die Balance zwischen Discovery und Delivery bewusst und situativ.",
-            5: "Etabliert einen strukturierten Discovery-Delivery-Prozess im Team.",
-          },
-        },
-        {
           name: "Velocity & Forecasting",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 4,
           trend: "stabil",
           description:
             "»Nutzung von Velocity-Daten zur realistischen Vorhersage von Liefermengen und -terminen. Typische Taetigkeiten: Velocity-Trends beobachten und einordnen · Forecasts fuer Releases auf Datenbasis erstellen · Abweichungen zwischen Forecast und Realitaet erklaeren«",
@@ -2599,18 +2512,18 @@ const productOwner: Role = {
       name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
-          name: "Sprint Reviews moderieren",
+          name: "Scrum-Termine moderieren",
           dep: "Durable",
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Vorbereitung und Moderation von Sprint Reviews, sodass Stakeholder den erzielten Fortschritt nachvollziehen und Feedback geben koennen. Typische Taetigkeiten: Sprint Reviews strukturiert vorbereiten · Ergebnisse verstaendlich praesentieren · Feedback aktiv einholen und in den Backlog ueberfuehren«",
+            "»Vorbereitung und Moderation der Scrum-Termine (z. B. Sprint Planning, Refinement, Sprint Review), sodass das Team fokussiert plant und Stakeholder den Fortschritt nachvollziehen und Feedback geben koennen. Typische Taetigkeiten: Scrum-Termine strukturiert vorbereiten · Ergebnisse im Review verstaendlich praesentieren · Feedback aktiv einholen und in den Backlog ueberfuehren«",
           anchors: {
-            1: "Nimmt an Sprint Reviews teil; moderiert mit Unterstuetzung.",
-            2: "Moderiert einfache Sprint Reviews eigenstaendig.",
-            3: "Bereitet Sprint Reviews eigenstaendig vor und moderiert sie souveraen.",
-            4: "Passt Reviews zielgruppengerecht an; navigiert kritisches Stakeholder-Feedback.",
-            5: "Gilt als Vorbild fuer Sprint-Review-Moderation; coacht andere Product Owner.",
+            1: "Nimmt an Scrum-Terminen teil; moderiert mit Unterstuetzung.",
+            2: "Moderiert einfache Scrum-Termine eigenstaendig.",
+            3: "Bereitet Scrum-Termine eigenstaendig vor und moderiert sie souveraen.",
+            4: "Passt Termine zielgruppengerecht an; navigiert kritisches Stakeholder-Feedback.",
+            5: "Gilt als Vorbild fuer die Moderation von Scrum-Terminen; coacht andere Product Owner.",
           },
         },
         {
@@ -2632,7 +2545,7 @@ const productOwner: Role = {
         {
           name: "Anforderungserhebung",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           trend: "stabil",
           description:
             "»Systematische Erhebung von Anforderungen aus Fachbereich, Kunden und Stakeholdern als Grundlage fuer den Backlog. Typische Taetigkeiten: Anforderungsgespraeche strukturiert fuehren · Anforderungen praezise dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
@@ -2647,7 +2560,7 @@ const productOwner: Role = {
         {
           name: "Teamarbeit mit Entwicklung & UX",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           trend: "stabil",
           description:
             "»Enge, vertrauensvolle Zusammenarbeit mit Entwicklung und UX/UI Design als gleichwertige Partner im Produktteam. Typische Taetigkeiten: Anforderungen gemeinsam mit Entwicklung und UX schaerfen · Technische und gestalterische Constraints fruehzeitig einbeziehen · Konflikte zwischen Anforderung und Umsetzbarkeit konstruktiv loesen«",
@@ -2659,7 +2572,7 @@ const productOwner: Role = {
             5: "Gilt als Vorbild fuer funktionsuebergreifende Teamarbeit.",
           },
         },
-        { ...RUMP_VERBAL, trend: "stabil" },
+        { ...RUMP_VERBAL, targetLevel: 4, trend: "stabil" },
       ],
     },
   ],
@@ -2696,19 +2609,19 @@ const ux: Role = {
       name: "Technisch",
       skills: [
         {
-          name: "Figma (Design & Prototyping)",
+          name: "Design & Prototyping (z. B. in Figma)",
           dep: "Evolving",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Sicherer Umgang mit Figma zur Gestaltung von Screens und interaktiven Prototypen im Produktalltag. Typische Taetigkeiten: Screens und einfache Komponenten in Figma gestalten · Klickbare Prototypen fuer Tests und Reviews erstellen · Mit Entwicklung ueber Figma (Dev Mode/Inspect) abstimmen«",
+            "»Sicherer Umgang mit Design- und Prototyping-Tools (z. B. Figma) zur Gestaltung von Screens und interaktiven Prototypen im Produktalltag. Typische Taetigkeiten: Screens und einfache Komponenten gestalten · Klickbare Prototypen fuer Tests und Reviews erstellen · Mit Entwicklung ueber das Design-Tool abstimmen (z. B. Figma Dev Mode/Inspect)«",
           anchors: {
-            1: "Bedient Figma grundlegend; braucht Anleitung bei der Gestaltung.",
+            1: "Bedient das Design-Tool grundlegend; braucht Anleitung bei der Gestaltung.",
             2: "Erstellt einfache Screens und Prototypen eigenstaendig.",
             3: "Gestaltet Screens und klickbare Prototypen fuer den Produktalltag selbststaendig.",
-            4: "Nutzt Figma gezielt zur Anforderungsklaerung und Abstimmung mit Entwicklung.",
-            5: "Gilt als Figma-Ansprechpartnerin im Produktteam; etabliert Nutzungsstandards.",
+            4: "Nutzt das Design-Tool gezielt zur Anforderungsklaerung und Abstimmung mit Entwicklung.",
+            5: "Gilt als Ansprechperson fuer Design-Tools im Produktteam; etabliert Nutzungsstandards.",
           },
         },
         {
@@ -2729,7 +2642,7 @@ const ux: Role = {
         {
           name: "KI-Tools im Designprozess",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stark steigend",
           description:
             "»Einsatz von KI-Tools zur Ideenfindung, Recherche und Beschleunigung typischer Design-Aufgaben. Typische Taetigkeiten: Moodboards und erste Entwuerfe per KI generieren · Prompts fuer Design- und Rechercheaufgaben formulieren · Generierte Ergebnisse kritisch pruefen und weiterverarbeiten«",
@@ -2796,7 +2709,7 @@ const ux: Role = {
         {
           name: "Prototyping (Fidelity-Wahl)",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 2,
           trend: "stabil",
           description:
             "»Konzeption von Prototypen unterschiedlicher Wirklichkeitsnaehe (Wireframe, Klick-Dummy, High-Fidelity) passend zur jeweiligen Fragestellung. Typische Taetigkeiten: Passendes Fidelity-Level fuer die Testfrage waehlen · Prototypen fuer Tests und Stakeholder-Reviews aufbauen · Feedback aus Tests in die naechste Iteration einarbeiten«",
@@ -2813,7 +2726,7 @@ const ux: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
-          trend: "steigend",
+          trend: "stabil",
           description:
             "»Systematisches Einholen, Buendeln und Einarbeiten von Nutzerfeedback aus Tests, Support und Produktnutzung in die Designarbeit. Typische Taetigkeiten: Feedback aus verschiedenen Quellen (Tests, Support, Analytics) buendeln · Feedback priorisiert in Design-Iterationen einspeisen · Rueckmeldung an Nutzer und Stakeholder zu umgesetztem Feedback geben«",
           anchors: {
@@ -2859,7 +2772,7 @@ const ux: Role = {
             5: "Gilt als Vorbild fuer Design-Praesentationen im Produktteam.",
           },
         },
-        { ...RUMP_VERBAL, trend: "stabil" },
+        { ...RUMP_VERBAL, targetLevel: 3, keySkill: false, trend: "stabil" },
       ],
     },
   ],
@@ -2912,7 +2825,7 @@ const businessDeveloper: Role = {
           keySkill: true,
           trend: "stabil",
           description:
-            "»Verstaendnis der Geschaefts- und Preismodelle des eigenen Produkts sowie gaengiger Modelle im Versicherungs- und Softwaregeschaeft. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Geschaeftsmodell einschaetzen · Geschaeftsmodell gegenueber Kunden und Partnern erklaeren · Preismodelle im Vergleich zum Wettbewerb einordnen«",
+            "»Verstaendnis der Geschaefts- und Preismodelle des eigenen Produkts sowie gaengiger Modelle von Softwareanbietern. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Geschaeftsmodell einschaetzen · Geschaeftsmodell gegenueber Kunden und Partnern erklaeren · Produktkategorien, -funktionen, Geschaefts- und Preismodelle von Wettbewerbern verstehen und einordnen«",
           anchors: {
             1: "Kennt das eigene Geschaeftsmodell in Grundzuegen.",
             2: "Erklaert das Geschaeftsmodell und gaengige Preismodelle nachvollziehbar.",
@@ -2921,41 +2834,26 @@ const businessDeveloper: Role = {
             5: "Entwickelt das Geschaefts- und Preismodell aktiv mit.",
           },
         },
-        { ...RUMP_DIGITALE, trend: "stark steigend" },
+        { ...RUMP_DIGITALE, targetLevel: 3, trend: "stark steigend" },
       ],
     },
     {
       name: "Technisch",
       skills: [
         {
-          name: "CRM-Systeme (z. B. Salesforce, HubSpot)",
+          name: "CRM-System (HubSpot)",
           dep: "Evolving",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Sicherer Umgang mit CRM-Systemen zur Pflege von Kunden- und Partnerbeziehungen, Opportunities und Vertragsdaten. Typische Taetigkeiten: Kunden- und Partnerdaten strukturiert im CRM pflegen · Opportunities und Vertragsstatus nachhalten · Berichte und Auswertungen aus dem CRM aufbereiten«",
+            "»Sicherer Umgang mit dem CRM-System (HubSpot) zur Pflege von Kunden- und Partnerbeziehungen, Opportunities und Vertragsdaten. Typische Taetigkeiten: Kunden- und Partnerdaten strukturiert im CRM pflegen · Opportunities und Vertragsstatus nachhalten · Berichte und Auswertungen aus dem CRM aufbereiten«",
           anchors: {
             1: "Bedient das CRM grundlegend; pflegt einfache Datensaetze.",
             2: "Pflegt Kunden- und Partnerdaten eigenstaendig nach vorgegebener Struktur.",
             3: "Nutzt das CRM vollstaendig fuer Account- und Vertragssteuerung; erstellt Berichte.",
             4: "Konfiguriert Ansichten und Automatisierungen fuer den eigenen Bereich.",
             5: "Gilt als Key User; entwickelt Nutzungsstandards fuer das Team.",
-          },
-        },
-        {
-          name: "Vertrags- & Angebotsmanagement-Tools",
-          dep: "Evolving",
-          targetLevel: 2,
-          trend: "stabil",
-          description:
-            "»Nutzung von Tools zur Erstellung, Ablage und Nachverfolgung von Angeboten und Vertraegen. Typische Taetigkeiten: Angebote und Vertraege aus Vorlagen erstellen · Frist- und Verlaengerungstermine nachhalten · Vertragsversionen und Freigabestatus pflegen«",
-          anchors: {
-            1: "Erstellt Angebote/Vertraege nach Vorlage mit Anleitung.",
-            2: "Erstellt und pflegt Angebote und Vertraege eigenstaendig.",
-            3: "Nutzt Tools vollstaendig zur Fristueberwachung und Versionspflege.",
-            4: "Optimiert Vorlagen und Ablaeufe fuer wiederkehrende Vertragsarten.",
-            5: "Definiert Tool-Standards fuer Angebots- und Vertragsmanagement.",
           },
         },
         {
@@ -3031,7 +2929,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
-          trend: "steigend",
+          trend: "stabil",
           description:
             "»Identifikation, Aufbau und Pflege strategischer Kooperationen und Partnerschaften zur Erweiterung von Produkt- und Marktreichweite. Typische Taetigkeiten: Potenzielle Partner identifizieren und ansprechen · Kooperationsmodelle gemeinsam mit Partnern entwickeln · Bestehende Partnerschaften aktiv weiterentwickeln«",
           anchors: {
@@ -3061,7 +2959,7 @@ const businessDeveloper: Role = {
           name: "Cross- & Upselling-Potenzialidentifikation",
           dep: "Durable",
           targetLevel: 2,
-          trend: "steigend",
+          trend: "stabil",
           description:
             "»Erkennen und Erschliessen von Cross- und Upselling-Potenzialen in bestehenden Kundenbeziehungen. Typische Taetigkeiten: Kundenbedarfe ueber das Kernprodukt hinaus erkennen · Zusatzangebote passend zum Kundenbedarf vorschlagen · Erfolg von Cross-/Upselling-Massnahmen nachhalten«",
           anchors: {
@@ -3076,7 +2974,7 @@ const businessDeveloper: Role = {
           name: "Business-Case-Bewertung fuer Kooperationen",
           dep: "Evolving",
           targetLevel: 2,
-          trend: "steigend",
+          trend: "stabil",
           description:
             "»Bewertung des wirtschaftlichen Nutzens geplanter Kooperationen und Partnerschaften anhand belastbarer Business Cases. Typische Taetigkeiten: Kosten und Nutzen einer Kooperation gegenueberstellen · Annahmen fuer den Business Case transparent machen · Business Case gegenueber internen Entscheidern vertreten«",
           anchors: {
@@ -3153,7 +3051,7 @@ const businessDeveloper: Role = {
             5: "Gilt als Vorbild fuer Angebots- und Geschaeftspraesentationen.",
           },
         },
-        { ...RUMP_VERBAL, trend: "stabil" },
+        { ...RUMP_VERBAL, targetLevel: 3, trend: "stabil" },
       ],
     },
   ],
@@ -7205,7 +7103,7 @@ const produktmanagementDrivers: MarketDriver[] = [
     affectedSkillNames: [
       "Nutzerforschung & Interviews",
       "Nutzerfeedback einholen & einarbeiten",
-      "Jobs-to-be-Done Framework",
+      "Discovery & Validation",
       "Customer Lifecycle Management",
     ],
   },
