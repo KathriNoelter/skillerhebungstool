@@ -1908,45 +1908,392 @@ const productManager: Role = {
     {
       name: "Fachlich",
       skills: [
-        { name: "Versicherungsprodukte & Marktstruktur", dep: "Durable" },
-        { name: "Vertriebskanaele & Kundensegmente", dep: "Durable" },
-        { name: "Regulatorik fuer Versicherungsprodukte (VVG, BaFin)", dep: "Evolving" },
-        { name: "Geschaeftsmodelle der Versicherungsbranche", dep: "Durable" },
-        { ...RUMP_DIGITALE },
+        {
+          name: "Versicherungsprodukte & Marktstruktur",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          trend: "stabil",
+          description:
+            "»Verstaendnis der zentralen Versicherungsprodukte (Sach, Leben, Kranken, Industrie), Marktstruktur und Wertschoepfungskette als Grundlage fuer fundierte Produktentscheidungen. Typische Taetigkeiten: Produktentscheidungen im Kontext der Versicherungssparte einordnen · Mit Fachbereich und Underwriting auf Augenhoehe sprechen · Marktstruktur bei neuen Produktideen beruecksichtigen«",
+          anchors: {
+            1: "Kennt die wichtigsten Versicherungsprodukte und Sparten in Grundzuegen.",
+            2: "Erklaert Wertschoepfungskette und Marktstruktur nachvollziehbar.",
+            3: "Ordnet Produktentscheidungen eigenstaendig in Sparten- und Marktkontext ein.",
+            4: "Bewertet neue Produktideen fundiert vor dem Hintergrund der Marktstruktur.",
+            5: "Gilt als Referenz fuer Versicherungsprodukte und Marktstruktur im Produktteam.",
+          },
+        },
+        {
+          name: "Vertriebskanaele & Kundensegmente",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Kenntnis der relevanten Vertriebskanaele (Makler, Ausschliesslichkeit, Direktvertrieb, Bancassurance) und Kundensegmente als Grundlage fuer kanalgerechte Produktentscheidungen. Typische Taetigkeiten: Produktanforderungen je Vertriebskanal einordnen · Kundensegmente bei Feature-Priorisierung beruecksichtigen · Mit Vertrieb ueber Kanalanforderungen sprechen«",
+          anchors: {
+            1: "Kennt die wichtigsten Vertriebskanaele und Kundensegmente dem Namen nach.",
+            2: "Erklaert Unterschiede zwischen Kanaelen und Segmenten nachvollziehbar.",
+            3: "Beruecksichtigt Kanal- und Segmentanforderungen eigenstaendig in Produktentscheidungen.",
+            4: "Bewertet Kanalkonflikte und Segmentpotenziale fundiert; beraet den Vertrieb.",
+            5: "Gilt als Referenz fuer Vertriebskanal- und Segmentfragen im Produktteam.",
+          },
+        },
+        {
+          name: "Regulatorik fuer Versicherungsprodukte (VVG, BaFin)",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Kenntnis regulatorischer Rahmenbedingungen (VVG, BaFin-Vorgaben, IDD) mit Auswirkung auf Produktgestaltung und -kommunikation. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Constraints in der Produktgestaltung beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
+          anchors: {
+            1: "Kennt die Begriffe VVG und BaFin; braucht Unterstuetzung bei der Einordnung.",
+            2: "Erkennt gaengige regulatorische Anforderungen in Standardfaellen.",
+            3: "Beruecksichtigt regulatorische Vorgaben eigenstaendig in der Produktgestaltung.",
+            4: "Bewertet neue Regulatorik auf Produktauswirkung; klaert Grenzfaelle mit Fachstellen.",
+            5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
+          },
+        },
+        {
+          name: "Geschaeftsmodelle der Versicherungsbranche",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Verstaendnis gaengiger Geschaefts- und Erloesmodelle der Versicherungsbranche (Praemienmodelle, Rueckversicherung, Plattformgeschaefte) als Grundlage fuer Produktentscheidungen. Typische Taetigkeiten: Produktentscheidungen im Kontext des Geschaeftsmodells einordnen · Auswirkungen auf Ertrag und Risiko einschaetzen · Geschaeftsmodell gegenueber dem Team erklaeren«",
+          anchors: {
+            1: "Kennt das eigene Geschaeftsmodell in Grundzuegen.",
+            2: "Erklaert gaengige Geschaefts- und Erloesmodelle der Branche nachvollziehbar.",
+            3: "Ordnet Produktentscheidungen eigenstaendig in das Geschaeftsmodell ein.",
+            4: "Bewertet alternative Geschaeftsmodelle fundiert; beraet dazu.",
+            5: "Entwickelt das Geschaefts- und Erloesmodell aktiv mit.",
+          },
+        },
+        { ...RUMP_DIGITALE, trend: "stark steigend" },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "Produkt-Analytics (GA, Mixpanel, Amplitude)", dep: "Evolving" },
-        { name: "Roadmap-Tools (Productboard, Aha!)", dep: "Evolving" },
-        { name: "A/B-Testing-Plattformen", dep: "Evolving" },
-        { name: "Jira & Confluence", dep: "Evolving" },
-        { name: "KI-Tools fuer Produktanalyse", dep: "Perishable" },
+        {
+          name: "Produkt-Analytics (GA, Mixpanel, Amplitude)",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Nutzung von Analytics-Tools zur datenbasierten Bewertung von Produktentscheidungen und Priorisierung. Typische Taetigkeiten: Produkt-KPIs und Nutzungsdaten auslesen und interpretieren · Hypothesen anhand von Daten pruefen · Dashboards fuer das Team aufbauen«",
+          anchors: {
+            1: "Kennt gaengige Produkt-Kennzahlen; braucht Unterstuetzung bei der Interpretation.",
+            2: "Liest Standard-Dashboards eigenstaendig.",
+            3: "Nutzt Analytics-Tools eigenstaendig zur Absicherung von Produktentscheidungen.",
+            4: "Entwickelt eigene Analysen und Dashboards fuer komplexe Fragestellungen.",
+            5: "Etabliert eine datengetriebene Entscheidungskultur im Produktteam.",
+          },
+        },
+        {
+          name: "Roadmap-Tools (Productboard, Aha!)",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Sicherer Umgang mit Roadmap-Tools zur Planung, Priorisierung und Kommunikation der Produkt-Roadmap. Typische Taetigkeiten: Roadmap strukturiert pflegen und aktualisieren · Prioritaeten fuer Stakeholder nachvollziehbar visualisieren · Feedback und Anfragen im Tool strukturiert erfassen«",
+          anchors: {
+            1: "Bedient das Roadmap-Tool grundlegend; pflegt einfache Eintraege.",
+            2: "Pflegt die Roadmap eigenstaendig fuer Standardfaelle.",
+            3: "Nutzt das Tool vollstaendig fuer Planung und Stakeholder-Kommunikation.",
+            4: "Optimiert Roadmap-Strukturen und Views fuer unterschiedliche Zielgruppen.",
+            5: "Gilt als Key User; entwickelt Nutzungsstandards fuer das Team.",
+          },
+        },
+        {
+          name: "A/B-Testing-Plattformen",
+          dep: "Evolving",
+          targetLevel: 2,
+          trend: "stabil",
+          description:
+            "»Grundlegender Umgang mit A/B-Testing-Plattformen zur Validierung von Produkthypothesen. Typische Taetigkeiten: Einfache A/B-Tests aufsetzen und auswerten lassen · Testergebnisse interpretieren · Ergebnisse in Priorisierungsentscheidungen einbeziehen«",
+          anchors: {
+            1: "Kennt das Konzept von A/B-Tests; braucht Unterstuetzung beim Aufsetzen.",
+            2: "Setzt einfache Tests mit Anleitung auf.",
+            3: "Setzt eigenstaendig A/B-Tests auf und interpretiert die Ergebnisse.",
+            4: "Entwickelt aussagekraeftige Testdesigns fuer komplexere Fragestellungen.",
+            5: "Etabliert eine Testing-Kultur im Produktteam.",
+          },
+        },
+        {
+          name: "Jira & Confluence",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Sicherer Umgang mit Jira und Confluence zur Planung, Dokumentation und Abstimmung mit dem Entwicklungsteam. Typische Taetigkeiten: Epics und Initiativen strukturiert anlegen · Produktdokumentation in Confluence aktuell halten · Fortschritt im Board nachvollziehen«",
+          anchors: {
+            1: "Bedient Jira/Confluence grundlegend; braucht Anleitung bei Konfiguration.",
+            2: "Pflegt Epics und Dokumentation eigenstaendig fuer Standardfaelle.",
+            3: "Nutzt Jira/Confluence vollstaendig fuer den Produktalltag.",
+            4: "Optimiert Strukturen und Workflows fuer das Team.",
+            5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
+          },
+        },
+        {
+          name: "KI-Tools fuer Produktanalyse",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Assistenten zur Beschleunigung von Markt- und Wettbewerbsrecherche sowie zur Vorbereitung von Produktentscheidungen. Nicht gemeint: autonome Produktentscheidungen per KI treffen. Typische Taetigkeiten: Wettbewerbs- und Marktrecherche mit KI-Unterstuetzung beschleunigen · Erste Analysen und Zusammenfassungen per KI erstellen lassen · KI-Outputs kritisch auf Praxistauglichkeit pruefen«",
+          anchors: {
+            1: "Kennt KI-Tools dem Namen nach.",
+            2: "Nutzt KI fuer einfache Recherche- und Textaufgaben; prueft Outputs auf Korrektheit.",
+            3: "Setzt KI gezielt fuer verschiedene Produktarbeit-Aufgaben ein; optimiert Prompts.",
+            4: "Etabliert KI-gestuetzte Vorlagen und Workflows fuer das Team.",
+            5: "Definiert KI-Nutzungsstandards fuer die Produktarbeit.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "Produktstrategie & Vision", dep: "Durable" },
-        { name: "Markt- und Wettbewerbsanalyse", dep: "Durable" },
-        { name: "Discovery & Validation", dep: "Durable" },
-        { name: "Jobs-to-be-Done Framework", dep: "Durable" },
-        { name: "OKRs & Produkt-KPIs", dep: "Durable" },
-        { name: "Pricing & Monetarisierung", dep: "Durable" },
-        { name: "Roadmap-Priorisierung (RICE, MoSCoW)", dep: "Durable" },
-        { name: "Customer Lifecycle Management", dep: "Durable" },
-        { name: "Go-to-Market Planung", dep: "Durable" },
+        {
+          name: "Produktstrategie & Vision",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stabil",
+          description:
+            "»Entwicklung und Kommunikation einer klaren Produktvision und -strategie, die Marktchancen, Unternehmensziele und Kundenbeduerfnisse verbindet. Typische Taetigkeiten: Produktvision entwickeln und im Team verankern · Strategie aus Markt- und Unternehmenszielen ableiten · Roadmap konsistent an der Strategie ausrichten«",
+          anchors: {
+            1: "Kennt die bestehende Produktvision; wendet sie mit Anleitung an.",
+            2: "Erklaert die Produktstrategie nachvollziehbar; leitet einfache Entscheidungen daraus ab.",
+            3: "Entwickelt eigenstaendig Beitraege zur Produktstrategie; richtet die Roadmap konsistent daran aus.",
+            4: "Entwickelt die Produktvision eigenstaendig weiter; gewinnt das Unternehmen dafuer.",
+            5: "Praegt die Produktstrategie des Unternehmens massgeblich mit.",
+          },
+        },
+        {
+          name: "Markt- und Wettbewerbsanalyse",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Systematische Analyse von Markt, Wettbewerb und Trends zur fundierten Ableitung von Produktentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Chancen und Risiken fuer das eigene Produkt einordnen · Ergebnisse fuer Entscheidungen aufbereiten«",
+          anchors: {
+            1: "Sammelt Marktinformationen nach Vorgabe.",
+            2: "Erstellt einfache Markt- und Wettbewerbsanalysen eigenstaendig.",
+            3: "Analysiert Markt und Wettbewerb eigenstaendig; leitet Chancen und Risiken ab.",
+            4: "Bewertet komplexe Marktkonstellationen fundiert; beraet zu strategischen Optionen.",
+            5: "Gilt als Referenz fuer Markt- und Wettbewerbsanalyse im Produktteam.",
+          },
+        },
+        {
+          name: "Discovery & Validation",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Systematische Validierung von Produktideen und Hypothesen vor der Umsetzung, um das richtige Produkt zu bauen. Typische Taetigkeiten: Annahmen und Risiken einer Produktidee explizit machen · Validierungsformate (Interviews, Prototypen, Tests) auswaehlen und durchfuehren · Erkenntnisse in Priorisierungsentscheidungen einspeisen«",
+          anchors: {
+            1: "Kennt das Konzept; Discovery findet unstrukturiert statt.",
+            2: "Fuehrt einzelne Discovery-Aktivitaeten mit Unterstuetzung durch.",
+            3: "Validiert Produktideen eigenstaendig vor der Umsetzung.",
+            4: "Waehlt Validierungsmethodik passend zur Fragestellung; loest methodische Probleme.",
+            5: "Etabliert einen strukturierten Discovery-Prozess im Produktteam.",
+          },
+        },
+        {
+          name: "Jobs-to-be-Done Framework",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Anwendung des Jobs-to-be-Done-Ansatzes, um zugrunde liegende Kundenbeduerfnisse unabhaengig von konkreten Loesungen zu verstehen. Typische Taetigkeiten: Jobs-to-be-Done aus Kundeninterviews ableiten · Featureentscheidungen anhand des zu erledigenden Jobs bewerten · Team fuer die Kundenperspektive sensibilisieren«",
+          anchors: {
+            1: "Kennt das Konzept; wendet es mit Anleitung an.",
+            2: "Leitet einfache Jobs-to-be-Done aus vorhandenen Erkenntnissen ab.",
+            3: "Wendet das Framework eigenstaendig zur Bewertung von Featureentscheidungen an.",
+            4: "Nutzt Jobs-to-be-Done gezielt zur strategischen Priorisierung.",
+            5: "Etabliert Jobs-to-be-Done als festen Bestandteil der Produktarbeit.",
+          },
+        },
+        {
+          name: "OKRs & Produkt-KPIs",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Definition und Nachverfolgung von OKRs und produktrelevanten KPIs zur zielgerichteten Steuerung des Produkts. Typische Taetigkeiten: OKRs aus der Produktstrategie ableiten · Produkt-KPIs regelmaessig nachhalten · Fortschritt transparent gegenueber dem Team und Stakeholdern kommunizieren«",
+          anchors: {
+            1: "Kennt die Begriffe OKR und KPI; wendet vorgegebene Ziele an.",
+            2: "Verfolgt bestehende OKRs und KPIs eigenstaendig nach.",
+            3: "Leitet OKRs eigenstaendig aus der Strategie ab; waehlt passende KPIs.",
+            4: "Steuert das Produkt konsequent ueber OKRs; passt sie bei neuen Erkenntnissen an.",
+            5: "Etabliert OKR-Standards fuer den Produktbereich.",
+          },
+        },
+        {
+          name: "Pricing & Monetarisierung",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Verstaendnis und Mitgestaltung von Preis- und Monetarisierungsmodellen fuer das eigene Produkt. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Produkt einschaetzen · Monetarisierungsoptionen gegenueberstellen · Mit Pricing- und Vertriebsverantwortlichen abstimmen«",
+          anchors: {
+            1: "Kennt das bestehende Preismodell in Grundzuegen.",
+            2: "Erklaert das Preismodell nachvollziehbar; versteht gaengige Alternativen.",
+            3: "Bewertet Preisentscheidungen eigenstaendig hinsichtlich Produktauswirkung.",
+            4: "Entwickelt Monetarisierungsoptionen fundiert mit; beraet dazu.",
+            5: "Gestaltet das Preis- und Monetarisierungsmodell des Produkts aktiv mit.",
+          },
+        },
+        {
+          name: "Roadmap-Priorisierung (RICE, MoSCoW)",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Anwendung strukturierter Priorisierungsmethoden (RICE, MoSCoW u. a.), um Roadmap-Entscheidungen nachvollziehbar zu treffen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Priorisierung transparent gegenueber Stakeholdern begruenden · Roadmap bei neuen Erkenntnissen anpassen«",
+          anchors: {
+            1: "Kennt die Methoden; braucht Unterstuetzung bei der Anwendung.",
+            2: "Wendet eine Standardmethode mit Anleitung an.",
+            3: "Waehlt und wendet Priorisierungsmethoden eigenstaendig an.",
+            4: "Kombiniert Methoden situativ; begruendet Priorisierung ueberzeugend.",
+            5: "Entwickelt eigene Priorisierungsrahmen fuer das Unternehmen.",
+          },
+        },
+        {
+          name: "Customer Lifecycle Management",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Verstaendnis und Gestaltung des Kundenlebenszyklus (Akquise, Onboarding, Bindung, Cross-/Upselling, Kuendigung) aus Produktsicht. Typische Taetigkeiten: Kundenlebenszyklus-Phasen aus Produktsicht analysieren · Massnahmen zur Kundenbindung priorisieren · Mit Vertrieb und Customer Success abstimmen«",
+          anchors: {
+            1: "Kennt die Phasen des Kundenlebenszyklus in Grundzuegen.",
+            2: "Ordnet Featureentscheidungen einzelnen Lifecycle-Phasen zu.",
+            3: "Priorisiert eigenstaendig Massnahmen entlang des Kundenlebenszyklus.",
+            4: "Entwickelt uebergreifende Lifecycle-Strategien; stimmt sie mit Vertrieb/CS ab.",
+            5: "Gilt als Referenz fuer Customer-Lifecycle-Fragen im Produktteam.",
+          },
+        },
+        {
+          name: "Go-to-Market Planung",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Planung und Koordination der Markteinfuehrung neuer Produkte oder Features gemeinsam mit Vertrieb, Marketing und Kundenservice. Typische Taetigkeiten: Go-to-Market-Plan fuer Launches erstellen · Vertrieb und Marketing rechtzeitig einbinden · Launch-Erfolg nachhalten und Learnings einspeisen«",
+          anchors: {
+            1: "Nimmt an Go-to-Market-Planung teil; braucht Unterstuetzung bei eigener Planung.",
+            2: "Plant einfache Launches eigenstaendig mit den beteiligten Bereichen.",
+            3: "Plant und koordiniert Go-to-Market fuer Standard-Launches eigenstaendig.",
+            4: "Steuert komplexe, funktionsuebergreifende Launches erfolgreich.",
+            5: "Entwickelt Go-to-Market-Standards fuer das Unternehmen.",
+          },
+        },
       ],
     },
     {
       name: "Kommunikation & Zusammenarbeit",
       skills: [
-        { name: "Stakeholder-Management", dep: "Durable" },
-        { name: "Praesentation auf Management-Ebene", dep: "Durable" },
-        { name: "Cross-funktionale Teamfuehrung", dep: "Durable" },
-        { name: "Storytelling & Pitch", dep: "Durable" },
-        { ...RUMP_VERBAL },
+        {
+          name: "Stakeholder-Management",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          trend: "stabil",
+          description:
+            "»Aktive Steuerung der Beziehungen zu relevanten Stakeholdern (Management, Vertrieb, IT, Fachbereich), um Erwartungen und Prioritaeten transparent zu managen. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen · Regelmaessige Abstimmungsformate etablieren«",
+          anchors: {
+            1: "Nimmt Stakeholder-Wuensche entgegen; braucht Unterstuetzung bei der Abstimmung.",
+            2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
+            3: "Steuert Stakeholder-Beziehungen eigenstaendig und konsistent.",
+            4: "Navigiert komplexe Zielkonflikte zwischen mehreren Stakeholdern.",
+            5: "Setzt Standards fuer Stakeholder-Arbeit im Produktbereich.",
+          },
+        },
+        {
+          name: "Praesentation auf Management-Ebene",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Nachvollziehbare, entscheidungsorientierte Praesentation von Produktthemen gegenueber Management und Fuehrungskraeften. Typische Taetigkeiten: Produktentscheidungen management-gerecht aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Rueckfragen souveraen beantworten«",
+          anchors: {
+            1: "Praesentiert nach Vorlage; braucht Unterstuetzung bei Rueckfragen.",
+            2: "Bereitet einfache Praesentationen eigenstaendig vor.",
+            3: "Praesentiert Produktthemen souveraen und entscheidungsorientiert.",
+            4: "Passt Praesentationen zielgruppengerecht an; navigiert kritische Rueckfragen.",
+            5: "Gilt als Vorbild fuer Management-Praesentationen im Produktteam.",
+          },
+        },
+        {
+          name: "Storytelling & Pitch",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Ueberzeugende narrative Vermittlung von Produktvision, -entscheidungen und -erfolgen gegenueber internen und externen Zielgruppen. Typische Taetigkeiten: Produktvision als nachvollziehbare Geschichte erzaehlen · Pitches fuer neue Produktideen vorbereiten und halten · Komplexe Sachverhalte auf den Punkt bringen«",
+          anchors: {
+            1: "Praesentiert Fakten; Storytelling entsteht selten bewusst.",
+            2: "Baut einfache Praesentationen mit narrativem Rahmen auf.",
+            3: "Vermittelt Produktvision und -entscheidungen ueberzeugend als Geschichte.",
+            4: "Passt Storytelling zielgruppengerecht an; ueberzeugt in Pitches.",
+            5: "Gilt als Vorbild fuer Storytelling und Pitches im Produktteam.",
+          },
+        },
+        { ...RUMP_VERBAL, trend: "stabil" },
+      ],
+    },
+    {
+      name: "Führung & Coaching",
+      skills: [
+        {
+          name: "Cross-funktionale Teamfuehrung (ohne disziplinarische Weisungsbefugnis)",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          description:
+            "»Fuehrung eines funktionsuebergreifenden Produktteams (Entwicklung, UX, ggf. Vertrieb) allein ueber Vision, Ueberzeugungskraft und Vertrauen — ohne disziplinarische Weisungsbefugnis. Typische Taetigkeiten: Team auf ein gemeinsames Produktziel einschwoeren · Verantwortung und Entscheidungen ans Team zurueckgeben · Vertrauen durch Verlaesslichkeit und Transparenz aufbauen«",
+          anchors: {
+            1: "Nimmt an Teamentscheidungen teil; fuehrt punktuell mit Anleitung.",
+            2: "Uebernimmt Verantwortung fuer Teilziele; koordiniert Beitraege einzelner Funktionen.",
+            3: "Fuehrt das Team eigenstaendig auf ein gemeinsames Produktziel hin; baut Vertrauen aktiv auf.",
+            4: "Vereint unterschiedliche Interessen (Entwicklung, Design, Vertrieb) zu einer gemeinsamen Linie; delegiert Entscheidungen bewusst ans Team.",
+            5: "Gilt als Vorbild fuer laterale Fuehrung; entwickelt die Fuehrungskultur im Produktbereich weiter.",
+          },
+        },
+        {
+          name: "Priorisierungsentscheidungen vertreten & Nein sagen",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Faehigkeit, Priorisierungsentscheidungen klar zu treffen, transparent zu begruenden und auch gegen Widerstand von Stakeholdern zu vertreten — inklusive der Bereitschaft, Anfragen bewusst abzulehnen. Typische Taetigkeiten: Priorisierung nachvollziehbar gegenueber Stakeholdern begruenden · Anfragen ohne Produktnutzen ablehnen · Roadmap-Fokus auch unter Druck verteidigen«",
+          anchors: {
+            1: "Setzt vorgegebene Prioritaeten um; braucht Unterstuetzung beim Nein-Sagen.",
+            2: "Trifft einfache Priorisierungsentscheidungen eigenstaendig; kommuniziert sie sachlich.",
+            3: "Vertritt Priorisierungsentscheidungen souveraen und nachvollziehbar; lehnt Anfragen begruendet ab.",
+            4: "Steht Priorisierung auch unter starkem Stakeholder-Druck durch; verhandelt Kompromisse ohne Fokus zu verlieren.",
+            5: "Praegt eine Kultur konsequenter Priorisierung im Produktbereich; coacht andere im Umgang mit Zielkonflikten.",
+          },
+        },
+        {
+          name: "Konfliktmoderation zwischen Stakeholdern & Team",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Erkennen und konstruktives Moderieren von Zielkonflikten zwischen Stakeholdern (Vertrieb, Fachbereich, Management) und dem Produktteam. Typische Taetigkeiten: Interessenkonflikte fruehzeitig erkennen und ansprechen · Zwischen Stakeholdern und Team neutral vermitteln · Tragfaehige Kompromisse moderieren«",
+          anchors: {
+            1: "Erkennt Konflikte; eskaliert sie bei Bedarf an andere.",
+            2: "Spricht offensichtliche Spannungen eigenstaendig an.",
+            3: "Moderiert Konflikte zwischen Stakeholdern und Team neutral und loesungsorientiert.",
+            4: "Loest komplexe Mehrparteienkonflikte; verhindert Eskalationen fruehzeitig.",
+            5: "Gilt als Vermittlerin bei grundsaetzlichen Zielkonflikten im Produktbereich.",
+          },
+        },
       ],
     },
   ],
@@ -1966,6 +2313,7 @@ const productOwner: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Kenntnis des Scrum Guides und der Professional-Scrum-Prinzipien als gemeinsame Basis fuer die Zusammenarbeit im Team. Typische Taetigkeiten: Scrum-Rollen, -Events und -Artefakte korrekt anwenden · Abweichungen vom Scrum Guide bewusst und begruendet vornehmen · Neue Teammitglieder in Scrum einfuehren«",
           anchors: {
@@ -1981,6 +2329,7 @@ const productOwner: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Verstaendnis zentraler Versicherungsprozesse — Vertragsabschluss, Schadenbearbeitung, Bestandsfuehrung — als fachliche Grundlage fuer Priorisierungsentscheidungen im Produkt. Typische Taetigkeiten: Anforderungen im Kontext der Versicherungsprozesse einordnen · Mit Fachbereichen auf Augenhoehe ueber Prozessdetails sprechen · Auswirkungen von Produktentscheidungen auf Bestands- und Schadenprozesse einschaetzen«",
           anchors: {
@@ -1995,6 +2344,7 @@ const productOwner: Role = {
           name: "Regulatorische Anforderungen (BaFin, VVG)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
           description:
             "»Kenntnis regulatorischer Rahmenbedingungen (BaFin-Vorgaben, VVG) mit Auswirkung auf Produktentscheidungen. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Constraints in Anforderungen beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
           anchors: {
@@ -2005,7 +2355,7 @@ const productOwner: Role = {
             5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
           },
         },
-        { ...RUMP_DIGITALE },
+        { ...RUMP_DIGITALE, trend: "stark steigend" },
       ],
     },
     {
@@ -2015,6 +2365,7 @@ const productOwner: Role = {
           name: "Jira & Confluence",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Sicherer Umgang mit Jira und Confluence fuer Backlog-Pflege, Sprint-Planung und Dokumentation. Typische Taetigkeiten: Backlog-Items und Epics strukturiert anlegen und pflegen · Boards und Filter fuer Team-Transparenz konfigurieren · Produktdokumentation in Confluence aktuell halten«",
           anchors: {
@@ -2029,6 +2380,7 @@ const productOwner: Role = {
           name: "Story Mapping Tools",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Nutzung digitaler Story-Mapping-Werkzeuge (z. B. Miro, Mural) zur visuellen Strukturierung von Nutzerfluessen und Backlog. Typische Taetigkeiten: Story Maps digital aufbauen und pflegen · Workshops mit Story-Mapping-Tools moderieren · Ergebnisse in den Backlog ueberfuehren«",
           anchors: {
@@ -2043,6 +2395,7 @@ const productOwner: Role = {
           name: "Prototyping (Figma)",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Grundlegender Umgang mit Figma, um Ideen zu visualisieren und mit Design/Entwicklung abzustimmen. Nicht gemeint: eigenstaendiges visuelles Design. Typische Taetigkeiten: Einfache Wireframes fuer Abstimmungen erstellen · Bestehende Figma-Prototypen nachvollziehen und kommentieren · Mit Design gemeinsam an Anforderungen arbeiten«",
           anchors: {
@@ -2057,6 +2410,7 @@ const productOwner: Role = {
           name: "Analytics-Grundlagen",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "steigend",
           description:
             "»Grundverstaendnis produktrelevanter Kennzahlen und Analyse-Tools zur datenbasierten Priorisierung. Typische Taetigkeiten: Produkt-KPIs (Nutzung, Conversion) auslesen und interpretieren · Hypothesen anhand von Daten pruefen · Datenbasis fuer Priorisierungsentscheidungen einbeziehen«",
           anchors: {
@@ -2092,6 +2446,7 @@ const productOwner: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Kontinuierliche Pflege, Priorisierung und Verfeinerung des Produkt-Backlogs, sodass das Team stets an den wichtigsten Themen arbeitet. Typische Taetigkeiten: Backlog laufend priorisieren und aufraeumen · Refinement-Sessions mit dem Team vorbereiten und durchfuehren · Backlog-Items auf Umsetzungsreife bringen«",
           anchors: {
@@ -2106,6 +2461,7 @@ const productOwner: Role = {
           name: "User Stories schreiben (INVEST)",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Formulierung von User Stories nach dem INVEST-Prinzip (Independent, Negotiable, Valuable, Estimable, Small, Testable). Typische Taetigkeiten: User Stories aus Anforderungen ableiten · Stories auf INVEST-Kriterien pruefen und nachschaerfen · Team beim Verstaendnis von Stories unterstuetzen«",
           anchors: {
@@ -2120,6 +2476,7 @@ const productOwner: Role = {
           name: "Akzeptanzkriterien definieren",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Formulierung klarer, testbarer Akzeptanzkriterien, die eindeutig festlegen, wann eine Story fertig ist. Typische Taetigkeiten: Akzeptanzkriterien gemeinsam mit dem Team ableiten · Kriterien testbar und eindeutig formulieren · Kriterien bei Aenderungen aktuell halten«",
           anchors: {
@@ -2134,6 +2491,7 @@ const productOwner: Role = {
           name: "Story Mapping",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Visuelle Strukturierung von Nutzerfluessen und Backlog-Items entlang der Nutzerreise zur besseren Priorisierung und Release-Planung. Typische Taetigkeiten: Story Maps mit dem Team erarbeiten · Releases anhand der Story Map schneiden · Luecken in der Nutzerreise identifizieren«",
           anchors: {
@@ -2149,6 +2507,7 @@ const productOwner: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Anwendung strukturierter Priorisierungsmethoden (WSJF, MoSCoW u. a.), um Backlog-Entscheidungen nachvollziehbar zu treffen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Priorisierung transparent gegenueber Stakeholdern begruenden · Prioritaeten bei neuen Erkenntnissen anpassen«",
           anchors: {
@@ -2163,6 +2522,7 @@ const productOwner: Role = {
           name: "MVP-Definition",
           dep: "Durable",
           targetLevel: 3,
+          trend: "steigend",
           description:
             "»Abgrenzung eines Minimum Viable Products, das mit minimalem Aufwand maximalen Lernwert oder Kundennutzen liefert. Typische Taetigkeiten: Scope eines MVP gemeinsam mit Stakeholdern abgrenzen · Kernhypothesen des MVP explizit machen · Lernergebnisse aus dem MVP in die Weiterentwicklung einspeisen«",
           anchors: {
@@ -2177,6 +2537,7 @@ const productOwner: Role = {
           name: "Sprint- & Release-Planung",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Planung von Sprints und Releases, sodass Team-Kapazitaet und Produktziele zusammenpassen. Typische Taetigkeiten: Sprint-Ziele gemeinsam mit dem Team festlegen · Release-Umfang und -Termine mit Stakeholdern abstimmen · Planung bei Aenderungen anpassen«",
           anchors: {
@@ -2191,6 +2552,7 @@ const productOwner: Role = {
           name: "Definition of Ready / Done",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Etablierung und Einhaltung klarer Kriterien, wann ein Item bereit fuer die Umsetzung ist (Ready) und wann es als fertig gilt (Done). Typische Taetigkeiten: DoR/DoD gemeinsam mit dem Team definieren · Einhaltung im Alltag konsequent einfordern · Kriterien bei Bedarf weiterentwickeln«",
           anchors: {
@@ -2205,6 +2567,7 @@ const productOwner: Role = {
           name: "Discovery & Delivery",
           dep: "Durable",
           targetLevel: 2,
+          trend: "steigend",
           description:
             "»Bewusste Trennung und Verzahnung von Produkt-Discovery (Problem-/Loesungsvalidierung) und Delivery (Umsetzung), um das richtige Produkt richtig zu bauen. Typische Taetigkeiten: Discovery-Aktivitaeten (Interviews, Tests) parallel zur Delivery einplanen · Erkenntnisse aus der Discovery in den Backlog einspeisen · Balance zwischen Lernen und Liefern aktiv steuern«",
           anchors: {
@@ -2219,6 +2582,7 @@ const productOwner: Role = {
           name: "Velocity & Forecasting",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Nutzung von Velocity-Daten zur realistischen Vorhersage von Liefermengen und -terminen. Typische Taetigkeiten: Velocity-Trends beobachten und einordnen · Forecasts fuer Releases auf Datenbasis erstellen · Abweichungen zwischen Forecast und Realitaet erklaeren«",
           anchors: {
@@ -2238,6 +2602,7 @@ const productOwner: Role = {
           name: "Sprint Reviews moderieren",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Vorbereitung und Moderation von Sprint Reviews, sodass Stakeholder den erzielten Fortschritt nachvollziehen und Feedback geben koennen. Typische Taetigkeiten: Sprint Reviews strukturiert vorbereiten · Ergebnisse verstaendlich praesentieren · Feedback aktiv einholen und in den Backlog ueberfuehren«",
           anchors: {
@@ -2253,6 +2618,7 @@ const productOwner: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Aktive Abstimmung mit relevanten Stakeholdern, um Erwartungen, Prioritaeten und Zielkonflikte transparent zu managen. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen und aufloesen · Regelmaessige Abstimmungsformate etablieren«",
           anchors: {
@@ -2267,6 +2633,7 @@ const productOwner: Role = {
           name: "Anforderungserhebung",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Systematische Erhebung von Anforderungen aus Fachbereich, Kunden und Stakeholdern als Grundlage fuer den Backlog. Typische Taetigkeiten: Anforderungsgespraeche strukturiert fuehren · Anforderungen praezise dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
           anchors: {
@@ -2281,6 +2648,7 @@ const productOwner: Role = {
           name: "Teamarbeit mit Entwicklung & UX",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Enge, vertrauensvolle Zusammenarbeit mit Entwicklung und UX/UI Design als gleichwertige Partner im Produktteam. Typische Taetigkeiten: Anforderungen gemeinsam mit Entwicklung und UX schaerfen · Technische und gestalterische Constraints fruehzeitig einbeziehen · Konflikte zwischen Anforderung und Umsetzbarkeit konstruktiv loesen«",
           anchors: {
@@ -2291,7 +2659,7 @@ const productOwner: Role = {
             5: "Gilt als Vorbild fuer funktionsuebergreifende Teamarbeit.",
           },
         },
-        { ...RUMP_VERBAL },
+        { ...RUMP_VERBAL, trend: "stabil" },
       ],
     },
   ],
@@ -2310,6 +2678,7 @@ const ux: Role = {
           name: "Versicherungsprodukte & Kundenreisen",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentrierte Design-Entscheidungen im Produktteam. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Design-Entscheidungen uebersetzen · Mit Product Management auf Augenhoehe ueber Versicherungsprozesse sprechen«",
           anchors: {
@@ -2320,7 +2689,7 @@ const ux: Role = {
             5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit im Produktteam.",
           },
         },
-        { ...RUMP_DIGITALE },
+        { ...RUMP_DIGITALE, trend: "stark steigend" },
       ],
     },
     {
@@ -2331,6 +2700,7 @@ const ux: Role = {
           dep: "Evolving",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Sicherer Umgang mit Figma zur Gestaltung von Screens und interaktiven Prototypen im Produktalltag. Typische Taetigkeiten: Screens und einfache Komponenten in Figma gestalten · Klickbare Prototypen fuer Tests und Reviews erstellen · Mit Entwicklung ueber Figma (Dev Mode/Inspect) abstimmen«",
           anchors: {
@@ -2345,6 +2715,7 @@ const ux: Role = {
           name: "UI-Gestaltung & visuelle Grundlagen",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Grundlagen der visuellen Gestaltung — Typografie, Layout, visuelle Hierarchie und responsive Darstellung — fuer verstaendliche, konsistente Oberflaechen. Typische Taetigkeiten: Bestehende Design-Vorgaben und Komponenten korrekt anwenden · Visuelle Hierarchien fuer einfache Screens aufbauen · Layouts fuer verschiedene Bildschirmgroessen anpassen«",
           anchors: {
@@ -2380,6 +2751,7 @@ const ux: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Planung und Durchfuehrung einfacher qualitativer Interviews zur Erhebung von Nutzerbeduerfnissen und Schmerzpunkten. Typische Taetigkeiten: Interviewleitfaeden mit Unterstuetzung entwickeln · Interviews ergebnisoffen fuehren · Erkenntnisse strukturiert festhalten und teilen«",
           anchors: {
@@ -2394,6 +2766,7 @@ const ux: Role = {
           name: "Personas & Nutzerbeduerfnisse",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Verdichtung von Nutzerforschung zu Personas und klar formulierten Nutzerbeduerfnissen als gemeinsame Grundlage fuer Produktentscheidungen. Typische Taetigkeiten: Personas aus Nutzerforschung ableiten und aktuell halten · Nutzerbeduerfnisse fuer Feature-Entscheidungen einordnen · Team fuer Nutzerperspektive sensibilisieren«",
           anchors: {
@@ -2409,6 +2782,7 @@ const ux: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Planung und Durchfuehrung einfacher moderierter Usability-Tests zur Validierung von Designs. Typische Taetigkeiten: Testszenarien und Aufgaben entwickeln · Tests moderieren und Beobachtungen dokumentieren · Ergebnisse in konkrete Design-Anpassungen uebersetzen«",
           anchors: {
@@ -2423,6 +2797,7 @@ const ux: Role = {
           name: "Prototyping (Fidelity-Wahl)",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Konzeption von Prototypen unterschiedlicher Wirklichkeitsnaehe (Wireframe, Klick-Dummy, High-Fidelity) passend zur jeweiligen Fragestellung. Typische Taetigkeiten: Passendes Fidelity-Level fuer die Testfrage waehlen · Prototypen fuer Tests und Stakeholder-Reviews aufbauen · Feedback aus Tests in die naechste Iteration einarbeiten«",
           anchors: {
@@ -2438,6 +2813,7 @@ const ux: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "steigend",
           description:
             "»Systematisches Einholen, Buendeln und Einarbeiten von Nutzerfeedback aus Tests, Support und Produktnutzung in die Designarbeit. Typische Taetigkeiten: Feedback aus verschiedenen Quellen (Tests, Support, Analytics) buendeln · Feedback priorisiert in Design-Iterationen einspeisen · Rueckmeldung an Nutzer und Stakeholder zu umgesetztem Feedback geben«",
           anchors: {
@@ -2457,6 +2833,7 @@ const ux: Role = {
           name: "Zusammenarbeit mit Product Management & Entwicklung",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Enge, partnerschaftliche Zusammenarbeit mit Product Management und Entwicklung im Produktteam. Typische Taetigkeiten: Anforderungen gemeinsam mit Product Management schaerfen · Design-Entscheidungen mit Entwicklung auf Machbarkeit abstimmen · Konflikte zwischen Anforderung, Design und Umsetzbarkeit konstruktiv loesen«",
           anchors: {
@@ -2471,6 +2848,7 @@ const ux: Role = {
           name: "Praesentation von Design-Entscheidungen",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Nachvollziehbare Praesentation von Design-Entscheidungen gegenueber Product Management und Stakeholdern, inkl. Herleitung aus Nutzerforschung. Typische Taetigkeiten: Design-Rationale verstaendlich aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Rueckfragen souveraen beantworten«",
           anchors: {
@@ -2481,7 +2859,7 @@ const ux: Role = {
             5: "Gilt als Vorbild fuer Design-Praesentationen im Produktteam.",
           },
         },
-        { ...RUMP_VERBAL },
+        { ...RUMP_VERBAL, trend: "stabil" },
       ],
     },
   ],
@@ -2501,6 +2879,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Kenntnis des Versicherungsmarktes, relevanter Wettbewerber und Marktentwicklungen als Grundlage fuer Preis-, Account- und Partnerschaftsentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Positionierung des eigenen Produkts im Markt einordnen · Marktchancen fuer neue Kooperationen identifizieren«",
           anchors: {
@@ -2515,6 +2894,7 @@ const businessDeveloper: Role = {
           name: "Vertragsrecht & Konditionengestaltung (Grundlagen)",
           dep: "Evolving",
           targetLevel: 3,
+          trend: "steigend",
           description:
             "»Grundlegende Kenntnisse im Vertragsrecht und in der Gestaltung kommerzieller Konditionen fuer Kunden- und Partnervertraege. Nicht gemeint: eigenstaendige juristische Bewertung komplexer Vertragswerke. Typische Taetigkeiten: Standardvertragsklauseln verstehen und anwenden · Konditionen im vorgegebenen Rahmen gestalten · Bei rechtlichen Unsicherheiten Recht/Compliance einbeziehen«",
           anchors: {
@@ -2530,6 +2910,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Verstaendnis der Geschaefts- und Preismodelle des eigenen Produkts sowie gaengiger Modelle im Versicherungs- und Softwaregeschaeft. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Geschaeftsmodell einschaetzen · Geschaeftsmodell gegenueber Kunden und Partnern erklaeren · Preismodelle im Vergleich zum Wettbewerb einordnen«",
           anchors: {
@@ -2540,7 +2921,7 @@ const businessDeveloper: Role = {
             5: "Entwickelt das Geschaefts- und Preismodell aktiv mit.",
           },
         },
-        { ...RUMP_DIGITALE },
+        { ...RUMP_DIGITALE, trend: "stark steigend" },
       ],
     },
     {
@@ -2551,6 +2932,7 @@ const businessDeveloper: Role = {
           dep: "Evolving",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Sicherer Umgang mit CRM-Systemen zur Pflege von Kunden- und Partnerbeziehungen, Opportunities und Vertragsdaten. Typische Taetigkeiten: Kunden- und Partnerdaten strukturiert im CRM pflegen · Opportunities und Vertragsstatus nachhalten · Berichte und Auswertungen aus dem CRM aufbereiten«",
           anchors: {
@@ -2565,6 +2947,7 @@ const businessDeveloper: Role = {
           name: "Vertrags- & Angebotsmanagement-Tools",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Nutzung von Tools zur Erstellung, Ablage und Nachverfolgung von Angeboten und Vertraegen. Typische Taetigkeiten: Angebote und Vertraege aus Vorlagen erstellen · Frist- und Verlaengerungstermine nachhalten · Vertragsversionen und Freigabestatus pflegen«",
           anchors: {
@@ -2600,6 +2983,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Weiterentwicklung von Preisen und Preismodellen auf Basis von Markt-, Wettbewerbs- und Kundendaten. Typische Taetigkeiten: Preisanpassungen datenbasiert vorbereiten und begruenden · Preismodelle gegen Markt- und Wettbewerbsentwicklung pruefen · Auswirkungen von Preisaenderungen auf Umsatz und Kundenbindung einschaetzen«",
           anchors: {
@@ -2615,6 +2999,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Systematische Planung und Steuerung von Kundenaccounts — Potenziale erkennen, Ziele setzen, Entwicklung nachhalten. Typische Taetigkeiten: Account-Plaene fuer Schluesselkunden erstellen · Umsatz- und Entwicklungspotenziale je Account bewerten · Account-Status regelmaessig nachhalten und anpassen«",
           anchors: {
@@ -2630,6 +3015,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Verhandlung, Abschluss und laufende Betreuung von Kunden- und Partnervertraegen. Typische Taetigkeiten: Vertragsverhandlungen vorbereiten und fuehren · Vertragsinhalte mit internen Stellen (Recht, Finance) abstimmen · Laufende Vertraege auf Erfuellung und Anpassungsbedarf pruefen«",
           anchors: {
@@ -2660,6 +3046,7 @@ const businessDeveloper: Role = {
           name: "Markt- & Partnerschaftsanalyse",
           dep: "Durable",
           targetLevel: 2,
+          trend: "stabil",
           description:
             "»Systematische Analyse von Markt, Wettbewerb und potenziellen Partnern zur Identifikation neuer Geschaeftschancen. Typische Taetigkeiten: Markt- und Partnerlandschaft strukturiert erfassen · Chancen und Risiken potenzieller Kooperationen bewerten · Ergebnisse fuer Entscheidungen aufbereiten«",
           anchors: {
@@ -2674,6 +3061,7 @@ const businessDeveloper: Role = {
           name: "Cross- & Upselling-Potenzialidentifikation",
           dep: "Durable",
           targetLevel: 2,
+          trend: "steigend",
           description:
             "»Erkennen und Erschliessen von Cross- und Upselling-Potenzialen in bestehenden Kundenbeziehungen. Typische Taetigkeiten: Kundenbedarfe ueber das Kernprodukt hinaus erkennen · Zusatzangebote passend zum Kundenbedarf vorschlagen · Erfolg von Cross-/Upselling-Massnahmen nachhalten«",
           anchors: {
@@ -2688,6 +3076,7 @@ const businessDeveloper: Role = {
           name: "Business-Case-Bewertung fuer Kooperationen",
           dep: "Evolving",
           targetLevel: 2,
+          trend: "steigend",
           description:
             "»Bewertung des wirtschaftlichen Nutzens geplanter Kooperationen und Partnerschaften anhand belastbarer Business Cases. Typische Taetigkeiten: Kosten und Nutzen einer Kooperation gegenueberstellen · Annahmen fuer den Business Case transparent machen · Business Case gegenueber internen Entscheidern vertreten«",
           anchors: {
@@ -2708,6 +3097,7 @@ const businessDeveloper: Role = {
           dep: "Durable",
           targetLevel: 4,
           keySkill: true,
+          trend: "stabil",
           description:
             "»Aufbau und Pflege vertrauensvoller, langfristiger Kundenbeziehungen als Grundlage fuer Kundenbindung und Geschaeftswachstum. Typische Taetigkeiten: Regelmaessigen Kontakt zu Schluesselkunden pflegen · Kundenzufriedenheit aktiv erfragen und sichern · Bei Unzufriedenheit fruehzeitig gegensteuern«",
           anchors: {
@@ -2722,6 +3112,7 @@ const businessDeveloper: Role = {
           name: "Verhandlungsfuehrung",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Interessen- und sachbezogene Verhandlung mit Kunden und Partnern bei Preisen, Konditionen und Vertragsinhalten. Typische Taetigkeiten: Verhandlungspositionen vorbereiten · Zielkonflikte zwischen Parteien ausgleichen · Verhandlungsergebnisse verbindlich dokumentieren«",
           anchors: {
@@ -2736,6 +3127,7 @@ const businessDeveloper: Role = {
           name: "Stakeholder- & Partnermanagement",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Abstimmung mit internen Stakeholdern (Product, Finance, Recht) und externen Partnern, um Kooperationen und Accounts erfolgreich zu steuern. Typische Taetigkeiten: Interne Stakeholder frueh in Kooperationsvorhaben einbinden · Erwartungen zwischen internen und externen Partnern ausgleichen · Regelmaessige Abstimmungsformate etablieren«",
           anchors: {
@@ -2750,6 +3142,7 @@ const businessDeveloper: Role = {
           name: "Praesentation & Angebotskommunikation",
           dep: "Durable",
           targetLevel: 3,
+          trend: "stabil",
           description:
             "»Ueberzeugende Praesentation von Angeboten, Kooperationsmodellen und Geschaeftsergebnissen gegenueber Kunden, Partnern und intern. Typische Taetigkeiten: Angebote und Kooperationsvorschlaege verstaendlich aufbereiten · Praesentationen auf die jeweilige Zielgruppe zuschneiden · Kritische Rueckfragen souveraen beantworten«",
           anchors: {
@@ -2760,7 +3153,7 @@ const businessDeveloper: Role = {
             5: "Gilt als Vorbild fuer Angebots- und Geschaeftspraesentationen.",
           },
         },
-        { ...RUMP_VERBAL },
+        { ...RUMP_VERBAL, trend: "stabil" },
       ],
     },
   ],
@@ -2770,11 +3163,11 @@ const businessDeveloper: Role = {
 // Backoffice
 // -----------------------------------------------------------------------------
 
-const gfAssistenz: Role = {
-  id: "gf-assistenz",
-  name: "Geschaeftsfuehrungsassistenz",
+const gfTeamAssistenz: Role = {
+  id: "gf-team-assistenz",
+  name: "Geschaeftsfuehrungs- & Teamassistenz",
   description:
-    "Direkte Unterstuetzung der Geschaeftsfuehrung — Terminorganisation, vertrauliche Korrespondenz und Repraesentantion im Aussenkontakt.",
+    "Direkte Unterstuetzung der Geschaeftsfuehrung und zentrales Office-Management fuer das gesamte Unternehmen — Terminorganisation, vertrauliche Korrespondenz, Bueroinfrastruktur und reibungsloser Bueroalltag.",
   categories: [
     {
       name: "Fachlich",
@@ -2782,29 +3175,30 @@ const gfAssistenz: Role = {
         {
           name: "Unternehmens- und Branchenkontext",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
           description:
-            "»Grundlegendes Verstaendnis der Geschaeftstaetigkeit, Kunden, Partner und des regulatorischen Rahmens des Unternehmens. Nicht gemeint: technisches Fachwissen. Typische Taetigkeiten: Auftraege und Gespraechspartner einordnen · Fachbegriffe in Meetings verstehen · Vertraulichkeitsstufen korrekt zuordnen«",
+            "»Grundlegendes Verstaendnis der Geschaeftstaetigkeit, Kunden, Partner, internen Ablaeufe und des regulatorischen Rahmens des Unternehmens. Nicht gemeint: technisches Fachwissen. Typische Taetigkeiten: Auftraege und Gespraechspartner einordnen · Anfragen an die richtigen Stellen weiterleiten · Vertraulichkeitsstufen korrekt zuordnen«",
           anchors: {
-            1: "Kennt Grundstruktur und Kernprodukte des Unternehmens; braucht Unterstuetzung beim Einordnen.",
-            2: "Erklaert Geschaeftsmodell, wichtige Kunden und Partner; versteht regulatorischen Rahmen grundlegend.",
-            3: "Ordnet Termine, Themen und Gespraechspartner eigenstaendig in den Unternehmenskontext ein.",
-            4: "Erkennt strategisch relevante Kontexte; bereitet GF-Termine inhaltlich kompetent vor.",
-            5: "Gilt als Wissenstraeger fuer Unternehmenskontext; brieft neue Teammitglieder.",
+            1: "Kennt Grundstruktur und Kernprodukte des Unternehmens; braucht Unterstuetzung beim Einordnen von Anfragen.",
+            2: "Erklaert Geschaeftsmodell, wichtige Kunden und Partner; kennt interne Ablaeufe und Ansprechpartner eigenstaendig.",
+            3: "Ordnet Termine, Themen und Gespraechspartner eigenstaendig in den Unternehmenskontext ein; erkennt Optimierungspotenziale in Bueroprozessen.",
+            4: "Erkennt strategisch relevante Kontexte; bereitet GF-Termine inhaltlich kompetent vor; ist Anlaufstelle fuer organisatorische Fragen.",
+            5: "Gilt als Wissenstraeger fuer Unternehmenskontext und -organisation; brieft neue Teammitglieder.",
           },
         },
         {
-          name: "Datenschutz & Vertraulichkeit (DSGVO)",
+          name: "Datenschutz, Vertraulichkeit & Compliance (DSGVO)",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
-            "»Umgang mit personenbezogenen und vertraulichen Daten gemaess DSGVO und internen Geheimhaltungsrichtlinien im Assistenzkontext. Nicht gemeint: rechtliche Beratung. Typische Taetigkeiten: Schutzbedarf von Dokumenten einschaetzen · Datenweitergabe nur an Berechtigte · Loeschverpflichtungen und Archivierungsfristen einhalten«",
+            "»Umgang mit personenbezogenen und vertraulichen Daten gemaess DSGVO sowie internen Compliance- und Geheimhaltungsrichtlinien im Assistenz- und Buerokontext. Nicht gemeint: rechtliche Beratung — dafuer ist der Datenschutzbeauftragte zustaendig. Typische Taetigkeiten: Schutzbedarf von Dokumenten und Post einschaetzen · Datenweitergabe nur an Berechtigte · Loesch- und Aufbewahrungsfristen einhalten«",
           anchors: {
-            1: "Haelt Vertraulichkeit ein wenn explizit darauf hingewiesen.",
-            2: "Erkennt vertrauliche Informationen eigenstaendig; haelt DSGVO-Grundregeln ein.",
-            3: "Handelt diskret ohne Erinnerung; beurteilt Schutzbedarf und schuetzt Daten aktiv.",
-            4: "Erkennt Risiken fruehzeitig; empfiehlt Schutzmassnahmen und klaert Unklarheiten.",
-            5: "Praegt Vertraulichkeitskultur im Buero; gilt als Ansprechperson fuer Datenschutzfragen.",
+            1: "Haelt Vertraulichkeits- und Compliance-Vorgaben ein, wenn explizit darauf hingewiesen.",
+            2: "Erkennt vertrauliche Informationen eigenstaendig; haelt DSGVO-Grundregeln im Arbeitsalltag ein.",
+            3: "Handelt diskret ohne Erinnerung; beurteilt Schutzbedarf, erklaert Grundregeln anderen und spricht Luecken an.",
+            4: "Erkennt Risiken fruehzeitig; empfiehlt Schutzmassnahmen und bewertet Compliance-Fragen im Buerokontext.",
+            5: "Praegt Vertraulichkeits- und Compliance-Kultur im Buero.",
           },
         },
         { ...RUMP_DIGITALE, targetLevel: 3 },
@@ -2819,12 +3213,12 @@ const gfAssistenz: Role = {
           targetLevel: 4,
           keySkill: true,
           description:
-            "»Professioneller Einsatz von Outlook (Kalender, Aufgaben, Regeln), Teams (Meetings, Kanaele, Dateien) und SharePoint (Dokumentenbibliotheken, Berechtigungen) fuer den GF-Bereich. Typische Taetigkeiten: GF-Kalender und Wiedervorlagen managen · Teams-Raeume und Meetings einrichten · Dokumente in SharePoint strukturieren und Zugriff steuern«",
+            "»Professioneller Einsatz von Outlook (Kalender, Aufgaben, Regeln), Teams (Meetings, Kanaele, Dateien) und SharePoint (Dokumentenbibliotheken, Berechtigungen) fuer GF- und Team-Bereich. Typische Taetigkeiten: GF- und Teamkalender proaktiv managen · Teams-Raeume, Kanaele und Meetings einrichten · Dokumente in SharePoint strukturieren und Zugriff steuern«",
           anchors: {
             1: "Bedient die Tools grundlegend; verwaltet einfache Kalendereintraege und E-Mails.",
-            2: "Nutzt Standardfunktionen sicher; verwaltet Kalender und Dateien eigenstaendig.",
-            3: "Setzt fortgeschrittene Funktionen ein (Regeln, Delegierter Kalender, SharePoint-Berechtigungen).",
-            4: "Optimiert GF-Workflows mit Tool-Automatisierungen; konfiguriert SharePoint-Strukturen.",
+            2: "Nutzt Standardfunktionen sicher; verwaltet Kalender, Kanaele und Dateien eigenstaendig.",
+            3: "Setzt fortgeschrittene Funktionen ein (Regeln, Delegierter Kalender, SharePoint-Berechtigungen); koordiniert mehrere Teamkalender.",
+            4: "Optimiert GF- und Team-Workflows mit Tool-Automatisierungen; konfiguriert SharePoint-Strukturen.",
             5: "Gilt als Tool-Expertin; entwickelt Standards und schult Kolleginnen.",
           },
         },
@@ -2832,28 +3226,29 @@ const gfAssistenz: Role = {
           name: "Praesentations- & Dokumentensoftware (Word, PowerPoint, Excel)",
           dep: "Evolving",
           targetLevel: 3,
+          keySkill: true,
           description:
-            "»Professionelle Erstellung und Formatierung von Praesentationen (PowerPoint), Dokumenten (Word) und Tabellen (Excel) im Corporate Design. Typische Taetigkeiten: Board-Praesentationen und Briefings erstellen · Berichte und Vorlagen CI-konform formatieren · Einfache Datenauswertungen und Diagramme aufbereiten«",
+            "»Professionelle Erstellung und Formatierung von Praesentationen (PowerPoint), Dokumenten (Word) und Tabellen (Excel) im Corporate Design — von Board-Unterlagen bis Bestelllisten und internen Rundschreiben. Typische Taetigkeiten: Board-Praesentationen und Briefings erstellen · Protokolle, Rundschreiben und Uebersichten formatieren · Einfache Datenauswertungen und Diagramme aufbereiten«",
           anchors: {
             1: "Erstellt Dokumente nach Vorlage; Formatierung grundlegend.",
             2: "Erstellt und formatiert eigenstaendig; haelt CI ein.",
-            3: "Erstellt professionelle Praesentationen und Berichte; passt Inhalte zielgruppengerecht an.",
+            3: "Erstellt professionelle Praesentationen und Berichte; passt Inhalte zielgruppengerecht an; setzt komplexere Excel-Funktionen gezielt ein.",
             4: "Entwickelt Vorlagen und Masterfolien; automatisiert mit Excel-Formeln.",
             5: "Definiert Corporate-Design-Standards; beraet andere.",
           },
         },
         {
-          name: "KI-Tools fuer Assistenzaufgaben",
+          name: "KI-Tools fuer Assistenz- & Bueroaufgaben",
           dep: "Perishable",
-          targetLevel: 2,
+          targetLevel: 3,
           trend: "stark steigend",
           description:
-            "»Einsatz von KI-Assistenten fuer typische GF-Assistenzaufgaben: Texte formulieren, Meetings transkribieren, Zusammenfassungen erstellen. Nicht gemeint: autonome Nutzung ohne Qualitaetskontrolle. Typische Taetigkeiten: Korrespondenzvorlagen per KI formulieren · Gespraechsmitschriften automatisch aufbereiten · Outputs auf Korrektheit und Ton pruefen«",
+            "»Einsatz von KI-Assistenten fuer typische Assistenz- und Buero-Aufgaben: Texte formulieren, Meetings transkribieren, Zusammenfassungen und Rundschreiben erstellen. Nicht gemeint: autonome Nutzung ohne Qualitaetskontrolle. Typische Taetigkeiten: Korrespondenzvorlagen und Rundschreiben per KI formulieren · Gespraechsmitschriften automatisch aufbereiten · Outputs auf Korrektheit und Ton pruefen«",
           anchors: {
             1: "Kennt KI-Tools dem Namen nach.",
             2: "Nutzt KI-Tools fuer einfache Aufgaben (Texte, Zusammenfassungen); prueft Outputs.",
             3: "Setzt KI gezielt und prompt-optimiert ein; erkennt Qualitaetsmaengel.",
-            4: "Etabliert wiederverwendbare Prompt-Vorlagen fuer den GF-Bereich.",
+            4: "Etabliert wiederverwendbare Prompt-Vorlagen fuer den Assistenzbereich.",
             5: "Definiert KI-Nutzungsstandards im Assistenzbereich.",
           },
         },
@@ -2878,17 +3273,17 @@ const gfAssistenz: Role = {
           },
         },
         {
-          name: "Reisemanagement (national & international)",
+          name: "Reisemanagement (national)",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 2,
           description:
-            "»Planung und Buchung von Dienstreisen inkl. Reisekostenabrechnung und Reiserichtlinien-Einhaltung. Typische Taetigkeiten: Fluege, Hotels und Transfers buchen · Reisekostenabrechnungen gemaess Richtlinie erstellen · Visa-Anforderungen und Sicherheitshinweise pruefen«",
+            "»Planung und Buchung nationaler Dienstreisen inkl. Reisekostenabrechnung und Einhaltung der unternehmensinternen Reiserichtlinien. Internationale Reisen fallen bei red6 nicht an. Typische Taetigkeiten: Fluege, Bahn, Hotels und Transfers im Inland buchen · Reisekostenabrechnungen gemaess Richtlinie erstellen · Buchungen ueber das vorgegebene Reisesystem abwickeln«",
           anchors: {
             1: "Bucht einfache Inlandsreisen mit Anleitung.",
-            2: "Plant und bucht Reisen eigenstaendig; erstellt einfache Abrechnungen.",
-            3: "Koordiniert komplexe internationale Reisen; haelt Visa- und Sicherheitsanforderungen ein.",
-            4: "Optimiert Reiseprozesse; beraet zu Reiserichtlinien und Ausnahmen.",
-            5: "Entwickelt Reisemanagement-Standards; verwaltet Rahmenvertraege mit Dienstleistern.",
+            2: "Plant und bucht Inlandsreisen eigenstaendig; erstellt einfache Reisekostenabrechnungen.",
+            3: "Koordiniert komplexere Reiselagen mit mehreren Terminen und Teilnehmenden.",
+            4: "Optimiert Buchungs- und Abrechnungsprozesse im Rahmen der vorgegebenen Reiserichtlinie.",
+            5: "Ist zentrale Ansprechperson fuer Reiseprozessfragen im Unternehmen.",
           },
         },
         {
@@ -2910,41 +3305,27 @@ const gfAssistenz: Role = {
           dep: "Durable",
           targetLevel: 3,
           description:
-            "»Strukturiertes Ablegen, Versionieren und Sicherstellen der Auffindbarkeit von GF-Dokumenten (Vertraege, Protokolle) mit korrekter Vertraulichkeitsstufe. Typische Taetigkeiten: Ablagestruktur fuer GF-Dokumente pflegen · Vertragsdokumente korrekt versionieren · Aufbewahrungsfristen einhalten«",
+            "»Strukturiertes Ablegen, Versionieren und Sicherstellen der Auffindbarkeit von GF-Dokumenten (Protokolle, Beschlussvorlagen, Korrespondenz) mit korrekter Vertraulichkeitsstufe. Nicht gemeint: Erstellung oder Versionierung von Vertragsdokumenten — diese kommen von Org A bzw. der Fachabteilung. Typische Taetigkeiten: Ablagestruktur fuer GF-Dokumente pflegen · Vertraulichkeitsstufen korrekt zuordnen · Aufbewahrungsfristen einhalten«",
           anchors: {
             1: "Legt Dokumente nach vorgegebener Struktur ab.",
             2: "Pflegt Ablagestruktur eigenstaendig; haelt Versionierung und Fristen ein.",
             3: "Optimiert Ablagestruktur proaktiv; stellt Vertraulichkeit und Auffindbarkeit sicher.",
-            4: "Entwirft Dokumentenkonzepte fuer den GF-Bereich; leitet Revision.",
+            4: "Entwirft Ablagekonzepte fuer den GF-Bereich.",
             5: "Definiert Archivierungsstandards; verantwortet Einhaltung der Aufbewahrungspflichten.",
           },
         },
         {
           name: "Veranstaltungsorganisation",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 4,
           description:
-            "»Organisation von internen und externen Veranstaltungen: Kick-offs, Kundenevents, Teamevents. Typische Taetigkeiten: Locations recherchieren und buchen · Einladungsmanagement und Agenda koordinieren · Vor-Ort-Betreuung und Catering organisieren«",
+            "»Organisation von internen und externen Veranstaltungen: Kick-offs, Kundenevents, Teamevents — inklusive Behalten von Budget und Ausfallrisiken (Veranstalter, Caterer) im Blick. Typische Taetigkeiten: Locations recherchieren und buchen · Einladungsmanagement und Agenda koordinieren · Budget im Blick behalten und Abweichungen melden · Vor-Ort-Betreuung und Catering organisieren«",
           anchors: {
             1: "Unterstuetzt bei vorbereiteten Veranstaltungen mit Anleitung.",
             2: "Organisiert einfache Teamveranstaltungen eigenstaendig.",
-            3: "Plant und fuehrt komplexe Veranstaltungen eigenstaendig durch.",
-            4: "Koordiniert hochkaeretige Events mit externen Partnern; managt Budget und Risiken.",
+            3: "Plant und fuehrt komplexe Veranstaltungen eigenstaendig durch; behaelt das Budget im Blick.",
+            4: "Koordiniert Events mit externen Partnern; antizipiert und managt Ausfallrisiken (Veranstalter, Caterer) und meldet Budgetabweichungen.",
             5: "Entwickelt Veranstaltungsstandards; managt Event-Dienstleister langfristig.",
-          },
-        },
-        {
-          name: "Interne Projektkoordination",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Eigenstaendiges Vorantreiben kleinerer interner Projekte und Initiativen — Planung, Aufgabenverteilung, Fortschrittsverfolgung und Ergebnissicherung ohne vollstaendige PM-Rolle. Abgrenzung zur GF-Terminkoordination: Hier geht es um zielorientierte Steuerung ueber laengere Zeitraeume. Typische Taetigkeiten: Aufgaben und Verantwortlichkeiten festlegen und nachverfolgen · Projektfortschritt an GF berichten · Zuarbeiten auf Qualitaet und Vollstaendigkeit pruefen«",
-          anchors: {
-            1: "Unterstuetzt laufende Projekte; erledigt zugewiesene Aufgaben zuverlaessig.",
-            2: "Koordiniert einfache Vorhaben eigenstaendig; haelt Deadlines und Aufgaben nach.",
-            3: "Steuert kleinere interne Projekte eigenverantwortlich; eskaliert Hindernisse rechtzeitig.",
-            4: "Strukturiert komplexere Vorhaben; prueft Zuarbeiten; berichtet GF entscheidungsreif.",
-            5: "Entwickelt Standards fuer interne Projektkoordination; coacht Kolleginnen.",
           },
         },
         {
@@ -2959,6 +3340,77 @@ const gfAssistenz: Role = {
             3: "Pflegt GF-Budgetuebersichten; bearbeitet Eingangsrechnungen eigenstaendig; fungiert als Schnittstelle zur Buchhaltung.",
             4: "Analysiert Kostenentwicklung; bereitet Entscheidungsgrundlagen fuer GF vor; klaert Abweichungen mit Controlling.",
             5: "Entwickelt Tracking-Standards; optimiert Abrechnungs- und Rechnungsprozesse.",
+          },
+        },
+        {
+          name: "Bueroorganisation & Office Management",
+          dep: "Durable",
+          targetLevel: 3,
+          keySkill: true,
+          description:
+            "»Sicherstellung eines reibungslosen Bueroalltags fuer das gesamte Unternehmen: Infrastruktur, Ausstattung, Ablaeufe und Anlaufstelle fuer organisatorische Fragen. Typische Taetigkeiten: Bueroinfrastruktur pflegen und Maengel melden · Arbeitsplaetze fuer neue Mitarbeitende vorbereiten · Regelmaessige Bueroaufgaben koordinieren und delegieren«",
+          anchors: {
+            1: "Erledigt vorgegebene Bueroaufgaben; braucht Anleitung bei Priorisierung.",
+            2: "Haelt den Bueroalltag eigenstaendig am Laufen; erkennt offensichtliche Maengel.",
+            3: "Organisiert Bueroinfrastruktur proaktiv; ist zuverlaessige Anlaufstelle fuer das Team.",
+            4: "Optimiert Bueroprozesse; antizipiert Bedarfe bevor sie zum Problem werden.",
+            5: "Entwickelt Office-Management-Standards; gilt als Dreh- und Angelpunkt des Unternehmens.",
+          },
+        },
+        {
+          name: "Terminkoordination & Raumplanung",
+          dep: "Durable",
+          targetLevel: 4,
+          description:
+            "»Koordination von Terminen, Meetingraeumen und Veranstaltungsinfrastruktur fuer das gesamte Unternehmen. Typische Taetigkeiten: Raeume und Ressourcen fuer Meetings buchen · Interne Terminabstimmungen unterstuetzen · Raumkalender pflegen und Konflikte loesen«",
+          anchors: {
+            1: "Pflegt einfache Raumkalender; bucht Raeume auf Anweisung.",
+            2: "Koordiniert Raeume und Termineinladungen eigenstaendig.",
+            3: "Steuert Raumplanung unternehmeweit; loest Konflikte proaktiv.",
+            4: "Optimiert Raum- und Ressourcennutzung; plant Kapazitaeten vorausschauend.",
+            5: "Entwickelt Standards fuer Raum- und Terminmanagement.",
+          },
+        },
+        {
+          name: "Beschaffung & Bestellwesen",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Beschaffung von Bueromaterial, IT-Verbrauchsmaterial und sonstigen Betriebsmitteln — von der Bedarfserfassung bis zur Lieferantenkoordination. Typische Taetigkeiten: Materialbestaende pruefen und Bestellungen ausloesen · Lieferanten kontaktieren und Lieferungen verfolgen · Rechnungen pruefen und zur Freigabe weiterleiten«",
+          anchors: {
+            1: "Loest Bestellungen auf Anweisung aus; traegt Lieferungen ein.",
+            2: "Bestellt eigenstaendig nach Vorgabe; koordiniert einfache Lieferantenrueckfragen.",
+            3: "Bewertet Bedarfe proaktiv; steuert Beschaffungsprozesse von A bis Z.",
+            4: "Optimiert Beschaffungsprozesse; verwaltet Lieferantenbeziehungen und Konditionen.",
+            5: "Entwickelt Beschaffungsstandards; bewertet Lieferanten strategisch.",
+          },
+        },
+        {
+          name: "Reise- & Spesensupport",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Unterstuetzung des Teams bei Dienstreisebuchungen und Spesenabrechnungen. Nicht gemeint: GF-seitiges Reisemanagement oder strategische Reiserichtlinien. Typische Taetigkeiten: Hotel- und Bahnbuchungen fuer Teammitglieder durchfuehren · Spesenabrechnungen aufnehmen und weiterleiten · Reisekostenbelege zusammenstellen und pruefen«",
+          anchors: {
+            1: "Fuehrt Buchungen und Abrechnungen auf Anweisung durch.",
+            2: "Unterstuetzt das Team eigenstaendig bei Buchungen und Spesenbelegen.",
+            3: "Steuert Reise- und Spesenprozess fuer das gesamte Team; erklaert Vorgaben.",
+            4: "Optimiert Buchungsprozesse; prueft und verbessert Abrechnungsvorlagen.",
+            5: "Entwickelt Reiseprozess-Standards; verhandelt mit Reiseanbietern.",
+          },
+        },
+        {
+          name: "Ablage, Archivierung & Postbearbeitung",
+          dep: "Durable",
+          targetLevel: 3,
+          description:
+            "»Strukturiertes Ablegen, Auffindbarhalten und Weiterleiten von Dokumenten sowie Bearbeitung eingehender und ausgehender Post. Typische Taetigkeiten: Dokumente physisch und digital nach Ablagestruktur einordnen · Archivierungsfristen und Versionierung einhalten · Eingehende Post sichten und weiterleiten«",
+          anchors: {
+            1: "Legt Dokumente nach Vorgabe ab; nimmt Post entgegen und leitet auf Anweisung weiter.",
+            2: "Pflegt Ablagestruktur und Postfluss eigenstaendig; haelt Fristen und Versionierung ein.",
+            3: "Optimiert Ablage- und Postprozesse; erkennt eilige oder vertrauliche Vorgaenge.",
+            4: "Entwirft Ablagekonzepte; entwickelt Regeln fuer vertrauliche Sendungen.",
+            5: "Definiert Standards fuer Dokumentenmanagement und Postverwaltung.",
           },
         },
       ],
@@ -2985,6 +3437,7 @@ const gfAssistenz: Role = {
           name: "Praesentationen & Board-Unterlagen",
           dep: "Durable",
           targetLevel: 3,
+          keySkill: true,
           description:
             "»Aufbereitung von Informationen als Entscheidungsgrundlage fuer GF oder Gesellschafter: Praesentationen, One-Pager, Briefings. Nicht gemeint: inhaltliche Analyse. Typische Taetigkeiten: Praesentationen CI-konform erstellen · Inhalte fuer Nicht-Experten aufbereiten · Daten und Grafiken verstaendlich einbinden«",
           anchors: {
@@ -3010,24 +3463,24 @@ const gfAssistenz: Role = {
           },
         },
         {
-          name: "Protokollfuehrung auf GF-Ebene",
+          name: "Protokollfuehrung (GF- und Team-Ebene)",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           description:
-            "»Erstellung von Beschluss- und Ergebnisprotokollen fuer GF-Meetings und Gesellschaftersitzungen — revisionssicher, vollstaendig und rechtlich korrekt. Typische Taetigkeiten: Protokolle waehrend oder nach Sitzungen erstellen · Beschluesse eindeutig formulieren und Verantwortlichkeiten festhalten · Protokolle freigeben und revisionssicher ablegen«",
+            "»Erstellung von Protokollen fuer Meetings auf allen Ebenen — von einfachen internen Besprechungsnotizen bis zu revisionssicheren Beschluss- und Ergebnisprotokollen fuer GF-Meetings. Typische Taetigkeiten: Protokolle waehrend oder nach Sitzungen erstellen · Beschluesse und Ergebnisse eindeutig formulieren und Verantwortlichkeiten festhalten · Protokolle freigeben, verteilen und revisionssicher ablegen«",
           anchors: {
             1: "Erstellt einfache Gespraechsnotizen nach Vorlage.",
-            2: "Protokolliert eigenstaendig; haelt Ergebnisse und Aufgaben fest.",
-            3: "Erstellt Beschlussprotokolle; Formulierungen praezise und revisionssicher.",
-            4: "Protokolliert Gesellschafterversammlungen; beachtet Rechtspflichten.",
-            5: "Gilt als Referenz; entwickelt Protokollstandards fuer GF-Bereich.",
+            2: "Protokolliert eigenstaendig; haelt Ergebnisse und Aufgaben fest; unterscheidet relevante von irrelevanten Inhalten.",
+            3: "Erstellt Beschlussprotokolle fuer GF-Meetings; Formulierungen praezise und revisionssicher.",
+            4: "Erstellt strukturierte Protokolle auch fuer komplexere, mehrstufige Meetings; bewertet Qualitaet anderer Protokolle.",
+            5: "Gilt als Referenz; entwickelt Protokollstandards fuer den gesamten Buero- und GF-Bereich.",
           },
         },
         {
           name: "Diskretion & Integritaet",
           dep: "Durable",
-          targetLevel: 4,
+          targetLevel: 5,
           keySkill: true,
           description:
             "»Verantwortungsvoller Umgang mit hochvertraulichen GF-Informationen: Personalentscheidungen, strategische Plaene, Finanzdaten. Aktiver Schutz sensibler Daten im Arbeitsalltag. Typische Taetigkeiten: Vertraulichkeitsgrenzen konsequent einhalten · Sensible Informationen nicht weitergeben · Unklarheiten zu Vertraulichkeit proaktiv klaeren«",
@@ -3039,240 +3492,10 @@ const gfAssistenz: Role = {
             5: "Gilt als absolute Vertrauensperson; praegt Kultur der Diskretion im Buero.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 3 },
-      ],
-    },
-  ],
-};
-
-const teamassistenz: Role = {
-  id: "teamassistenz",
-  name: "Teamassistenz",
-  description:
-    "Zentrale Office-Management-Rolle fuer das gesamte Unternehmen — Bueroinfrastruktur, Terminkoordination, Beschaffung und reibungsloser Bueroalltag.",
-  categories: [
-    {
-      name: "Fachlich",
-      skills: [
-        {
-          name: "Unternehmenskontext & Bueroprozesse",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Grundlegendes Verstaendnis der Unternehmensstruktur, internen Ablaeufe und Ansprechpartner fuer typische Office-Management-Aufgaben. Nicht gemeint: fachliche oder technische Tiefe. Typische Taetigkeiten: Anfragen an die richtigen Stellen weiterleiten · Interne Prozesse und Zustaendigkeiten kennen · Prioritaeten und Dringlichkeiten einschaetzen«",
-          anchors: {
-            1: "Kennt grundlegende Unternehmensstruktur; braucht Anleitung beim Einordnen von Anfragen.",
-            2: "Kennt interne Ablaeufe, Zustaendigkeiten und Ansprechpartner eigenstaendig.",
-            3: "Erkennt Optimierungspotenziale in Bueroprozessen; bringt Verbesserungsvorschlaege ein.",
-            4: "Gestaltet interne Prozesse aktiv mit; ist Anlaufstelle fuer organisatorische Fragen.",
-            5: "Gilt als Wissensstraeger fuer Unternehmensorganisation; schult neue Mitarbeitende.",
-          },
-        },
-        {
-          name: "Datenschutz & Compliance-Grundlagen",
-          dep: "Evolving",
-          targetLevel: 2,
-          description:
-            "»Grundlegende Kenntnisse zu DSGVO und internen Compliance-Vorgaben im Office-Alltag: Dokumentenscbutz, Ablageregeln, Datenweitergabe. Nicht gemeint: rechtliche Beratung oder HR-Compliance. Typische Taetigkeiten: Schutzbedarf von Dokumenten einschaetzen · Druckerzeugnisse und physische Post vertraulich behandeln · Neue Mitarbeitende zu Grundregeln informieren«",
-          anchors: {
-            1: "Haelt Vorgaben ein wenn explizit darauf hingewiesen.",
-            2: "Erkennt vertrauliche Informationen eigenstaendig; haelt DSGVO-Grundregeln im Bueroalltag ein.",
-            3: "Erklaert Grundregeln anderen; erkennt Luecken und spricht sie an.",
-            4: "Bewertet Compliance-Fragen im Buerokontext; empfiehlt Verbesserungen.",
-            5: "Definiert Compliance-Standards fuer den Office-Bereich.",
-          },
-        },
-        { ...RUMP_DIGITALE, targetLevel: 2 },
-      ],
-    },
-    {
-      name: "Technisch",
-      skills: [
-        {
-          name: "MS Office (Word, Excel, PowerPoint)",
-          dep: "Durable",
-          targetLevel: 3,
-          keySkill: true,
-          description:
-            "»Sicherer Umgang mit Word (Vorlagen, Formatierung), Excel (Listen, Tabellen, einfache Formeln) und PowerPoint (Praesentationen nach Vorlage). Typische Taetigkeiten: Protokolle und Rundschreiben in Word erstellen · Bestelllisten und Uebersichten in Excel fuehren · Einfache Praesentationen fuer interne Meetings aufbereiten«",
-          anchors: {
-            1: "Bedient alle drei Programme grundlegend; erstellt Dokumente nach Vorlage.",
-            2: "Nutzt Standardfunktionen sicher; erstellt strukturierte Dokumente eigenstaendig.",
-            3: "Setzt komplexere Funktionen gezielt ein (Formeln, Querverweise, Vorlagen); arbeitet effizient.",
-            4: "Erstellt bueroweite Vorlagen; automatisiert wiederkehrende Aufgaben.",
-            5: "Gilt als Ansprechperson fuer Office-Tool-Nutzung; optimiert Arbeitsprozesse.",
-          },
-        },
-        {
-          name: "Outlook & Kalendermanagement",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Professioneller Umgang mit Outlook fuer E-Mail-Verwaltung, Terminkoordination und Aufgaben-Tracking. Typische Taetigkeiten: Mehrere Teamkalender pflegen und Termine koordinieren · Wiedervorlagen und Aufgaben in Outlook verwalten · Shared-Mailboxen und Verteiler pflegen«",
-          anchors: {
-            1: "Liest und versendet E-Mails; legt einfache Termine an.",
-            2: "Verwaltet eigene und einfache Teamkalender eigenstaendig; nutzt Standardfunktionen.",
-            3: "Koordiniert komplexe Terminlagen; pflegt Shared-Mailboxen und Verteiler.",
-            4: "Konfiguriert Outlook-Regeln und Automatisierungen; optimiert Postfach-Workflows.",
-            5: "Definiert Outlook-Standards fuer das Unternehmen; schult andere.",
-          },
-        },
-        {
-          name: "Microsoft Teams & Kollaborationstools",
-          dep: "Evolving",
-          targetLevel: 3,
-          description:
-            "»Sicherer Einsatz von Microsoft Teams fuer Kommunikation, Meetings und Dateiablage im unternehmensweiten Office-Management. Typische Taetigkeiten: Teams-Kanaele und Meetingeinladungen einrichten · Dateien und Informationen in Teams strukturieren · Technische Einstiegshilfe fuer neue Mitarbeitende geben«",
-          anchors: {
-            1: "Bedient Teams grundlegend; nimmt an Meetings teil.",
-            2: "Richtet Meetings ein; teilt Dateien und kommuniziert in Kanaelen eigenstaendig.",
-            3: "Verwaltet Kanaele und Dateibereiche; unterstuetzt andere bei der Tool-Nutzung.",
-            4: "Konfiguriert Teams-Strukturen unternehmeweit; integriert Teams in Bueroprozesse.",
-            5: "Definiert Nutzungsstandards; beraet bei Tool-Entscheidungen.",
-          },
-        },
-        {
-          name: "KI-Tools fuer Bueroaufgaben",
-          dep: "Perishable",
-          targetLevel: 2,
-          trend: "stark steigend",
-          description:
-            "»Einsatz von KI-Assistenten fuer typische Office-Aufgaben: Texte formulieren, Zusammenfassungen erstellen, Anfragen bearbeiten. Nicht gemeint: autonome Nutzung ohne Pruefung. Typische Taetigkeiten: Rundschreiben und Ankuendigungen per KI formulieren · Besprechungsnotizen automatisch aufbereiten · Outputs auf Korrektheit pruefen«",
-          anchors: {
-            1: "Kennt KI-Tools dem Namen nach.",
-            2: "Nutzt KI fuer einfache Texte und Zusammenfassungen; prueft Outputs.",
-            3: "Setzt KI gezielt fuer Bueroaufgaben ein; optimiert Prompts situativ.",
-            4: "Etabliert wiederverwendbare Prompt-Vorlagen fuer Office-Aufgaben.",
-            5: "Definiert KI-Nutzungsstandards im Office-Bereich.",
-          },
-        },
-      ],
-    },
-    {
-      name: "Methodisch",
-      skills: [
-        {
-          name: "Bueroorganisation & Office Management",
-          dep: "Durable",
-          targetLevel: 3,
-          keySkill: true,
-          description:
-            "»Sicherstellung eines reibungslosen Bueroalltags fuer das gesamte Unternehmen: Infrastruktur, Ausstattung, Ablaeufe und Anlaufstelle fuer organisatorische Fragen. Typische Taetigkeiten: Bueroinfrastruktur pflegen und Maengel melden · Arbeitsplaetze fuer neue Mitarbeitende vorbereiten · Regelmaessige Bueroaufgaben koordinieren und delegieren«",
-          anchors: {
-            1: "Erledigt vorgegebene Bueroaufgaben; braucht Anleitung bei Priorisierung.",
-            2: "Haelt den Bueroalltag eigenstaendig am Laufen; erkennt offensichtliche Maengel.",
-            3: "Organisiert Bueroinfrastruktur proaktiv; ist zuverlaessige Anlaufstelle fuer das Team.",
-            4: "Optimiert Bueroprozesse; antizipiert Bedarfe bevor sie zum Problem werden.",
-            5: "Entwickelt Office-Management-Standards; gilt als Dreh- und Angelpunkt des Unternehmens.",
-          },
-        },
-        {
-          name: "Terminkoordination & Raumplanung",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Koordination von Terminen, Meetingraeumen und Veranstaltungsinfrastruktur fuer das gesamte Unternehmen. Typische Taetigkeiten: Raeume und Ressourcen fuer Meetings buchen · Interne Terminabstimmungen unterstuetzen · Raumkalender pflegen und Konflikte loesen«",
-          anchors: {
-            1: "Pflegt einfache Raumkalender; bucht Raeume auf Anweisung.",
-            2: "Koordiniert Raeume und Termineinladungen eigenstaendig.",
-            3: "Steuert Raumplanung unternehmeweit; loest Konflikte proaktiv.",
-            4: "Optimiert Raum- und Ressourcennutzung; plant Kapazitaeten vorausschauend.",
-            5: "Entwickelt Standards fuer Raum- und Terminmanagement.",
-          },
-        },
-        {
-          name: "Beschaffung & Bestellwesen",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Beschaffung von Bueromaterial, IT-Verbrauchsmaterial und sonstigen Betriebsmitteln — von der Bedarfserfassung bis zur Lieferantenkoordination. Typische Taetigkeiten: Materialbestaende pruefen und Bestellungen ausloesen · Lieferanten kontaktieren und Lieferungen verfolgen · Rechnungen pruefen und zur Freigabe weiterleiten«",
-          anchors: {
-            1: "Loest Bestellungen auf Anweisung aus; traegt Lieferungen ein.",
-            2: "Bestellt eigenstaendig nach Vorgabe; koordiniert einfache Lieferantenrueckfragen.",
-            3: "Bewertet Bedarfe proaktiv; steuert Beschaffungsprozesse von A bis Z.",
-            4: "Optimiert Beschaffungsprozesse; verwaltet Lieferantenbeziehungen und Konditionen.",
-            5: "Entwickelt Beschaffungsstandards; bewertet Lieferanten strategisch.",
-          },
-        },
-        {
-          name: "Onboarding-Unterstuetzung",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Organisatorische Unterstuetzung beim Onboarding neuer Mitarbeitender: Arbeitsplatz, Ausstattung, Zugaenge und erste Orientierung. Nicht gemeint: HR-fachliches Onboarding. Typische Taetigkeiten: Arbeitsplaetze einrichten und Ausstattung bereitstellen · Neue Mitarbeitende zu Bueroinfrastruktur einfuehren · Checklisten fuer Onboarding-Tag koordinieren«",
-          anchors: {
-            1: "Bereitet vorgegebene Onboarding-Aufgaben vor; braucht Anleitung.",
-            2: "Richtet Arbeitsplaetze eigenstaendig ein; fuehrt Onboarding-Checklisten durch.",
-            3: "Koordiniert Onboarding-Tag vollstaendig; ist erste Anlaufstelle fuer neue Mitarbeitende.",
-            4: "Optimiert Onboarding-Prozesse; stimmt sich proaktiv mit HR und IT ab.",
-            5: "Entwickelt Onboarding-Standards; schult andere bei der Durchfuehrung.",
-          },
-        },
-        {
-          name: "Reise- & Spesensupport",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Unterstuetzung des Teams bei Dienstreisebuchungen und Spesenabrechnungen. Nicht gemeint: GF-seitiges Reisemanagement oder strategische Reiserichtlinien. Typische Taetigkeiten: Hotel- und Bahnbuchungen fuer Teammitglieder durchfuehren · Spesenabrechnungen aufnehmen und weiterleiten · Reisekostenbelege zusammenstellen und pruefen«",
-          anchors: {
-            1: "Fuehrt Buchungen und Abrechnungen auf Anweisung durch.",
-            2: "Unterstuetzt das Team eigenstaendig bei Buchungen und Spesenbelegen.",
-            3: "Steuert Reise- und Spesenprozess fuer das gesamte Team; erklaert Vorgaben.",
-            4: "Optimiert Buchungsprozesse; prueft und verbessert Abrechnungsvorlagen.",
-            5: "Entwickelt Reiseprozess-Standards; verhandelt mit Reiseanbietern.",
-          },
-        },
-        {
-          name: "Ablage, Archivierung & Postbearbeitung",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Strukturiertes Ablegen, Auffindbarhalten und Weiterleiten von Dokumenten sowie Bearbeitung eingehender und ausgehender Post. Typische Taetigkeiten: Dokumente physisch und digital nach Ablagestruktur einordnen · Archivierungsfristen und Versionierung einhalten · Eingehende Post sichten und weiterleiten«",
-          anchors: {
-            1: "Legt Dokumente nach Vorgabe ab; nimmt Post entgegen und leitet auf Anweisung weiter.",
-            2: "Pflegt Ablagestruktur und Postfluss eigenstaendig; haelt Fristen und Versionierung ein.",
-            3: "Optimiert Ablage- und Postprozesse; erkennt eilige oder vertrauliche Vorgaenge.",
-            4: "Entwirft Ablagekonzepte; entwickelt Regeln fuer vertrauliche Sendungen.",
-            5: "Definiert Standards fuer Dokumentenmanagement und Postverwaltung.",
-          },
-        },
-        {
-          name: "Protokollierung",
-          dep: "Durable",
-          targetLevel: 2,
-          description:
-            "»Erstellung strukturierter Protokolle fuer interne Meetings und Besprechungen. Nicht gemeint: Beschlussprotokolle auf GF- oder Gremienebene. Typische Taetigkeiten: Ergebnisse und Aufgaben in Meetings festhalten · Protokoll nach vorgegebener Vorlage erstellen und verteilen · Offene Punkte nachverfolgen«",
-          anchors: {
-            1: "Notiert Stichpunkte; braucht Unterstuetzung beim Strukturieren.",
-            2: "Protokolliert eigenstaendig; erfasst Ergebnisse und Aufgaben vollstaendig.",
-            3: "Erstellt zielgruppengerechte Protokolle; unterscheidet relevante von irrelevanten Inhalten.",
-            4: "Erstellt strukturierte Protokolle fuer komplexere Meetings; bewertet Qualitaet anderer Protokolle.",
-            5: "Definiert Protokollstandards fuer den Office-Bereich.",
-          },
-        },
-      ],
-    },
-    {
-      name: "Kommunikation & Zusammenarbeit",
-      skills: [
-        {
-          name: "Dienstleister- & Lieferantenkoordination",
-          dep: "Durable",
-          targetLevel: 3,
-          description:
-            "»Kommunikation und Koordination mit externen Dienstleistern, Lieferanten und Handwerkern im Rahmen des Office Managements. Typische Taetigkeiten: Dienstleister bei Stoerungen und Wartungen kontaktieren · Angebote einholen und weiterleiten · Termine mit externen Partnern koordinieren«",
-          anchors: {
-            1: "Kontaktiert Dienstleister auf Anweisung; leitet Informationen weiter.",
-            2: "Kommuniziert mit Standarddienstleistern eigenstaendig; klaert einfache Rueckfragen.",
-            3: "Koordiniert mehrere Dienstleister parallel; klaert Stoerungen proaktiv.",
-            4: "Bewertet Dienstleisterleistungen; handelt einfache Konditionen nach.",
-            5: "Verwaltet Dienstleisterbeziehungen strategisch; entwickelt Auswahlkriterien.",
-          },
-        },
         {
           name: "Interne Kommunikation & Informationsfluss",
           dep: "Durable",
-          targetLevel: 2,
+          targetLevel: 3,
           description:
             "»Sicherstellen, dass relevante Informationen zuverlaessig und zeitnah an die richtigen Personen gelangen. Typische Taetigkeiten: Ankuendigungen und Rundinformationen verteilen · Weiterleitung von Anfragen an zustaendige Stellen · Kurze interne Updates formulieren und versenden«",
           anchors: {
@@ -3283,7 +3506,7 @@ const teamassistenz: Role = {
             5: "Entwickelt Standards fuer interne Kommunikation im Office-Bereich.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 2 },
+        { ...RUMP_VERBAL, targetLevel: 3 },
       ],
     },
   ],
@@ -6267,51 +6490,488 @@ const gruppenleitung: Role = {
     {
       name: "Fachlich",
       skills: [
-        { name: "Fuehrungstheorien & -modelle", dep: "Durable" },
-        { name: "Bereichsspezifische Fachexpertise", dep: "Durable" },
-        { name: "Versicherungs-IT-Strategie", dep: "Evolving" },
+        {
+          name: "Fuehrungstheorien & -modelle",
+          dep: "Durable",
+          description:
+            "»Kenntnis anerkannter Fuehrungsmodelle (situatives Fuehren, transformationale Fuehrung, Servant Leadership) als Grundlage fuer die eigene Fuehrungspraxis. Nicht gemeint: reine Theorie ohne Anwendungsbezug oder spezifische Coaching-Zertifizierungen. Typische Taetigkeiten: Fuehrungsstil situativ anpassen · Fuehrungsentscheidungen theoretisch fundieren · eigenes Fuehrungsverhalten reflektieren und weiterentwickeln«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025 nennt Fuehrungskompetenz und soziale Einflussnahme als dauerhaft gefragte Kernfaehigkeit, unabhaengig von KI-Automatisierung technischer Aufgaben.",
+          keySkill: false,
+          bewertungsmodell: "Bloom",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Kennt gaengige Fuehrungsmodelle aus Schulungen, wendet sie noch nicht bewusst im Alltag an.",
+            2: "Ordnet eigenes Fuehrungsverhalten einem Modell zu und uebernimmt einzelne Techniken in Standardsituationen.",
+            3: "Waehlt den Fuehrungsstil situationsabhaengig bewusst aus und begruendet die Wahl gegenueber sich selbst und dem Team.",
+            4: "Passt das Fuehrungsverhalten dynamisch an unterschiedliche Mitarbeitende und Situationen an und reflektiert die Wirkung systematisch.",
+            5: "Entwickelt ein eigenes, konsistentes Fuehrungsverstaendnis, das andere Fuehrungskraefte als Orientierung nutzen.",
+          },
+        },
+        {
+          name: "Bereichsspezifische Fachexpertise",
+          dep: "Durable",
+          description:
+            "»Tiefes fachliches Verstaendnis des verantworteten Bereichs (z. B. Testmanagement, Softwareentwicklung, Business Consulting), um fachliche Richtungsentscheidungen fundiert treffen und das Team glaubwuerdig vertreten zu koennen. Nicht gemeint: operative Ausfuehrung der Fachaufgaben selbst. Typische Taetigkeiten: fachliche Eskalationen bewerten · Qualitaet von Arbeitsergebnissen des Bereichs einschaetzen · Fachthemen gegenueber Kunden und Geschaeftsfuehrung vertreten«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025: Fachkompetenz bleibt zentrales Fundament, das die kritische Bewertung von KI-gestuetzten Arbeitsergebnissen im Bereich erst ermoeglicht.",
+          keySkill: true,
+          bewertungsmodell: "Bloom",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Kennt die Grundbegriffe und Aufgaben des Bereichs, benoetigt bei fachlichen Rueckfragen Unterstuetzung durch Spezialisten.",
+            2: "Versteht die zentralen Arbeitsweisen des Bereichs und kann einfache fachliche Fragen selbst beantworten.",
+            3: "Bewertet fachliche Arbeitsergebnisse des Teams selbststaendig und trifft alltaegliche fachliche Entscheidungen.",
+            4: "Loest komplexe fachliche Eskalationen im Bereich eigenstaendig und vertritt Fachthemen souveraen gegenueber Kunden.",
+            5: "Gilt bereichsuebergreifend als fachliche Referenz und praegt die fachliche Ausrichtung des gesamten Bereichs strategisch mit.",
+          },
+        },
+        {
+          name: "Versicherungs-IT-Strategie",
+          dep: "Evolving",
+          description:
+            "»Verstaendnis strategischer Entwicklungslinien der Versicherungs-IT (Cloud-Migration, KI-Einsatz, Plattformkonsolidierung), um die eigene Gruppe entsprechend auszurichten. Nicht gemeint: operative Umsetzung einzelner Technologieentscheidungen. Typische Taetigkeiten: Bereichsstrategie an IT-Trends ausrichten · Investitions- und Weiterbildungsbedarfe ableiten · strategische Kundenanfragen fachlich einordnen«",
+          targetLevel: 3,
+          trend: "stark steigend",
+          trendgrund:
+            "DORA und der EU AI Act veraendern ab 2025 die IT-Strategien von Versicherungsunternehmen grundlegend; Fuehrungskraefte muessen diese regulatorischen und technologischen Verschiebungen in die Bereichsausrichtung uebersetzen.",
+          keySkill: false,
+          bewertungsmodell: "Bloom",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Kennt zentrale Begriffe wie Cloud-Migration und KI-Einsatz, ohne deren Auswirkung auf den eigenen Bereich einordnen zu koennen.",
+            2: "Versteht die wichtigsten strategischen Trends der Versicherungs-IT auf Ueberblicksebene.",
+            3: "Leitet aus IT-Trends konkrete Konsequenzen fuer die eigene Gruppe ab, z. B. Weiterbildungsbedarf oder Toolwechsel.",
+            4: "Beraet Geschaeftsfuehrung und Kunden zu strategischen IT-Entwicklungen und deren Bedeutung fuer laufende Projekte.",
+            5: "Praegt die unternehmensweite Versicherungs-IT-Strategie aktiv mit und positioniert die eigene Gruppe als Vorreiter.",
+          },
+        },
         { ...RUMP_DIGITALE },
       ],
     },
     {
       name: "Technisch",
       skills: [
-        { name: "Technologie-Entscheidungen treffen", dep: "Evolving" },
+        {
+          name: "Technologie-Entscheidungen treffen",
+          dep: "Evolving",
+          description:
+            "»Fundierte Entscheidungen ueber Technologien, Tools und Architekturansaetze im Verantwortungsbereich treffen, ohne selbst tief in jeder Technologie zu stecken. Nicht gemeint: eigenstaendige technische Implementierung. Typische Taetigkeiten: Technologievorschlaege des Teams fachlich bewerten · Build-vs-Buy-Entscheidungen treffen · technische Risiken fuer Entscheidungen einholen und einordnen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: technologische Kompetenz auf Entscheidungsebene gewinnt an Bedeutung, da Fuehrungskraefte zunehmend ueber KI- und Cloud-Technologien entscheiden muessen, ohne sie selbst zu implementieren.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Uebernimmt Technologieempfehlungen von Fachexperten, ohne sie eigenstaendig zu hinterfragen.",
+            2: "Stellt gezielte Rueckfragen zu Technologievorschlaegen und trifft einfache Entscheidungen mit Unterstuetzung.",
+            3: "Trifft Technologieentscheidungen im eigenen Bereich selbststaendig und begruendet sie nachvollziehbar.",
+            4: "Waegt komplexe Technologie-Trade-offs (Kosten, Risiko, Zukunftsfaehigkeit) eigenstaendig ab und verantwortet die Konsequenzen.",
+            5: "Etabliert Entscheidungsrahmen fuer Technologiewahl, an denen sich andere Fuehrungskraefte orientieren.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
-        { name: "Disziplinarische Fuehrung", dep: "Durable" },
-        { name: "Zielvereinbarungen (OKR, SMART)", dep: "Durable" },
-        { name: "Performance Management", dep: "Durable" },
-        { name: "Fachliche Richtungsentscheidungen", dep: "Durable" },
-        { name: "Qualitaetssicherung der Arbeit", dep: "Durable" },
-        { name: "Standards & Best Practices", dep: "Durable" },
-        { name: "Wissenstransfer organisieren", dep: "Durable" },
-        { name: "Skill-Gap-Analyse im Team", dep: "Durable" },
-        { name: "Team-Aufbau & -Skalierung", dep: "Durable" },
-        { name: "Ressourcenplanung", dep: "Durable" },
-        { name: "Prozessoptimierung im Bereich", dep: "Durable" },
-        { name: "Schnittstellen-Management", dep: "Durable" },
+        {
+          name: "Disziplinarische Fuehrung",
+          dep: "Durable",
+          description:
+            "»Personalverantwortung fuer die Mitarbeitenden der Gruppe — von Zielsetzung ueber Beurteilung bis zu personalrechtlichen Themen. Nicht gemeint: fachliche Anleitung im Tagesgeschaeft. Typische Taetigkeiten: Mitarbeitergespraeche fuehren · Gehalts- und Befoerderungsentscheidungen vorbereiten · personalrechtliche Prozesse (Abmahnung, Trennung) begleiten«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025 und WEF 2025 stufen Personalfuehrung als dauerhaft nicht automatisierbare Kernaufgabe von Fuehrungskraeften ein.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Fuehrt vorgegebene Personalprozesse (z. B. Standardgespraeche) nach Anleitung durch.",
+            2: "Fuehrt Standardgespraeche und einfache Personalentscheidungen eigenstaendig, holt bei komplexeren Faellen Rat ein.",
+            3: "Verantwortet den vollstaendigen Personalzyklus der Gruppe selbststaendig, inklusive schwieriger Gespraeche.",
+            4: "Loest komplexe personalrechtliche und disziplinarische Situationen eigenstaendig und rechtssicher.",
+            5: "Etabliert Personalfuehrungs-Standards fuer den gesamten Bereich und coacht andere Fuehrungskraefte darin.",
+          },
+        },
+        {
+          name: "Zielvereinbarungen (OKR, SMART)",
+          dep: "Durable",
+          description:
+            "»Ableitung und Vereinbarung individueller und teambezogener Ziele aus der Unternehmens- und Bereichsstrategie mittels OKR oder SMART. Nicht gemeint: operative Aufgabenplanung im Tagesgeschaeft. Typische Taetigkeiten: Team-OKRs aus Bereichszielen ableiten · individuelle Zielvereinbarungen formulieren · Zielerreichung im Jahresverlauf nachhalten«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025 stuft zielorientierte Steuerung als stabile Kernkompetenz von Fuehrungskraeften ein, unabhaengig vom technologischen Wandel.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Uebernimmt vorgegebene Zielformulierungen, ohne sie selbst aus der Strategie abzuleiten.",
+            2: "Formuliert einfache SMARTe Ziele fuer einzelne Mitarbeitende nach Vorlage.",
+            3: "Leitet Team-Ziele eigenstaendig aus der Bereichsstrategie ab und vereinbart sie im Team.",
+            4: "Verzahnt individuelle Ziele, Teamziele und Bereichsstrategie konsistent und passt sie unterjaehrig an.",
+            5: "Etabliert das Zielsystem (OKR/SMART) fuer den gesamten Bereich und schult andere Fuehrungskraefte darin.",
+          },
+        },
+        {
+          name: "Performance Management",
+          dep: "Durable",
+          description:
+            "»Systematische Beobachtung, Bewertung und Steuerung der Leistung von Mitarbeitenden im Zeitverlauf. Nicht gemeint: einmalige Beurteilungsgespraeche ohne Prozessbezug. Typische Taetigkeiten: Leistungsstand kontinuierlich einschaetzen · Low-Performance-Faelle fruehzeitig erkennen und adressieren · Leistungstraeger gezielt foerdern und binden«",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: datenbasiertes Performance Management gewinnt an Bedeutung, da Fuehrungskraefte zunehmend auf digitale Kennzahlen zur Leistungseinschaetzung zurueckgreifen.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Bewertet Leistung punktuell anhand offensichtlicher Ereignisse, ohne kontinuierliche Beobachtung.",
+            2: "Beobachtet Leistung im Team ueber einen laengeren Zeitraum und dokumentiert Beobachtungen.",
+            3: "Erkennt Leistungsabweichungen fruehzeitig und adressiert sie in strukturierten Gespraechen.",
+            4: "Steuert Leistung im Team systematisch, inklusive schwieriger Low-Performance-Faelle und gezielter Bindung von Leistungstraegern.",
+            5: "Entwickelt Performance-Management-Standards fuer den Bereich, die auch in schwierigen Faellen rechtssicher und fair sind.",
+          },
+        },
+        {
+          name: "Fachliche Richtungsentscheidungen",
+          dep: "Durable",
+          description:
+            "»Treffen verbindlicher fachlicher Entscheidungen fuer die Gruppe, wenn Ansaetze im Team divergieren oder keine Vorgabe existiert. Nicht gemeint: reine Moderation ohne eigene Entscheidung. Typische Taetigkeiten: zwischen konkurrierenden fachlichen Ansaetzen entscheiden · Entscheidungen gegenueber Team und Kunden begruenden · Entscheidungsfolgen verantworten«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025: Fachkompetenz als Entscheidungsgrundlage bleibt zentral, auch wenn KI-Systeme zunehmend Entscheidungsvorschlaege liefern.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Trifft fachliche Entscheidungen nur mit Rueckendeckung durch Vorgesetzte oder Spezialisten.",
+            2: "Trifft einfache fachliche Entscheidungen in eindeutigen Faellen selbststaendig.",
+            3: "Entscheidet bei divergierenden fachlichen Ansaetzen im Team selbststaendig und begruendet die Wahl nachvollziehbar.",
+            4: "Trifft auch bei hoher fachlicher Komplexitaet und Unsicherheit tragfaehige Richtungsentscheidungen und verantwortet sie gegenueber Kunden.",
+            5: "Etabliert Entscheidungsprinzipien fuer fachliche Richtungsfragen, an denen sich der gesamte Bereich orientiert.",
+          },
+        },
+        {
+          name: "Qualitaetssicherung der Arbeit",
+          dep: "Durable",
+          description:
+            "»Sicherstellung, dass Arbeitsergebnisse der Gruppe den fachlichen und qualitativen Standards entsprechen. Nicht gemeint: operative Qualitaetspruefung einzelner Arbeitsergebnisse (liegt bei Team-/Fachrollen). Typische Taetigkeiten: Qualitaetskennzahlen der Gruppe verfolgen · systematische Qualitaetsmaengel identifizieren · Gegenmassnahmen mit dem Team vereinbaren und nachhalten«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "DORA-Anforderungen 2025 verlangen nachweisbare Qualitaetsprozesse in regulierten IT-Bereichen; Fuehrungskraefte muessen diese Nachweisfuehrung verantworten.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Nimmt Qualitaetsprobleme zur Kenntnis, wenn sie von anderen gemeldet werden.",
+            2: "Verfolgt einfache Qualitaetskennzahlen der Gruppe und meldet Auffaelligkeiten.",
+            3: "Identifiziert systematische Qualitaetsmaengel eigenstaendig und vereinbart Gegenmassnahmen mit dem Team.",
+            4: "Etabliert Qualitaetsprozesse und -kennzahlen fuer die Gruppe und wertet sie regelmaessig aus.",
+            5: "Verantwortet die Qualitaetssicherung mehrerer Gruppen und definiert bereichsweite Qualitaetsstandards.",
+          },
+        },
+        {
+          name: "Standards & Best Practices",
+          dep: "Durable",
+          description:
+            "»Einfuehrung und Weiterentwicklung verbindlicher Standards und bewaehrter Vorgehensweisen fuer die Gruppe. Nicht gemeint: unternehmensweite Standardsetzung (liegt bei Geschaeftsfuehrung/Architektur-Gremien). Typische Taetigkeiten: Team-Standards definieren und dokumentieren · Einhaltung im Alltag verfolgen · Standards regelmaessig an neue Erkenntnisse anpassen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025: Etablierung konsistenter Arbeitsstandards bleibt eine stabile Fuehrungsaufgabe, auch bei zunehmender Tool- und Methodenvielfalt.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Wendet vorgegebene Standards im eigenen Bereich an, ohne sie selbst weiterzuentwickeln.",
+            2: "Passt bestehende Standards an einfache Besonderheiten der eigenen Gruppe an.",
+            3: "Definiert eigenstaendig Standards fuer die Gruppe und sorgt fuer deren Einhaltung.",
+            4: "Entwickelt Standards kontinuierlich anhand von Erfahrungswerten weiter und stimmt sie mit anderen Gruppen ab.",
+            5: "Praegt bereichsweite Best Practices, die von mehreren Gruppen uebernommen werden.",
+          },
+        },
+        {
+          name: "Wissenstransfer organisieren",
+          dep: "Durable",
+          description:
+            "»Sicherstellung, dass Wissen innerhalb der Gruppe geteilt wird und nicht an Einzelpersonen gebunden bleibt. Nicht gemeint: inhaltliche Wissensvermittlung selbst (liegt bei Fachexperten/Mentoren). Typische Taetigkeiten: Wissenstransfer-Formate (Pairing, Doku, Lunch & Learn) etablieren · Wissenstraeger identifizieren und Vertretungsrisiken reduzieren · Onboarding neuer Mitarbeitender strukturieren«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025: Lernfaehigkeit als Kompetenzfeld gewinnt an Bedeutung; strukturierter Wissenstransfer wird zur zentralen Fuehrungsaufgabe, um Wissen im Team resilient zu halten.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Verweist bei Wissensfragen auf einzelne Personen im Team, ohne strukturierten Transfer zu organisieren.",
+            2: "Setzt einfache Wissenstransfer-Formate (z. B. Dokumentation) auf Anregung um.",
+            3: "Etabliert eigenstaendig Formate fuer Wissensteilung und identifiziert kritische Wissenstraeger.",
+            4: "Reduziert Vertretungsrisiken systematisch durch gezielte Wissensverteilung im Team.",
+            5: "Etabliert bereichsweite Wissenstransfer-Standards und Onboarding-Konzepte.",
+          },
+        },
+        {
+          name: "Skill-Gap-Analyse im Team",
+          dep: "Durable",
+          description:
+            "»Systematische Identifikation von Kompetenzluecken im Team im Abgleich mit aktuellen und zukuenftigen Anforderungen. Nicht gemeint: individuelle fachliche Weiterbildungsberatung im Detail. Typische Taetigkeiten: Skill-Inventuren durchfuehren und auswerten · Luecken mit Weiterbildungs- oder Recruiting-Massnahmen schliessen · Skill-Bedarf aus Kundenprojekten ableiten«",
+          targetLevel: 4,
+          trend: "stark steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: 39 % der Kernkompetenzen veraendern sich bis 2030 — systematisches Skill-Gap-Management wird zur zentralen Fuehrungsaufgabe, um Teams zukunftsfaehig zu halten.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Nimmt Skill-Luecken wahr, wenn sie in Projekten offensichtlich werden.",
+            2: "Fuehrt einfache Skill-Inventuren im Team durch und dokumentiert die Ergebnisse.",
+            3: "Leitet aus Skill-Inventuren eigenstaendig Weiterbildungs- oder Recruiting-Massnahmen ab.",
+            4: "Antizipiert zukuenftigen Skill-Bedarf aus Markt- und Kundenentwicklungen und steuert das Team entsprechend.",
+            5: "Etabliert ein bereichsweites Skill-Management-System und beraet andere Fuehrungskraefte bei Skill-Strategien.",
+          },
+        },
+        {
+          name: "Team-Aufbau & -Skalierung",
+          dep: "Durable",
+          description:
+            "»Planung und Umsetzung des Wachstums oder der Umstrukturierung der Gruppe entlang von Auftrags- und Strategieentwicklung. Nicht gemeint: operative Rekrutierungsdurchfuehrung (siehe Recruiting-Verantwortung). Typische Taetigkeiten: Personalbedarf aus Auftragslage ableiten · Teamstruktur und Rollen weiterentwickeln · Wachstum organisatorisch begleiten (Onboarding, Struktur)«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Organisationsdesign und Teamskalierung gewinnen an Bedeutung, da Unternehmen Teams zunehmend flexibel an schwankende Auftragslagen anpassen muessen.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Setzt vorgegebene Team-Strukturaenderungen um, ohne sie selbst zu planen.",
+            2: "Leitet einfachen Personalbedarf aus der aktuellen Auftragslage ab.",
+            3: "Plant Teamwachstum oder -umbau eigenstaendig und begleitet die Umsetzung organisatorisch.",
+            4: "Gestaltet komplexe Reorganisationen (z. B. Teamteilungen, neue Rollen) eigenstaendig und risikobewusst.",
+            5: "Entwickelt Skalierungskonzepte fuer den gesamten Bereich, die auf mehrere Gruppen uebertragbar sind.",
+          },
+        },
+        {
+          name: "Ressourcenplanung",
+          dep: "Durable",
+          description:
+            "»Planung und Steuerung der Kapazitaeten der Gruppe ueber laufende und geplante Projekte hinweg. Nicht gemeint: Projektplanung einzelner Vorhaben (liegt bei Projektleitung). Typische Taetigkeiten: Auslastung der Gruppe verfolgen · Kapazitaetskonflikte zwischen Projekten loesen · Ressourcenbedarf fuer neue Auftraege einschaetzen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025: Ressourcensteuerung bleibt trotz zunehmender Planungstools eine originaer menschliche Abwaegungsentscheidung.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Meldet Kapazitaetsengpaesse, sobald sie auftreten, ohne vorausschauend zu planen.",
+            2: "Verfolgt die Auslastung der Gruppe anhand vorgegebener Tools und Kennzahlen.",
+            3: "Loest Kapazitaetskonflikte zwischen Projekten eigenstaendig und schaetzt Ressourcenbedarf fuer neue Auftraege ein.",
+            4: "Plant Ressourcen vorausschauend ueber mehrere Quartale und balanciert Auslastung gegen Entwicklungsbedarfe der Mitarbeitenden.",
+            5: "Etabliert Ressourcenplanungsprozesse fuer mehrere Gruppen und beraet bei bereichsweiten Kapazitaetsentscheidungen.",
+          },
+        },
+        {
+          name: "Prozessoptimierung im Bereich",
+          dep: "Durable",
+          description:
+            "»Kontinuierliche Verbesserung von Arbeitsablaeufen innerhalb der Gruppe zur Steigerung von Effizienz und Qualitaet. Nicht gemeint: unternehmensweite Prozessarchitektur. Typische Taetigkeiten: ineffiziente Ablaeufe identifizieren · Prozessverbesserungen mit dem Team erarbeiten und einfuehren · Wirkung von Prozessaenderungen nachhalten«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Prozessdenken und kontinuierliche Verbesserung gewinnen an Bedeutung, da KI-gestuetzte Automatisierung bestehende Ablaeufe grundlegend infrage stellt.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Uebernimmt vorgegebene Prozessaenderungen im Team, ohne selbst Verbesserungspotenzial zu identifizieren.",
+            2: "Erkennt offensichtliche Ineffizienzen in bestehenden Ablaeufen und meldet sie.",
+            3: "Erarbeitet Prozessverbesserungen eigenstaendig mit dem Team und fuehrt sie ein.",
+            4: "Optimiert komplexe, bereichsuebergreifende Ablaeufe eigenstaendig und misst deren Wirkung.",
+            5: "Etabliert eine Kultur kontinuierlicher Prozessverbesserung im Bereich und coacht andere Fuehrungskraefte darin.",
+          },
+        },
+        {
+          name: "Schnittstellen-Management",
+          dep: "Durable",
+          description:
+            "»Aktive Gestaltung und Pflege der Schnittstellen der eigenen Gruppe zu anderen Gruppen, Bereichen und externen Partnern. Nicht gemeint: operative Zusammenarbeit im Tagesgeschaeft (liegt bei Team-/Projektrollen). Typische Taetigkeiten: Schnittstellenkonflikte zwischen Gruppen klaeren · Verantwortlichkeiten zwischen Bereichen abgrenzen · Zusammenarbeit mit externen Partnern strukturieren«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025: bereichsuebergreifende Zusammenarbeit bleibt eine zentrale, nicht automatisierbare Fuehrungsaufgabe in komplexen Organisationen.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Nimmt Schnittstellenprobleme wahr, wenn sie von Mitarbeitenden eskaliert werden.",
+            2: "Klaert einfache Schnittstellenfragen mit anderen Gruppen auf Nachfrage.",
+            3: "Klaert Schnittstellenkonflikte eigenstaendig und grenzt Verantwortlichkeiten zwischen Bereichen ab.",
+            4: "Gestaltet komplexe Schnittstellen zu mehreren Gruppen und externen Partnern proaktiv und konfliktarm.",
+            5: "Etabliert Schnittstellenprinzipien fuer den gesamten Bereich, an denen sich andere Gruppen orientieren.",
+          },
+        },
       ],
     },
     {
       name: "Kommunikation & Zusammenarbeit",
       skills: [
-        { name: "Recruiting-Verantwortung", dep: "Durable" },
-        { name: "Reporting nach oben & zur Seite", dep: "Durable" },
+        {
+          name: "Recruiting-Verantwortung",
+          dep: "Durable",
+          description:
+            "»Verantwortung fuer die Personalgewinnung der Gruppe — von Anforderungsprofil bis Einstellungsentscheidung. Nicht gemeint: operative Sichtung von Bewerbungen (liegt bei Recruiting-Funktion). Typische Taetigkeiten: Anforderungsprofile fuer offene Stellen definieren · Vorstellungsgespraeche fuehren und Einstellungsentscheidungen treffen · Recruiting-Prozess mit HR abstimmen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: Fachkraeftemangel in IT-nahen Berufen verstaerkt die Bedeutung aktiver Fuehrungsbeteiligung am Recruiting.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Nimmt an Vorstellungsgespraechen teil, ohne die Einstellungsentscheidung zu verantworten.",
+            2: "Fuehrt Vorstellungsgespraeche nach Leitfaden und gibt eine Einschaetzung ab.",
+            3: "Definiert Anforderungsprofile eigenstaendig und trifft Einstellungsentscheidungen fuer die Gruppe.",
+            4: "Steuert den gesamten Recruiting-Prozess fuer schwer zu besetzende Rollen aktiv und passt die Strategie an den Marktkontext an.",
+            5: "Praegt die Recruiting-Strategie fuer den gesamten Bereich und coacht andere Fuehrungskraefte in Einstellungsentscheidungen.",
+          },
+        },
+        {
+          name: "Reporting nach oben & zur Seite",
+          dep: "Durable",
+          description:
+            "»Adressatengerechte Aufbereitung und Kommunikation von Status, Risiken und Kennzahlen der Gruppe an Geschaeftsfuehrung und andere Gruppen. Nicht gemeint: operatives Projekt-Reporting einzelner Vorhaben. Typische Taetigkeiten: Bereichs-Kennzahlen fuer die Geschaeftsfuehrung aufbereiten · Risiken und Eskalationen rechtzeitig kommunizieren · Status mit anderen Gruppenleitungen abstimmen«",
+          targetLevel: 3,
+          trend: "stabil",
+          trendgrund:
+            "WEF Future of Jobs 2025: transparente, adressatengerechte Kommunikation bleibt eine Kernanforderung an Fuehrungskraefte, auch bei zunehmend automatisierter Kennzahlenerhebung.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Liefert angeforderte Kennzahlen und Status auf Nachfrage zu.",
+            2: "Bereitet Status und Kennzahlen der Gruppe nach Vorlage regelmaessig auf.",
+            3: "Kommuniziert Risiken und Eskalationen proaktiv und adressatengerecht an Geschaeftsfuehrung und andere Gruppen.",
+            4: "Bereitet komplexe Sachverhalte fuer unterschiedliche Zielgruppen (Geschaeftsfuehrung, Kunden, Team) verstaendlich auf.",
+            5: "Etabliert Reporting-Standards fuer den Bereich, die Transparenz und Entscheidungsfaehigkeit auf Geschaeftsfuehrungsebene sicherstellen.",
+          },
+        },
         { ...RUMP_VERBAL },
       ],
     },
     {
       name: "Führung & Coaching",
       skills: [
-        { name: "Feedback geben (wirksam, regelmaessig)", dep: "Durable" },
-        { name: "Konfliktmanagement im Team", dep: "Durable" },
-        { name: "Entwicklungsgespraeche fuehren", dep: "Durable" },
-        { name: "Karriereplanung begleiten", dep: "Durable" },
-        { name: "Mentoring", dep: "Durable" },
+        {
+          name: "Feedback geben (wirksam, regelmaessig)",
+          dep: "Durable",
+          description:
+            "»Regelmaessiges, konkretes und wirksames Feedback zu Leistung und Verhalten geben — positiv wie kritisch. Nicht gemeint: formale Jahresbeurteilungsgespraeche (siehe Entwicklungsgespraeche fuehren). Typische Taetigkeiten: zeitnahes Feedback zu konkretem Verhalten geben · kritisches Feedback konstruktiv und wertschaetzend formulieren · Feedback-Kultur im Team foerdern«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025: Empathie und soziale Kompetenz gehoeren zu den sieben zentralen Kompetenzfeldern, die auch im KI-Zeitalter unveraendert wichtig bleiben.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Gibt Feedback, wenn danach gefragt wird, oft allgemein und wenig konkret.",
+            2: "Gibt regelmaessig Feedback zu offensichtlichem Verhalten, nach einfachen Feedback-Regeln.",
+            3: "Gibt zeitnahes, konkretes Feedback auch zu schwierigen Themen konstruktiv und wertschaetzend.",
+            4: "Passt Feedback gezielt an Person und Situation an und foerdert damit nachhaltige Verhaltensaenderung.",
+            5: "Etabliert eine Feedback-Kultur im Team, die Feedback als selbstverstaendlichen Teil der Zusammenarbeit verankert.",
+          },
+        },
+        {
+          name: "Konfliktmanagement im Team",
+          dep: "Durable",
+          description:
+            "»Erkennen, Einordnen und Loesen von Konflikten zwischen Teammitgliedern oder mit externen Beteiligten. Nicht gemeint: therapeutische Konfliktbearbeitung. Typische Taetigkeiten: Konflikte fruehzeitig erkennen und ansprechen · Konfliktklaerungsgespraeche moderieren · bei Eskalation vermitteln oder entscheiden«",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund:
+            "Rump 2025: Empathie als Kompetenzfeld bleibt zentral fuer die Konfliktloesung in menschlicher Zusammenarbeit — eine Aufgabe, die KI nicht uebernehmen kann.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Nimmt Konflikte wahr, greift aber erst bei deutlicher Eskalation ein.",
+            2: "Spricht offensichtliche Konflikte an und vermittelt in einfachen Faellen.",
+            3: "Erkennt Konflikte fruehzeitig und moderiert Klaerungsgespraeche eigenstaendig.",
+            4: "Loest komplexe, verhaertete Konflikte eigenstaendig und stellt die Zusammenarbeit nachhaltig wieder her.",
+            5: "Coacht andere Fuehrungskraefte im Konfliktmanagement und etabliert praeventive Konfliktkultur im Bereich.",
+          },
+        },
+        {
+          name: "Entwicklungsgespraeche fuehren",
+          dep: "Durable",
+          description:
+            "»Strukturierte Gespraeche zur beruflichen und persoenlichen Weiterentwicklung von Mitarbeitenden fuehren. Nicht gemeint: fachliche Weiterbildungsinhalte selbst vermitteln. Typische Taetigkeiten: Entwicklungspotenziale gemeinsam mit Mitarbeitenden identifizieren · Entwicklungsziele und -massnahmen vereinbaren · Fortschritt im Zeitverlauf begleiten«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025: Lernfaehigkeit als Kompetenzfeld gewinnt an Bedeutung — strukturierte Entwicklungsgespraeche werden zum zentralen Instrument, Mitarbeitende beim lebenslangen Lernen zu begleiten.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Fuehrt vorgegebene Entwicklungsgespraeche nach Gespraechsleitfaden.",
+            2: "Identifiziert gemeinsam mit Mitarbeitenden einfache Entwicklungsfelder und vereinbart Standardmassnahmen.",
+            3: "Fuehrt Entwicklungsgespraeche eigenstaendig, individuell zugeschnitten, und begleitet die Umsetzung.",
+            4: "Begleitet auch komplexe Karriereentscheidungen (z. B. Rollenwechsel, Spezialisierung) fundiert und langfristig.",
+            5: "Etabliert ein Entwicklungsgespraech-Format fuer den Bereich und befaehigt andere Fuehrungskraefte darin.",
+          },
+        },
+        {
+          name: "Karriereplanung begleiten",
+          dep: "Durable",
+          description:
+            "»Mitarbeitende bei der langfristigen Gestaltung ihres Karrierewegs im Unternehmen unterstuetzen. Nicht gemeint: einmalige Entwicklungsgespraeche ohne langfristige Perspektive. Typische Taetigkeiten: Karriereoptionen (Fach- vs. Fuehrungslaufbahn) aufzeigen · langfristige Entwicklungspfade mit Mitarbeitenden planen · interne Wechsel und Aufstiege unterstuetzen«",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund:
+            "WEF Future of Jobs 2025: mit zunehmendem Wandel von Rollenprofilen wird langfristige Karrierebegleitung zu einem entscheidenden Bindungsinstrument fuer Talente.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Beantwortet Karrierefragen, wenn sie von Mitarbeitenden aktiv gestellt werden.",
+            2: "Zeigt Mitarbeitenden vorhandene Karriereoptionen im Unternehmen auf.",
+            3: "Plant gemeinsam mit Mitarbeitenden langfristige Entwicklungspfade und unterstuetzt aktiv bei internen Wechseln.",
+            4: "Gestaltet Karrierewege auch fuer untypische Profile (z. B. Fach- statt Fuehrungslaufbahn) ueberzeugend mit.",
+            5: "Etabliert Karrierepfad-Modelle fuer den Bereich, die auch andere Gruppen nutzen.",
+          },
+        },
+        {
+          name: "Mentoring",
+          dep: "Durable",
+          description:
+            "»Weniger erfahrene Mitarbeitende oder angehende Fuehrungskraefte durch eigene Erfahrung und Reflexion begleiten. Nicht gemeint: fachliche Ausbildung im engeren Sinne. Typische Taetigkeiten: Mentees bei Herausforderungen reflektierend begleiten · eigene Erfahrungen und Netzwerke zur Verfuegung stellen · angehende Fuehrungskraefte auf neue Rollen vorbereiten«",
+          targetLevel: 2,
+          trend: "steigend",
+          trendgrund:
+            "Rump 2025: Lernfaehigkeit und Wissenstransfer zwischen Generationen gewinnen an Bedeutung, um Erfahrungswissen im Unternehmen zu halten.",
+          keySkill: false,
+          bewertungsmodell: "Dreyfus",
+          lastModified: "2026-09-10",
+          anchors: {
+            1: "Steht als Ansprechperson zur Verfuegung, wenn Mentees aktiv um Rat fragen.",
+            2: "Begleitet Mentees in regelmaessigen, informellen Gespraechen zu konkreten Fragestellungen.",
+            3: "Gestaltet Mentoring-Beziehungen strukturiert und reflektiert eigenstaendig mit den Mentees.",
+            4: "Bereitet angehende Fuehrungskraefte gezielt auf neue Rollen vor und stellt eigenes Netzwerk zur Verfuegung.",
+            5: "Etabliert ein Mentoring-Programm fuer den Bereich und bildet andere Mentor:innen aus.",
+          },
+        },
       ],
     },
   ],
@@ -6444,8 +7104,7 @@ const backofficeDrivers: MarketDriver[] = [
     description:
       "KI-Assistenten (Copilot, ChatGPT) uebernehmen Routinetaetigkeiten wie Korrespondenz, Protokolle, Standardauswertungen und Stellenanzeigen. Backoffice-Rollen verschieben sich von Ausfuehrung zu Qualitaetsurteil, Kontextsensitivitaet und Koordination. Wer KI-Outputs nicht kritisch prueft, produziert Fehler — wer nicht upskilled, verliert Relevanz.",
     affectedSkillNames: [
-      "KI-Tools fuer Assistenzaufgaben",
-      "KI-Tools fuer Bueroaufgaben",
+      "KI-Tools fuer Assistenz- & Bueroaufgaben",
       "KI-Tools im HR-Kontext",
       "KI-Tools im Recruiting",
       "KI-gestuetzte Finanzanalyse",
@@ -6552,6 +7211,70 @@ const produktmanagementDrivers: MarketDriver[] = [
   },
 ];
 
+/** Markttreiber Leadership Team (Sept. 2026). */
+const leadershipDrivers: MarketDriver[] = [
+  {
+    id: "drv-lead-ki-entscheidungen",
+    title: "KI-gestuetzte Entscheidungsvorlagen auf Fuehrungsebene",
+    horizon: "0–2 Jahre",
+    description:
+      "Fuehrungskraefte erhalten zunehmend KI-gestuetzte Kennzahlen, Prognosen und Personalanalysen als Entscheidungsgrundlage. Sie muessen diese Vorlagen kritisch pruefen und verantwortungsvoll in Strategie- und Technologieentscheidungen einbeziehen, statt sie unreflektiert zu uebernehmen.",
+    affectedSkillNames: [
+      "Digitale Anwendungskompetenz",
+      "Technologie-Entscheidungen treffen",
+      "Unternehmensstrategie entwickeln",
+    ],
+  },
+  {
+    id: "drv-lead-regulatorik",
+    title: "Regulatorischer Druck auf Versicherungsunternehmen (DORA, VAG, EU AI Act)",
+    horizon: "0–3 Jahre",
+    description:
+      "Zunehmende Regulatorik verlangt von der Fuehrungsebene, Compliance-Anforderungen aktiv in Strategie, Governance und operative Steuerung zu integrieren und auditfeste Prozesse und Nachweise sicherzustellen.",
+    affectedSkillNames: [
+      "Compliance & Governance",
+      "Versicherungsaufsichtsrecht (VAG)",
+      "Qualitaetssicherung der Arbeit",
+    ],
+  },
+  {
+    id: "drv-lead-fachkraeftemangel",
+    title: "Fachkraeftemangel & Skill-Wandel in der IT-Beratung",
+    horizon: "1–3 Jahre",
+    description:
+      "Laut WEF Future of Jobs 2025 veraendern sich bis 2030 rund 39 % der Kernkompetenzen. Fuehrungskraefte muessen Skill-Luecken frueh erkennen, Recruiting aktiv steuern und Teams durch gezielte Entwicklung zukunftsfaehig halten.",
+    affectedSkillNames: [
+      "Skill-Gap-Analyse im Team",
+      "Recruiting-Verantwortung",
+      "Team-Aufbau & -Skalierung",
+    ],
+  },
+  {
+    id: "drv-lead-stakeholder-komplexitaet",
+    title: "Wachsende Komplexitaet der Stakeholder-Landschaft",
+    horizon: "1–3 Jahre",
+    description:
+      "Mit zunehmender Vernetzung von Kunden, Partnern und internen Bereichen waechst der Koordinations- und Kommunikationsaufwand fuer Fuehrungskraefte. Souveraenes Stakeholder- und Schnittstellenmanagement wird zum Differenzierungsmerkmal gegenueber dem Wettbewerb.",
+    affectedSkillNames: [
+      "Stakeholder-Management (Gesellschafter, Kunden)",
+      "Schnittstellen-Management",
+      "Gremienarbeit & Reporting",
+    ],
+  },
+  {
+    id: "drv-lead-new-work-fuehrung",
+    title: "New Work & veraenderte Fuehrungserwartungen",
+    horizon: "2–5 Jahre",
+    description:
+      "Rump 2025 und WEF Future of Jobs 2025 zeigen einen Wandel hin zu empathischer, entwicklungsorientierter Fuehrung. Klassische hierarchische Fuehrung wird zunehmend durch Coaching- und Mentoring-Kompetenz ergaenzt, um Mitarbeitende in einem sich schnell wandelnden Kompetenzumfeld zu binden.",
+    affectedSkillNames: [
+      "Mentoring",
+      "Entwicklungsgespraeche fuehren",
+      "Feedback geben (wirksam, regelmaessig)",
+    ],
+  },
+];
+
 // -----------------------------------------------------------------------------
 // Export: all groups
 // -----------------------------------------------------------------------------
@@ -6599,7 +7322,7 @@ export const groups: Group[] = [
     name: "Backoffice",
     description:
       "Unternehmensinterne Funktionen — Organisation, HR, Finanzen und IT.",
-    roles: [gfAssistenz, teamassistenz, hrGeneralist, hrBusinessPartner, recruiting, controlling, inhouseProjektSupport, itAdmin],
+    roles: [gfTeamAssistenz, hrGeneralist, hrBusinessPartner, recruiting, controlling, inhouseProjektSupport, itAdmin],
     defaultDrivers: backofficeDrivers,
   },
   {
@@ -6621,5 +7344,6 @@ export const groups: Group[] = [
     description:
       "Fuehrungsverantwortung auf Unternehmens- und Bereichsebene.",
     roles: [operativeGF, gruppenleitung],
+    defaultDrivers: leadershipDrivers,
   },
 ];
