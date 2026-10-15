@@ -2325,7 +2325,7 @@ const productOwner: Role = {
             5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
           },
         },
-        { ...RUMP_DIGITALE_V2, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
       ],
     },
     {
@@ -2617,7 +2617,7 @@ const ux: Role = {
             5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit im Produktteam.",
           },
         },
-        { ...RUMP_DIGITALE_V2, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
       ],
     },
     {
