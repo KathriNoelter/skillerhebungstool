@@ -50,3 +50,24 @@ export const RUMP_VERBAL: Skill = {
     5: "Setzt Kommunikationsstandards; befaehigt andere; gilt als Referenz fuer klare Texte und strukturierte Inhalte.",
   },
 };
+
+/**
+ * Geschaerfte Fassung (Okt. 2026) entlang der zwei Saeulen nach Rump
+ * (Strukturierung, Verbalisierung) inkl. Prompting und Verifizieren von
+ * KI-Ergebnissen. Vorerst nur in der Gruppe Produktmanagement im Einsatz —
+ * die uebrigen Gruppen nutzen weiter RUMP_VERBAL.
+ */
+export const RUMP_VERBAL_V2: Skill = {
+  name: "Verbalisierung & Strukturierung",
+  dep: "Durable",
+  keySkill: true,
+  description:
+    "Metakognitive Zukunftskompetenz nach Prof. Dr. Jutta Rump: eigene Gedanken, komplexe Informationen und Daten systematisch ordnen (Strukturierung) und praezise, logisch und verstaendlich in Sprache fassen (Verbalisierung) — schriftlich und muendlich. Strukturierung: aus einer Flut an Informationen das Wesentliche herausfiltern, Zusammenhaenge erkennen, Logiken aufbauen und Ergebnisse kritisch hinterfragen — bevor und waehrend man KI nutzt. Verbalisierung: diese Gedanken praezise formulieren — im KI-Zeitalter u. a. fuer treffsicheres Prompting sowie fuer das Verifizieren und Editieren KI-generierter Ergebnisse. Ziel: geistige Eigenstaendigkeit sichern, statt Denken und Formulieren schleichend an die KI abzugeben. Typische Taetigkeiten: Einen unscharfen Sachverhalt in eine klare Struktur und Zusammenfassung uebersetzen · Anforderungen, Konzepte und Prompts praezise formulieren · KI-generierte Texte pruefen, korrigieren und verdichten · Argumente strukturiert vortragen",
+  anchors: {
+    1: "Formuliert verstaendlich, wenn der Inhalt klar ist; Struktur entsteht eher intuitiv; Texte sind manchmal zu lang.",
+    2: "Strukturiert Inhalte nach Vorlagen; formuliert einfache Sachverhalte klar und nachvollziehbar; prueft KI-Texte auf offensichtliche Fehler.",
+    3: "Filtert aus vielen Informationen das Wesentliche heraus und baut eine eigene Logik auf; formuliert praezise und adressatengerecht; ueberarbeitet KI-Ergebnisse gezielt.",
+    4: "Bringt schwierige Inhalte auf den Punkt; formuliert Prompts, Konzepte und Texte mit hoher Treffsicherheit; erkennt inhaltliche Schwaechen in KI-Ergebnissen sicher.",
+    5: "Setzt Standards fuer klare Struktur und Sprache; befaehigt andere, auch im Zusammenspiel mit KI eigenstaendig zu denken und zu formulieren.",
+  },
+};

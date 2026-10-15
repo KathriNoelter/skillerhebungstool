@@ -1,7 +1,7 @@
 import type { Group, MarketDriver, Role } from "../types";
 import { swGroup } from "./swCatalogs";
 import { qaCore, testManager, testAutomation } from "./bcCatalogs";
-import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL } from "./rumpSkills";
+import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL, RUMP_VERBAL_V2 } from "./rumpSkills";
 
 // -----------------------------------------------------------------------------
 // Catalog meta (ANF-12)
@@ -2227,7 +2227,7 @@ const productManager: Role = {
             5: "Praegt eine Kultur konsequenter Priorisierung im Produktbereich; coacht andere im Umgang mit Zielkonflikten.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 4, trend: "stabil" },
+        { ...RUMP_VERBAL_V2, targetLevel: 4, trend: "stabil" },
       ],
     },
     {
@@ -2587,7 +2587,7 @@ const productOwner: Role = {
             5: "Gilt als Vorbild fuer funktionsuebergreifende Teamarbeit.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 4, trend: "stabil" },
+        { ...RUMP_VERBAL_V2, targetLevel: 4, trend: "stabil" },
       ],
     },
   ],
@@ -2787,7 +2787,7 @@ const ux: Role = {
             5: "Gilt als Vorbild fuer Design-Praesentationen im Produktteam.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 3, keySkill: false, trend: "stabil" },
+        { ...RUMP_VERBAL_V2, targetLevel: 3, trend: "stabil" },
       ],
     },
   ],
@@ -3066,7 +3066,7 @@ const businessDeveloper: Role = {
             5: "Gilt als Vorbild fuer Angebots- und Geschaeftspraesentationen.",
           },
         },
-        { ...RUMP_VERBAL, targetLevel: 3, trend: "stabil" },
+        { ...RUMP_VERBAL_V2, targetLevel: 3, trend: "stabil" },
       ],
     },
   ],
