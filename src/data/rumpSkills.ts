@@ -15,6 +15,27 @@ export const RUMP_DIGITALE: Skill = {
   },
 };
 
+/**
+ * Geschaerfte Fassung (Okt. 2026) entlang der vier Elemente nach Rump; grenzt die
+ * Tool-Bedienung (Dimension Technisch) explizit aus. Vorerst nur in der Gruppe
+ * Produktmanagement im Einsatz — die uebrigen Gruppen haben ihre Workshops und
+ * Selbsteinschaetzungen mit RUMP_DIGITALE durchgefuehrt.
+ */
+export const RUMP_DIGITALE_V2: Skill = {
+  name: "Digitale Anwendungskompetenz",
+  dep: "Evolving",
+  keySkill: true,
+  description:
+    "Metakompetenz nach Prof. Dr. Jutta Rump: die Befaehigung, digitale Technologien und KI zielgerichtet, sicher und gestaltend zu nutzen — unabhaengig von einem bestimmten Tool. Sie umfasst vier Elemente: Systemverstaendnis (wie digitale Systeme und Algorithmen im Kern funktionieren), souveraener KI- und Tool-Umgang (produktiv arbeiten, praezise Anweisungen geben), kritisches Denken & Evaluierung (Ergebnisse pruefen, Grenzen der Technik erkennen) und Mitgestaltung (digitale Werkzeuge so einsetzen, dass sie die eigene Arbeit spuerbar verbessern — der Mensch bleibt im \"Fahrersitz\"). Nicht gemeint: die Bedienung konkreter Tools (siehe Dimension Technisch) und das Entwickeln eigener KI-Agenten oder Tools. Typische Taetigkeiten: Einschaetzen, wofuer sich ein digitales Werkzeug oder KI eignet und wofuer nicht · KI-Ergebnisse auf Plausibilitaet, Bias und Quellenlage pruefen · Vertrauliche Daten nur in freigegebene Systeme geben · Eigene Arbeitsablaeufe bewusst digital verbessern",
+  anchors: {
+    1: "Kennt grundlegende Begriffe digitaler Systeme und KI; kann erklaeren, wofuer typische digitale Werkzeuge eingesetzt werden.",
+    2: "Versteht in Grundzuegen, wie digitale Systeme und KI zu ihren Ergebnissen kommen; nutzt sie in bekannten Situationen sicher und haelt Regeln zu Daten und Vertraulichkeit ein.",
+    3: "Waehlt fuer eine Aufgabe passende digitale Werkzeuge oder KI bewusst aus; prueft Ergebnisse kritisch auf Plausibilitaet, Bias und Quellenlage.",
+    4: "Erkennt systemische Grenzen und Risiken digitaler Loesungen; waegt Nutzen und Risiken ab und verbessert eigene Arbeitsablaeufe gezielt durch digitale Unterstuetzung.",
+    5: "Gestaltet den zielgerichteten und verantwortungsvollen Einsatz digitaler Technologien im eigenen Bereich mit; definiert Leitplanken und befaehigt andere.",
+  },
+};
+
 export const RUMP_VERBAL: Skill = {
   name: "Verbalisierung & Strukturierung",
   dep: "Durable",

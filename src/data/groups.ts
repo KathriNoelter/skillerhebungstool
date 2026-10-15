@@ -1,7 +1,7 @@
 import type { Group, MarketDriver, Role } from "../types";
 import { swGroup } from "./swCatalogs";
 import { qaCore, testManager, testAutomation } from "./bcCatalogs";
-import { RUMP_DIGITALE, RUMP_VERBAL } from "./rumpSkills";
+import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL } from "./rumpSkills";
 
 // -----------------------------------------------------------------------------
 // Catalog meta (ANF-12)
@@ -1969,7 +1969,7 @@ const productManager: Role = {
             5: "Entwickelt das Geschaefts- und Erloesmodell aktiv mit.",
           },
         },
-        { ...RUMP_DIGITALE, targetLevel: 4, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, targetLevel: 4, trend: "stark steigend" },
       ],
     },
     {
@@ -2325,7 +2325,7 @@ const productOwner: Role = {
             5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
           },
         },
-        { ...RUMP_DIGITALE, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, trend: "stark steigend" },
       ],
     },
     {
@@ -2617,7 +2617,7 @@ const ux: Role = {
             5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit im Produktteam.",
           },
         },
-        { ...RUMP_DIGITALE, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, trend: "stark steigend" },
       ],
     },
     {
@@ -2849,7 +2849,7 @@ const businessDeveloper: Role = {
             5: "Entwickelt das Geschaefts- und Preismodell aktiv mit.",
           },
         },
-        { ...RUMP_DIGITALE, targetLevel: 3, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
       ],
     },
     {
