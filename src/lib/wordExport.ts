@@ -335,11 +335,11 @@ function roleOverviewTable(roles: Role[]): Table {
 // Public export
 // ---------------------------------------------------------------------------
 
-export function exportFullGroupCatalogWord(
+export function buildGroupCatalogDocument(
   group: Group,
   drivers: MarketDriver[] = [],
   selectedRoleIds?: string[],
-): void {
+): Document {
   const rolesToExport = selectedRoleIds
     ? group.roles.filter((r) => selectedRoleIds.includes(r.id))
     : group.roles;
@@ -397,7 +397,7 @@ export function exportFullGroupCatalogWord(
   const roleSections = rolesToExport.flatMap((role) => roleSection(role));
   const driversSec = driversSection(drivers);
 
-  const doc = new Document({
+  return new Document({
     styles: {
       default: {
         document: {
@@ -417,6 +417,14 @@ export function exportFullGroupCatalogWord(
       },
     ],
   });
+}
+
+export function exportFullGroupCatalogWord(
+  group: Group,
+  drivers: MarketDriver[] = [],
+  selectedRoleIds?: string[],
+): void {
+  const doc = buildGroupCatalogDocument(group, drivers, selectedRoleIds);
 
   void Packer.toBlob(doc).then((blob) => {
     const url = URL.createObjectURL(blob);
