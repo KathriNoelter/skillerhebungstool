@@ -2020,6 +2020,21 @@ const productManager: Role = {
             5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
           },
         },
+        {
+          name: "KI-Tools fuer Produktanalyse",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          description:
+            "»Einsatz von KI-Assistenten zur Beschleunigung von Markt- und Wettbewerbsrecherche sowie zur Vorbereitung von Produktentscheidungen. Nicht gemeint: autonome Produktentscheidungen per KI treffen. Typische Taetigkeiten: Wettbewerbs- und Marktrecherche mit KI-Unterstuetzung beschleunigen · Erste Analysen und Zusammenfassungen per KI erstellen lassen · KI-Outputs kritisch auf Praxistauglichkeit pruefen«",
+          anchors: {
+            1: "Kennt KI-Tools dem Namen nach.",
+            2: "Nutzt KI fuer einfache Recherche- und Textaufgaben; prueft Outputs auf Korrektheit.",
+            3: "Setzt KI gezielt fuer verschiedene Produktarbeit-Aufgaben ein; optimiert Prompts.",
+            4: "Etabliert KI-gestuetzte Vorlagen und Workflows fuer das Team.",
+            5: "Definiert KI-Nutzungsstandards fuer die Produktarbeit.",
+          },
+        },
       ],
     },
     {
