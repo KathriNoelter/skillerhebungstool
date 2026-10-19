@@ -1,5 +1,5 @@
 import type { Role } from "../types";
-import { RUMP_DIGITALE, RUMP_VERBAL } from "./rumpSkills";
+import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL, RUMP_VERBAL_V2 } from "./rumpSkills";
 
 // =============================================================================
 // QA Core
@@ -871,6 +871,413 @@ export const testAutomation: Role = {
             5: "Verantwortet Code-Qualitaet der Testautomatisierung; definiert Reviewprozesse und -checklisten.",
           },
         },
+      ],
+    },
+  ],
+};
+
+// =============================================================================
+// Data Science Consultant
+// =============================================================================
+
+export const dataScienceConsultant: Role = {
+  id: "data-science-consultant",
+  name: "Data Science Consultant",
+  description:
+    "Setzt in Kundenprojekten hands-on Data-Analytics-, ML- und LLM-Loesungen um und begleitet Projekte von der Idee bis zum Livegang — von Ideation und Daten- und KI-Roadmap ueber Anforderungen und Umsetzung bis zu Abnahme und Uebergabe in den Betrieb, in enger Abstimmung mit Data Engineering, Data Science und Fachbereichen im Versicherungsumfeld. Entwurf (Okt. 2026) auf Basis der Stellenausschreibung, noch nicht mit der Gruppe validiert.",
+  categories: [
+    {
+      name: "Fachlich",
+      skills: [
+        {
+          name: "Daten- & KI-Roadmaps aus Business-Zielen",
+          dep: "Evolving",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stark steigend",
+          trendgrund: "Versicherer wollen datengetriebene Geschaeftsmodelle und KI gezielt einsetzen — ohne Roadmap bleiben Datenprojekte Einzelloesungen.",
+          description:
+            "»Business-Ziele von Kunden in umsetzbare Daten- und KI-Roadmaps uebersetzen und Kunden bei der Umsetzung datengetriebener Geschaeftsmodelle begleiten: Welche Daten liegen vor, welchen Wert koennen sie stiften, und in welcher Reihenfolge lohnt sich die Umsetzung. Nicht gemeint: die technische Umsetzung der Datenplattform durch Data Engineering. Typische Taetigkeiten: Business-Ziele und Datenpotenziale gemeinsam mit dem Kunden erfassen · Vorhaben nach Nutzen, Aufwand und Reife priorisieren · Roadmap mit Meilensteinen ableiten und abstimmen«",
+          anchors: {
+            1: "Kennt die Bausteine einer Daten- und KI-Roadmap (Ziele, Datenbestaende, Vorhaben, Meilensteine) dem Namen nach.",
+            2: "Erklaert, wie Daten in Geschaeftsprozessen entstehen und genutzt werden und wo typische Potenziale fuer datengetriebene Geschaeftsmodelle liegen.",
+            3: "Leitet fuer ein abgegrenztes Ziel eigenstaendig Datenpotenziale und konkrete Vorhaben ab.",
+            4: "Uebersetzt Business-Ziele bereichsuebergreifend in eine priorisierte, tragfaehige Daten- und KI-Roadmap.",
+            5: "Gestaltet Daten- und KI-Strategien auf Kundenebene mit; gilt als strategischer Sparringspartner fuer datengetriebene Geschaeftsmodelle.",
+          },
+        },
+        {
+          name: "Bewertung von AI- & ML-Potenzialen",
+          dep: "Perishable",
+          targetLevel: 4,
+          trend: "stark steigend",
+          trendgrund: "Kunden fragen zunehmend, wo KI sich lohnt — die Bewertung von Use Cases entscheidet ueber Erfolg und Risiko von KI-Vorhaben.",
+          description:
+            "»AI- und ML-Anwendungsfaelle identifizieren und nach Nutzen, Machbarkeit, Datenlage, Aufwand und Risiko bewerten — von klassischem ML bis zu LLMs und generativer KI. Nicht gemeint: die eigene Nutzung von KI-Tools im Arbeitsalltag (siehe Digitale Anwendungskompetenz und KI-Tools in der Datenarbeit). Typische Taetigkeiten: Use Cases mit Fachbereichen sammeln und strukturieren · Datenverfuegbarkeit fuer einen Use Case einschaetzen · Business Case und Risiken (z. B. EU AI Act) fuer KI-Vorhaben bewerten«",
+          anchors: {
+            1: "Kennt typische AI- und ML-Anwendungsfelder in der Versicherungsbranche.",
+            2: "Erklaert, welche Voraussetzungen (Daten, Prozesse, Ziele) ein AI/ML-Use-Case braucht.",
+            3: "Bewertet einzelne Use Cases eigenstaendig nach Nutzen, Machbarkeit und Datenlage.",
+            4: "Priorisiert mehrere AI/ML-Use-Cases inkl. Business Case und Risikoeinschaetzung; beraet Entscheider fundiert.",
+            5: "Entwickelt Bewertungsmethoden und Vorgehen fuer AI/ML-Potenzialanalysen; gilt als Ansprechpartner fuer KI-Strategie.",
+          },
+        },
+        {
+          name: "Statistik & Machine-Learning-Methoden",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Methodisches Verstaendnis bleibt auch bei automatisierten ML-Werkzeugen die Grundlage fuer belastbare Ergebnisse.",
+          description:
+            "»Fundiertes Methodenwissen in Statistik und Machine Learning: beschreibende und schliessende Statistik, Hypothesenpruefung, ueberwachtes und unueberwachtes Lernen, Grundlagen von Deep Learning und Sprachmodellen sowie Kennzahlen zur Modellguete. Nicht gemeint: die praktische Umsetzung von Modellen in Code (siehe Technisch). Typische Taetigkeiten: Passendes Verfahren fuer eine Fragestellung auswaehlen · Hypothesen statistisch pruefen · Modellguete und Signifikanz von Ergebnissen beurteilen«",
+          anchors: {
+            1: "Kennt statistische Grundbegriffe und die wichtigsten ML-Verfahren dem Namen nach.",
+            2: "Erklaert, wie gaengige Verfahren (z. B. Regression, Klassifikation, Clustering) funktionieren und wofuer sie sich eignen.",
+            3: "Waehlt fuer eine Fragestellung ein passendes Verfahren aus, prueft Hypothesen und interpretiert Ergebnisse und Guetemasse korrekt.",
+            4: "Beurteilt Verfahren kritisch nach Annahmen, Datenlage, Bias und Erklaerbarkeit; erkennt methodische Fehler in Analysen anderer.",
+            5: "Entwickelt methodische Standards fuer den Bereich; gilt als Referenz fuer statistische und ML-Fragen.",
+          },
+        },
+        {
+          name: "Datenarchitektur-Konzepte",
+          dep: "Evolving",
+          targetLevel: 2,
+          trend: "steigend",
+          trendgrund: "Data Warehouse, Data Lake und Lakehouse wachsen in Cloud-Umgebungen zusammen — Grundverstaendnis erleichtert die Abstimmung mit Data Engineering.",
+          description:
+            "»Konzeptionelles Verstaendnis von Datenarchitekturen (z. B. Data Warehouse, Data Lake, Lakehouse), Schichtenmodellen und Datenfluessen, um sich mit Data Engineering und IT-Architektur fundiert abzustimmen. Nicht gemeint: Entwurf, Aufbau und Betrieb der Plattform selbst. Typische Taetigkeiten: Herkunft und Weg von Daten in der Kundenlandschaft nachvollziehen · Anforderungen an Datenhaltung und Datenfluesse formulieren · Architekturentscheidungen auf Auswirkungen fuer Analyse und KI pruefen«",
+          anchors: {
+            1: "Kennt gaengige Architekturbegriffe wie Data Warehouse, Data Lake und ETL.",
+            2: "Erklaert Unterschiede zwischen Architekturmustern und deren typische Einsatzzwecke.",
+            3: "Beschreibt fuer einen Anwendungsfall eigenstaendig die Anforderungen an eine passende Zielarchitektur.",
+            4: "Bewertet Architekturvarianten nach Skalierbarkeit, Kosten und Governance; beraet aus Datensicht.",
+            5: "Diskutiert mit Architekt:innen auf Augenhoehe ueber die Weiterentwicklung der Datenlandschaft.",
+          },
+        },
+        {
+          name: "Versicherungsfachlichkeit & Datenlandschaft",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Ohne Fachverstaendnis lassen sich Daten und KI-Ergebnisse nicht sinnvoll interpretieren.",
+          description:
+            "»Kenntnis der Kernprozesse im Versicherungs- und Finanzumfeld (Antrag, Bestand, Schaden), der dabei entstehenden Daten und typischer Kennzahlen sowie der gewachsenen Systemlandschaften bei Versicherern. Nicht gemeint: aktuarielle Berechnungen. Typische Taetigkeiten: Daten den fachlichen Prozessen zuordnen · Fachliche Plausibilitaet von Auswertungen pruefen · Kennzahlen mit Domaenenexpert:innen abstimmen«",
+          anchors: {
+            1: "Kennt die Kernprozesse Antrag, Bestand und Schaden in Grundzuegen.",
+            2: "Erklaert, welche Daten in den Kernprozessen entstehen und in welchen Systemen sie typischerweise liegen.",
+            3: "Ordnet Daten und Kennzahlen eigenstaendig fachlich ein und prueft Auswertungen auf fachliche Plausibilitaet.",
+            4: "Erkennt fachliche Zusammenhaenge ueber Sparten und Systeme hinweg und leitet daraus Analysefragen ab.",
+            5: "Gilt als Experte fuer Versicherungsdaten; beraet Fachbereiche zu datenbasierten Steuerungsfragen.",
+          },
+        },
+        {
+          name: "Datenschutz & Regulatorik fuer Daten und KI",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "stark steigend",
+          trendgrund: "EU AI Act, DSGVO und aufsichtsrechtliche Vorgaben (z. B. DORA) stellen neue Anforderungen an Datennutzung und KI-Loesungen.",
+          description:
+            "»Kenntnis der rechtlichen und regulatorischen Rahmenbedingungen fuer Datennutzung und KI (DSGVO, EU AI Act, aufsichtsrechtliche Vorgaben fuer Versicherer) und ihrer Auswirkungen auf Datenprojekte. Nicht gemeint: Rechtsberatung und die technische Umsetzung von Guardrails (siehe LLM- & GenAI-Loesungen). Typische Taetigkeiten: Zulaessigkeit einer Datennutzung einschaetzen und mit Datenschutz abstimmen · Risikoklasse eines KI-Systems nach EU AI Act einordnen · Anforderungen an Dokumentation und Nachvollziehbarkeit beruecksichtigen«",
+          anchors: {
+            1: "Kennt DSGVO und EU AI Act dem Namen nach und weiss, dass sie Datenprojekte betreffen.",
+            2: "Erklaert die fuer Datenprojekte wichtigsten Grundsaetze (z. B. Zweckbindung, Datenminimierung, Risikoklassen).",
+            3: "Prueft eigene Vorhaben auf regulatorische Anforderungen und bindet Datenschutz und Compliance rechtzeitig ein.",
+            4: "Bewertet regulatorische Risiken von Daten- und KI-Vorhaben und leitet konkrete Massnahmen ab.",
+            5: "Entwickelt Leitlinien fuer regelkonforme Daten- und KI-Projekte; beraet Kunden und Team.",
+          },
+        },
+        { ...RUMP_DIGITALE_V2, targetLevel: 4, trend: "stark steigend" },
+      ],
+    },
+    {
+      name: "Technisch",
+      skills: [
+        {
+          name: "LLM- & GenAI-Loesungen",
+          dep: "Perishable",
+          targetLevel: 3,
+          keySkill: true,
+          trend: "stark steigend",
+          trendgrund: "LLM-basierte Loesungen wandern bei Versicherern vom Experiment in produktive Anwendungsfaelle; Methoden und Werkzeuge aendern sich schnell.",
+          description:
+            "»Loesungen auf Basis von LLMs und generativer KI operativ umsetzen: Prompt-Design (z. B. Prompt-Strategien, System-Prompts), Evaluierung der Ergebnisqualitaet, Entwicklung von Guardrails (Bias, Safety, Policy) und Integration in produktive Anwendungsfaelle. Nicht gemeint: die eigene Nutzung von KI-Tools im Arbeitsalltag (siehe KI-Tools in der Datenarbeit) und das Training eigener Sprachmodelle. Typische Taetigkeiten: System-Prompts und Prompt-Strategien fuer einen Anwendungsfall entwerfen · Ergebnisse mit Testdaten und Metriken systematisch evaluieren · Guardrails definieren und mit der Entwicklung in die Anwendung integrieren«",
+          anchors: {
+            1: "Kennt Grundbegriffe von LLMs und generativer KI (z. B. Prompt, Kontext, Halluzination).",
+            2: "Entwirft Prompts fuer einfache Anwendungsfaelle und prueft Ergebnisse stichprobenartig.",
+            3: "Setzt einen LLM-Anwendungsfall eigenstaendig um: Prompt-Design, systematische Evaluierung und grundlegende Guardrails.",
+            4: "Entwickelt robuste LLM-Loesungen fuer komplexe Anwendungsfaelle inkl. Bias-, Safety- und Policy-Guardrails und begleitet die Integration in den Betrieb.",
+            5: "Definiert Standards fuer Entwicklung, Evaluierung und Absicherung von GenAI-Loesungen; beraet bei anspruchsvollen Vorhaben.",
+          },
+        },
+        {
+          name: "ML-Modellentwicklung & -bereitstellung",
+          dep: "Perishable",
+          targetLevel: 3,
+          trend: "stark steigend",
+          trendgrund: "Neben klassischem ML gewinnen der Einsatz vortrainierter Modelle und der Betrieb (MLOps) schnell an Bedeutung.",
+          description:
+            "»Machine-Learning-Modelle praktisch entwickeln, trainieren, evaluieren und fuer den Einsatz vorbereiten — einschliesslich der Nutzung vortrainierter Modelle und Grundlagen des Modellbetriebs (MLOps). Nicht gemeint: das Methodenwissen selbst (siehe Fachlich) und LLM-basierte Loesungen (siehe LLM- & GenAI-Loesungen). Typische Taetigkeiten: Features aufbereiten und Modelle trainieren · Modelle mit geeigneten Metriken evaluieren und vergleichen · Modelle dokumentieren und an die Entwicklung uebergeben«",
+          anchors: {
+            1: "Trainiert einfache Modelle nach Anleitung mit Standardbibliotheken.",
+            2: "Entwickelt und evaluiert einfache Modelle fuer klar umrissene Fragestellungen eigenstaendig.",
+            3: "Setzt ML-Projekte von der Datenaufbereitung bis zur evaluierten, dokumentierten Loesung um.",
+            4: "Entwickelt robuste Modelle fuer komplexe Fragestellungen; plant Uebergabe, Monitoring und Nachtraining mit.",
+            5: "Definiert Standards fuer Modellentwicklung und -betrieb im Bereich; beraet bei anspruchsvollen Modellierungsfragen.",
+          },
+        },
+        {
+          name: "Programmierung fuer Datenanalyse",
+          dep: "Evolving",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "stabil",
+          trendgrund: "Python bleibt Standard in Data Science; KI-Assistenten beschleunigen das Schreiben, ersetzen aber nicht das Verstaendnis des Codes.",
+          description:
+            "»Datenanalysen, Auswertungen und Modelle in einer Programmiersprache umsetzen (z. B. Python mit pandas, scikit-learn; vergleichbar R) — sauber, nachvollziehbar und wiederverwendbar. Nicht gemeint: Anwendungsentwicklung oder Softwarearchitektur. Typische Taetigkeiten: Analyse-Notebooks und Skripte schreiben · Wiederverwendbare Funktionen fuer das Team bereitstellen · Code versionieren und reviewen«",
+          anchors: {
+            1: "Liest einfache Skripte und passt sie mit Unterstuetzung an.",
+            2: "Schreibt eigenstaendig einfache Auswertungen mit gaengigen Bibliotheken.",
+            3: "Setzt Analysen und Modelle sicher um; strukturiert Code nachvollziehbar und versioniert ihn.",
+            4: "Entwickelt wiederverwendbare, getestete Analysebausteine; reviewt Code anderer und verbessert dessen Qualitaet.",
+            5: "Definiert Coding-Standards und Projektstrukturen fuer den Bereich; ist Anlaufstelle bei schwierigen Umsetzungsfragen.",
+          },
+        },
+        {
+          name: "SQL & Datenbankabfragen",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund: "SQL bleibt die gemeinsame Sprache fuer Datenzugriff ueber alle Plattformen hinweg.",
+          description:
+            "»Daten aus relationalen Datenbanken und Cloud-Data-Warehouses mit SQL abfragen, verknuepfen und aggregieren — auch in grossen und historisch gewachsenen Datenbestaenden. Nicht gemeint: Datenbankadministration. Typische Taetigkeiten: Komplexe Abfragen mit Joins, Window Functions und CTEs schreiben · Abfragen auf Performance pruefen · Views fuer Auswertungen bereitstellen«",
+          anchors: {
+            1: "Schreibt einfache Abfragen auf einzelne Tabellen mit Unterstuetzung.",
+            2: "Verknuepft mehrere Tabellen und aggregiert Daten eigenstaendig.",
+            3: "Schreibt komplexe Abfragen (z. B. Window Functions, CTEs) sicher und korrekt.",
+            4: "Optimiert Abfragen fuer grosse Datenmengen; stellt wiederverwendbare Views fuer Auswertungen bereit.",
+            5: "Setzt Standards fuer Datenzugriff und Abfragequalitaet; beraet andere bei schwierigen Datenfragen.",
+          },
+        },
+        {
+          name: "Datenaufbereitung & -integration",
+          dep: "Evolving",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Daten aus Altsystemen, Cloud und Fachanwendungen muessen zusammengefuehrt werden — die Aufbereitung bleibt der groesste Aufwandstreiber.",
+          description:
+            "»Daten aus verschiedenen Quellsystemen extrahieren, bereinigen, transformieren und zusammenfuehren (ETL/ELT), sodass sie fuer Analyse und Modelle nutzbar sind. Nicht gemeint: Aufbau und Betrieb produktiver Datenpipelines durch Data Engineering. Typische Taetigkeiten: Daten aus komplexen Systemlandschaften zusammenfuehren · Fehlende, doppelte und widerspruechliche Daten bereinigen · Transformationsschritte dokumentieren und reproduzierbar machen«",
+          anchors: {
+            1: "Bereitet einzelne, gut strukturierte Datensaetze mit Anleitung auf.",
+            2: "Bereinigt und transformiert Daten aus einer Quelle eigenstaendig.",
+            3: "Fuehrt Daten aus mehreren Quellen reproduzierbar zusammen und prueft Ergebnisse auf Vollstaendigkeit.",
+            4: "Konzipiert Aufbereitungsstrecken fuer heterogene Systemlandschaften; erkennt und loest Datenprobleme an der Quelle.",
+            5: "Definiert Standards und wiederverwendbare Bausteine fuer Datenintegration; ist Anlaufstelle fuer schwierige Datenlagen.",
+          },
+        },
+        {
+          name: "Datenvisualisierung, Dashboards & Reporting",
+          dep: "Evolving",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund: "Entscheider brauchen weiterhin verdichtete, verlaessliche Sichten auf Daten; Self-Service-BI veraendert die Werkzeuge, nicht den Bedarf.",
+          description:
+            "»Daten mit marktueblichen Tools zielgruppengerecht visualisieren und operative Dashboards sowie aussagekraeftige Reports zur Entscheidungsunterstuetzung entwickeln (z. B. Power BI, Tableau oder Python-Bibliotheken). Nicht gemeint: die muendliche Vermittlung und Praesentation von Ergebnissen (siehe Kommunikation & Zusammenarbeit). Typische Taetigkeiten: Passende Diagrammform fuer eine Fragestellung waehlen · Operative Dashboards mit Kennzahlen und Filtern aufbauen · Reports mit Fachbereichen abstimmen und pflegen«",
+          anchors: {
+            1: "Erstellt einfache Diagramme aus vorbereiteten Daten.",
+            2: "Waehlt passende Diagrammformen und baut einfache Berichte eigenstaendig.",
+            3: "Entwickelt Dashboards mit Kennzahlen, Filtern und Drilldowns fuer einen Fachbereich.",
+            4: "Konzipiert Dashboards und Reports fuer unterschiedliche Zielgruppen; achtet auf Lesbarkeit, Performance und Datenkonsistenz.",
+            5: "Setzt Visualisierungs- und Reporting-Standards fuer den Bereich; befaehigt andere.",
+          },
+        },
+        {
+          name: "Cloud-Datenplattformen",
+          dep: "Perishable",
+          targetLevel: 2,
+          trend: "stark steigend",
+          trendgrund: "Versicherer verlagern Datenhaltung und Analyse zunehmend in Cloud-Plattformen.",
+          description:
+            "»Datenhaltung, Abfrage und Analyse auf Cloud-Plattformen (z. B. Snowflake, Azure) nutzen und deren Grundkonzepte (Speicher, Rechenressourcen, Zugriffsrechte, Kosten) verstehen. Nicht gemeint: Plattformadministration und Infrastrukturbetrieb. Typische Taetigkeiten: Daten in einer Cloud-Plattform abfragen und bereitstellen · Rechenressourcen kostenbewusst nutzen · Zugriffsrechte mit dem Plattformteam abstimmen«",
+          anchors: {
+            1: "Kennt gaengige Cloud-Datenplattformen und ihren Zweck.",
+            2: "Arbeitet in einer bestehenden Cloud-Umgebung mit Daten und Abfragen.",
+            3: "Richtet Arbeitsbereiche und Datenbereitstellungen eigenstaendig ein; achtet auf Kosten und Rechte.",
+            4: "Gestaltet die Nutzung einer Cloud-Plattform fuer Analyse und ML mit; beraet zu Plattformentscheidungen.",
+            5: "Verantwortet die fachliche Ausrichtung der Datenplattform; definiert Nutzungsstandards.",
+          },
+        },
+        {
+          name: "KI-Tools in der Datenarbeit",
+          dep: "Perishable",
+          targetLevel: 3,
+          trend: "stark steigend",
+          trendgrund: "Code-Assistenten und KI-gestuetzte Analysewerkzeuge veraendern den Arbeitsalltag in Data Science schnell.",
+          description:
+            "»KI-Werkzeuge im eigenen Arbeitsalltag gezielt einsetzen, z. B. Code-Assistenten, KI-gestuetzte Funktionen in Analyse- und BI-Tools oder Sprachmodelle fuer Recherche und Dokumentation. Nicht gemeint: KI-Loesungen fuer Kunden bauen (siehe LLM- & GenAI-Loesungen und ML-Modellentwicklung) oder die werkzeugunabhaengige Metakompetenz (siehe Digitale Anwendungskompetenz). Typische Taetigkeiten: Code und Abfragen mit KI-Unterstuetzung schreiben und pruefen · Analysen und Dokumentation mit KI beschleunigen · Freigegebene Werkzeuge fuer vertrauliche Daten auswaehlen«",
+          anchors: {
+            1: "Kennt KI-Werkzeuge fuer die Datenarbeit dem Namen nach.",
+            2: "Nutzt KI-Werkzeuge fuer einfache Aufgaben und prueft Ergebnisse auf offensichtliche Fehler.",
+            3: "Setzt KI-Werkzeuge gezielt fuer Code, Analyse und Dokumentation ein und prueft Ergebnisse systematisch.",
+            4: "Etabliert KI-gestuetzte Arbeitsablaeufe im Team; kennt Staerken und Grenzen der Werkzeuge genau.",
+            5: "Definiert Standards fuer den KI-Werkzeugeinsatz im Bereich Data Science.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Methodisch",
+      skills: [
+        {
+          name: "Anforderungsanalyse & Priorisierung fuer Daten- und KI-Loesungen",
+          dep: "Durable",
+          targetLevel: 4,
+          keySkill: true,
+          trend: "steigend",
+          trendgrund: "Daten- und KI-Vorhaben scheitern haeufig an unklaren Anforderungen und fehlenden Erfolgskriterien.",
+          description:
+            "»Gemeinsam mit Kunden fachliche und technische Anforderungen an Daten- und KI-Loesungen ableiten, strukturieren und priorisieren sowie die relevanten Umsetzungs- und Erfolgskriterien definieren. Nicht gemeint: allgemeines Requirements Engineering fuer Softwareprojekte. Typische Taetigkeiten: Anforderungen mit Fachbereich und Technik erheben · Anforderungen strukturieren und nach Wert und Machbarkeit priorisieren · Messbare Umsetzungs- und Abnahmekriterien festlegen«",
+          anchors: {
+            1: "Nimmt Anforderungen auf, die Kunden direkt nennen, und dokumentiert sie nach Vorlage.",
+            2: "Stellt gezielte Rueckfragen und strukturiert Anforderungen fuer einfache Vorhaben.",
+            3: "Leitet fachliche und technische Anforderungen eigenstaendig ab, priorisiert sie und definiert Umsetzungskriterien.",
+            4: "Strukturiert und priorisiert Anforderungen fuer komplexe Vorhaben mit vielen Beteiligten; loest Zielkonflikte.",
+            5: "Definiert das Vorgehen zur Anforderungsanalyse fuer Daten- und KI-Projekte; befaehigt andere.",
+          },
+        },
+        {
+          name: "Ideation & Workshop-Moderation",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Kunden suchen Begleitung dabei, aus Daten und KI konkrete Ideen und Geschaeftsmodelle zu entwickeln.",
+          description:
+            "»Ideenfindung fuer datengetriebene Geschaeftsmodelle und KI-Anwendungsfaelle methodisch gestalten und Workshops mit Kunden moderieren (z. B. mit Design-Thinking- oder Use-Case-Canvas-Formaten). Nicht gemeint: allgemeine Meeting-Organisation. Typische Taetigkeiten: Ideation-Workshops konzipieren und moderieren · Ideen strukturieren, clustern und bewerten · Ergebnisse in naechste Schritte ueberfuehren«",
+          anchors: {
+            1: "Nimmt an Workshops teil und bringt Ideen ein.",
+            2: "Bereitet Workshops nach Vorlage vor und moderiert einzelne Abschnitte.",
+            3: "Konzipiert und moderiert Ideation-Workshops eigenstaendig und fuehrt Ergebnisse zu naechsten Schritten.",
+            4: "Moderiert auch kontroverse Workshops mit vielen Beteiligten souveraen; waehlt Methoden passend zur Situation.",
+            5: "Entwickelt Workshop-Formate fuer Daten- und KI-Ideation; befaehigt andere zur Moderation.",
+          },
+        },
+        {
+          name: "Bewertung von Datenquellen & Datenqualitaet",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "stark steigend",
+          trendgrund: "KI-Vorhaben und Regulatorik machen verlaessliche, nachvollziehbare Daten zur Voraussetzung.",
+          description:
+            "»Datenquellen auf Eignung, Herkunft und Qualitaet bewerten (z. B. Vollstaendigkeit, Korrektheit, Aktualitaet, Konsistenz) und Ergebnisse mit den relevanten Stakeholdern abstimmen. Schliesst Grundlagen von Data Governance wie Verantwortlichkeiten und Qualitaetsregeln ein. Nicht gemeint: die rechtliche Bewertung (siehe Datenschutz & Regulatorik). Typische Taetigkeiten: Datenquellen fuer ein Vorhaben sichten und bewerten · Qualitaetspruefungen definieren und durchfuehren · Qualitaetsmaengel mit Datenverantwortlichen klaeren«",
+          anchors: {
+            1: "Kennt Grundbegriffe der Datenqualitaet.",
+            2: "Prueft Datenquellen anhand vorgegebener Kriterien und meldet Auffaelligkeiten strukturiert.",
+            3: "Bewertet Datenquellen eigenstaendig nach Eignung und Qualitaet und stimmt Ergebnisse mit Stakeholdern ab.",
+            4: "Bewertet die Datenlage ueber mehrere Quellen hinweg und leitet Massnahmen und Qualitaetsregeln ab.",
+            5: "Baut Data-Governance- und Qualitaetsprozesse fuer Kunden auf; befaehigt andere zur Umsetzung.",
+          },
+        },
+        {
+          name: "Datenmodellierung",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "stabil",
+          trendgrund: "Saubere Datenmodelle bleiben die Grundlage fuer Analyse, Reporting und KI.",
+          description:
+            "»Fachliche Sachverhalte in konzeptionelle, logische und analytische Datenmodelle uebersetzen (z. B. Entity-Relationship-Modelle, dimensionale Modellierung mit Fakten und Dimensionen). Nicht gemeint: physisches Datenbanktuning. Typische Taetigkeiten: Fachbegriffe und Beziehungen mit dem Fachbereich klaeren · Analytische Modelle fuer Reporting entwerfen · Modelle dokumentieren und weiterentwickeln«",
+          anchors: {
+            1: "Liest einfache Datenmodelle und versteht Tabellenbeziehungen.",
+            2: "Erstellt einfache Datenmodelle fuer klar umrissene Fragestellungen.",
+            3: "Entwirft konzeptionelle und analytische Modelle eigenstaendig und stimmt sie mit dem Fachbereich ab.",
+            4: "Modelliert komplexe, systemuebergreifende Datenbestaende; bewertet Modellvarianten nach Nutzen und Wartbarkeit.",
+            5: "Setzt Modellierungsstandards fuer den Bereich; gilt als Referenz fuer schwierige Modellierungsfragen.",
+          },
+        },
+        {
+          name: "Vorgehen in Data-Science-Projekten",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Mit wachsender Zahl an Datenprojekten wird ein strukturiertes, wiederholbares Vorgehen zum Qualitaetsfaktor.",
+          description:
+            "»Datenprojekte ueber alle Phasen strukturiert durchfuehren — vom Geschaeftsverstaendnis ueber Datenaufbereitung und Modellierung bis zu Bewertung und umsetzbaren Ergebnissen (z. B. nach CRISP-DM), iterativ und hypothesengeleitet. Nicht gemeint: allgemeines Projektmanagement. Typische Taetigkeiten: Fragestellung und Erfolgskriterien mit dem Fachbereich schaerfen · Hypothesen bilden und iterativ pruefen · Ergebnisse gegen die Ausgangsfrage bewerten«",
+          anchors: {
+            1: "Kennt die Phasen eines Datenprojekts in Grundzuegen.",
+            2: "Arbeitet in einem strukturierten Datenprojekt mit und haelt die Phasen ein.",
+            3: "Plant und steuert eigene Datenprojekte strukturiert von der Fragestellung bis zum umsetzbaren Ergebnis.",
+            4: "Passt das Vorgehen an komplexe Ausgangslagen an; erkennt fruehzeitig, wann Fragestellung oder Datenlage nicht tragen.",
+            5: "Entwickelt das Vorgehensmodell fuer Datenprojekte im Bereich; befaehigt andere zur Anwendung.",
+          },
+        },
+        {
+          name: "Abnahme, Betriebsuebergabe & kontinuierliche Verbesserung",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          trendgrund: "Daten- und KI-Loesungen muessen nach dem Livegang beobachtet und nachgeschaerft werden — die Uebergabe in den Betrieb wird zur Daueraufgabe.",
+          description:
+            "»Abnahmen von Arbeitsergebnissen steuern, fertige Daten- und KI-Loesungen reibungslos in den Betrieb uebergeben und deren kontinuierliche Verbesserung unterstuetzen. Nicht gemeint: den Betrieb selbst verantworten. Typische Taetigkeiten: Abnahmen gegen vereinbarte Kriterien vorbereiten und durchfuehren · Dokumentation und Uebergabe an Betrieb und Fachbereich organisieren · Rueckmeldungen aus dem Betrieb in Verbesserungen ueberfuehren«",
+          anchors: {
+            1: "Wirkt an Abnahmen mit und dokumentiert Ergebnisse nach Vorlage.",
+            2: "Bereitet Abnahmen fuer einfache Ergebnisse eigenstaendig vor.",
+            3: "Steuert Abnahmen und Uebergaben eigenstaendig und stellt eine vollstaendige Dokumentation sicher.",
+            4: "Steuert Abnahme und Betriebsuebergabe komplexer Loesungen; etabliert Feedbackschleifen fuer die Weiterentwicklung.",
+            5: "Definiert Standards fuer Abnahme, Uebergabe und Weiterentwicklung von Daten- und KI-Loesungen.",
+          },
+        },
+      ],
+    },
+    {
+      name: "Kommunikation & Zusammenarbeit",
+      skills: [
+        {
+          name: "Beratung & Stakeholder-Management in Datenprojekten",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Datenprojekte beruehren viele Bereiche gleichzeitig — Erwartungsmanagement wird anspruchsvoller.",
+          description:
+            "»Kunden und Stakeholder zu Datenthemen beraten, souveraen auftreten, Erwartungen klaeren und steuern sowie Entscheidungen vorbereiten. Nicht gemeint: Vertrieb und Akquise. Typische Taetigkeiten: Ziele und Erwartungen zu Beginn eines Datenprojekts klaeren · Realistische Einschaetzungen zu Machbarkeit und Aufwand geben · Entscheidungsvorlagen mit Optionen vorbereiten«",
+          anchors: {
+            1: "Kommuniziert reaktiv auf Anfragen von Stakeholdern.",
+            2: "Klaert Anforderungen und Erwartungen in einfachen Konstellationen eigenstaendig.",
+            3: "Tritt beim Kunden souveraen auf und steuert Erwartungen aktiv, auch wenn Daten oder Machbarkeit Grenzen setzen.",
+            4: "Beraet Entscheider souveraen in komplexen Konstellationen; positioniert Datenthemen als Geschaeftsthemen.",
+            5: "Gilt als vertrauenswuerdiger Berater fuer Datenthemen auf Entscheider-Ebene.",
+          },
+        },
+        {
+          name: "Erkenntnisse adressatengerecht vermitteln",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Je komplexer Modelle werden, desto wichtiger ist es, Ergebnisse und deren Grenzen verstaendlich zu machen.",
+          description:
+            "»Komplexe Analyse- und Modellergebnisse fuer Fach- und Fuehrungsebene verstaendlich aufbereiten und in praegnanten Entscheidungspraesentationen vermitteln — inklusive Unsicherheiten und Grenzen (Data Storytelling). Nicht gemeint: das technische Erstellen von Dashboards und Reports (siehe Technisch). Typische Taetigkeiten: Kernaussagen aus Analysen herausarbeiten · Ergebnisse mit Unsicherheiten ehrlich einordnen · Handlungsempfehlungen in Entscheidungspraesentationen vermitteln«",
+          anchors: {
+            1: "Praesentiert vorbereitete Ergebnisse mit Unterstuetzung.",
+            2: "Bereitet Ergebnisse eigenstaendig auf und passt die Detailtiefe grob an die Zielgruppe an.",
+            3: "Vermittelt komplexe Ergebnisse zielgruppengerecht inkl. Unsicherheiten und Grenzen.",
+            4: "Ueberzeugt auch kritische Stakeholder mit klaren Kernaussagen und Handlungsempfehlungen.",
+            5: "Setzt Standards fuer die Vermittlung von Datenergebnissen; coacht andere.",
+          },
+        },
+        {
+          name: "Interdisziplinaere Zusammenarbeit im Kundenprojekt",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          trendgrund: "Daten- und KI-Loesungen entstehen nur im Zusammenspiel von Fachbereich, Data Engineering, Data Science und Projektmanagement.",
+          description:
+            "»Ueber alle Projektphasen hinweg eng mit Projektmanagement, Data Engineering, Data Science, IT-Architektur, Entwicklung und Domaenenexpert:innen beim Kunden zusammenarbeiten. Nicht gemeint: Projektleitung oder eigene Architekturverantwortung. Typische Taetigkeiten: Anforderungen an Daten und Schnittstellen mit Data Engineering abstimmen · Fachliche Fragen mit Domaenenexpert:innen klaeren · Ergebnisse an Entwicklung und Betrieb uebergeben«",
+          anchors: {
+            1: "Arbeitet in der eigenen Rolle und kommuniziert reaktiv mit anderen Disziplinen.",
+            2: "Stimmt sich bei Bedarf eigenstaendig mit anderen Disziplinen ab.",
+            3: "Bindet die relevanten Disziplinen frueh ein und klaert Schnittstellen proaktiv.",
+            4: "Verbindet Fach-, Daten- und Technikperspektive in komplexen Kundenprojekten; moderiert fachuebergreifende Klaerungen.",
+            5: "Gestaltet die Zusammenarbeit zwischen Data Science, IT und Fachbereichen bereichsuebergreifend.",
+          },
+        },
+        { ...RUMP_VERBAL_V2, targetLevel: 4, trend: "stabil" },
       ],
     },
   ],

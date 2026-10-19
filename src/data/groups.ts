@@ -1,6 +1,6 @@
 import type { Group, MarketDriver, Role } from "../types";
 import { swGroup } from "./swCatalogs";
-import { qaCore, testManager, testAutomation } from "./bcCatalogs";
+import { qaCore, testManager, testAutomation, dataScienceConsultant } from "./bcCatalogs";
 import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL, RUMP_VERBAL_V2 } from "./rumpSkills";
 
 // -----------------------------------------------------------------------------
@@ -7204,6 +7204,7 @@ export const groups: Group[] = [
       qaCore,
       testManager,
       testAutomation,
+      dataScienceConsultant,
     ],
     defaultDrivers: businessConsultingDrivers,
   },
