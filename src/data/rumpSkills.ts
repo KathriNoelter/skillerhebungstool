@@ -18,9 +18,9 @@ export const RUMP_DIGITALE: Skill = {
 /**
  * Geschaerfte Fassung (Okt. 2026) entlang der vier Elemente nach Rump; grenzt die
  * Tool-Bedienung (Dimension Technisch) explizit aus. Vorerst nur in der Gruppe
- * Produktmanagement und bei neuen Rollen (z. B. Data Science Consultant) im
- * Einsatz — die uebrigen Gruppen haben ihre Workshops und Selbsteinschaetzungen
- * mit RUMP_DIGITALE durchgefuehrt.
+ * Produktmanagement sowie bei Data Science Consultant und UX/UI Design und
+ * Consulting im Einsatz — die uebrigen Rollen haben ihre Workshops und
+ * Selbsteinschaetzungen mit RUMP_DIGITALE durchgefuehrt.
  */
 export const RUMP_DIGITALE_V2: Skill = {
   name: "Digitale Anwendungskompetenz",
@@ -55,9 +55,9 @@ export const RUMP_VERBAL: Skill = {
 /**
  * Geschaerfte Fassung (Okt. 2026) entlang der zwei Saeulen nach Rump
  * (Strukturierung, Verbalisierung) inkl. Prompting und Verifizieren von
- * KI-Ergebnissen. Vorerst nur in der Gruppe Produktmanagement und bei neuen
- * Rollen (z. B. Data Science Consultant) im Einsatz — die uebrigen Gruppen
- * nutzen weiter RUMP_VERBAL.
+ * KI-Ergebnissen. Vorerst nur in der Gruppe Produktmanagement sowie bei Data
+ * Science Consultant und UX/UI Design und Consulting im Einsatz — die
+ * uebrigen Rollen nutzen weiter RUMP_VERBAL.
  */
 export const RUMP_VERBAL_V2: Skill = {
   name: "Verbalisierung & Strukturierung",

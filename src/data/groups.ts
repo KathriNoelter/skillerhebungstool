@@ -38,12 +38,12 @@ const uxuiDesign: Role = {
           trend: "stabil",
           trendgrund: "Produkt- und Prozessverstaendnis bleibt Grundlage nutzerzentrierten Designs; KI veraendert die Produktlogik der Versicherung kaum.",
           description:
-            "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentriertes Design im Versicherungskontext. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Interface-Entscheidungen uebersetzen · Mit Fachbereichen auf Augenhoehe ueber Versicherungsprozesse sprechen«",
+            "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Nutzerreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentriertes Design im Versicherungskontext. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Nutzerreise einordnen · Produktlogik in Interface-Entscheidungen uebersetzen · Mit Fachbereichen auf Augenhoehe ueber Versicherungsprozesse sprechen«",
           anchors: {
             1: "Kennt grundlegende Versicherungsbegriffe; braucht Erklaerung bei Fachfragen.",
-            2: "Versteht typische Kundenreisen und Produktarten; ordnet Screens grob ein.",
+            2: "Versteht typische Nutzerreisen und Produktarten; ordnet Screens grob ein.",
             3: "Gestaltet eigenstaendig fuer versicherungsspezifische Prozesse; stellt gezielte Fachfragen.",
-            4: "Erkennt Optimierungspotenzial in Kundenreisen; beraet Fachbereiche zu UX-Implikationen.",
+            4: "Erkennt Optimierungspotenzial in Nutzerreisen; beraet Fachbereiche zu UX-Implikationen.",
             5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit; praegt Produktentscheidungen mit.",
           },
         },
@@ -79,7 +79,7 @@ const uxuiDesign: Role = {
             5: "Gilt als Referenz fuer Branchen-Patterns; praegt Design-Sprache des Unternehmens.",
           },
         },
-        { ...RUMP_DIGITALE, trend: "stark steigend" },
+        { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
       ],
     },
     {
@@ -463,7 +463,7 @@ const uxuiDesign: Role = {
             5: "Gilt als Vorbild fuer agile Zusammenarbeit; praegt Teamkultur.",
           },
         },
-        { ...RUMP_VERBAL, trend: "stabil" },
+        { ...RUMP_VERBAL_V2, targetLevel: 3, trend: "stabil" },
       ],
     },
   ],
