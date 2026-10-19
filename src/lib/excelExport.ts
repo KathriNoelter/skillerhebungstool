@@ -67,12 +67,25 @@ export function exportGroupCatalogExcel(
     }
     const sheet = XLSX.utils.json_to_sheet(rows.length > 0 ? rows : [{}]);
     setColumnWidths(sheet, [35, 30, 15, 12, 18, 12, 60, 50, 50, 50, 50, 50]);
-    // Trim sheet name to 31 chars (Excel limit)
-    const sheetName = role.name.slice(0, 31);
-    XLSX.utils.book_append_sheet(wb, sheet, sheetName);
+    XLSX.utils.book_append_sheet(wb, sheet, toSheetName(role.name, wb.SheetNames));
   }
 
   XLSX.writeFile(wb, `Skill-Katalog_${group.name.replace(/\s+/g, "-")}.xlsx`);
+}
+
+/**
+ * Excel-taugliches Tabellenblatt-Label: verbotene Zeichen (: \ / ? * [ ])
+ * werden durch "-" ersetzt (z. B. "UX/UI" → "UX-UI"), max. 31 Zeichen,
+ * eindeutig innerhalb der Mappe.
+ */
+function toSheetName(name: string, existing: string[]): string {
+  const base = name.replace(/[:\\/?*[\]]/g, "-").replace(/^'+|'+$/g, "").trim().slice(0, 31) || "Rolle";
+  let candidate = base;
+  for (let i = 2; existing.includes(candidate); i++) {
+    const suffix = ` (${i})`;
+    candidate = base.slice(0, 31 - suffix.length) + suffix;
+  }
+  return candidate;
 }
 
 function setColumnWidths(sheet: XLSX.WorkSheet, widths: number[]): void {
