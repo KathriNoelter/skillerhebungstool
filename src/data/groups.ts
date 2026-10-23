@@ -1,4 +1,4 @@
-import type { Group, MarketDriver, Role } from "../types";
+import type { Group, MarketDriver, Role, Skill } from "../types";
 import { swGroup } from "./swCatalogs";
 import { qaCore, testManager, testAutomation, dataScienceConsultant } from "./bcCatalogs";
 import { RUMP_DIGITALE, RUMP_DIGITALE_V2, RUMP_VERBAL, RUMP_VERBAL_V2 } from "./rumpSkills";
@@ -1899,6 +1899,23 @@ const projektleitung: Role = {
 // Produktmanagement
 // -----------------------------------------------------------------------------
 
+/** Gemeinsamer Fachskill aller vier Produktmanagement-Rollen (Workshop Okt. 2026). */
+const DOMAIN_ERSCHLIESSUNG: Skill = {
+  name: "Domain-Erschliessung",
+  dep: "Durable",
+  targetLevel: 3,
+  trend: "steigend",
+  description:
+    "»Faehigkeit, sich neue fachliche Domaenen (Branche, Kundenprozesse, Fachsprache) schnell und strukturiert zu erschliessen, damit Produkte auch fuer neue Zielmaerkte fundiert gestaltet werden koennen — z. B. die Pruefung privataerztlicher Abrechnungen. Nicht gemeint: das konkrete Fachwissen der heutigen Zieldomaene; das beschreibt der Branchen-Skill der jeweiligen Rolle. Typische Taetigkeiten: Akteure, Kernprozesse und Fachbegriffe einer neuen Domaene systematisch erfassen · Wissen gezielt bei Fachexpertinnen und -experten erheben · Domaenenwissen fuer das Team aufbereiten (z. B. Glossar, Prozesslandkarte)«",
+  anchors: {
+    1: "Erschliesst sich neue Fachthemen mit Anleitung und vorgegebenen Quellen.",
+    2: "Erarbeitet Grundbegriffe und Kernprozesse einer neuen Domaene eigenstaendig anhand von Unterlagen.",
+    3: "Erschliesst neue Domaenen strukturiert und eigenstaendig; nutzt Fachexpertinnen und -experten gezielt und bereitet das Wissen fuer das Team auf.",
+    4: "Erkennt domaenenspezifische Besonderheiten und Risiken frueh; beraet das Team bei der Uebertragung auf das Produkt.",
+    5: "Etabliert ein Vorgehen zur Domaenen-Erschliessung im Produktbereich; befaehigt andere.",
+  },
+};
+
 const productManager: Role = {
   id: "product-manager",
   name: "Product Manager",
@@ -1909,64 +1926,81 @@ const productManager: Role = {
       name: "Fachlich",
       skills: [
         {
-          name: "Versicherungsprodukte & Marktstruktur",
+          name: "PKV-Abrechnung: Markt & Produkte",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Verstaendnis der zentralen Versicherungsprodukte (Sach, Leben, Kranken, Industrie), Marktstruktur und Wertschoepfungskette als Grundlage fuer fundierte Produktentscheidungen. Typische Taetigkeiten: Produktentscheidungen im Kontext der Versicherungssparte einordnen · Mit Fachbereich und Underwriting auf Augenhoehe sprechen · Marktstruktur bei neuen Produktideen beruecksichtigen«",
+            "»Verstaendnis der fachlichen Grundlagen und Prozesse der privaten Krankenversicherung (PKV) — insbesondere medizinische Leistungsabrechnung, Rechnungspruefung sowie GOAE und GOZ in Anwendung und Auslegung — aus Markt- und Produktsicht. Typische Taetigkeiten: Produktentscheidungen im Kontext der Leistungsabrechnung und Rechnungspruefung einordnen · Mit Kunden und Fachexperten auf Augenhoehe ueber Abrechnungsfragen sprechen · Marktanforderungen der PKV bei neuen Produktideen beruecksichtigen«",
           anchors: {
-            1: "Kennt die wichtigsten Versicherungsprodukte und Sparten in Grundzuegen.",
-            2: "Erklaert Wertschoepfungskette und Marktstruktur nachvollziehbar.",
-            3: "Ordnet Produktentscheidungen eigenstaendig in Sparten- und Marktkontext ein.",
-            4: "Bewertet neue Produktideen fundiert vor dem Hintergrund der Marktstruktur.",
-            5: "Gilt als Referenz fuer Versicherungsprodukte und Marktstruktur im Produktteam.",
+            1: "Kennt die Grundbegriffe der PKV-Leistungsabrechnung (GOAE, GOZ, Rechnungspruefung).",
+            2: "Erklaert Ablauf von Leistungsabrechnung und Rechnungspruefung nachvollziehbar.",
+            3: "Ordnet Produktentscheidungen eigenstaendig in die Abrechnungs- und Pruefprozesse der PKV ein.",
+            4: "Bewertet neue Produktideen fundiert vor dem Hintergrund von Markt und Abrechnungspraxis; beraet dazu.",
+            5: "Gilt als fachliche Referenz fuer PKV-Abrechnung und Rechnungspruefung im Produktbereich.",
           },
         },
+        { ...DOMAIN_ERSCHLIESSUNG },
         {
-          name: "Vertriebskanaele & Kundensegmente",
+          name: "Kundensegmente & Vertriebswege",
           dep: "Durable",
-          targetLevel: 3,
+          targetLevel: 2,
           trend: "stabil",
           description:
-            "»Kenntnis der relevanten Vertriebskanaele (Makler, Ausschliesslichkeit, Direktvertrieb, Bancassurance) und Kundensegmente als Grundlage fuer kanalgerechte Produktentscheidungen. Typische Taetigkeiten: Produktanforderungen je Vertriebskanal einordnen · Kundensegmente bei Feature-Priorisierung beruecksichtigen · Mit Vertrieb ueber Kanalanforderungen sprechen«",
+            "»Kenntnis der Kundensegmente (B2B und B2C) und Vertriebswege fuer SaaS-Produkte als Grundlage fuer segment- und kanalgerechte Produktentscheidungen. Typische Taetigkeiten: Anforderungen einzelner Kundensegmente einordnen · Segmente bei der Feature-Priorisierung beruecksichtigen · Mit Vertrieb ueber Anforderungen der Vertriebswege sprechen«",
           anchors: {
-            1: "Kennt die wichtigsten Vertriebskanaele und Kundensegmente dem Namen nach.",
-            2: "Erklaert Unterschiede zwischen Kanaelen und Segmenten nachvollziehbar.",
-            3: "Beruecksichtigt Kanal- und Segmentanforderungen eigenstaendig in Produktentscheidungen.",
-            4: "Bewertet Kanalkonflikte und Segmentpotenziale fundiert; beraet den Vertrieb.",
-            5: "Gilt als Referenz fuer Vertriebskanal- und Segmentfragen im Produktteam.",
+            1: "Kennt die wichtigsten Kundensegmente und Vertriebswege dem Namen nach.",
+            2: "Erklaert Unterschiede zwischen Segmenten und Vertriebswegen nachvollziehbar.",
+            3: "Beruecksichtigt Segment- und Vertriebsanforderungen eigenstaendig in Produktentscheidungen.",
+            4: "Bewertet Segmentpotenziale und Zielkonflikte zwischen Vertriebswegen fundiert; beraet den Vertrieb.",
+            5: "Gilt als Referenz fuer Segment- und Vertriebsfragen im Produktteam.",
           },
         },
         {
-          name: "Regulatorik fuer Versicherungsprodukte (VVG, BaFin)",
+          name: "Regulatorik fuer Software, Daten & KI (DSGVO, DORA, AI Act, NIS2)",
           dep: "Evolving",
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Kenntnis regulatorischer Rahmenbedingungen (VVG, BaFin-Vorgaben, IDD) mit Auswirkung auf Produktgestaltung und -kommunikation. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Constraints in der Produktgestaltung beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
+            "»Kenntnis der regulatorischen Rahmenbedingungen fuer SaaS-Produkte — Datenschutz (DSGVO), operationale Resilienz (DORA), KI-Regulierung (EU AI Act) und Informationssicherheit (NIS2) — mit Auswirkung auf Produktgestaltung und Kundenvertraege. Branchenregulatorik der Kunden (z. B. VVG, BaFin) wird als Kundenkontext beruecksichtigt. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Anforderungen in Produktentscheidungen und Roadmap einplanen · Bei Unsicherheit Datenschutz, Informationssicherheit oder Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
           anchors: {
-            1: "Kennt die Begriffe VVG und BaFin; braucht Unterstuetzung bei der Einordnung.",
-            2: "Erkennt gaengige regulatorische Anforderungen in Standardfaellen.",
-            3: "Beruecksichtigt regulatorische Vorgaben eigenstaendig in der Produktgestaltung.",
+            1: "Kennt die Begriffe DSGVO, DORA, AI Act und NIS2; braucht Unterstuetzung bei der Einordnung.",
+            2: "Erkennt gaengige regulatorische Anforderungen an das Produkt in Standardfaellen.",
+            3: "Beruecksichtigt regulatorische Vorgaben eigenstaendig in Produktgestaltung und Roadmap.",
             4: "Bewertet neue Regulatorik auf Produktauswirkung; klaert Grenzfaelle mit Fachstellen.",
-            5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
+            5: "Gilt als Ansprechperson fuer regulatorische Produktfragen.",
           },
         },
         {
-          name: "Geschaeftsmodelle der Versicherungsbranche",
+          name: "Geschaeftsmodell, Pricing & Business Case",
+          dep: "Durable",
+          targetLevel: 5,
+          keySkill: true,
+          trend: "steigend",
+          description:
+            "»Verstaendnis, Bewertung und Gestaltung von Geschaefts- und Preismodell des Produkts; der Product Manager verantwortet die Preisentwicklung, der Business Developer setzt sie im Kundengeschaeft um. Typische Taetigkeiten: Produktentscheidungen nach Erloes- und Kostenwirkung bewerten (Business Case) · Monetarisierungs- und Preisoptionen gegenueberstellen · Entscheidungsvorlagen fuer Preis- und Modellanpassungen erarbeiten · Leitplanken fuer Rabatte und Sonderkonditionen festlegen«",
+          anchors: {
+            1: "Kennt die zentralen Kennzahlen und Begriffe des Geschaefts- und Preismodells (z. B. Umsatz, Marge, Kundenwert).",
+            2: "Erklaert Geschaefts- und Preismodell sowie dessen Kennzahlen nachvollziehbar.",
+            3: "Bewertet Produktentscheidungen nach ihrer Erloes- und Kostenwirkung (Business Case).",
+            4: "Erarbeitet Entscheidungsvorlagen fuer Preis- und Modellanpassungen.",
+            5: "Gestaltet das Geschaeftsmodell auf Portfolio- bzw. Unternehmensebene mit.",
+          },
+        },
+        {
+          name: "Agile Prinzipien",
           dep: "Durable",
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Verstaendnis gaengiger Geschaefts- und Erloesmodelle der Versicherungsbranche (Praemienmodelle, Rueckversicherung, Plattformgeschaefte) als Grundlage fuer Produktentscheidungen. Typische Taetigkeiten: Produktentscheidungen im Kontext des Geschaeftsmodells einordnen · Auswirkungen auf Ertrag und Risiko einschaetzen · Geschaeftsmodell gegenueber dem Team erklaeren«",
+            "»Kenntnis agiler Prinzipien und Vorgehensmodelle (z. B. Scrum, Kanban) als gemeinsame Basis fuer die Zusammenarbeit mit dem Scrum-Team. Der Product Manager setzt den strategischen Rahmen, in dem das Team iterativ liefert. Typische Taetigkeiten: Roadmap und Ziele so formulieren, dass iterative Umsetzung moeglich ist · Mit dem Product Owner ueber Epics und Prioritaeten statt ueber fertige Loesungen abstimmen · Erkenntnisse aus Sprint Reviews in die Produktstrategie einspeisen«",
           anchors: {
-            1: "Kennt das eigene Geschaeftsmodell in Grundzuegen.",
-            2: "Erklaert gaengige Geschaefts- und Erloesmodelle der Branche nachvollziehbar.",
-            3: "Ordnet Produktentscheidungen eigenstaendig in das Geschaeftsmodell ein.",
-            4: "Bewertet alternative Geschaeftsmodelle fundiert; beraet dazu.",
-            5: "Entwickelt das Geschaefts- und Erloesmodell aktiv mit.",
+            1: "Kennt agile Grundbegriffe und die Rollen im Scrum-Team.",
+            2: "Versteht, wie das Team iterativ arbeitet, und beruecksichtigt das in eigenen Planungen.",
+            3: "Gestaltet Roadmap und Ziele eigenstaendig so, dass iterative Umsetzung und Lernen moeglich sind.",
+            4: "Verbindet strategische Planung und agile Umsetzung ueber mehrere Teams hinweg.",
+            5: "Praegt eine agile Produktkultur im Produktbereich.",
           },
         },
         { ...RUMP_DIGITALE_V2, targetLevel: 4, trend: "stark steigend" },
@@ -1991,33 +2025,33 @@ const productManager: Role = {
           },
         },
         {
-          name: "Roadmap-Tools (Productboard, Aha!)",
+          name: "Arbeitsmanagement-Tools (z. B. Jira & Confluence)",
           dep: "Evolving",
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Sicherer Umgang mit Roadmap-Tools zur Planung, Priorisierung und Kommunikation der Produkt-Roadmap. Typische Taetigkeiten: Roadmap strukturiert pflegen und aktualisieren · Prioritaeten fuer Stakeholder nachvollziehbar visualisieren · Feedback und Anfragen im Tool strukturiert erfassen«",
+            "»Sicherer Umgang mit Arbeitsmanagement-Tools (z. B. Jira und Confluence) zur Planung, Dokumentation und Abstimmung mit dem Entwicklungsteam — inkl. Roadmap-Pflege und Administration aus Produktsicht (Backlog-Struktur, Workflows). Typische Taetigkeiten: Epics und Initiativen strukturiert anlegen · Roadmap im Tool pflegen und fuer Stakeholder sichtbar machen · Backlog-Struktur und Workflows aus Produktsicht pflegen · Produktdokumentation aktuell halten«",
           anchors: {
-            1: "Bedient das Roadmap-Tool grundlegend; pflegt einfache Eintraege.",
-            2: "Pflegt die Roadmap eigenstaendig fuer Standardfaelle.",
-            3: "Nutzt das Tool vollstaendig fuer Planung und Stakeholder-Kommunikation.",
-            4: "Optimiert Roadmap-Strukturen und Views fuer unterschiedliche Zielgruppen.",
-            5: "Gilt als Key User; entwickelt Nutzungsstandards fuer das Team.",
+            1: "Bedient die Tools grundlegend; braucht Anleitung bei Konfiguration.",
+            2: "Pflegt Epics, Roadmap und Dokumentation eigenstaendig fuer Standardfaelle.",
+            3: "Nutzt die Tools vollstaendig fuer den Produktalltag.",
+            4: "Optimiert Strukturen und Workflows fuer das Team.",
+            5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
           },
         },
         {
-          name: "Jira & Confluence",
+          name: "Technisches Produktverstaendnis",
           dep: "Evolving",
-          targetLevel: 3,
-          trend: "stabil",
+          targetLevel: 4,
+          trend: "steigend",
           description:
-            "»Sicherer Umgang mit Jira und Confluence (oder vergleichbaren Planungstools) zur Planung, Dokumentation und Abstimmung mit dem Entwicklungsteam — inkl. Administration aus Produktsicht (Backlog-Struktur, Workflows). Typische Taetigkeiten: Epics und Initiativen strukturiert anlegen · Backlog-Struktur und Workflows aus Produktsicht pflegen · Produktdokumentation in Confluence aktuell halten · Fortschritt im Board nachvollziehen«",
+            "»Verstaendnis der technischen Grundlagen des eigenen Produkts — Architektur, Schnittstellen, KI-Funktionen im Produkt, Security sowie Qualitaet und Betrieb (Verfuegbarkeit, Incidents, SLAs) — um Machbarkeit, Risiken und Aufwand von Produktentscheidungen einzuschaetzen. Nicht gemeint: selbst entwickeln oder Architektur verantworten. Typische Taetigkeiten: Machbarkeit und Abhaengigkeiten neuer Features mit der Entwicklung bewerten · Einsatz von KI als Produktfunktion beurteilen (Nutzen, Grenzen, Risiken) · Security-, Qualitaets- und Betriebsanforderungen in Roadmap und Priorisierung einplanen · Bei Incidents die Auswirkung auf Kunden und SLAs einschaetzen«",
           anchors: {
-            1: "Bedient Jira/Confluence grundlegend; braucht Anleitung bei Konfiguration.",
-            2: "Pflegt Epics und Dokumentation eigenstaendig fuer Standardfaelle.",
-            3: "Nutzt Jira/Confluence vollstaendig fuer den Produktalltag.",
-            4: "Optimiert Strukturen und Workflows fuer das Team.",
-            5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
+            1: "Kennt die Grundbausteine der Produktarchitektur; braucht Erklaerung bei technischen Fragen.",
+            2: "Versteht Architektur, Schnittstellen und Betriebsanforderungen in Grundzuegen; stellt gezielte Rueckfragen.",
+            3: "Schaetzt Machbarkeit, technische Risiken und Abhaengigkeiten eigenstaendig ein; beruecksichtigt Security und Betrieb in Entscheidungen.",
+            4: "Bewertet technische Optionen, KI-Funktionen und Betriebsrisiken fundiert gemeinsam mit der Entwicklung; vertritt sie gegenueber Stakeholdern.",
+            5: "Praegt die technische Produktstrategie mit; gilt als Bruecke zwischen Produkt und Technik.",
           },
         },
         {
@@ -2072,18 +2106,18 @@ const productManager: Role = {
           },
         },
         {
-          name: "Discovery & Validation",
+          name: "Discovery & Customer Insight",
           dep: "Durable",
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Systematische Validierung von Produktideen und Hypothesen vor der Umsetzung, um das richtige Produkt zu bauen. Methoden u. a. Interviews, Jobs-to-be-Done, Prototypen und Tests; A/B-Tests nur dort, wo genug Nutzung fuer aussagekraeftige Ergebnisse vorhanden ist (im B2B oft nicht der Fall). Typische Taetigkeiten: Annahmen und Risiken einer Produktidee explizit machen · Passende Validierungsmethode (Interviews, Jobs-to-be-Done, Prototypen, Tests) auswaehlen und einsetzen · Erkenntnisse in Priorisierungsentscheidungen einspeisen«",
+            "»Systematisches Verstehen von Kundenproblemen und Validieren von Produktideen vor der Umsetzung, um das richtige Produkt zu bauen. Der Product Manager forscht zum Problem (Markt, Bedarf, Nutzergruppen inkl. Personas) und entscheidet, was gebaut wird; die Methodik der Nutzerforschung verantwortet UX. Die eingesetzten Methoden beschreiben eigene Skills (Job-Mapping, Domain Storytelling, Experteninterviews). A/B-Tests nur dort, wo genug Nutzung fuer aussagekraeftige Ergebnisse vorhanden ist. Typische Taetigkeiten: Annahmen und Risiken einer Produktidee explizit machen · Erkenntnisse ueber Kunden und Nutzer buendeln · MVP-Umfang inhaltlich festlegen · Ergebnisse als Epics mit Problem, Ziel und Erfolgskriterien an den Product Owner uebergeben«",
           anchors: {
             1: "Kennt das Konzept; Discovery findet unstrukturiert statt.",
             2: "Fuehrt einzelne Discovery-Aktivitaeten mit Unterstuetzung durch.",
-            3: "Validiert Produktideen eigenstaendig vor der Umsetzung.",
-            4: "Waehlt Validierungsmethodik passend zur Fragestellung; loest methodische Probleme.",
-            5: "Etabliert einen strukturierten Discovery-Prozess im Produktteam.",
+            3: "Validiert Produktideen eigenstaendig vor der Umsetzung; uebergibt Ergebnisse als klare Epics.",
+            4: "Plant Discovery passend zur Fragestellung; verbindet Kunden-, Markt- und Nutzungserkenntnisse zu belastbaren Entscheidungen.",
+            5: "Etabliert einen strukturierten Discovery-Prozess im Produktbereich.",
           },
         },
         {
@@ -2102,33 +2136,18 @@ const productManager: Role = {
           },
         },
         {
-          name: "Pricing & Monetarisierung",
-          dep: "Durable",
-          targetLevel: 3,
-          trend: "stabil",
-          description:
-            "»Verstaendnis und Mitgestaltung von Preis- und Monetarisierungsmodellen fuer das eigene Produkt. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Produkt einschaetzen · Monetarisierungsoptionen gegenueberstellen · Leitplanken fuer Rabatte und Sonderkonditionen mitdefinieren · Mit Pricing- und Vertriebsverantwortlichen abstimmen«",
-          anchors: {
-            1: "Kennt das bestehende Preismodell in Grundzuegen.",
-            2: "Erklaert das Preismodell nachvollziehbar; versteht gaengige Alternativen.",
-            3: "Bewertet Preisentscheidungen eigenstaendig hinsichtlich Produktauswirkung.",
-            4: "Entwickelt Monetarisierungsoptionen fundiert mit; beraet dazu.",
-            5: "Gestaltet das Preis- und Monetarisierungsmodell des Produkts aktiv mit.",
-          },
-        },
-        {
-          name: "Roadmap-Priorisierung",
+          name: "Roadmapping, Priorisierung & Produkt-Lifecycle",
           dep: "Durable",
           targetLevel: 4,
           trend: "stabil",
           description:
-            "»Anwendung strukturierter Priorisierungsmethoden (z. B. RICE, MoSCoW), um Roadmap-Entscheidungen nachvollziehbar zu treffen — inkl. Abgleich von Vertriebszusagen mit der Roadmap und Umgang mit Einzelkundenwuenschen. Typische Taetigkeiten: Passende Priorisierungsmethode fuer die Situation waehlen · Vertriebszusagen mit der Roadmap abgleichen · Einzelkundenwuensche gegen den Nutzen fuer die gesamte Kundenbasis abwaegen · Priorisierung transparent gegenueber Stakeholdern begruenden · Roadmap bei neuen Erkenntnissen anpassen«",
+            "»Planung der Produkt-Roadmap entlang des Produkt-Lifecycles (Einfuehrung, Wachstum, Reife, Abloesung) und Anwendung strukturierter Priorisierungsmethoden (z. B. RICE, MoSCoW), um Roadmap-Entscheidungen nachvollziehbar zu treffen. Der Product Manager setzt den strategischen Rahmen; die operative Sprint- und Release-Planung liegt beim Product Owner. Typische Taetigkeiten: Roadmap am Lifecycle-Stand des Produkts ausrichten · Passende Priorisierungsmethode fuer die Situation waehlen · Vertriebszusagen mit der Roadmap abgleichen · Einzelkundenwuensche gegen den Nutzen fuer die gesamte Kundenbasis abwaegen · Weiterentwicklung oder Abloesung von Funktionen begruendet entscheiden«",
           anchors: {
-            1: "Kennt die Methoden; braucht Unterstuetzung bei der Anwendung.",
-            2: "Wendet eine Standardmethode mit Anleitung an.",
-            3: "Waehlt und wendet Priorisierungsmethoden eigenstaendig an.",
-            4: "Kombiniert Methoden situativ; begruendet Priorisierung ueberzeugend.",
-            5: "Entwickelt eigene Priorisierungsrahmen fuer das Unternehmen.",
+            1: "Kennt Priorisierungsmethoden und Lifecycle-Phasen; braucht Unterstuetzung bei der Anwendung.",
+            2: "Pflegt die Roadmap mit einer Standardmethode unter Anleitung.",
+            3: "Plant und priorisiert die Roadmap eigenstaendig; beruecksichtigt den Lifecycle-Stand des Produkts.",
+            4: "Kombiniert Methoden situativ; begruendet Roadmap- und Lifecycle-Entscheidungen ueberzeugend.",
+            5: "Entwickelt Roadmap- und Priorisierungsrahmen fuer das Unternehmen.",
           },
         },
         {
@@ -2161,6 +2180,66 @@ const productManager: Role = {
             5: "Entwickelt Go-to-Market-Standards fuer das Unternehmen.",
           },
         },
+        {
+          name: "Portfolio-Management",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Steuerung mehrerer Produkte bzw. Produktbestandteile als Portfolio, sodass Investitionen, Weiterentwicklung und Abloesung an Strategie und Wirtschaftlichkeit ausgerichtet sind. Typische Taetigkeiten: Produkte und Module nach Markterfolg, Wirtschaftlichkeit und strategischer Bedeutung bewerten · Ueberschneidungen und Abhaengigkeiten zwischen Produkten erkennen · Investitionsschwerpunkte im Portfolio vorschlagen · Portfolio-Entscheidungen mit Management und Product Lead abstimmen«",
+          anchors: {
+            1: "Kennt die Produkte des Portfolios und ihre Rolle in Grundzuegen.",
+            2: "Erklaert Stellung und Kennzahlen einzelner Produkte im Portfolio nachvollziehbar.",
+            3: "Bewertet Produkte eigenstaendig nach Markterfolg, Wirtschaftlichkeit und strategischer Bedeutung; leitet Empfehlungen ab.",
+            4: "Erarbeitet Portfolio-Entscheidungen zu Investition, Weiterentwicklung und Abloesung; vertritt sie gegenueber dem Management.",
+            5: "Gestaltet die Portfolio-Strategie des Unternehmens massgeblich mit.",
+          },
+        },
+        {
+          name: "Job-Mapping (Jobs to be Done)",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          description:
+            "»Analyse der Aufgaben, die Kunden mit einem Produkt erledigen wollen (Jobs to be Done), und deren Zerlegung in einzelne Arbeitsschritte (Job Map), um Beduerfnisse loesungsneutral zu verstehen. Der Product Manager nutzt Job Maps fuer Produktstrategie und Priorisierung. Typische Taetigkeiten: Kernjobs und Arbeitsschritte von Kunden erheben und als Job Map darstellen · Unerfuellte Beduerfnisse entlang der Job Map identifizieren · Ergebnisse in Strategie, Positionierung und Roadmap uebertragen«",
+          anchors: {
+            1: "Kennt das Konzept Jobs to be Done in Grundzuegen.",
+            2: "Erstellt einfache Job Maps mit Unterstuetzung.",
+            3: "Erhebt Jobs eigenstaendig und leitet daraus Produktchancen ab.",
+            4: "Nutzt Job Maps gezielt fuer Strategie- und Priorisierungsentscheidungen; befaehigt das Team zur Anwendung.",
+            5: "Etabliert Job-Mapping als Standardmethode im Produktbereich.",
+          },
+        },
+        {
+          name: "Domain Storytelling",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Gemeinsames Erarbeiten und Visualisieren fachlicher Ablaeufe mit Fachexpertinnen und -experten als Bildgeschichte (Akteure, Arbeitsgegenstaende, Aktivitaeten), um Domaenenwissen und Anforderungen zu verstehen. Der Product Manager nutzt die Methode, um Geschaeftsprozesse von Kunden und Problemfelder zu erfassen. Typische Taetigkeiten: Domain-Storytelling-Workshops mit Kunden und Fachexperten moderieren · Ist- und Soll-Ablaeufe visualisieren · Erkenntnisse in Produktentscheidungen und Epics uebertragen«",
+          anchors: {
+            1: "Kennt die Methode; nimmt an Workshops teil.",
+            2: "Zeichnet einfache Domain Stories mit Unterstuetzung auf.",
+            3: "Moderiert Domain-Storytelling-Workshops eigenstaendig und leitet Produktentscheidungen ab.",
+            4: "Setzt Domain Storytelling gezielt fuer komplexe Domaenen ein; verbindet Ist- und Soll-Ablaeufe zu Produktchancen.",
+            5: "Etabliert Domain Storytelling als Standardmethode im Produktbereich; befaehigt andere.",
+          },
+        },
+        {
+          name: "Experteninterviews, Contextual Inquiry & Shadowing",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          description:
+            "»Gewinnen von Wissen ueber Fachdomaene und Arbeitsweise der Kunden durch Interviews mit Expertinnen und Experten, Befragung im Arbeitskontext (Contextual Inquiry) und Begleitung im Arbeitsalltag (Shadowing). Der Product Manager setzt die Methoden vor allem fuer Markt-, Bedarfs- und Problemverstaendnis ein; die Methodik der Nutzerforschung verantwortet UX. Typische Taetigkeiten: Gespraechspartner auswaehlen und Leitfaeden entwickeln · Interviews und Beobachtungen ergebnisoffen durchfuehren · Erkenntnisse strukturiert festhalten und fuer Entscheidungen aufbereiten«",
+          anchors: {
+            1: "Nimmt an Interviews und Beobachtungen teil; dokumentiert nach Vorgabe.",
+            2: "Fuehrt Experteninterviews mit vorbereitetem Leitfaden eigenstaendig durch.",
+            3: "Plant und fuehrt Interviews, Contextual Inquiry und Shadowing eigenstaendig durch; leitet Erkenntnisse ab.",
+            4: "Waehlt die passende Methode fuer die Fragestellung; erschliesst auch schwer zugaengliches Expertenwissen.",
+            5: "Gilt als Referenz fuer qualitative Erhebungsmethoden im Produktbereich; befaehigt andere.",
+          },
+        },
       ],
     },
     {
@@ -2173,7 +2252,7 @@ const productManager: Role = {
           keySkill: true,
           trend: "stabil",
           description:
-            "»Aktive Steuerung der Beziehungen zu relevanten Stakeholdern (Management, Vertrieb, IT, Fachbereich), um Erwartungen und Prioritaeten transparent zu managen. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen · Regelmaessige Abstimmungsformate etablieren«",
+            "»Aktive Steuerung der Beziehungen zu externen Stakeholdern und zum Management (Geschaeftsfuehrung, Kunden, Markt, Vertrieb, Recht), um Erwartungen und Prioritaeten transparent zu managen. Nicht gemeint: die laufende interne Abstimmung mit Team und Fachbereich; die liegt beim Product Owner. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen · Regelmaessige Abstimmungsformate mit Management und Kunden etablieren«",
           anchors: {
             1: "Nimmt Stakeholder-Wuensche entgegen; braucht Unterstuetzung bei der Abstimmung.",
             2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
@@ -2295,34 +2374,35 @@ const productOwner: Role = {
           },
         },
         {
-          name: "Versicherungsprozesse (Vertrag, Schaden, Bestand)",
+          name: "PKV-Abrechnungsprozesse (Rechnungspruefung, GOAE/GOZ)",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Verstaendnis zentraler Versicherungsprozesse — Vertragsabschluss, Schadenbearbeitung, Bestandsfuehrung — als fachliche Grundlage fuer Priorisierungsentscheidungen im Produkt. Typische Taetigkeiten: Anforderungen im Kontext der Versicherungsprozesse einordnen · Mit Fachbereichen auf Augenhoehe ueber Prozessdetails sprechen · Auswirkungen von Produktentscheidungen auf Bestands- und Schadenprozesse einschaetzen«",
+            "»Verstaendnis der fachlichen Grundlagen und Prozesse der privaten Krankenversicherung (PKV) — insbesondere medizinische Leistungsabrechnung, Rechnungspruefung sowie GOAE und GOZ in Anwendung und Auslegung — als fachliche Grundlage fuer Backlog und Anforderungen. Typische Taetigkeiten: Anforderungen im Kontext der Abrechnungs- und Pruefprozesse einordnen · Mit Fachexperten auf Augenhoehe ueber Abrechnungsregeln sprechen · Auswirkungen von Aenderungen (z. B. an GOAE/GOZ) auf Produkt und Backlog einschaetzen«",
           anchors: {
-            1: "Kennt die Grundbegriffe; braucht Erklaerung bei Prozessdetails.",
-            2: "Versteht die zentralen Prozesse und deren Zusammenhaenge.",
-            3: "Ordnet Anforderungen eigenstaendig in die Versicherungsprozesse ein.",
-            4: "Erkennt Prozessabhaengigkeiten fruehzeitig; beraet Fachbereiche zu Auswirkungen.",
-            5: "Gilt als fachliche Referenz zwischen Produkt und Versicherungsfachlichkeit.",
+            1: "Kennt die Grundbegriffe der PKV-Abrechnung; braucht Erklaerung bei Prozessdetails.",
+            2: "Versteht Leistungsabrechnung und Rechnungspruefung und deren Zusammenhaenge.",
+            3: "Ordnet Anforderungen eigenstaendig in die Abrechnungs- und Pruefprozesse ein.",
+            4: "Erkennt fachliche Abhaengigkeiten und Regelaenderungen fruehzeitig; beraet das Team zu Auswirkungen.",
+            5: "Gilt als fachliche Referenz zwischen Produkt und PKV-Abrechnungspraxis.",
           },
         },
+        { ...DOMAIN_ERSCHLIESSUNG },
         {
-          name: "Regulatorische Anforderungen (BaFin, VVG)",
+          name: "Regulatorische Anforderungen an Software, Daten & KI",
           dep: "Evolving",
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Kenntnis regulatorischer Rahmenbedingungen (BaFin-Vorgaben, VVG) mit Auswirkung auf Produktentscheidungen. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Constraints in Anforderungen beruecksichtigen · Bei Unsicherheit Compliance/Recht einbeziehen · Auswirkungen neuer Regulatorik auf das Produkt einschaetzen«",
+            "»Kenntnis der regulatorischen Rahmenbedingungen fuer SaaS-Produkte (z. B. DSGVO, DORA, EU AI Act, NIS2) und deren Umsetzung in Anforderungen und Akzeptanzkriterien. Branchenregulatorik der Kunden (z. B. VVG, BaFin) wird als Kundenkontext beruecksichtigt. Nicht gemeint: eigenstaendige juristische Bewertung. Typische Taetigkeiten: Regulatorische Vorgaben in Stories und Akzeptanzkriterien uebersetzen · Bei Unsicherheit Datenschutz, Informationssicherheit oder Recht einbeziehen · Regulatorische Anforderungen in der Backlog-Priorisierung beruecksichtigen«",
           anchors: {
-            1: "Kennt die Begriffe BaFin und VVG; braucht Unterstuetzung bei der Einordnung.",
+            1: "Kennt die Begriffe DSGVO, DORA, AI Act und NIS2; braucht Unterstuetzung bei der Einordnung.",
             2: "Erkennt gaengige regulatorische Anforderungen in Standardfaellen.",
-            3: "Beruecksichtigt regulatorische Vorgaben eigenstaendig in der Priorisierung.",
-            4: "Bewertet neue Regulatorik auf Produktauswirkung; klaert Grenzfaelle mit Fachstellen.",
-            5: "Gilt als Ansprechpartner fuer regulatorische Produktfragen.",
+            3: "Uebersetzt regulatorische Vorgaben eigenstaendig in Anforderungen und beruecksichtigt sie in der Priorisierung.",
+            4: "Bewertet neue Regulatorik auf Auswirkungen im Backlog; klaert Grenzfaelle mit Fachstellen.",
+            5: "Gilt als Ansprechperson fuer regulatorische Anforderungen im Produktteam.",
           },
         },
         { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
@@ -2332,16 +2412,16 @@ const productOwner: Role = {
       name: "Technisch",
       skills: [
         {
-          name: "Jira & Confluence",
+          name: "Arbeitsmanagement-Tools (z. B. Jira & Confluence)",
           dep: "Evolving",
           targetLevel: 4,
           trend: "stabil",
           description:
-            "»Sicherer Umgang mit Jira und Confluence fuer Backlog-Pflege, Sprint-Planung und Dokumentation. Typische Taetigkeiten: Backlog-Items und Epics strukturiert anlegen und pflegen · Boards und Filter fuer Team-Transparenz konfigurieren · Produktdokumentation in Confluence aktuell halten«",
+            "»Sicherer Umgang mit Arbeitsmanagement-Tools (z. B. Jira und Confluence) fuer Backlog-Pflege, Sprint-Planung und Dokumentation. Typische Taetigkeiten: Backlog-Items und Epics strukturiert anlegen und pflegen · Boards und Filter fuer Team-Transparenz konfigurieren · Produktdokumentation aktuell halten«",
           anchors: {
-            1: "Bedient Jira/Confluence grundlegend; braucht Anleitung bei Konfiguration.",
+            1: "Bedient die Tools grundlegend; braucht Anleitung bei Konfiguration.",
             2: "Pflegt Backlog und Dokumentation eigenstaendig fuer Standardfaelle.",
-            3: "Nutzt Jira/Confluence vollstaendig fuer den Produktalltag; konfiguriert Boards.",
+            3: "Nutzt die Tools vollstaendig fuer den Produktalltag; konfiguriert Boards.",
             4: "Optimiert Workflows und Strukturen fuer das Team.",
             5: "Gilt als Key User; entwickelt Team-weite Nutzungsstandards.",
           },
@@ -2367,13 +2447,28 @@ const productOwner: Role = {
           targetLevel: 2,
           trend: "steigend",
           description:
-            "»Grundverstaendnis produktrelevanter Kennzahlen und Analyse-Tools zur datenbasierten Priorisierung. Typische Taetigkeiten: Produkt-KPIs (Nutzung, Conversion) auslesen und interpretieren · Hypothesen anhand von Daten pruefen · Datenbasis fuer Priorisierungsentscheidungen einbeziehen«",
+            "»Grundverstaendnis produktrelevanter Kennzahlen und Analyse-Tools zur datenbasierten Priorisierung. Die Produkt-KPIs verantwortet der Product Manager; der Product Owner nutzt sie fuer die Priorisierung. Typische Taetigkeiten: Produkt-KPIs (Nutzung, Conversion) auslesen und interpretieren · Hypothesen anhand von Daten pruefen · Datenbasis fuer Priorisierungsentscheidungen einbeziehen«",
           anchors: {
             1: "Kennt gaengige Produkt-Kennzahlen; braucht Unterstuetzung bei der Interpretation.",
             2: "Liest Standard-Dashboards eigenstaendig.",
             3: "Nutzt Daten eigenstaendig zur Absicherung von Priorisierungsentscheidungen.",
             4: "Entwickelt eigene Analysen fuer komplexe Fragestellungen.",
             5: "Etabliert eine datengetriebene Priorisierungskultur im Team.",
+          },
+        },
+        {
+          name: "Technisches Produktverstaendnis",
+          dep: "Evolving",
+          targetLevel: 4,
+          trend: "steigend",
+          description:
+            "»Verstaendnis der technischen Grundlagen des Produkts — Architektur, Schnittstellen, KI-Funktionen im Produkt, Security sowie Qualitaet und Betrieb — um Abhaengigkeiten, Aufwand und nicht-funktionale Anforderungen im Backlog richtig einzuordnen. Nicht gemeint: selbst entwickeln oder Architektur verantworten. Typische Taetigkeiten: Technische Abhaengigkeiten beim Schneiden und Priorisieren von Stories beruecksichtigen · Nicht-funktionale Anforderungen (Security, Performance, Verfuegbarkeit) in Akzeptanzkriterien aufnehmen · Akzeptanzkriterien fuer KI-Funktionen mit dem Team definieren · Incidents und technische Schulden gegen neue Features abwaegen«",
+          anchors: {
+            1: "Kennt die Grundbausteine der Produktarchitektur; braucht Erklaerung bei technischen Fragen.",
+            2: "Versteht technische Abhaengigkeiten in Grundzuegen; stellt gezielte Rueckfragen im Refinement.",
+            3: "Beruecksichtigt technische Abhaengigkeiten sowie Security- und Betriebsanforderungen eigenstaendig im Backlog.",
+            4: "Bewertet technische Optionen, KI-Funktionen und technische Schulden fundiert mit dem Team; priorisiert sie nachvollziehbar.",
+            5: "Gilt als Bruecke zwischen Produkt und Technik; praegt den Umgang mit nicht-funktionalen Anforderungen im Produktbereich.",
           },
         },
         {
@@ -2414,7 +2509,7 @@ const productOwner: Role = {
         },
         {
           name: "User Stories & Akzeptanzkriterien",
-          dep: "Durable",
+          dep: "Evolving",
           targetLevel: 4,
           keySkill: true,
           trend: "stabil",
@@ -2465,7 +2560,7 @@ const productOwner: Role = {
           targetLevel: 3,
           trend: "steigend",
           description:
-            "»Abgrenzung eines Minimum Viable Products, das mit minimalem Aufwand maximalen Lernwert oder Kundennutzen liefert. Typische Taetigkeiten: Scope eines MVP gemeinsam mit Stakeholdern abgrenzen · Kernhypothesen des MVP explizit machen · Lernergebnisse aus dem MVP in die Weiterentwicklung einspeisen«",
+            "»Uebersetzung eines Minimum Viable Products in einen umsetzbaren Backlog-Umfang, der mit minimalem Aufwand maximalen Lernwert oder Kundennutzen liefert. Was das MVP leisten soll, entscheidet der Product Manager; der Product Owner uebersetzt es in das Backlog. Typische Taetigkeiten: MVP-Vorgaben des Product Managers in Stories schneiden · Kernhypothesen des MVP explizit machen · Lernergebnisse aus dem MVP in die Weiterentwicklung einspeisen«",
           anchors: {
             1: "Kennt das Konzept; braucht Unterstuetzung bei der Abgrenzung.",
             2: "Grenzt einfache MVPs mit Anleitung ab.",
@@ -2481,7 +2576,7 @@ const productOwner: Role = {
           keySkill: true,
           trend: "stabil",
           description:
-            "»Planung von Sprints und Releases, sodass Team-Kapazitaet und Produktziele zusammenpassen. Typische Taetigkeiten: Sprint-Ziele gemeinsam mit dem Team festlegen · Release-Umfang und -Termine mit Stakeholdern abstimmen · Planung bei Aenderungen anpassen«",
+            "»Operative Planung von Sprints und Releases, sodass Team-Kapazitaet und Produktziele zusammenpassen. Den strategischen Rahmen (Roadmap, Markteinfuehrung) setzt der Product Manager. Typische Taetigkeiten: Sprint-Ziele gemeinsam mit dem Team festlegen · Release-Umfang und -Termine mit Stakeholdern abstimmen · Planung bei Aenderungen anpassen«",
           anchors: {
             1: "Nimmt an der Planung teil; braucht Unterstuetzung bei eigener Planung.",
             2: "Plant einfache Sprints eigenstaendig mit dem Team.",
@@ -2521,6 +2616,51 @@ const productOwner: Role = {
             5: "Entwickelt Forecasting-Standards fuer mehrere Teams.",
           },
         },
+        {
+          name: "Job-Mapping (Jobs to be Done)",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Analyse der Aufgaben, die Kunden mit einem Produkt erledigen wollen (Jobs to be Done), und deren Zerlegung in einzelne Arbeitsschritte (Job Map). Der Product Owner nutzt Job Maps, um Stories am tatsaechlichen Kundenbedarf auszurichten und Backlog-Items zu schneiden. Typische Taetigkeiten: Job Maps des Product Managers in Epics und Stories uebertragen · Akzeptanzkriterien am Kundenjob ausrichten · Luecken im Backlog entlang der Job Map erkennen«",
+          anchors: {
+            1: "Kennt das Konzept Jobs to be Done in Grundzuegen.",
+            2: "Nutzt vorhandene Job Maps mit Unterstuetzung fuer Stories.",
+            3: "Leitet Stories und Akzeptanzkriterien eigenstaendig aus Job Maps ab; ergaenzt Job Maps bei Bedarf.",
+            4: "Erhebt Jobs eigenstaendig und nutzt sie zur Strukturierung komplexer Backlogs.",
+            5: "Etabliert Job-Mapping als Standard in der Backlog-Arbeit mehrerer Teams.",
+          },
+        },
+        {
+          name: "Domain Storytelling",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Gemeinsames Erarbeiten und Visualisieren fachlicher Ablaeufe mit Fachexpertinnen und -experten als Bildgeschichte (Akteure, Arbeitsgegenstaende, Aktivitaeten). Der Product Owner nutzt die Methode, um Ablaeufe fuer das Team verstaendlich zu machen und Anforderungen daraus abzuleiten. Typische Taetigkeiten: Domain-Storytelling-Workshops mit Fachexperten und Team moderieren · Soll-Ablaeufe in Stories uebersetzen · Domain Stories als gemeinsames Verstaendnis im Refinement nutzen«",
+          anchors: {
+            1: "Kennt die Methode; nimmt an Workshops teil.",
+            2: "Zeichnet einfache Domain Stories mit Unterstuetzung auf.",
+            3: "Moderiert Domain-Storytelling-Workshops eigenstaendig und leitet Stories daraus ab.",
+            4: "Setzt Domain Storytelling gezielt fuer komplexe Ablaeufe ein; klaert damit Widersprueche in Anforderungen.",
+            5: "Etabliert Domain Storytelling als Standardmethode im Produktbereich; befaehigt andere.",
+          },
+        },
+        {
+          name: "Experteninterviews, Contextual Inquiry & Shadowing",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          description:
+            "»Gewinnen von Wissen ueber Fachdomaene und Arbeitsweise der Nutzer durch Interviews mit Expertinnen und Experten, Befragung im Arbeitskontext (Contextual Inquiry) und Begleitung im Arbeitsalltag (Shadowing). Der Product Owner setzt die Methoden vor allem zur Klaerung von Anforderungen und Ablaeufen ein; die Methodik der Nutzerforschung verantwortet UX. Typische Taetigkeiten: Fachexperten gezielt zu Ablaeufen und Sonderfaellen befragen · Nutzer im Arbeitsalltag beobachten, um Anforderungen zu pruefen · Erkenntnisse in Stories und Akzeptanzkriterien uebertragen«",
+          anchors: {
+            1: "Nimmt an Interviews und Beobachtungen teil; dokumentiert nach Vorgabe.",
+            2: "Fuehrt Experteninterviews mit vorbereitetem Leitfaden eigenstaendig durch.",
+            3: "Plant und fuehrt Interviews, Contextual Inquiry und Shadowing eigenstaendig durch; leitet Anforderungen ab.",
+            4: "Waehlt die passende Methode fuer die Fragestellung; deckt auch implizite Anforderungen und Sonderfaelle auf.",
+            5: "Gilt als Referenz fuer qualitative Erhebungsmethoden im Produktbereich; befaehigt andere.",
+          },
+        },
       ],
     },
     {
@@ -2548,7 +2688,7 @@ const productOwner: Role = {
           keySkill: true,
           trend: "stabil",
           description:
-            "»Aktive Abstimmung mit relevanten Stakeholdern, um Erwartungen, Prioritaeten und Zielkonflikte transparent zu managen. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen und aufloesen · Regelmaessige Abstimmungsformate etablieren«",
+            "»Aktive Abstimmung mit internen Stakeholdern (Team, Fachbereich, Product Manager), um Erwartungen, Prioritaeten und Zielkonflikte transparent zu managen. Nicht gemeint: Steuerung externer Stakeholder und des Managements; die liegt beim Product Manager. Typische Taetigkeiten: Stakeholder-Erwartungen aktiv einholen und abgleichen · Zielkonflikte zwischen Stakeholdern transparent machen und aufloesen · Regelmaessige Abstimmungsformate etablieren«",
           anchors: {
             1: "Nimmt Stakeholder-Wuensche entgegen; braucht Unterstuetzung bei der Abstimmung.",
             2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
@@ -2563,7 +2703,7 @@ const productOwner: Role = {
           targetLevel: 4,
           trend: "stabil",
           description:
-            "»Systematische Erhebung von Anforderungen aus Fachbereich, Kunden und Stakeholdern als Grundlage fuer den Backlog. Typische Taetigkeiten: Anforderungsgespraeche strukturiert fuehren · Anforderungen praezise dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
+            "»Systematische Erhebung und Detaillierung von Anforderungen auf Story-Ebene als Grundlage fuer den Backlog. Epics mit Problem, Ziel und Erfolgskriterien liefert der Product Manager; der Product Owner arbeitet sie mit Fachbereich und Stakeholdern zu Stories und Akzeptanzkriterien aus. Typische Taetigkeiten: Anforderungsgespraeche strukturiert fuehren · Anforderungen praezise dokumentieren · Widerspruechliche Anforderungen erkennen und klaeren«",
           anchors: {
             1: "Nimmt Anforderungen entgegen, wie sie formuliert werden.",
             2: "Erhebt Standard-Anforderungen eigenstaendig mit Leitfaden.",
@@ -2603,18 +2743,34 @@ const ux: Role = {
       name: "Fachlich",
       skills: [
         {
-          name: "Versicherungsprodukte & Kundenreisen",
+          name: "PKV-Abrechnung & User-Journeys",
           dep: "Durable",
           targetLevel: 3,
           trend: "stabil",
           description:
-            "»Verstaendnis der Versicherungsprodukte, Vertriebswege und typischen Kundenreisen (Abschluss, Schadensfall, Vertragsaenderung) als Grundlage fuer nutzerzentrierte Design-Entscheidungen im Produktteam. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der Kundenreise einordnen · Produktlogik in Design-Entscheidungen uebersetzen · Mit Product Management auf Augenhoehe ueber Versicherungsprozesse sprechen«",
+            "»Verstaendnis der fachlichen Grundlagen und Prozesse der privaten Krankenversicherung (PKV) — insbesondere medizinische Leistungsabrechnung, Rechnungspruefung sowie GOAE und GOZ — und der User-Journeys der Nutzer, die diese Prozesse im Produkt bearbeiten. Typische Taetigkeiten: Nutzerbeduerfnisse entlang der User-Journey in der Rechnungspruefung einordnen · Fachliche Pruef- und Abrechnungslogik in Design-Entscheidungen uebersetzen · Mit Product Management und Fachexperten auf Augenhoehe ueber Abrechnungsablaeufe sprechen«",
           anchors: {
-            1: "Kennt grundlegende Versicherungsbegriffe; braucht Erklaerung bei Fachfragen.",
-            2: "Versteht typische Kundenreisen und Produktarten; ordnet Screens grob ein.",
-            3: "Gestaltet eigenstaendig fuer versicherungsspezifische Prozesse; stellt gezielte Fachfragen.",
-            4: "Erkennt Optimierungspotenzial in Kundenreisen; beraet Product Management zu Nutzerimplikationen.",
-            5: "Gilt als Schnittstelle zwischen Design und Versicherungsfachlichkeit im Produktteam.",
+            1: "Kennt grundlegende Begriffe der PKV-Abrechnung; braucht Erklaerung bei Fachfragen.",
+            2: "Versteht typische User-Journeys in Abrechnung und Rechnungspruefung; ordnet Screens grob ein.",
+            3: "Gestaltet eigenstaendig fuer die fachlichen Ablaeufe der Rechnungspruefung; stellt gezielte Fachfragen.",
+            4: "Erkennt Optimierungspotenzial in User-Journeys; beraet Product Management zu Nutzerimplikationen.",
+            5: "Gilt als Schnittstelle zwischen Design und PKV-Fachlichkeit im Produktteam.",
+          },
+        },
+        { ...DOMAIN_ERSCHLIESSUNG },
+        {
+          name: "Agile Prinzipien",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "stabil",
+          description:
+            "»Kenntnis agiler Prinzipien und Vorgehensmodelle (z. B. Scrum, Kanban) als gemeinsame Basis fuer die Zusammenarbeit im Produktteam. UX bringt Design- und Forschungsarbeit so ein, dass sie zum iterativen Vorgehen des Teams passt. Typische Taetigkeiten: Design- und Forschungsarbeit mit dem Sprint-Rhythmus abstimmen · Designs rechtzeitig vor dem Refinement bereitstellen · Erkenntnisse aus Reviews in die naechste Design-Iteration einspeisen«",
+          anchors: {
+            1: "Kennt agile Grundbegriffe und die Termine des Scrum-Teams.",
+            2: "Versteht Sinn und Zweck agiler Rollen, Termine und Artefakte; plant eigene Arbeit danach.",
+            3: "Bringt Design- und Forschungsarbeit eigenstaendig passend zum Sprint-Rhythmus ein.",
+            4: "Gestaltet das Zusammenspiel von Discovery und Delivery im Team aktiv mit (z. B. Dual Track).",
+            5: "Gilt als Referenz fuer agiles UX-Arbeiten; entwickelt das Vorgehen im Produktbereich weiter.",
           },
         },
         { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
@@ -2669,40 +2825,40 @@ const ux: Role = {
             5: "Definiert Nutzungsstandards fuer KI-Tools im Designprozess.",
           },
         },
+        {
+          name: "Technisches Produktverstaendnis",
+          dep: "Evolving",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Verstaendnis der technischen Grundlagen des Produkts — Architektur, Schnittstellen, KI-Funktionen im Produkt, Security sowie Qualitaet und Betrieb — soweit sie die Gestaltung beeinflussen, inkl. Datenschutz (Privacy by Design) und Barrierefreiheit. Nicht gemeint: selbst entwickeln. Typische Taetigkeiten: Technische Machbarkeit von Designs frueh mit der Entwicklung klaeren · KI-Funktionen nutzerverstaendlich gestalten (Transparenz, Fehlertoleranz) · Datenschutz- und Barrierefreiheitsanforderungen im Design beruecksichtigen · Fehler- und Ausfallzustaende mitgestalten«",
+          anchors: {
+            1: "Kennt die Grundbausteine der Produktarchitektur; braucht Erklaerung bei technischen Fragen.",
+            2: "Versteht technische Rahmenbedingungen in Grundzuegen; stellt gezielte Rueckfragen.",
+            3: "Beruecksichtigt technische Machbarkeit, Datenschutz und Barrierefreiheit eigenstaendig im Design.",
+            4: "Gestaltet KI-Funktionen sowie Fehler- und Ausfallzustaende fundiert gemeinsam mit der Entwicklung.",
+            5: "Gilt als Bruecke zwischen Design und Technik im Produktbereich.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
         {
-          name: "Nutzerforschung & Interviews",
+          name: "Nutzerforschung & Personas",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Planung und Durchfuehrung einfacher qualitativer Interviews zur Erhebung von Nutzerbeduerfnissen und Schmerzpunkten. Typische Taetigkeiten: Interviewleitfaeden mit Unterstuetzung entwickeln · Interviews ergebnisoffen fuehren · Erkenntnisse strukturiert festhalten und teilen«",
+            "»Planung, Durchfuehrung und Auswertung von Nutzerforschung — inkl. Usability-Forschung — und Verdichtung der Ergebnisse zu Personas und klar formulierten Nutzerbeduerfnissen. UX verantwortet Methodik und Durchfuehrung; der Product Manager nutzt die Ergebnisse und forscht selbst zum Problem- und Marktverstaendnis. Einzelne Erhebungsmethoden beschreiben eigene Skills (z. B. Experteninterviews, Contextual Inquiry & Shadowing). Typische Taetigkeiten: Forschungsfragen mit Product Management klaeren und passende Methoden waehlen · Forschung planen, durchfuehren und auswerten · Personas aus den Ergebnissen ableiten und aktuell halten · Erkenntnisse fuer das Team verstaendlich aufbereiten«",
           anchors: {
-            1: "Fuehrt Interviews nach vorgegebenem Leitfaden; braucht Coaching.",
-            2: "Entwickelt einfache Leitfaeden und fuehrt Standardinterviews eigenstaendig.",
-            3: "Fuehrt Interviews souveraen und ergebnisoffen; leitet Erkenntnisse ab.",
-            4: "Passt Interviewmethodik an komplexere Fragestellungen an.",
-            5: "Gilt als Ansprechpartnerin fuer Nutzerforschung im Produktteam.",
-          },
-        },
-        {
-          name: "Personas & Nutzerbeduerfnisse",
-          dep: "Durable",
-          targetLevel: 2,
-          trend: "stabil",
-          description:
-            "»Verdichtung von Nutzerforschung zu Personas und klar formulierten Nutzerbeduerfnissen als gemeinsame Grundlage fuer Produktentscheidungen. Typische Taetigkeiten: Personas aus Nutzerforschung ableiten und aktuell halten · Nutzerbeduerfnisse fuer Feature-Entscheidungen einordnen · Team fuer Nutzerperspektive sensibilisieren«",
-          anchors: {
-            1: "Kennt bestehende Personas; wendet sie mit Anleitung an.",
-            2: "Aktualisiert Personas eigenstaendig anhand neuer Erkenntnisse.",
-            3: "Leitet eigenstaendig Personas und Beduerfnisse aus Nutzerforschung ab.",
-            4: "Nutzt Personas gezielt zur Priorisierung; vermittelt Nutzerperspektive im Team.",
-            5: "Etabliert Personas als festen Bestandteil der Produktarbeit.",
+            1: "Unterstuetzt Nutzerforschung nach Vorgabe; kennt bestehende Personas.",
+            2: "Plant und fuehrt einfache Forschungsvorhaben mit Unterstuetzung durch; aktualisiert Personas.",
+            3: "Plant, fuehrt und wertet Nutzerforschung eigenstaendig aus; leitet Personas und Beduerfnisse ab.",
+            4: "Waehlt Forschungsmethodik passend zu komplexen Fragestellungen; nutzt Personas gezielt fuer Produktentscheidungen.",
+            5: "Gilt als Ansprechperson fuer Nutzerforschung im Produktbereich; etabliert Forschungsstandards.",
           },
         },
         {
@@ -2752,6 +2908,51 @@ const ux: Role = {
             5: "Etabliert einen strukturierten Feedback-Prozess im Produktteam.",
           },
         },
+        {
+          name: "Job-Mapping (Jobs to be Done)",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Analyse der Aufgaben, die Nutzer mit einem Produkt erledigen wollen (Jobs to be Done), und deren Zerlegung in einzelne Arbeitsschritte (Job Map). UX nutzt Job Maps, um Ablaeufe und Oberflaechen am tatsaechlichen Arbeitsziel der Nutzer auszurichten. Typische Taetigkeiten: Jobs und Arbeitsschritte in der Nutzerforschung erheben · Job Maps mit User-Journeys verbinden · Design-Varianten am Kundenjob pruefen«",
+          anchors: {
+            1: "Kennt das Konzept Jobs to be Done in Grundzuegen.",
+            2: "Nutzt vorhandene Job Maps mit Unterstuetzung fuer Design-Entscheidungen.",
+            3: "Erhebt Jobs eigenstaendig und richtet Ablaeufe und Designs daran aus.",
+            4: "Verbindet Job Maps und User-Journeys zu belastbaren Gestaltungsgrundlagen; befaehigt das Team.",
+            5: "Etabliert Job-Mapping als Standardmethode in der UX-Arbeit.",
+          },
+        },
+        {
+          name: "Domain Storytelling",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Gemeinsames Erarbeiten und Visualisieren fachlicher Ablaeufe mit Fachexpertinnen und -experten als Bildgeschichte (Akteure, Arbeitsgegenstaende, Aktivitaeten). UX nutzt die Methode, um Arbeitsablaeufe der Nutzer zu verstehen und als Grundlage fuer User-Journeys und Screens zu nutzen. Typische Taetigkeiten: Domain-Storytelling-Workshops mitgestalten und visualisieren · Ablaeufe in User-Journeys und Screenfluesse uebertragen · Domain Stories zur Abstimmung mit Fachexperten nutzen«",
+          anchors: {
+            1: "Kennt die Methode; nimmt an Workshops teil.",
+            2: "Zeichnet einfache Domain Stories mit Unterstuetzung auf.",
+            3: "Moderiert Domain-Storytelling-Workshops eigenstaendig und leitet Design-Grundlagen ab.",
+            4: "Setzt Domain Storytelling gezielt fuer komplexe Ablaeufe ein; verbindet es mit User-Journeys.",
+            5: "Etabliert Domain Storytelling als Standardmethode im Produktbereich; befaehigt andere.",
+          },
+        },
+        {
+          name: "Experteninterviews, Contextual Inquiry & Shadowing",
+          dep: "Durable",
+          targetLevel: 4,
+          trend: "steigend",
+          description:
+            "»Gewinnen von Wissen ueber Nutzer und ihre Arbeitsweise durch Interviews mit Expertinnen und Experten, Befragung im Arbeitskontext (Contextual Inquiry) und Begleitung im Arbeitsalltag (Shadowing). UX verantwortet die Methodik dieser Erhebungen im Produktteam. Typische Taetigkeiten: Leitfaeden und Beobachtungsraster entwickeln · Interviews und Beobachtungen ergebnisoffen durchfuehren · Erkenntnisse strukturiert auswerten und fuer Design und Produktentscheidungen aufbereiten · Product Manager und Product Owner methodisch beraten«",
+          anchors: {
+            1: "Nimmt an Interviews und Beobachtungen teil; dokumentiert nach Vorgabe.",
+            2: "Fuehrt Interviews mit vorbereitetem Leitfaden eigenstaendig durch.",
+            3: "Plant und fuehrt Interviews, Contextual Inquiry und Shadowing eigenstaendig durch; leitet Erkenntnisse ab.",
+            4: "Waehlt und kombiniert Methoden passend zur Fragestellung; beraet Product Management methodisch.",
+            5: "Gilt als Referenz fuer qualitative Erhebungsmethoden im Produktbereich; befaehigt andere.",
+          },
+        },
       ],
     },
     {
@@ -2797,27 +2998,28 @@ const businessDeveloper: Role = {
   id: "business-developer",
   name: "Business Developer",
   description:
-    "Kommerzielle Weiterentwicklung des Produkts — Pricing, Vertrags- und Accountmanagement sowie Aufbau strategischer Kooperationen und Partnerschaften.",
+    "Kommerzielle Weiterentwicklung des Produkts im Kundengeschaeft — Preis- und Konditionsgestaltung, Vertrags- und Accountmanagement sowie Aufbau strategischer Kooperationen und Partnerschaften.",
   categories: [
     {
       name: "Fachlich",
       skills: [
         {
-          name: "Versicherungsmarkt & Wettbewerbslandschaft",
+          name: "PKV-Markt & Wettbewerbslandschaft",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Kenntnis des Versicherungsmarktes, relevanter Wettbewerber und Marktentwicklungen als Grundlage fuer Preis-, Account- und Partnerschaftsentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Positionierung des eigenen Produkts im Markt einordnen · Marktchancen fuer neue Kooperationen identifizieren«",
+            "»Kenntnis der fachlichen Grundlagen der privaten Krankenversicherung (PKV) — insbesondere medizinische Leistungsabrechnung, Rechnungspruefung sowie GOAE und GOZ — und des Marktes fuer Abrechnungs- und Pruefloesungen mit seinen Wettbewerbern als Grundlage fuer Account-, Konditions- und Partnerschaftsentscheidungen. Typische Taetigkeiten: Markt- und Wettbewerbsentwicklungen laufend verfolgen · Positionierung des eigenen Produkts im Markt einordnen · Mit Kunden auf Augenhoehe ueber Abrechnungs- und Pruefprozesse sprechen · Marktchancen fuer neue Kooperationen identifizieren«",
           anchors: {
-            1: "Kennt die wichtigsten Marktteilnehmer; braucht Unterstuetzung bei der Einordnung.",
+            1: "Kennt die wichtigsten Marktteilnehmer und Grundbegriffe der PKV-Abrechnung; braucht Unterstuetzung bei der Einordnung.",
             2: "Verfolgt Marktentwicklungen und ordnet sie grundlegend ein.",
             3: "Ordnet Markt- und Wettbewerbsentwicklungen eigenstaendig in Geschaeftsentscheidungen ein.",
             4: "Erkennt Marktchancen fruehzeitig; leitet strategische Empfehlungen ab.",
-            5: "Gilt als Marktexpertin; praegt die Positionierung des Unternehmens im Markt.",
+            5: "Gilt als Marktexpertin oder Marktexperte; praegt die Positionierung des Unternehmens im Markt.",
           },
         },
+        { ...DOMAIN_ERSCHLIESSUNG },
         {
           name: "Vertragsrecht & Konditionengestaltung (Grundlagen)",
           dep: "Evolving",
@@ -2834,19 +3036,18 @@ const businessDeveloper: Role = {
           },
         },
         {
-          name: "Pricing- & Geschaeftsmodelle",
+          name: "Agile Prinzipien",
           dep: "Durable",
-          targetLevel: 3,
-          keySkill: true,
+          targetLevel: 2,
           trend: "stabil",
           description:
-            "»Verstaendnis der Geschaefts- und Preismodelle des eigenen Produkts sowie gaengiger Modelle von Softwareanbietern. Typische Taetigkeiten: Auswirkungen von Preisentscheidungen auf das Geschaeftsmodell einschaetzen · Geschaeftsmodell gegenueber Kunden und Partnern erklaeren · Produktkategorien, -funktionen, Geschaefts- und Preismodelle von Wettbewerbern verstehen und einordnen«",
+            "»Grundverstaendnis agiler Prinzipien und Vorgehensmodelle (z. B. Scrum, Kanban), um Kunden und Partnern iterative Lieferung und Roadmap-Zusagen realistisch zu vermitteln. Typische Taetigkeiten: Kundenerwartungen an Liefertermine und Funktionsumfang realistisch steuern · Kundenfeedback ueber die vorgesehenen Wege (z. B. Review, Product Owner) einbringen · Iteratives Vorgehen gegenueber Kunden erklaeren«",
           anchors: {
-            1: "Kennt das eigene Geschaeftsmodell in Grundzuegen.",
-            2: "Erklaert das Geschaeftsmodell und gaengige Preismodelle nachvollziehbar.",
-            3: "Ordnet Preisentscheidungen eigenstaendig in das Geschaeftsmodell ein.",
-            4: "Bewertet alternative Preis- und Geschaeftsmodelle fundiert; beraet dazu.",
-            5: "Entwickelt das Geschaefts- und Preismodell aktiv mit.",
+            1: "Kennt agile Grundbegriffe.",
+            2: "Versteht iteratives Liefern und beruecksichtigt es in Kundenzusagen.",
+            3: "Erklaert Kunden das agile Vorgehen sicher; bringt Kundenfeedback eigenstaendig passend zum Sprint-Rhythmus ein.",
+            4: "Verbindet Kundenanforderungen und agile Planung auch in schwierigen Kundensituationen.",
+            5: "Praegt den agilen Umgang mit Kunden im Geschaeftsbereich.",
           },
         },
         { ...RUMP_DIGITALE_V2, targetLevel: 3, trend: "stark steigend" },
@@ -2886,25 +3087,40 @@ const businessDeveloper: Role = {
             5: "Definiert KI-Nutzungsstandards fuer den Geschaeftsbereich.",
           },
         },
+        {
+          name: "Technisches Produktverstaendnis",
+          dep: "Evolving",
+          targetLevel: 2,
+          trend: "steigend",
+          description:
+            "»Verstaendnis der technischen Grundlagen des Produkts — Schnittstellen und Integration, KI-Funktionen im Produkt, Security und Datenschutz sowie Qualitaet und Betrieb (Verfuegbarkeit, SLAs) — soweit Kunden und Partner danach fragen. Nicht gemeint: technische Detailberatung; die leisten Produkt und Entwicklung. Typische Taetigkeiten: Integrations- und Schnittstellenfragen von Kunden einordnen · Security-, Datenschutz- und SLA-Anfragen mit Unterstuetzung beantworten · KI-Funktionen des Produkts verstaendlich erklaeren«",
+          anchors: {
+            1: "Kennt die wichtigsten technischen Merkmale des Produkts dem Namen nach.",
+            2: "Erklaert Schnittstellen, KI-Funktionen, Security und SLAs in Grundzuegen; zieht bei Detailfragen Fachleute hinzu.",
+            3: "Beantwortet technische Standardfragen von Kunden eigenstaendig; erkennt, wann Fachleute noetig sind.",
+            4: "Bewertet technische Kundenanforderungen auf Machbarkeit und Aufwand gemeinsam mit Produkt und Entwicklung.",
+            5: "Gilt als technisch versierte Ansprechperson im Kundengeschaeft.",
+          },
+        },
       ],
     },
     {
       name: "Methodisch",
       skills: [
         {
-          name: "Preisentwicklung & Pricing-Strategie",
+          name: "Preis- und Konditionsgestaltung im Kundengeschaeft",
           dep: "Durable",
           targetLevel: 3,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Weiterentwicklung von Preisen und Preismodellen auf Basis von Markt-, Wettbewerbs- und Kundendaten. Typische Taetigkeiten: Preisanpassungen datenbasiert vorbereiten und begruenden · Preismodelle gegen Markt- und Wettbewerbsentwicklung pruefen · Auswirkungen von Preisaenderungen auf Umsatz und Kundenbindung einschaetzen«",
+            "»Umsetzung des Preismodells in Angeboten und Kundenkonditionen innerhalb der vom Product Manager gesetzten Leitplanken. Nicht gemeint: Entwicklung des Preis- und Geschaeftsmodells; das verantwortet der Product Manager. Typische Taetigkeiten: Angebote und Konditionen im Rahmen des Preismodells kalkulieren · Rabatte und Sonderkonditionen begruenden und abstimmen · Rueckmeldungen aus Markt und Kundengespraechen an den Product Manager geben · Auswirkungen von Konditionen auf Umsatz und Kundenbindung einschaetzen«",
           anchors: {
-            1: "Setzt vorgegebene Preise um; braucht Unterstuetzung bei Anpassungen.",
-            2: "Bereitet einfache Preisanpassungen mit Anleitung vor.",
-            3: "Bereitet Preisanpassungen eigenstaendig datenbasiert vor und begruendet sie.",
-            4: "Entwickelt Preismodelle eigenstaendig weiter; bewertet komplexe Auswirkungen.",
-            5: "Verantwortet die Pricing-Strategie fuer den Geschaeftsbereich.",
+            1: "Setzt vorgegebene Preise um; braucht Unterstuetzung bei Konditionen.",
+            2: "Kalkuliert Standardangebote eigenstaendig im Rahmen des Preismodells.",
+            3: "Gestaltet Angebote und Konditionen eigenstaendig innerhalb der Leitplanken; begruendet Abweichungen.",
+            4: "Gestaltet Konditionen fuer komplexe Kundensituationen; liefert fundierte Impulse fuer die Weiterentwicklung des Preismodells.",
+            5: "Setzt Standards fuer Angebots- und Konditionsgestaltung im Geschaeftsbereich.",
           },
         },
         {
@@ -3000,25 +3216,55 @@ const businessDeveloper: Role = {
             5: "Definiert Standards fuer die Business-Case-Bewertung im Geschaeftsbereich.",
           },
         },
+        {
+          name: "Job-Mapping (Jobs to be Done)",
+          dep: "Durable",
+          targetLevel: 2,
+          trend: "steigend",
+          description:
+            "»Verstaendnis der Aufgaben, die Kunden mit dem Produkt erledigen wollen (Jobs to be Done), und deren Arbeitsschritte (Job Map). Der Business Developer nutzt Job Maps, um Kundenbedarf zu verstehen und den Produktnutzen im Kundengespraech zu argumentieren. Typische Taetigkeiten: Kundenbedarf in Gespraechen entlang der Kundenjobs erfragen · Nutzenargumentation an Job Maps ausrichten · Erkenntnisse aus Kundengespraechen an Product Management weitergeben«",
+          anchors: {
+            1: "Kennt das Konzept Jobs to be Done in Grundzuegen.",
+            2: "Nutzt vorhandene Job Maps fuer Kundengespraeche und Nutzenargumentation.",
+            3: "Erhebt Kundenjobs eigenstaendig in Gespraechen und leitet Potenziale ab.",
+            4: "Nutzt Job Maps strategisch fuer Account- und Kooperationsentwicklung.",
+            5: "Etabliert Job-Mapping im Kundengeschaeft des Geschaeftsbereichs.",
+          },
+        },
+        {
+          name: "Experteninterviews, Contextual Inquiry & Shadowing",
+          dep: "Durable",
+          targetLevel: 3,
+          trend: "steigend",
+          description:
+            "»Gewinnen von Wissen ueber Kunden, Markt und Arbeitsweise durch Interviews mit Expertinnen und Experten, Befragung im Arbeitskontext (Contextual Inquiry) und Begleitung im Arbeitsalltag (Shadowing). Der Business Developer setzt die Methoden vor allem bei Kunden und Partnern ein; die Methodik der Nutzerforschung verantwortet UX. Typische Taetigkeiten: Kunden- und Partnergespraeche als strukturierte Interviews vorbereiten · Kunden bei der Arbeit begleiten, um Bedarf und Potenziale zu erkennen · Erkenntnisse fuer Product Management aufbereiten«",
+          anchors: {
+            1: "Nimmt an Interviews und Beobachtungen teil; dokumentiert nach Vorgabe.",
+            2: "Fuehrt Experteninterviews mit vorbereitetem Leitfaden eigenstaendig durch.",
+            3: "Plant und fuehrt Interviews und Beobachtungen bei Kunden eigenstaendig durch; leitet Erkenntnisse ab.",
+            4: "Waehlt die passende Methode fuer die Fragestellung; erschliesst auch schwer zugaengliches Kunden- und Marktwissen.",
+            5: "Gilt als Referenz fuer qualitative Kunden- und Markterhebungen im Geschaeftsbereich.",
+          },
+        },
       ],
     },
     {
       name: "Kommunikation & Zusammenarbeit",
       skills: [
         {
-          name: "Kundenbeziehungsmanagement & Kundenpflege",
+          name: "Kunden- & Stakeholdermanagement",
           dep: "Durable",
           targetLevel: 4,
           keySkill: true,
           trend: "stabil",
           description:
-            "»Aufbau und Pflege vertrauensvoller, langfristiger Kundenbeziehungen als Grundlage fuer Kundenbindung und Geschaeftswachstum. Typische Taetigkeiten: Regelmaessigen Kontakt zu Schluesselkunden pflegen · Kundenzufriedenheit aktiv erfragen und sichern · Bei Unzufriedenheit fruehzeitig gegensteuern«",
+            "»Aufbau und Pflege vertrauensvoller, langfristiger Beziehungen zu Kunden und Partnern sowie Abstimmung mit internen Stakeholdern (Product, Finance, Recht), um Kundenbindung, Accounts und Kooperationen erfolgreich zu steuern. Typische Taetigkeiten: Regelmaessigen Kontakt zu Schluesselkunden und Partnern pflegen · Kundenzufriedenheit aktiv erfragen und bei Unzufriedenheit fruehzeitig gegensteuern · Interne Stakeholder frueh in Kunden- und Kooperationsvorhaben einbinden · Erwartungen zwischen internen und externen Partnern ausgleichen«",
           anchors: {
-            1: "Haelt Kundenkontakt auf Anfrage; braucht Unterstuetzung bei der Pflege.",
-            2: "Pflegt Kundenkontakt regelmaessig und zuverlaessig.",
-            3: "Baut vertrauensvolle Kundenbeziehungen eigenstaendig auf und pflegt sie aktiv.",
-            4: "Erkennt Unzufriedenheit fruehzeitig; steuert proaktiv gegen und staerkt die Bindung.",
-            5: "Gilt als vertrauenswuerdige Ansprechpartnerin fuer Schluesselkunden; praegt die Kundenkultur.",
+            1: "Haelt Kunden- und Stakeholderkontakt auf Anfrage; braucht Unterstuetzung bei der Abstimmung.",
+            2: "Pflegt Kundenkontakt regelmaessig und fuehrt Standardabstimmungen eigenstaendig durch.",
+            3: "Baut vertrauensvolle Kunden- und Partnerbeziehungen eigenstaendig auf; stimmt sich konsistent mit internen Stakeholdern ab.",
+            4: "Erkennt Unzufriedenheit und Zielkonflikte fruehzeitig; steuert proaktiv gegen und staerkt die Bindung.",
+            5: "Gilt als vertrauenswuerdige Ansprechperson fuer Schluesselkunden; setzt Standards fuer Kunden- und Stakeholderarbeit.",
           },
         },
         {
@@ -3034,21 +3280,6 @@ const businessDeveloper: Role = {
             3: "Verhandelt Preise und Konditionen professionell; nutzt Verhandlungstechniken.",
             4: "Fuehrt komplexe Mehrparteienverhandlungen; sichert Geschaeftsziele.",
             5: "Gilt als Verhandlungsexpertin; coacht andere.",
-          },
-        },
-        {
-          name: "Stakeholder- & Partnermanagement",
-          dep: "Durable",
-          targetLevel: 3,
-          trend: "stabil",
-          description:
-            "»Abstimmung mit internen Stakeholdern (Product, Finance, Recht) und externen Partnern, um Kooperationen und Accounts erfolgreich zu steuern. Typische Taetigkeiten: Interne Stakeholder frueh in Kooperationsvorhaben einbinden · Erwartungen zwischen internen und externen Partnern ausgleichen · Regelmaessige Abstimmungsformate etablieren«",
-          anchors: {
-            1: "Nimmt Abstimmungsbedarfe entgegen; braucht Unterstuetzung.",
-            2: "Fuehrt Standardabstimmungen eigenstaendig durch.",
-            3: "Steuert Stakeholder- und Partnerbeziehungen eigenstaendig und konsistent.",
-            4: "Navigiert komplexe Zielkonflikte zwischen mehreren Parteien.",
-            5: "Setzt Standards fuer Stakeholder- und Partnerarbeit im Geschaeftsbereich.",
           },
         },
         {
@@ -7068,7 +7299,7 @@ const backofficeDrivers: MarketDriver[] = [
   },
 ];
 
-/** Markttreiber Produktmanagement (August 2026). */
+/** Markttreiber Produktmanagement (Oktober 2026, nach Workshop: B2B/SaaS-Ausrichtung). */
 const produktmanagementDrivers: MarketDriver[] = [
   {
     id: "drv-pdm-ki-transformation",
@@ -7078,48 +7309,104 @@ const produktmanagementDrivers: MarketDriver[] = [
       "KI-Tools veraendern die Produktarbeit ueber alle Rollen hinweg — von Anforderungstexten und Recherche (Product Manager/Owner) ueber Design-Ideation (UX) bis zur Vertriebsvorbereitung (Business Developer). Wer KI-Outputs nicht kritisch pruefen und gezielt einsetzen kann, verliert Tempo und Qualitaet gegenueber schnelleren Wettbewerbern.",
     affectedSkillNames: [
       "Digitale Anwendungskompetenz",
+      "KI-Tools fuer Produktanalyse",
       "KI-Tools im Produktkontext",
       "KI-Tools im Designprozess",
       "KI-Tools fuer Vertriebs-/Accountarbeit",
     ],
   },
   {
-    id: "drv-pdm-regulatorik-produkte",
-    title: "Regulatorischer Druck auf Versicherungsprodukte (VVG, BaFin, DORA, EU AI Act)",
+    id: "drv-pdm-ki-im-produkt",
+    title: "KI im Produkt",
+    horizon: "0–2 Jahre",
+    description:
+      "Kunden erwarten, dass SaaS-Produkte KI als Funktion enthalten — etwa zur automatisierten Pruefung von Rechnungen. Produktrollen muessen Nutzen, Grenzen und Risiken von KI-Funktionen beurteilen, sie nutzerverstaendlich gestalten und regulatorisch absichern.",
+    affectedSkillNames: [
+      "Technisches Produktverstaendnis",
+      "Produktstrategie & Vision",
+      "Discovery & Customer Insight",
+      "Regulatorik fuer Software, Daten & KI (DSGVO, DORA, AI Act, NIS2)",
+      "Regulatorische Anforderungen an Software, Daten & KI",
+    ],
+  },
+  {
+    id: "drv-pdm-security-kaufkriterium",
+    title: "Security und Datenschutz als Kaufkriterium",
+    horizon: "0–2 Jahre",
+    description:
+      "Abrechnungs- und Gesundheitsdaten sind besonders schutzbeduerftig. Kunden pruefen Security- und Datenschutznachweise schon im Einkauf und verankern sie in Vertraegen und SLAs. Produktrollen muessen diese Anforderungen frueh einplanen und gegenueber Kunden belastbar beantworten koennen.",
+    affectedSkillNames: [
+      "Technisches Produktverstaendnis",
+      "Vertragsrecht & Konditionengestaltung (Grundlagen)",
+      "Kunden- & Stakeholdermanagement",
+      "Regulatorische Anforderungen an Software, Daten & KI",
+    ],
+  },
+  {
+    id: "drv-pdm-roi-nachweis",
+    title: "ROI-Nachweis",
     horizon: "0–3 Jahre",
     description:
-      "Versicherungsprodukte und die zugrundeliegende Software unterliegen wachsendem regulatorischem Druck — von Produktaufsicht (VVG/BaFin) ueber operationale Resilienz (DORA) bis zu KI-spezifischen Vorgaben (EU AI Act). Produktverantwortliche muessen Regulatorik fruehzeitig in Anforderungen, Vertraege und Priorisierung einpreisen.",
+      "B2B-Kunden kaufen Software nur noch mit belegbarem wirtschaftlichem Nutzen, z. B. messbaren Einsparungen in der Rechnungspruefung. Produkt und Vertrieb muessen Business Cases rechnen, Nutzen messen und ueberzeugend argumentieren.",
     affectedSkillNames: [
-      "Regulatorik fuer Versicherungsprodukte (VVG, BaFin)",
-      "Regulatorische Anforderungen (BaFin, VVG)",
-      "Vertragsrecht & Konditionengestaltung (Grundlagen)",
+      "Geschaeftsmodell, Pricing & Business Case",
+      "OKRs & Produkt-KPIs",
+      "Business-Case-Bewertung fuer Kooperationen",
+      "Preis- und Konditionsgestaltung im Kundengeschaeft",
+      "Storytelling & Pitch",
+      "Praesentation & Angebotskommunikation",
     ],
   },
   {
-    id: "drv-pdm-insurtech-oekosysteme",
-    title: "Insurtech-Wettbewerb & Plattform-Oekosysteme",
+    id: "drv-pdm-standardsoftware",
+    title: "Standardsoftware statt Individualentwicklung",
     horizon: "1–3 Jahre",
     description:
-      "Insurtechs, Vergleichsportale und Embedded-Insurance-Modelle erhoehen den Preis- und Innovationsdruck. Erfolg haengt zunehmend von strategischen Kooperationen, differenziertem Pricing und schneller Marktbeobachtung ab — statt von isolierter Produktentwicklung.",
+      "Kunden bevorzugen konfigurierbare Standardprodukte gegenueber Individualloesungen. Produktrollen muessen Einzelkundenwuensche konsequent gegen den Nutzen fuer die gesamte Kundenbasis abwaegen und das Portfolio auf wiederverwendbare Loesungen ausrichten.",
     affectedSkillNames: [
-      "Pricing- & Geschaeftsmodelle",
-      "Preisentwicklung & Pricing-Strategie",
+      "Roadmapping, Priorisierung & Produkt-Lifecycle",
+      "Portfolio-Management",
+      "Produktstrategie & Vision",
+      "Job-Mapping (Jobs to be Done)",
+      "Kunden- & Stakeholdermanagement",
+    ],
+  },
+  {
+    id: "drv-pdm-plattform-integration",
+    title: "Plattform- und Integrationsoekosysteme",
+    horizon: "1–3 Jahre",
+    description:
+      "SaaS-Produkte muessen sich nahtlos in die Systemlandschaften der Kunden und in Partner-Oekosysteme einfuegen. Schnittstellen, Integrationsfaehigkeit und Kooperationen werden zum Wettbewerbsfaktor.",
+    affectedSkillNames: [
+      "Technisches Produktverstaendnis",
       "Kooperations- & Partnerschaftsentwicklung",
-      "Markt- und Wettbewerbsanalyse",
       "Markt- & Partnerschaftsanalyse",
+      "Markt- und Wettbewerbsanalyse",
     ],
   },
   {
-    id: "drv-pdm-nutzerzentrierung",
-    title: "Nutzerzentrierte, digitale Kundenerlebnisse",
+    id: "drv-pdm-technische-trends",
+    title: "Technische Trends (Cloud, API-first, Low-Code)",
     horizon: "1–3 Jahre",
     description:
-      "Kundinnen und Kunden erwarten durchgaengig digitale, einfache Abschluss- und Schadenprozesse, wie sie es aus anderen Branchen gewohnt sind. Produkt- und UX-Rollen muessen Nutzerbeduerfnisse kontinuierlich erheben und schnell in validierte, priorisierte Verbesserungen uebersetzen.",
+      "Cloud-Betrieb, API-first-Architekturen und Low-Code-Plattformen veraendern, wie schnell und zu welchen Kosten Produkte entwickelt, betrieben und erweitert werden. Produktrollen muessen diese Trends in Strategie, Portfolio und Machbarkeitsbewertungen einbeziehen.",
     affectedSkillNames: [
-      "Nutzerforschung & Interviews",
-      "Nutzerfeedback einholen & einarbeiten",
-      "Discovery & Validation",
-      "Customer Lifecycle Management",
+      "Technisches Produktverstaendnis",
+      "Produktstrategie & Vision",
+      "Portfolio-Management",
+    ],
+  },
+  {
+    id: "drv-pdm-regulatorik-software",
+    title: "Regulatorik fuer Software, Daten und KI (DSGVO, DORA, AI Act, NIS2)",
+    horizon: "0–3 Jahre",
+    description:
+      "Software-Anbieter fuer regulierte Kunden unterliegen wachsenden Pflichten — Datenschutz (DSGVO), operationale Resilienz (DORA), KI-Regulierung (EU AI Act) und Informationssicherheit (NIS2). Produktverantwortliche muessen diese Vorgaben fruehzeitig in Anforderungen, Vertraege und Priorisierung einpreisen.",
+    affectedSkillNames: [
+      "Regulatorik fuer Software, Daten & KI (DSGVO, DORA, AI Act, NIS2)",
+      "Regulatorische Anforderungen an Software, Daten & KI",
+      "Vertragsrecht & Konditionengestaltung (Grundlagen)",
+      "Technisches Produktverstaendnis",
     ],
   },
 ];
